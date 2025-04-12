@@ -1,0 +1,52 @@
+# Compiled object files
+*.o
+*.obj
+
+# Compiled binary executables
+*.exe
+*.out
+*.app
+*.elf
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Static libraries
+*.a
+*.lib
+
+# VSCode specific
+.vscode/
+
+# CMake build directory
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Auto-generated files
+*.log
+*.tmp
+*.swp
+
+# Backup files
+*~
+*.bak
+
+# Debug files
+*.dSYM/
+*.stackdump
+
+# Others
+tags
+*.pch
+*.pdb
+*.idb
+
+# Ignore user-specific settings or generated files
+*.user
+*.suo
+*.vcxproj.user

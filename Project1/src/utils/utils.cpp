@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
-#include "header_files/utilities.h"
+#include "utils.h"
 using namespace std;
-
 
 
 void displayMap(const std::vector<std::vector<char>>& map) {
