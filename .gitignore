@@ -20,12 +20,6 @@
 # VSCode specific
 .vscode/
 
-# CMake build directory
-build/
-CMakeFiles/
-CMakeCache.txt
-cmake_install.cmake
-Makefile
 
 # Auto-generated files
 *.log
