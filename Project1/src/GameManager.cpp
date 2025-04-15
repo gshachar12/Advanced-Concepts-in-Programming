@@ -1,41 +1,46 @@
 #include "GameManager.h"
+#include "Globals.h"
 #include <iostream>
 #include <thread>
 #include <chrono>
 #include <algorithm>
 
-// Dummy decideAction function.
-// Replace this with a call to your Controller's decideAction method when ready.
-ActionType dummyDecideAction(const Board &board, const Tank &myTank,
-                             const Tank &enemyTank, const std::vector<Shell> &shells) {
+// Dummy action decision — replace with controller logic later.
+ActionType DecideAction(const Tank &myTank,
+                        const Tank &enemyTank, const std::vector<Shell> &shells) {
+    (void)myTank;
+    (void)enemyTank;
+    (void)shells;
     return ActionType::MOVE_FORWARD;
 }
 
 bool GameManager::initializeGame(const std::string &boardFile) {
-    if (!board.loadFromFile(boardFile)) {
-        std::cerr << "Error: Failed to load board from " << boardFile << std::endl;
+    if (Global::board == nullptr) {
+        std::cerr << "Error: Global board is nullptr!" << std::endl;
         return false;
     }
-    // For a minimal example, set fixed starting positions.
+
+    // Set fixed starting positions
     tank1.setPosition(2, 2);
-    tank2.setPosition(board.getWidth() - 3, board.getHeight() - 3);
+    tank2.setPosition(Global::board->getWidth() - 3, Global::board->getHeight() - 3);
     return true;
 }
 
 void GameManager::runGameLoop() {
     turnCount = 0;
-    // In text mode (visualMode == false) we do not display each turn.
+
     while (!gameOver && turnCount < 1000) {
         turnCount++;
+        if (visualMode) {
+            std::cout << "\033[2J\033[1;1H";
+        }
         std::cout << "Turn " << turnCount << std::endl;
 
-        // Update both tanks' internal statuses (cooldowns, backward movement, etc.)
         tank1.update();
         tank2.update();
 
-        // Get actions from controllers. For now, we use a dummy decision function.
-        ActionType action1 = dummyDecideAction(board, tank1, tank2, shells);
-        ActionType action2 = dummyDecideAction(board, tank2, tank1, shells);
+        ActionType action1 = DecideAction(tank1, tank2, shells);
+        ActionType action2 = DecideAction(tank2, tank1, shells);
 
         applyAction(tank1, action1, 1);
         applyAction(tank2, action2, 2);
@@ -44,14 +49,11 @@ void GameManager::runGameLoop() {
         checkCollisions();
         checkEndGameConditions();
 
-        // Only display intermediate game state if visualMode is enabled.
         if (visualMode) {
             displayGame();
-            std::this_thread::sleep_for(std::chrono::milliseconds(300));
         }
     }
 
-    // Final summary regardless of mode.
     std::cout << "=== Game Summary ===" << std::endl;
     if (!tank1.isAlive() && !tank2.isAlive()) {
         std::cout << "Tie: both tanks destroyed." << std::endl;
@@ -64,7 +66,6 @@ void GameManager::runGameLoop() {
     }
 }
 
-
 void GameManager::applyAction(Tank &tank, ActionType action, int playerID) {
     switch (action) {
         case ActionType::MOVE_FORWARD:
@@ -76,8 +77,6 @@ void GameManager::applyAction(Tank &tank, ActionType action, int playerID) {
         case ActionType::SHOOT:
             if (tank.canShoot()) {
                 tank.shoot();
-                // Create a new shell at the tank's current position using its current Direction.
-                // Note: tank.getDirection() returns a Direction.
                 Shell newShell(tank.getX(), tank.getY(), tank.getDirection());
                 shells.push_back(newShell);
             }
@@ -86,41 +85,33 @@ void GameManager::applyAction(Tank &tank, ActionType action, int playerID) {
             break;
     }
     std::cout << "Player " << playerID << " action applied." << std::endl;
+    tank.printStatus();
 }
 
-
 void GameManager::updateShells() {
-    // Update each active shell.
     for (auto &shell : shells) {
         if (shell.isActive())
             shell.update();
     }
-    // Remove shells that have been deactivated.
     shells.erase(std::remove_if(shells.begin(), shells.end(),
                                 [](const Shell &s) { return !s.isActive(); }),
                  shells.end());
 }
 
-// Enhanced collision checking.
 void GameManager::checkCollisions() {
-    // 1. Shell vs. Wall Collision:
-    // For each active shell, if its current cell on the board is a wall, weaken the wall and deactivate the shell.
     for (auto &shell : shells) {
         if (!shell.isActive())
             continue;
         int sx = shell.getX();
         int sy = shell.getY();
-        CellType cell = board.getCellType(sx, sy);
+        CellType cell = Global::board->getCellType(sx, sy);
         if (cell == CellType::WALL) {
-            board.weakenWall(sx, sy);
+            Global::board->weakenWall(sx, sy);
             shell.deactivate();
             std::cout << "Shell hit a wall at (" << sx << ", " << sy << ") and deactivated." << std::endl;
         }
-        // Note: Shells do not interact with mines.
     }
 
-    // 2. Shell vs. Shell Collision:
-    // Check all unique pairs of shells for collision.
     for (size_t i = 0; i < shells.size(); ++i) {
         for (size_t j = i + 1; j < shells.size(); ++j) {
             if (shells[i].isActive() && shells[j].isActive() &&
@@ -135,8 +126,6 @@ void GameManager::checkCollisions() {
         }
     }
 
-    // 3. Shell vs. Tank Collision:
-    // For each active shell, if it occupies the same cell as a tank, destroy that tank and deactivate the shell.
     for (auto &shell : shells) {
         if (!shell.isActive())
             continue;
@@ -154,29 +143,25 @@ void GameManager::checkCollisions() {
         }
     }
 
-    // 4. Tank vs. Mine Collision:
-    // For each tank, check the board cell. If it's a mine, destroy the tank and remove the mine.
     {
         int tx = tank1.getX();
         int ty = tank1.getY();
-        if (board.getCellType(tx, ty) == CellType::MINE) {
+        if (Global::board->getCellType(tx, ty) == CellType::MINE) {
             tank1.destroy();
-            board.setCellType(tx, ty, CellType::EMPTY);  // Remove the mine.
+            Global::board->setCellType(tx, ty, CellType::EMPTY);
             std::cout << "Player 1's tank hit a mine at (" << tx << ", " << ty << ") and was destroyed." << std::endl;
         }
     }
     {
         int tx = tank2.getX();
         int ty = tank2.getY();
-        if (board.getCellType(tx, ty) == CellType::MINE) {
+        if (Global::board->getCellType(tx, ty) == CellType::MINE) {
             tank2.destroy();
-            board.setCellType(tx, ty, CellType::EMPTY);  // Remove the mine.
+            Global::board->setCellType(tx, ty, CellType::EMPTY);
             std::cout << "Player 2's tank hit a mine at (" << tx << ", " << ty << ") and was destroyed." << std::endl;
         }
     }
 
-    // 5. Tank vs. Tank Collision:
-    // If both tanks are in the same cell, destroy both.
     if (tank1.getX() == tank2.getX() && tank1.getY() == tank2.getY()) {
         tank1.destroy();
         tank2.destroy();
@@ -189,7 +174,6 @@ void GameManager::checkEndGameConditions() {
         gameOver = true;
         return;
     }
-    // If both tanks are out of shells, continue for 40 steps then end in a tie.
     if (tank1.getShellCount() == 0 && tank2.getShellCount() == 0) {
         stepsSinceBothAmmoZero++;
         if (stepsSinceBothAmmoZero >= 40) {
@@ -202,46 +186,34 @@ void GameManager::checkEndGameConditions() {
 }
 
 void GameManager::displayGame() {
-    // Prepare a temporary grid based on the board dimensions.
-    std::vector<std::vector<char>> displayGrid(board.getHeight(), std::vector<char>(board.getWidth(), ' '));
-    for (int y = 0; y < board.getHeight(); ++y) {
-        for (int x = 0; x < board.getWidth(); ++x)
-            displayGrid[y][x] = ' ';  // default empty cell placeholder.
-    }
-    // Overlay tanks if they are alive.
-    if (tank1.isAlive())
-        displayGrid[tank1.getY()][tank1.getX()] = '1';
-    if (tank2.isAlive())
-        displayGrid[tank2.getY()][tank2.getX()] = '2';
-    // Overlay shells (using '*' to represent a shell).
     for (const auto &shell : shells) {
         if (shell.isActive()) {
             int sx = shell.getX();
             int sy = shell.getY();
-            if (sx >= 0 && sx < board.getWidth() && sy >= 0 && sy < board.getHeight())
-                displayGrid[sy][sx] = '*';
+            if (sx >= 0 && sx < Global::board->getWidth() && sy >= 0 && sy < Global::board->getHeight())
+                Global::board->grid[sy][sx] = CellType::MINE;
         }
     }
 
-    // Print the grid using emojis if visualMode is enabled.
     if (visualMode) {
         std::cout << "=== Game State (Visual Mode) ===" << std::endl;
-        for (const auto &row : displayGrid) {
-            for (const auto &cell : row) {
-                if (cell == '1')
-                    std::cout << "🚗 ";
-                else if (cell == '2')
-                    std::cout << "🚙 ";
-                else if (cell == '*')
+        for (const auto &row : Global::board->grid) {
+            for (const CellType &cell : row) {
+                if (cell == CellType::TANK1)
+                    std::cout << "🚗1";
+                else if (cell == CellType::TANK2)
+                    std::cout << "🚙2";
+                else if (cell == CellType::MINE)
                     std::cout << "💥 ";
+                else if (cell == CellType::WALL)
+                    std::cout << "🟩 ";
                 else
                     std::cout << "⬜ ";
             }
             std::cout << std::endl;
         }
-    } else {
-        // If not in visual mode, don't print intermediate states.
     }
 
+    std::this_thread::sleep_for(std::chrono::seconds(1));
     std::cout << std::endl;
 }

@@ -2,10 +2,13 @@
 #include <string>
 #include <memory>
 #include "Board.h"
+#include "Globals.h"
 #include "Tank.h"
 #include "Shell.h"
 #include "GameManager.h"
 #include "algorithms/Controller.h"  // Minimal stub should be provided
+#include "GameObject.h"
+
 using namespace std;
 
 int main(int argc, char* argv[]) {
@@ -29,11 +32,16 @@ int main(int argc, char* argv[]) {
     }
 
     // Load board (we could display it initially if desired)
-    Board board;
-    if (!board.loadFromFile(filename)) {
+    Global::board = std::make_unique<Board>();  // Allocate memory for the Board
+    if (!Global::board->loadFromFile(filename)) {
         cerr << "Error: Failed to load board from " << filename << endl;
         return 1;
     }
+    Global::width = Global::board->getWidth();
+    Global::height = Global::board->getHeight(); 
+    
+    cout << "width: " << Global::width << " height: " << Global::height << endl;
+
 
     // Create minimal stub controllers
     auto ctrl1 = make_unique<Controller>();

@@ -4,8 +4,11 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include "Globals.h"
 
 // Example 8-direction enum
+
+
 enum class Direction {
     U,  // Up
     UR, // Up-Right
@@ -21,11 +24,13 @@ class GameObject {
 protected:
     std::vector<int> position; // position[0] = x, position[1] = y
     Direction direction;
+    CellType ObjectType; 
+
 
 public:
     // Constructor: initialize 'position' using the two coordinates.
-    GameObject(int startX, int startY, Direction startDir)
-            : position({startX, startY}), direction(startDir)
+    GameObject(int startX, int startY, Direction startDir, CellType type)
+            : position({startX, startY}), direction(startDir), ObjectType(type)
     {}
 
     virtual ~GameObject() {}
@@ -42,15 +47,25 @@ public:
         if (position.size() < 2) position.resize(2);
         position[0] = newX;
         position[1] = newY;
+
     }
     void setDirection(Direction newDir) { direction = newDir; }
 
     // A basic move function: moves by (dx,dy).
-    virtual void move(int dx, int dy) {
-        if (position.size() < 2) position.resize(2);
-        position[0] += dx;
-        position[1] += dy;
-    }
+virtual void move(int dx, int dy) {
+    if (position.size() < 2) position.resize(2);
+
+    // Clear current cell
+    Global::board->grid[position[1]][position[0]] = CellType::EMPTY;
+
+    // Move with wrapping
+    position[0] = (position[0] + dx + Global::width) % Global::width;
+    position[1] = (position[1] + dy + Global::height) % Global::height;
+
+    // Place object in new position
+    Global::board->grid[position[1]][position[0]] = ObjectType;
+}
+
 
     // A basic update function.
     virtual void update() {

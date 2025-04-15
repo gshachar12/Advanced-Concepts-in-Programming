@@ -6,13 +6,13 @@
 #include "Shell.h"
 #include "algorithms/Controller.h"
 #include "ActionType.h"
+#include "Globals.h"
 #include <vector>
 #include <memory>
 #include <string>
 
 class GameManager {
 private:
-    Board board;
     Tank tank1;
     Tank tank2;
     std::vector<Shell> shells;  // Vector to store all shells in the game
@@ -30,9 +30,9 @@ public:
     GameManager(std::unique_ptr<Controller> a1,
                 std::unique_ptr<Controller> a2,
                 bool visualModeFlag)
-            : board(),
-              tank1(0, 0, "L"),   // starting positions; they will be set in initializeGame()
-              tank2(0, 0, "R"),
+            : 
+              tank1(0, 0, "L", CellType::TANK1),   // starting positions; they will be set in initializeGame()
+              tank2(0, 0, "R", CellType::TANK2),
               alg1(std::move(a1)),
               alg2(std::move(a2)),
               gameOver(false),

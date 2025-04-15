@@ -51,7 +51,6 @@ bool Board::loadFromFile(const std::string &filename) {
     }
 
     // If there is a third token specifying wrap-around, you could read it too
-    // e.g., fin >> wrapAroundFlag
 
     // Ignore the rest of the line
     fin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -60,11 +59,9 @@ bool Board::loadFromFile(const std::string &filename) {
     grid.resize(height, std::vector<CellType>(width, CellType::EMPTY));
     wallInfo.resize(height, std::vector<WallDamage>(width));
 
-    // 2) Read each row
     for (int row = 0; row < height; ++row) {
         std::string line;
         if (!std::getline(fin, line)) {
-            // No more lines => fill remainder with CellType::EMPTY
             break;
         }
 

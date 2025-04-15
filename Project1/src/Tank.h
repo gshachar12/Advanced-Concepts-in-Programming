@@ -41,8 +41,8 @@ private:
 
 public:
     // Constructor: Accepts a string for direction and converts it.
-    Tank(int x, int y, const std::string &dir)
-            : GameObject(x, y, GameObject::stringToDirection(dir)),
+    Tank(int x, int y, const std::string &dir, CellType ObjectType)
+            : GameObject(x, y, GameObject::stringToDirection(dir), ObjectType),
               alive(true),
               shellCount(16),
               shootCooldown(0),
@@ -59,7 +59,7 @@ public:
     bool canShoot() const { return (shootCooldown == 0 && shellCount > 0 && alive); }
     BackwardState getBackwardState() const { return backwardState; }
 
-    void shoot();          // Reduce ammo, set cooldown, etc.
+    void shoot();          // Shoot
     void moveForward();    // Move 1 step in current direction.
     void moveBackward();   // Move 1 step in opposite direction.
 

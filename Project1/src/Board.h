@@ -8,13 +8,13 @@
 #include <fstream>
 
 /**
- * An enum for what might occupy each cell:
+ * 
  * - WALL:     '#'
  * - MINE:     '@'
  * - TANK1:    '1'
  * - TANK2:    '2'
  * - EMPTY:    ' '
- * - UNKNOWN:  anything else (if you want to handle errors)
+ * - UNKNOWN:  
  */
 enum class CellType {
     EMPTY,
@@ -22,6 +22,7 @@ enum class CellType {
     MINE,
     TANK1,
     TANK2,
+    SHELL, 
     UNKNOWN
 };
 
@@ -39,15 +40,11 @@ private:
     int width;
     int height;
     bool wrapAround;  // if true, we do (x + width) % width for indexing
-
-    // Our main grid storing CellType
-    std::vector<std::vector<CellType>> grid;
-
-    // Parallel 2D array for tracking wall damage
-    std::vector<std::vector<WallDamage>> wallInfo;
-
+    
 public:
     Board() : width(0), height(0), wrapAround(false) {}
+    std::vector<std::vector<CellType>> grid;
+    std::vector<std::vector<WallDamage>> wallInfo;
 
     // Load from file (similar to your earlier code),
     // but now we parse chars into CellType.
