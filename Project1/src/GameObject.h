@@ -28,7 +28,7 @@ public:
 
     void setPosition(int newX, int newY);
     void setDirection(Direction newDir);
-
+    bool hitWall(int x, int y); 
     virtual void move(int dx, int dy);
     virtual void update() {}
 

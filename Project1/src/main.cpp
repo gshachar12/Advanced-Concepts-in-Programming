@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
     Global::board = std::make_unique<Board>();
         // Create tanks with custom starting positions and directions
     Tank t1(0, 0, "L", CellType::TANK1);  
-    Tank t2(0, 0, "R", CellType::TANK2);  
+    Tank t2(0, 0, "UR", CellType::TANK2);  
     if (!Global::board->loadFromFile(filename, &t1, &t2)) {
         cerr << "Error: Failed to load board from " << filename << endl;
         return 1;
