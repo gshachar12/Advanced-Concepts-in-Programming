@@ -1,6 +1,6 @@
 #ifndef TANK_H
 #define TANK_H
-
+#include "CellType.h"
 #include "GameObject.h"
 #include <algorithm>
 #include <iostream>

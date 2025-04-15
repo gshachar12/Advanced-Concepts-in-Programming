@@ -41,6 +41,22 @@ public:
               visualMode(visualModeFlag)
     {}
 
+
+    GameManager(Tank t1, Tank t2,
+                std::unique_ptr<Controller> a1,
+                std::unique_ptr<Controller> a2,
+                bool visualModeFlag)
+            :
+              tank1(std::move(t1)),
+              tank2(std::move(t2)),
+              alg1(std::move(a1)),
+              alg2(std::move(a2)),
+              gameOver(false),
+              stepsSinceBothAmmoZero(0),
+              turnCount(0),
+              visualMode(visualModeFlag)
+    {}
+
     bool initializeGame(const std::string &boardFile);
     void runGameLoop();
 

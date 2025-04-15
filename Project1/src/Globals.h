@@ -1,9 +1,12 @@
 // Globals.h
+#pragma once
+
 #ifndef GLOBALS_H
 #define GLOBALS_H
 
 #include <memory>
-#include "Board.h" // Include Board class for reference
+class Board; // forward declaration
+
 
 class Global {
 public:
