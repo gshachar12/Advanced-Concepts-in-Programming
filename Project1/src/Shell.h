@@ -18,7 +18,7 @@ private:
 public:
     // Constructor using the Direction type from GameObject.
     Shell(int x, int y, Direction dir)
-            : GameObject(x, y, dir),
+            : GameObject(x, y, dir, CellType::SHELL),
               active(true),
               damage(1),
               maxRange(9999),

@@ -3,12 +3,13 @@
 
 #include <vector>
 
-// Enum for the cell type
-enum class CellType {
-    EMPTY,
-    WALL,
-    MINE,
-};
+
+// // Enum for the cell type
+// enum class CellType {
+//     EMPTY,
+//     WALL,
+//     MINE,
+// };
 
 // Enum for the direction of the tank's cannon
 enum class CannonDirection {
@@ -42,7 +43,5 @@ enum class BackwardState {
     MOVING_BACKWARD,  // about to execute the backward move
 };
 
-// Function declaration for displaying the map
-void displayMap(const std::vector<std::vector<char>>& map);
 
 #endif // TANK_GAME_H

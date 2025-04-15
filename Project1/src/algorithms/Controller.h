@@ -11,10 +11,15 @@ class Shell;
 
 class Controller {
 public:
-    virtual ActionType decideAction(const Board &board, const Tank &myTank,
-                                    const Tank &enemyTank, const std::vector<Shell> &shells) {
-        return ActionType::MOVE_FORWARD;
-    }
+virtual ActionType decideAction(const Board &board, const Tank &myTank,
+                                const Tank &enemyTank, const std::vector<Shell> &shells) {
+    (void)board;
+    (void)myTank;
+    (void)enemyTank;
+    (void)shells;
+    return ActionType::MOVE_FORWARD;
+}
+
     virtual ~Controller() {}
 };
 

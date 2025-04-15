@@ -1,7 +1,6 @@
 #include "Board.h"
 #include <limits>
 #include <algorithm>
-
 /**
  * Convert a character from the file into a CellType enum.
  * You can expand or tweak this logic as needed.
@@ -33,7 +32,7 @@ static char cellTypeToChar(CellType t) {
     return '?';
 }
 
-bool Board::loadFromFile(const std::string &filename) {
+bool Board::loadFromFile(const std::string &filename, Tank* tank1, Tank* tank2) {
     std::ifstream fin(filename);
     if (!fin.is_open()) {
         std::cerr << "Error: Could not open file '" << filename << "'\n";
@@ -51,7 +50,6 @@ bool Board::loadFromFile(const std::string &filename) {
     }
 
     // If there is a third token specifying wrap-around, you could read it too
-    // e.g., fin >> wrapAroundFlag
 
     // Ignore the rest of the line
     fin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -60,11 +58,9 @@ bool Board::loadFromFile(const std::string &filename) {
     grid.resize(height, std::vector<CellType>(width, CellType::EMPTY));
     wallInfo.resize(height, std::vector<WallDamage>(width));
 
-    // 2) Read each row
     for (int row = 0; row < height; ++row) {
         std::string line;
         if (!std::getline(fin, line)) {
-            // No more lines => fill remainder with CellType::EMPTY
             break;
         }
 
@@ -72,7 +68,12 @@ bool Board::loadFromFile(const std::string &filename) {
             char c = (col < (int)line.size()) ? line[col] : ' ';
             CellType type = charToCellType(c);
             grid[row][col] = type;
-
+            if (type == CellType::TANK1 && tank1) {
+                tank1->setPosition(col, row);
+            }
+            else if (type == CellType::TANK2 && tank2) {
+                tank2->setPosition(col, row);
+            }
             // If it's a wall, set wallInfo
             if (type == CellType::WALL) {
                 wallInfo[row][col].isWall = true;
