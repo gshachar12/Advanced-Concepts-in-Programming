@@ -13,14 +13,14 @@
 
 // Enum for the direction of the tank's cannon
 enum class CannonDirection {
+    UL, // up-left
     UP,
-    DOWN,
-    RIGHT,
-    LEFT,
     UR, // up-right
+    RIGHT,
     DR, // down-right
+    DOWN,
     DL, // down-left
-    UL // up-left
+    LEFT,
 };
 
 // Enum for possible tank actions

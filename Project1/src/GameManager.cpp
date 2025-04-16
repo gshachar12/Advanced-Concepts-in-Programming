@@ -6,14 +6,27 @@
 #include <chrono>
 #include <algorithm>
 
-// Dummy action decision — replace with controller logic later.
 ActionType DecideAction(const Tank &myTank,
                         const Tank &enemyTank, const std::vector<Shell> &shells)
 {
-    (void)myTank;
-    (void)enemyTank;
-    (void)shells;
-    return ActionType::MOVE_FORWARD;
+    static int actionCounter = 0; // Static variable to keep track of the calls
+
+    // Define the sequence of actions you want to cycle through
+    ActionType actions[] = {
+
+        ActionType::ROTATE_LEFT_1_4,
+
+
+       // ActionType::SHOOT
+    };
+
+    // Determine the action based on the current value of actionCounter
+    ActionType action = actions[actionCounter % (sizeof(actions) / sizeof(actions[0]))];
+
+    // Increment actionCounter for the next call
+    actionCounter++;
+
+    return action;
 }
 
 bool GameManager::initializeGame(const std::string &boardFile)
@@ -46,8 +59,8 @@ void GameManager::runGameLoop()
         ActionType action1 = DecideAction(tank1, tank2, shells);
         ActionType action2 = DecideAction(tank2, tank1, shells);
 
-        applyAction(tank1, action1, 1);
-        applyAction(tank2, action2, 2);
+        applyAction(tank1, action1);
+        applyAction(tank2, action2);
         tank2.printPosition();
         updateShells();
         checkCollisions();
@@ -78,28 +91,58 @@ void GameManager::runGameLoop()
     }
 }
 
-void GameManager::applyAction(Tank &tank, ActionType action, int playerID)
+void GameManager::applyAction(Tank &tank, ActionType action)
 {
     switch (action)
     {
     case ActionType::MOVE_FORWARD:
+        std::cout << "MOVE FORWARD: Tank " <<tank.getTankID() << std::endl;
         tank.moveForward();
         break;
+    case ActionType::ROTATE_LEFT_1_8:
+        std::cout << "ROTATE LEFT 1/8TH " <<tank.getTankID()<<std::endl;
+        tank.rotateLeft1_8();
+        break;
+    case ActionType::ROTATE_RIGHT_1_8:
+        std::cout << "ROTATE RIGHT 1/8TH" <<tank.getTankID()<<std::endl;
+        tank.rotateRight1_8();
+        break;
+
+    case ActionType::ROTATE_LEFT_1_4:
+        std::cout << "ROTATE LEFT 1/4TH " <<tank.getTankID()<<std::endl;
+        tank.rotateLeft1_4();
+        break;
+    case ActionType::ROTATE_RIGHT_1_4:
+        std::cout << "ROTATE RIGHT 1/4TH" <<tank.getTankID()<<std::endl;
+        tank.rotateRight1_4();
+        break;
     case ActionType::MOVE_BACKWARD:
+        std::cout << "MOVE BACKWARD Tank " <<tank.getTankID()<<std::endl;
         tank.requestBackward();
         break;
+
     case ActionType::SHOOT:
+
         if (tank.canShoot())
-        {
+        {        
+            
+            std::cout << "TANK "  <<tank.getTankID()<<  " SHOOT" << std::endl;
+
             tank.shoot();
             Shell newShell(tank.getX(), tank.getY(), tank.getDirection());
             shells.push_back(newShell);
         }
+
+        else         
+            std::cout << "TANK "  <<tank.getTankID()<<  " CANNOT SHOOT" << std::endl;
+
+
         break;
     default:
+                std::cout << "TANK "  <<tank.getTankID()<<  " NO ACTION TAKEN" << std::endl;
+
         break;
     }
-    std::cout << "Player " << playerID << " action applied." << std::endl;
     tank.printStatus();
 }
 
@@ -237,24 +280,69 @@ void GameManager::displayGame()
     if (visualMode)
     {
         std::cout << "=== Game State (Visual Mode) ===" << std::endl;
+
+        // Render the board with tank directions
         for (const auto &row : Global::board->grid)
         {
             for (const CellType &cell : row)
             {
                 if (cell == CellType::TANK1)
-                    std::cout << "1 "; //🚗
+                    std::cout << "1 "; // Tank 1 body
+
                 else if (cell == CellType::TANK2)
-                    std::cout << "2 "; //🚙
+                    std::cout << "2 "; // Tank 2 body
+
                 else if (cell == CellType::MINE)
-                    std::cout << "💣";
+                    std::cout << "💣"; // Mines
+
                 else if (cell == CellType::SHELL)
-                    std::cout << "💥";
+                    std::cout << "💥"; // Shells
+
                 else if (cell == CellType::WALL)
-                    std::cout << "🟩";
+                    std::cout << "🟩"; // Walls
+
                 else
-                    std::cout << "⬜";
+                    std::cout << "⬜"; // Empty spaces
             }
             std::cout << std::endl;
+        }
+
+        // Display the cannon direction after the tank body
+        for (int i = 0; i < 2; ++i) // Assuming 2 tanks for now
+        {
+            Tank &tank = (i == 0) ? tank1 : tank2;
+            Direction cannonDir = tank.getDirection();
+
+            // Display the tank cannon direction as an arrow
+            switch (cannonDir)
+            {
+            case Direction::U:
+                std::cout << "^"; // Up
+                break;
+            case Direction::UR:
+                std::cout << "↗"; // Up-Right
+                break;
+            case Direction::R:
+                std::cout << ">"; // Right
+                break;
+            case Direction::DR:
+                std::cout << "↘"; // Down-Right
+                break;
+            case Direction::D:
+                std::cout << "v"; // Down
+                break;
+            case Direction::DL:
+                std::cout << "↙"; // Down-Left
+                break;
+            case Direction::L:
+                std::cout << "<"; // Left
+                break;
+            case Direction::UL:
+                std::cout << "↖"; // Up-Left
+                break;
+            }
+
+            std::cout << " Tank " << (i + 1) << " Cannon" << std::endl;
         }
     }
 

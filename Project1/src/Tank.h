@@ -19,6 +19,7 @@ private:
     bool alive;
     int shellCount;        // e.g., 16 initial shells
     int shootCooldown;     // Cooldown steps after shooting
+    int tankID; 
     BackwardState backwardState;
 
     // Optional: valid direction strings if you want to add rotation helpers.
@@ -41,19 +42,21 @@ private:
 
 public:
     // Constructor: Accepts a string for direction and converts it.
-    Tank(int x, int y, const std::string &dir, CellType ObjectType)
+    Tank(int x, int y, const std::string &dir, CellType ObjectType, int ID)
             : GameObject(x, y, GameObject::stringToDirection(dir), ObjectType),
               alive(true),
               shellCount(16),
               shootCooldown(0),
+              tankID(ID),
               backwardState(BackwardState::NOT_REQUESTED)
+
     {}
 
     void update() override;
 
     bool isAlive() const { return alive; }
     void destroy() { alive = false; }
-
+    int getTankID() const { return tankID; }
     int getShellCount() const { return shellCount; }
     int getShootCooldown() const { return shootCooldown; }
     bool canShoot() const { return (shootCooldown == 0 && shellCount > 0 && alive); }

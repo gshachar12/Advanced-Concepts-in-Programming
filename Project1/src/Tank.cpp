@@ -76,11 +76,11 @@ void Tank::cancelBackward() {
 }
 
 void Tank::printPosition() {
-    std::cout << "Tank is at (" << getX() << ", " << getY() << ")." << std::endl;
+    std::cout << "Tank " << tankID<< " is at (" << getX() << ", " << getY() << ")." << std::endl;
 }
 
 void Tank::printStatus() const {
-    std::cout << "Tank at (" << getX() << ", " << getY() << "), direction="
+    std::cout << "Tank "<< tankID<< " at (" << getX() << ", " << getY() << "), direction="
               << directionToString(getDirection())
               << ", shells=" << shellCount
               << ", cooldown=" << shootCooldown

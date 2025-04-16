@@ -31,8 +31,8 @@ public:
                 std::unique_ptr<Controller> a2,
                 bool visualModeFlag)
             : 
-              tank1(0, 0, "L", CellType::TANK1),   // starting positions; they will be set in initializeGame()
-              tank2(0, 0, "R", CellType::TANK2),
+              tank1(0, 0, "L", CellType::TANK1, 1),   // starting positions; they will be set in initializeGame()
+              tank2(0, 0, "R", CellType::TANK2,  2),
               alg1(std::move(a1)),
               alg2(std::move(a2)),
               gameOver(false),
@@ -61,7 +61,7 @@ public:
     void runGameLoop();
 
 private:
-    void applyAction(Tank &tank, ActionType action, int playerID);
+    void applyAction(Tank &tank, ActionType action);
     void updateShells();
     void checkCollisions();
     void checkEndGameConditions();
