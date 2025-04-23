@@ -28,7 +28,7 @@ public:
 
     // Accessors
     bool isActive() const { return active; }
-    void deactivate() { active = false; }
+    void deactivate() { active = false; ObjectType = CellType::BOOM;}
 
     int getDamage() const { return damage; }
     void setDamage(int dmg) { damage = dmg; }
@@ -42,10 +42,9 @@ public:
     void setOwnerID(int id) { ownerID = id; }
 
     // Rename the movement function to 'advance' to avoid hiding the base class's move(int, int)
-    void advance();
+    std::pair<int,int> advance();
 
     // Override update() so that each turn the shell automatically advances.
-    void update() override;
 
     // Print the shell’s current status (for debugging)
     void printStatus() const;

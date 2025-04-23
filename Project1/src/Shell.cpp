@@ -1,4 +1,5 @@
 #include "Shell.h"
+#include "Globals.h"
 #include <iostream>
 #include <utility>
 
@@ -17,31 +18,23 @@ static std::pair<int,int> shellDirectionToOffset(Direction dir) {
     }
 }
 
-void Shell::advance() {
-    if (!active) return;
-
+std::pair<int,int> Shell::advance() {
     // Get movement offset based on the current direction.
     auto [dx, dy] = shellDirectionToOffset(getDirection());
-
     // Move 2 cells using the base class move(int, int).
-    GameObject::move(2 * dx, 2 * dy);
-
     // Update the total distance traveled.
-    distanceTraveled += 2;
+    distanceTraveled += 1;
 
     // If the shell has traveled its maximum range, deactivate it.
     if (distanceTraveled >= maxRange)
         deactivate();
-}
 
-void Shell::update() {
-    // Simply advance the shell each update.
-    advance();
+    return {dx,dy}; 
 }
 
 void Shell::printStatus() const {
     std::cout << "Shell at (" << getX() << ", " << getY() << ")"
-              << ", direction=" << static_cast<int>(getDirection())
+              << ", direction=" << static_cast<int>(getDirection())  //fix later
               << ", active=" << (active ? "true" : "false")
               << ", damage=" << damage
               << ", traveled=" << distanceTraveled << "/" << maxRange

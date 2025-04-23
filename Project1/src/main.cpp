@@ -6,7 +6,6 @@
 #include "Tank.h"
 #include "Shell.h"
 #include "GameManager.h"
-#include "algorithms/Controller.h"
 #include "GameObject.h"
 
 using namespace std;
@@ -34,8 +33,8 @@ int main(int argc, char* argv[]) {
     // Load board
     Global::board = std::make_unique<Board>();
         // Create tanks with custom starting positions and directions
-    Tank t1(0, 0, "L", CellType::TANK1, "L",1);  
-    Tank t2(0, 0, "R", CellType::TANK2,"R", 2);  
+    Tank t1(0, 0, "L", CellType::TANK1, 1);  
+    Tank t2(0, 0, "R", CellType::TANK2, 2);  
 
     if (!Global::board->loadFromFile(filename, &t1, &t2)) {
         cerr << "Error: Failed to load board from " << filename << endl;
@@ -56,7 +55,7 @@ int main(int argc, char* argv[]) {
     GameManager gameManager(t1, t2, move(ctrl1), move(ctrl2), visual_mode);
 
     // Initialize game
-    if (!gameManager.initializeGame(filename)) {
+    if (!gameManager.initializeGame()) {
         cerr << "Error during game initialization." << endl;
         return 1;
     }

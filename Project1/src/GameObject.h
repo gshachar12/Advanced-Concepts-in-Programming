@@ -25,12 +25,11 @@ public:
     int getX() const { return (position.size() >= 1) ? position[0] : 0; }
     int getY() const{ return (position.size() >= 2) ? position[1] : 0; }
     Direction getDirection() const { return direction; }
-
+    CellType getObjectType() const {return ObjectType; }
+    void setObjectType(CellType objecType)  { ObjectType = objecType; }
+    void move(int dx, int dy); 
     void setPosition(int newX, int newY);
     void setDirection(Direction newDir);
-    bool hitWall(int x, int y); 
-    virtual void move(int dx, int dy);
-    virtual void update() {}
 
     static Direction stringToDirection(const std::string &str);
 };

@@ -125,7 +125,6 @@ void Board::setCellType(int x, int y, CellType type) {
         wallInfo[y][x].hitsTaken = 0;
     }
 }
-
 void Board::weakenWall(int x, int y) {
     if (wrapAround) {
         x = (x % width + width) % width;
@@ -133,19 +132,24 @@ void Board::weakenWall(int x, int y) {
     } else {
         if (!inBounds(x, y)) return;
     }
-
     // If it's not currently a wall, do nothing
-    if (!wallInfo[y][x].isWall) {
+    if (!wallInfo[y][x].isWall) 
         return;
-    }
-
+    
     wallInfo[y][x].hitsTaken++;
-
-    // If hits >= 2 => destroy the wall
+    // If hits = 1, turn it into a weak wall
+    if (wallInfo[y][x].hitsTaken == 1) {
+        grid[y][x] = CellType::WEAK_WALL;
+        std::cout << "Weak wall at (" << x << ", " << y << ")" << std::endl;
+    }
+    
+    // If hits >= 2, destroy the wall
     if (wallInfo[y][x].hitsTaken >= 2) {
         // turn cell into empty
         grid[y][x] = CellType::EMPTY;
         wallInfo[y][x].isWall = false;
         wallInfo[y][x].hitsTaken = 0; // reset
+        std::cout << "Wall destroyed at (" << x << ", " << y << ")" << std::endl;
     }
 }
+

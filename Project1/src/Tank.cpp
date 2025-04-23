@@ -32,7 +32,6 @@ void Tank::update() {
             backwardState = BackwardState::MOVING_BACKWARD;
             break;
         case BackwardState::MOVING_BACKWARD:
-            moveBackward();
             backwardState = BackwardState::NOT_REQUESTED;
             break;
         default:
@@ -43,23 +42,23 @@ void Tank::update() {
 void Tank::shoot() {
     if (canShoot()) {
         shellCount = std::max(0, shellCount - 1);
-        shootCooldown = 4; // for example
+        shootCooldown = 4; 
     } else {
         std::cerr << "Cannot shoot: either on cooldown or out of shells." << std::endl;
     }
 }
 
-void Tank::moveForward() {
+std::pair<int,int>  Tank::moveForward() {
     std::string dirStr = directionToString(getDirection());
     auto [dx, dy] = directionToOffset(dirStr);
     // Use the inherited move(int, int) to adjust the position.
-    move(dx, dy);
+    return {dx, dy};
 }
 
-void Tank::moveBackward() {
+std::pair<int,int> Tank::moveBackward() {
     std::string dirStr = directionToString(getDirection());
     auto [dx, dy] = directionToOffset(dirStr);
-    move(-dx, -dy);
+    return {-dx,-dy};
 }
 
 void Tank::requestBackward() {
@@ -130,3 +129,5 @@ void Tank::setDirectionByIndex(int idx) {
     idx = (idx % n + n) % n;
     setDirection(GameObject::stringToDirection(validDirections[idx]));
 }
+
+ Tank:: ~Tank(){}

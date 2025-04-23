@@ -11,18 +11,6 @@
 //     MINE,
 // };
 
-// Enum for the direction of the tank's cannon
-enum class CannonDirection {
-    UL, // up-left
-    UP,
-    UR, // up-right
-    RIGHT,
-    DR, // down-right
-    DOWN,
-    DL, // down-left
-    LEFT,
-};
-
 // Enum for possible tank actions
 enum class TankActionType {
     MOVE_FORWARD,

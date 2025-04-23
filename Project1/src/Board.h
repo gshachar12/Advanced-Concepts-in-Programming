@@ -29,15 +29,12 @@ public:
     std::vector<std::vector<CellType>> grid;
     std::vector<std::vector<WallDamage>> wallInfo;
 
-    // Load from file (similar to your earlier code),
-    // but now we parse chars into CellType.
     bool loadFromFile(const std::string &filename, Tank* tank1, Tank* tank2);
 
     // Basic getters
     int getWidth() const { return width; }
     int getHeight() const { return height; }
 
-    // Decide if you want wrap-around indexing
     void setWrapAround(bool enable) { wrapAround = enable; }
     bool isWrapAround() const { return wrapAround; }
 

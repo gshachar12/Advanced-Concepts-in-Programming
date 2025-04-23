@@ -19,5 +19,7 @@ enum class CellType {
     TANK1,
     TANK2,
     SHELL, 
+    BOOM,
+    WEAK_WALL, 
     UNKNOWN
 };

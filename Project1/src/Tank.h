@@ -52,10 +52,11 @@ public:
 
     {}
 
-    void update() override;
-
+    void update();
+    virtual ~Tank();
     bool isAlive() const { return alive; }
-    void destroy() { alive = false; }
+    void destroy() { alive = false;  
+    }
     int getTankID() const { return tankID; }
     int getShellCount() const { return shellCount; }
     int getShootCooldown() const { return shootCooldown; }
@@ -63,8 +64,8 @@ public:
     BackwardState getBackwardState() const { return backwardState; }
 
     void shoot();          // Shoot
-    void moveForward();    // Move 1 step in current direction.
-    void moveBackward();   // Move 1 step in opposite direction.
+    std::pair<int,int>  moveForward();    // Move 1 step in current direction.
+    std::pair<int,int>  moveBackward();   // Move 1 step in opposite direction.
 
     void requestBackward();
     void cancelBackward();

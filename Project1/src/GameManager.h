@@ -4,7 +4,7 @@
 #include "Board.h"
 #include "Tank.h"
 #include "Shell.h"
-#include "algorithms/Controller.h"
+#include "Controller.h"
 #include "ActionType.h"
 #include "Globals.h"
 #include <vector>
@@ -57,13 +57,16 @@ public:
               visualMode(visualModeFlag)
     {}
 
-    bool initializeGame(const std::string &boardFile);
+    bool initializeGame();
     void runGameLoop();
 
 private:
     void applyAction(Tank &tank, ActionType action);
+    void moveTank(int dx, int dy, Tank &tank);
     void updateShells();
-    void checkCollisions();
+    bool ShellHit(Shell &shell);
+    void GameSummary();
+    bool hitWall(int x, int y, Tank &tank);
     void checkEndGameConditions();
     void displayGame();
 };
