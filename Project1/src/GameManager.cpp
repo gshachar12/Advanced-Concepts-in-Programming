@@ -245,11 +245,12 @@ bool GameManager::ShellHit(Shell &shell)
 
 bool GameManager::hitWall(int x, int y, Tank &tank)
 {
-    CellType cell = Global::board->getCellType(tank.getX(), tank.getY());
-
+    CellType cell = Global::board->getCellType(x, y);
+    std::cout <<  "stepped on (" << x << ", " << y << ") " <<cellTypeToString(cell) << std::endl;
     if (cell == CellType::WALL || cell == CellType::WEAK_WALL) // tank hit the wall
+        {        
         return true;
-
+        }
     if (Global::board->getCellType(x, y) == CellType::MINE)
     {
         tank.destroy();
