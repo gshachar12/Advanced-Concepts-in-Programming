@@ -1,0 +1,180 @@
+@startuml TankGameClassDiagram
+
+' Enumerations
+enum Direction {
+    U
+    UR
+    R
+    DR
+    D
+    DL
+    L
+    UL
+}
+
+enum CellType {
+    EMPTY
+    WALL
+    MINE
+    TANK1
+    TANK2
+    UNKNOWN
+}
+
+enum ActionType {
+    MOVE_FORWARD
+    MOVE_BACKWARD
+    ROTATE_LEFT_1_8
+    ROTATE_RIGHT_1_8
+    ROTATE_LEFT_1_4
+    ROTATE_RIGHT_1_4
+    SHOOT
+    NONE
+}
+
+enum BackwardState {
+    NOT_REQUESTED
+    WAITING_1
+    WAITING_2
+    MOVING_BACKWARD
+}
+
+' Base class
+class GameObject {
+    # vector<int> position
+    # Direction direction
+    
+    + GameObject(startX: int, startY: int, startDir: Direction)
+    + getPosition(): vector<int>
+    + getX(): int
+    + getY(): int
+    + getDirection(): Direction
+    + setPosition(newX: int, newY: int): void
+    + setDirection(newDir: Direction): void
+    + move(dx: int, dy: int): void
+    + {abstract} update(): void
+    + {static} stringToDirection(str: string): Direction
+}
+
+' Tank class
+class Tank {
+    - bool alive
+    - int shellCount
+    - int shootCooldown
+    - BackwardState backwardState
+    - static vector<string> validDirections
+    
+    + Tank(x: int, y: int, dir: string)
+    + update(): void
+    + isAlive(): bool
+    + destroy(): void
+    + getShellCount(): int
+    + getShootCooldown(): int
+    + canShoot(): bool
+    + getBackwardState(): BackwardState
+    + shoot(): void
+    + moveForward(): void
+    + moveBackward(): void
+    + requestBackward(): void
+    + cancelBackward(): void
+    + rotateLeft1_8(): void
+    + rotateRight1_8(): void
+    + rotateLeft1_4(): void
+    + rotateRight1_4(): void
+    - findDirectionIndex(d: string): int
+    - setDirectionByIndex(idx: int): void
+    - directionToOffset(dirStr: string): pair<int,int>
+}
+
+' Shell class
+class Shell {
+    - bool active
+    - int damage
+    - int maxRange
+    - int distanceTraveled
+    - int ownerID
+    
+    + Shell(x: int, y: int, dir: Direction)
+    + isActive(): bool
+    + deactivate(): void
+    + getDamage(): int
+    + setDamage(dmg: int): void
+    + getMaxRange(): int
+    + setMaxRange(rng: int): void
+    + getDistanceTraveled(): int
+    + getOwnerID(): int
+    + setOwnerID(id: int): void
+    + advance(): void
+    + update(): void
+    + printStatus(): void
+}
+
+' Board class
+class Board {
+    - int width
+    - int height
+    - bool wrapAround
+    - vector<vector<CellType>> grid
+    - vector<vector<WallDamage>> wallInfo
+    
+    + Board()
+    + loadFromFile(filename: string): bool
+    + getWidth(): int
+    + getHeight(): int
+    + setWrapAround(enable: bool): void
+    + isWrapAround(): bool
+    + inBounds(x: int, y: int): bool
+    + getCellType(x: int, y: int): CellType
+    + setCellType(x: int, y: int, type: CellType): void
+    + weakenWall(x: int, y: int): void
+}
+
+' Controller class
+class Controller {
+    + decideAction(board: Board, myTank: Tank, enemyTank: Tank, shells: vector<Shell>): ActionType
+    + {virtual} ~Controller()
+}
+
+' GameManager class
+class GameManager {
+    - Board board
+    - Tank tank1
+    - Tank tank2
+    - vector<Shell> shells
+    - unique_ptr<Controller> alg1
+    - unique_ptr<Controller> alg2
+    - bool gameOver
+    - int stepsSinceBothAmmoZero
+    - int turnCount
+    - bool visualMode
+    
+    + GameManager(a1: unique_ptr<Controller>, a2: unique_ptr<Controller>, visualModeFlag: bool)
+    + initializeGame(boardFile: string): bool
+    + runGameLoop(): void
+    - applyAction(tank: Tank, action: ActionType, playerID: int): void
+    - updateShells(): void
+    - checkCollisions(): void
+    - checkEndGameConditions(): void
+    - displayGame(): void
+}
+
+' Struct for wall damage tracking
+struct WallDamage {
+    bool isWall
+    int hitsTaken
+}
+
+' Relationships
+GameObject <|-- Tank
+GameObject <|-- Shell
+GameManager *-- Tank : contains >
+GameManager *-- Board : contains >
+GameManager *-- Shell : contains >
+GameManager o-- Controller : uses >
+GameManager ..> ActionType : uses
+Tank ..> BackwardState : uses
+Board ..> CellType : uses
+Board *-- WallDamage : contains >
+GameObject ..> Direction : uses
+
+@enduml
