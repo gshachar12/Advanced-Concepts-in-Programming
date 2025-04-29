@@ -1,0 +1,93 @@
+@startuml TankGameMainFlow
+
+actor User
+participant "main()" as Main
+participant "GameManager" as GM
+participant "Controller" as Ctrl
+participant "Tank" as Tank
+participant "Shell" as Shell
+participant "Board" as Board
+
+User -> Main : Run program with arguments
+activate Main
+
+Main -> Main : Parse command line args
+Main -> Ctrl : Create controllers
+Main -> GM : Create GameManager(ctrl1, ctrl2, visualMode)
+activate GM
+
+Main -> GM : initializeGame(boardFile)
+GM -> Board : loadFromFile(boardFile)
+activate Board
+Board --> GM : return success/failure
+deactivate Board
+
+Main -> GM : runGameLoop()
+
+loop until gameOver or maxTurns reached
+    GM -> Tank : update() [both tanks]
+    activate Tank
+    Tank --> GM
+    deactivate Tank
+    
+    GM -> Ctrl : decideAction(board, myTank, enemyTank, shells)
+    activate Ctrl
+    Ctrl --> GM : ActionType
+    deactivate Ctrl
+    
+    GM -> GM : applyAction(tank, action, playerID)
+    
+    alt action == SHOOT
+        GM -> Tank : shoot()
+        activate Tank
+        Tank --> GM
+        deactivate Tank
+        
+        GM -> Shell : create new Shell
+        activate Shell
+        Shell --> GM
+        deactivate Shell
+    end
+    
+    GM -> GM : updateShells()
+    activate GM #DarkSalmon
+    
+    loop for each shell
+        GM -> Shell : update()
+        activate Shell
+        Shell -> Shell : advance()
+        Shell --> GM
+        deactivate Shell
+    end
+    deactivate GM
+    
+    GM -> GM : checkCollisions()
+    activate GM #LightBlue
+    
+    GM -> Board : getCellType(x, y)
+    activate Board
+    Board --> GM : CellType
+    deactivate Board
+    
+    alt collision detected
+        GM -> Board : weakenWall(x, y) or setCellType(x, y, EMPTY)
+        GM -> Shell : deactivate()
+        GM -> Tank : destroy() [if hit]
+    end
+    deactivate GM
+    
+    GM -> GM : checkEndGameConditions()
+    
+    alt visualMode
+        GM -> GM : displayGame()
+        GM -> Board : Display board state
+    end
+end
+
+GM --> Main : return when game ends
+deactivate GM
+
+Main --> User : Exit program
+deactivate Main
+
+@enduml
