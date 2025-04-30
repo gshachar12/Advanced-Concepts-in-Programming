@@ -1,6 +1,6 @@
 #ifndef TANK_H
 #define TANK_H
-
+#include "CellType.h"
 #include "GameObject.h"
 #include <algorithm>
 #include <iostream>
@@ -19,49 +19,34 @@ private:
     bool alive;
     int shellCount;        // e.g., 16 initial shells
     int shootCooldown;     // Cooldown steps after shooting
+    int tankID; 
     BackwardState backwardState;
-
-    // Optional: valid direction strings if you want to add rotation helpers.
-    static const std::vector<std::string> validDirections;
-
-    // Helper to convert a Direction enum to a string (for printing)
-    static std::string directionToString(Direction dir) {
-        switch(dir) {
-            case Direction::U:  return "U";
-            case Direction::UR: return "UR";
-            case Direction::R:  return "R";
-            case Direction::DR: return "DR";
-            case Direction::D:  return "D";
-            case Direction::DL: return "DL";
-            case Direction::L:  return "L";
-            case Direction::UL: return "UL";
-        }
-        return "";
-    }
-
 public:
     // Constructor: Accepts a string for direction and converts it.
-    Tank(int x, int y, const std::string &dir)
-            : GameObject(x, y, GameObject::stringToDirection(dir)),
+    Tank(int x, int y, const std::string &dir, CellType ObjectType, int ID)
+            : GameObject(x, y, Directions::stringToDirection(dir), ObjectType),
               alive(true),
               shellCount(16),
               shootCooldown(0),
+              tankID(ID),
               backwardState(BackwardState::NOT_REQUESTED)
+
     {}
 
-    void update() override;
-
+    void update();
+    virtual ~Tank();
     bool isAlive() const { return alive; }
-    void destroy() { alive = false; }
-
+    void destroy() { alive = false;  
+    }
+    int getTankID() const { return tankID; }
     int getShellCount() const { return shellCount; }
     int getShootCooldown() const { return shootCooldown; }
     bool canShoot() const { return (shootCooldown == 0 && shellCount > 0 && alive); }
     BackwardState getBackwardState() const { return backwardState; }
 
-    void shoot();          // Reduce ammo, set cooldown, etc.
-    void moveForward();    // Move 1 step in current direction.
-    void moveBackward();   // Move 1 step in opposite direction.
+    void shoot();          // Shoot
+    std::pair<int,int>  moveForward();    // Move 1 step in current direction.
+    std::pair<int,int>  moveBackward();   // Move 1 step in opposite direction.
 
     void requestBackward();
     void cancelBackward();
@@ -77,7 +62,7 @@ public:
 
 private:
     // Helpers for rotation
-    int findDirectionIndex(const std::string &d) const;
+    int findDirectionIndex(const Direction &d) const;
     void setDirectionByIndex(int idx);
     std::pair<int,int> directionToOffset(const std::string &dirStr) const;
 };

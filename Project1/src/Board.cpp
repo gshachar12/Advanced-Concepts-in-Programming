@@ -1,7 +1,6 @@
 #include "Board.h"
 #include <limits>
 #include <algorithm>
-
 /**
  * Convert a character from the file into a CellType enum.
  * You can expand or tweak this logic as needed.
@@ -26,6 +25,10 @@ static char cellTypeToChar(CellType t) {
         case CellType::WALL:   return '#';
         case CellType::MINE:   return '@';
         case CellType::TANK1:  return '1';
+        case CellType::BOOM: return '&';
+        case CellType::SHELL: return '>';
+
+
         case CellType::TANK2:  return '2';
         case CellType::EMPTY:  return ' ';
         case CellType::UNKNOWN:return '?';
@@ -33,7 +36,7 @@ static char cellTypeToChar(CellType t) {
     return '?';
 }
 
-bool Board::loadFromFile(const std::string &filename) {
+bool Board::loadFromFile(const std::string &filename, Tank* tank1, Tank* tank2) {
     std::ifstream fin(filename);
     if (!fin.is_open()) {
         std::cerr << "Error: Could not open file '" << filename << "'\n";
@@ -51,7 +54,6 @@ bool Board::loadFromFile(const std::string &filename) {
     }
 
     // If there is a third token specifying wrap-around, you could read it too
-    // e.g., fin >> wrapAroundFlag
 
     // Ignore the rest of the line
     fin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -60,11 +62,9 @@ bool Board::loadFromFile(const std::string &filename) {
     grid.resize(height, std::vector<CellType>(width, CellType::EMPTY));
     wallInfo.resize(height, std::vector<WallDamage>(width));
 
-    // 2) Read each row
     for (int row = 0; row < height; ++row) {
         std::string line;
         if (!std::getline(fin, line)) {
-            // No more lines => fill remainder with CellType::EMPTY
             break;
         }
 
@@ -72,7 +72,12 @@ bool Board::loadFromFile(const std::string &filename) {
             char c = (col < (int)line.size()) ? line[col] : ' ';
             CellType type = charToCellType(c);
             grid[row][col] = type;
-
+            if (type == CellType::TANK1 && tank1) {
+                tank1->setPosition(col, row);
+            }
+            else if (type == CellType::TANK2 && tank2) {
+                tank2->setPosition(col, row);
+            }
             // If it's a wall, set wallInfo
             if (type == CellType::WALL) {
                 wallInfo[row][col].isWall = true;
@@ -124,7 +129,6 @@ void Board::setCellType(int x, int y, CellType type) {
         wallInfo[y][x].hitsTaken = 0;
     }
 }
-
 void Board::weakenWall(int x, int y) {
     if (wrapAround) {
         x = (x % width + width) % width;
@@ -132,19 +136,24 @@ void Board::weakenWall(int x, int y) {
     } else {
         if (!inBounds(x, y)) return;
     }
-
     // If it's not currently a wall, do nothing
-    if (!wallInfo[y][x].isWall) {
+    if (!wallInfo[y][x].isWall) 
         return;
-    }
-
+    
     wallInfo[y][x].hitsTaken++;
-
-    // If hits >= 2 => destroy the wall
+    // If hits = 1, turn it into a weak wall
+    if (wallInfo[y][x].hitsTaken == 1) {
+        grid[y][x] = CellType::WEAK_WALL;
+        std::cout << "Weak wall at (" << x << ", " << y << ")" << std::endl;
+    }
+    
+    // If hits >= 2, destroy the wall
     if (wallInfo[y][x].hitsTaken >= 2) {
         // turn cell into empty
         grid[y][x] = CellType::EMPTY;
         wallInfo[y][x].isWall = false;
         wallInfo[y][x].hitsTaken = 0; // reset
+        std::cout << "Wall destroyed at (" << x << ", " << y << ")" << std::endl;
     }
 }
+

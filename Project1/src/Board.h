@@ -6,24 +6,8 @@
 #include <iostream>
 #include <limits>
 #include <fstream>
-
-/**
- * An enum for what might occupy each cell:
- * - WALL:     '#'
- * - MINE:     '@'
- * - TANK1:    '1'
- * - TANK2:    '2'
- * - EMPTY:    ' '
- * - UNKNOWN:  anything else (if you want to handle errors)
- */
-enum class CellType {
-    EMPTY,
-    WALL,
-    MINE,
-    TANK1,
-    TANK2,
-    UNKNOWN
-};
+#include "Tank.h"
+#include "CellType.h"
 
 /**
  * Tracks how many hits a wall has taken.
@@ -39,25 +23,18 @@ private:
     int width;
     int height;
     bool wrapAround;  // if true, we do (x + width) % width for indexing
-
-    // Our main grid storing CellType
-    std::vector<std::vector<CellType>> grid;
-
-    // Parallel 2D array for tracking wall damage
-    std::vector<std::vector<WallDamage>> wallInfo;
-
+    
 public:
     Board() : width(0), height(0), wrapAround(false) {}
+    std::vector<std::vector<CellType>> grid;
+    std::vector<std::vector<WallDamage>> wallInfo;
 
-    // Load from file (similar to your earlier code),
-    // but now we parse chars into CellType.
-    bool loadFromFile(const std::string &filename);
+    bool loadFromFile(const std::string &filename, Tank* tank1, Tank* tank2);
 
     // Basic getters
     int getWidth() const { return width; }
     int getHeight() const { return height; }
 
-    // Decide if you want wrap-around indexing
     void setWrapAround(bool enable) { wrapAround = enable; }
     bool isWrapAround() const { return wrapAround; }
 
