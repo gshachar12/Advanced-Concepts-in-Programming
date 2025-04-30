@@ -115,3 +115,4 @@ void Tank::setDirectionByIndex(int idx) {
 }
 
  Tank:: ~Tank(){}
+ 
