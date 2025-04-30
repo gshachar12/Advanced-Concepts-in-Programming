@@ -25,6 +25,10 @@ static char cellTypeToChar(CellType t) {
         case CellType::WALL:   return '#';
         case CellType::MINE:   return '@';
         case CellType::TANK1:  return '1';
+        case CellType::BOOM: return '&';
+        case CellType::SHELL: return '>';
+
+
         case CellType::TANK2:  return '2';
         case CellType::EMPTY:  return ' ';
         case CellType::UNKNOWN:return '?';

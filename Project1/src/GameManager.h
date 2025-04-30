@@ -61,9 +61,10 @@ public:
     void runGameLoop();
 
 private:
-    void applyAction(Tank &tank, ActionType action);
+    void applyAction( Tank &tank, ActionType action);
     void moveTank(int dx, int dy, Tank &tank);
     void updateShells();
+    void tanksCollided();
     bool ShellHit(Shell &shell);
     void GameSummary();
     bool hitWall(int x, int y, Tank &tank);

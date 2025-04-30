@@ -2,23 +2,6 @@
 #include <iostream>
 #include <algorithm>
 
-// We removed the duplicate definition of directionToString here
-// because it is already defined inline in Tank.h.
-
-const std::vector<std::string> Tank::validDirections = {"U", "UR", "R", "DR", "D", "DL", "L", "UL"};
-
-// Helper: Convert a string direction (e.g. "U", "UR", etc.) to (dx, dy).
-std::pair<int,int> Tank::directionToOffset(const std::string &dirStr) const {
-    if (dirStr == "U")  return {0, -1};
-    if (dirStr == "UR") return {1, -1};
-    if (dirStr == "R")  return {1, 0};
-    if (dirStr == "DR") return {1, 1};
-    if (dirStr == "D")  return {0, 1};
-    if (dirStr == "DL") return {-1, 1};
-    if (dirStr == "L")  return {-1, 0};
-    if (dirStr == "UL") return {-1, -1};
-    return {0, 0};
-}
 
 void Tank::update() {
     if (shootCooldown > 0) {
@@ -49,16 +32,17 @@ void Tank::shoot() {
 }
 
 std::pair<int,int>  Tank::moveForward() {
-    std::string dirStr = directionToString(getDirection());
-    auto [dx, dy] = directionToOffset(dirStr);
-    // Use the inherited move(int, int) to adjust the position.
-    return {dx, dy};
+    auto [dx, dy] = Directions::directionToOffset(getDirection());
+    int new_pos_x = (getX() + dx + Global::width) % Global::width;
+    int new_pos_y = (getY() + dy + Global::height) % Global::height;
+    return {new_pos_x, new_pos_y};
 }
 
 std::pair<int,int> Tank::moveBackward() {
-    std::string dirStr = directionToString(getDirection());
-    auto [dx, dy] = directionToOffset(dirStr);
-    return {-dx,-dy};
+    auto [dx, dy] = Directions::directionToOffset(getDirection());
+    int new_pos_x = (getX() - dx + Global::width) % Global::width;
+    int new_pos_y = (getY() - dy + Global::height) % Global::height;
+    return {new_pos_x, new_pos_y};
 }
 
 void Tank::requestBackward() {
@@ -80,7 +64,7 @@ void Tank::printPosition() {
 
 void Tank::printStatus() const {
     std::cout << "Tank "<< tankID<< " at (" << getX() << ", " << getY() << "), direction="
-              << directionToString(getDirection())
+              << Directions::directionToString(getDirection())
               << ", shells=" << shellCount
               << ", cooldown=" << shootCooldown
               << ", alive=" << (alive ? "true" : "false") << std::endl;
@@ -88,46 +72,46 @@ void Tank::printStatus() const {
 
 // Optional rotation helpers
 void Tank::rotateLeft1_8() {
-    int idx = findDirectionIndex(directionToString(getDirection()));
+    int idx = findDirectionIndex(getDirection());
     if (idx >= 0) {
         setDirectionByIndex(idx - 1);
     }
 }
 
 void Tank::rotateRight1_8() {
-    int idx = findDirectionIndex(directionToString(getDirection()));
+    int idx = findDirectionIndex(getDirection());
     if (idx >= 0) {
         setDirectionByIndex(idx + 1);
     }
 }
 
 void Tank::rotateLeft1_4() {
-    int idx = findDirectionIndex(directionToString(getDirection()));
+    int idx = findDirectionIndex(getDirection());
     if (idx >= 0) {
         setDirectionByIndex(idx - 2);
     }
 }
 
 void Tank::rotateRight1_4() {
-    int idx = findDirectionIndex(directionToString(getDirection()));
+    int idx = findDirectionIndex(getDirection());
     if (idx >= 0) {
         setDirectionByIndex(idx + 2);
     }
 }
 
-int Tank::findDirectionIndex(const std::string &d) const {
+int Tank::findDirectionIndex(const Direction &d) const {
     // Use size_t to avoid the integer-sign mismatch warning.
-    for (size_t i = 0; i < validDirections.size(); i++) {
-        if (validDirections[i] == d)
+    for (size_t i = 0; i < Directions::getAllDirections().size(); i++) {
+        if (Directions::getAllDirections()[i] == d)
             return static_cast<int>(i);
     }
     return -1;
 }
 
 void Tank::setDirectionByIndex(int idx) {
-    int n = validDirections.size();
+    int n = Directions::getAllDirections().size();
     idx = (idx % n + n) % n;
-    setDirection(GameObject::stringToDirection(validDirections[idx]));
+    setDirection(Directions::getAllDirections()[idx]);
 }
 
  Tank:: ~Tank(){}

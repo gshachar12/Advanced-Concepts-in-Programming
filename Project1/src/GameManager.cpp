@@ -7,7 +7,6 @@
 #include <vector>
 #include <algorithm>
 
-
 bool GameManager::initializeGame()
 {
     if (Global::board == nullptr)
@@ -18,28 +17,31 @@ bool GameManager::initializeGame()
     return true;
 }
 
-
 void GameManager::runGameLoop()
 {
     turnCount = 0;
     std::vector<Tank *> tanks;
     tanks.push_back(&tank1);
     tanks.push_back(&tank2);
-    int currentTank = 0;
+    //int currentTank = 0;
 
     while (!gameOver && turnCount < 1000)
     {
         turnCount++;
         std::cout << "\033[2J\033[1;1H"; // clear screen
 
-        std::cout << "Tank " << currentTank + 1 << " Turn " << turnCount << std::endl;
+        std::cout << "Turn " << turnCount << std::endl;
 
-        ActionType action = alg1->DecideAction(*tanks[currentTank], *tanks[1 - currentTank], shells);
+        ActionType action1 = alg1->DecideAction(tank1, tank2, shells);
+        ActionType action2 = alg2->DecideAction(tank2, tank1, shells);
 
-        applyAction(*tanks[currentTank], action);
+        applyAction(tank1, action1);
+        applyAction(tank2, action2);
+        for(int i=0; i<2; i++)
+        {
         updateShells(); // advance shells twice
-        updateShells();
-
+        checkEndGameConditions();
+        }
         if (visualMode)
         {
             displayGame();
@@ -47,35 +49,33 @@ void GameManager::runGameLoop()
         tank1.printStatus();
         tank2.printStatus();
         for (const auto &shell : shells)
-            {
-              
-                shell.printStatus(); 
-                
+        {
 
-            }
-        
-        checkEndGameConditions();
-        currentTank = 1 - currentTank; // switch to the other player
+            shell.printStatus();
+        }
+
+        //currentTank = 1 - currentTank; // switch to the other player
         std::this_thread::sleep_for(std::chrono::seconds(1));
-
     }
 }
 
-void GameManager::applyAction(Tank &tank, ActionType action)
+void GameManager::applyAction( Tank &tank, ActionType action)
 {
+    if(!tank.isAlive())
+        return; 
     switch (action)
     {
     case ActionType::MOVE_FORWARD:
     {
         std::cout << "MOVE FORWARD: Tank " << tank.getTankID() << std::endl;
-        auto [dx, dy] = tank.moveForward();
-        moveTank(dx, dy, tank);
+        auto [new_x, new_y] = tank.moveForward();
+        moveTank(new_x, new_y, tank);
     }
     break;
     case ActionType::ROTATE_LEFT_1_8:
         std::cout << "ROTATE LEFT 1/8TH Tank " << tank.getTankID() << std::endl;
         tank.rotateLeft1_8();
-        break;
+        break;  
     case ActionType::ROTATE_RIGHT_1_8:
         std::cout << "ROTATE RIGHT 1/8TH Tank " << tank.getTankID() << std::endl;
         tank.rotateRight1_8();
@@ -111,16 +111,18 @@ void GameManager::applyAction(Tank &tank, ActionType action)
 
     if (tank.getBackwardState() == BackwardState::MOVING_BACKWARD) // moving backward approved
     {
-        auto [dx, dy] = tank.moveBackward();
-        moveTank(dx, dy, tank);
+        auto [new_x, new_y] = tank.moveBackward();
+        moveTank(new_x, new_y, tank);
     }
+    std::cout << "stepped on (" << tank.getX()<< ", " << tank.getY() << ") " << cellTypeToString(tank.getObjectType()) << std::endl;
+
+    tanksCollided(); // check if tanks collided
     tank.update();
 }
 
-void GameManager::moveTank(int dx, int dy, Tank &tank)
+void GameManager::moveTank(int new_pos_x, int new_pos_y, Tank &tank)
 {
-    int new_pos_x = (tank.getX() + dx + Global::width) % Global::width;
-    int new_pos_y = (tank.getY() + dy + Global::height) % Global::height;
+
     if (!hitWall(new_pos_x, new_pos_y, tank)) // move only if there is no collision
     {
 
@@ -128,18 +130,21 @@ void GameManager::moveTank(int dx, int dy, Tank &tank)
         tank.setPosition(new_pos_x, new_pos_y);
         Global::board->setCellType(new_pos_x, new_pos_y, tank.getObjectType());
     }
-        if (tank2.getX()== tank1.getX() && tank1.getY() == tank2.getY())
+
+}
+
+void GameManager:: tanksCollided()
+{
+        if (tank2.getX() == tank1.getX() && tank1.getY() == tank2.getY())
     {
         // Both tanks are destroyed if they collide
         Global::board->setCellType(tank1.getX(), tank1.getY(), CellType::BOOM);
-        std::cout << "Tank 1 collided with Tank 2 at (" << tank1.getX()<< ", " << tank1.getY()<< "). Both destroyed. RIP." << std::endl;
+        std::cout << "Tank 1 collided with Tank 2 at (" << tank1.getX() << ", " << tank1.getY() << "). Both destroyed. RIP." << std::endl;
 
         tank1.destroy();
         tank2.destroy();
-
     }
 }
-
 void GameManager::GameSummary()
 {
     std::cout << "=== Game Summary ===" << std::endl;
@@ -175,9 +180,8 @@ void GameManager::updateShells()
         if (shell.isActive())
         {
             auto [dx, dy] = shell.advance();
-            shell.move(dx,dy);
-            ShellHit(shell); 
-
+            shell.move(dx, dy);
+            ShellHit(shell);
         }
     }
     shells.erase(std::remove_if(shells.begin(), shells.end(),
@@ -188,74 +192,73 @@ void GameManager::updateShells()
 
 bool GameManager::ShellHit(Shell &shell)
 {
+
     int sx = shell.getX();
     int sy = shell.getY();
     CellType cell = Global::board->getCellType(sx, sy);
 
-    // shell hit wall    
-    if (cell == CellType::WALL ||cell == CellType::WEAK_WALL)
+    // shell hit wall
+    if (cell == CellType::WALL || cell == CellType::WEAK_WALL)
     {
         Global::board->weakenWall(sx, sy);
         shell.deactivate();
         std::cout << "Shell hit a wall at (" << sx << ", " << sy << ") and deactivated." << std::endl;
-        return true;
+
     }
-    
+
     // shell hit another shell
     for (size_t i = 0; i < shells.size(); ++i)
     {
         // Avoid self-collision
-        if (&shells[i] == &shell) continue;
+        if (&shells[i] == &shell)
+            continue;
 
         if (shells[i].isActive() && shell.isActive() &&
-            shells[i].getX() == sx&&
+            shells[i].getX() == sx &&
             shells[i].getY() == sy)
         {
             shells[i].deactivate();
             shell.deactivate();
             std::cout << "Shell collision at (" << shells[i].getX()
-                        << ", " << shells[i].getY() << "). Both shells deactivated."
-                        << std::endl;
+                      << ", " << shells[i].getY() << "). Both shells deactivated."
+                      << std::endl;
+            Global::board->setCellType(sx, sy, CellType::BOOM);
+
         }
-        return true; 
     }
 
-
-    // shell hit a tank  
+    // shell hit a tank
 
     if (sx == tank1.getX() && sy == tank1.getY())
     {
+        Global::board->setCellType(tank1.getX(), tank1.getY(), CellType::BOOM);
         tank1.destroy();
         shell.deactivate();
         std::cout << "Player 1's tank destroyed by a shell at (" << sx << ", " << sy << ")." << std::endl;
-        return true; 
     }
     if (sx == tank2.getX() && sy == tank2.getY())
     {
+        Global::board->setCellType(tank1.getX(), tank1.getY(), CellType::BOOM);
         tank2.destroy();
         shell.deactivate();
         std::cout << "Player 2's tank destroyed by a shell at (" << sx << ", " << sy << ")." << std::endl;
-        return true; 
     }
 
-    return false; 
-    
+    return false;
 }
-
 
 bool GameManager::hitWall(int x, int y, Tank &tank)
 {
     CellType cell = Global::board->getCellType(x, y);
-    std::cout <<  "stepped on (" << x << ", " << y << ") " <<cellTypeToString(cell) << std::endl;
     if (cell == CellType::WALL || cell == CellType::WEAK_WALL) // tank hit the wall
-        {        
+    {
         return true;
-        }
+    }
     if (Global::board->getCellType(x, y) == CellType::MINE)
     {
         tank.destroy();
         tank.setObjectType(CellType::BOOM);
-        std::cout << "Tank " << tank.getTankID() << " stepped on a mine at (" 
+        std::cout << "Tank " << tank.getTankID() << " stepped on a mine at ("
                   << x << ", " << y << "). and was destroyed. RIP." << std::endl;
         return true; // added return true here since tank is destroyed
     }
@@ -297,16 +300,14 @@ void GameManager::displayGame()
             bool hasShell = false;
             for (const auto &shell : shells)
             {
-                if ( shell.getX() == x && shell.getY() == y)
+                if (shell.getX() == x && shell.getY() == y)
                 {
-                    if(shell.isActive())
+                    if (shell.isActive())
                     {
                         hasShell = true;
                         break;
                     }
-
                 }
-
             }
 
             if (hasShell)
@@ -376,6 +377,8 @@ void GameManager::displayGame()
             break;
         case Direction::UL:
             std::cout << "↖";
+            break;
+        default:
             break;
         }
         std::cout << " Tank " << (i + 1) << " Cannon" << std::endl;

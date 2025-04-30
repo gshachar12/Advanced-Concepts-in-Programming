@@ -21,29 +21,10 @@ private:
     int shootCooldown;     // Cooldown steps after shooting
     int tankID; 
     BackwardState backwardState;
-
-    // Optional: valid direction strings if you want to add rotation helpers.
-    static const std::vector<std::string> validDirections;
-
-    // Helper to convert a Direction enum to a string (for printing)
-    static std::string directionToString(Direction dir) {
-        switch(dir) {
-            case Direction::U:  return "U";
-            case Direction::UR: return "UR";
-            case Direction::R:  return "R";
-            case Direction::DR: return "DR";
-            case Direction::D:  return "D";
-            case Direction::DL: return "DL";
-            case Direction::L:  return "L";
-            case Direction::UL: return "UL";
-        }
-        return "";
-    }
-
 public:
     // Constructor: Accepts a string for direction and converts it.
     Tank(int x, int y, const std::string &dir, CellType ObjectType, int ID)
-            : GameObject(x, y, GameObject::stringToDirection(dir), ObjectType),
+            : GameObject(x, y, Directions::stringToDirection(dir), ObjectType),
               alive(true),
               shellCount(16),
               shootCooldown(0),
@@ -81,7 +62,7 @@ public:
 
 private:
     // Helpers for rotation
-    int findDirectionIndex(const std::string &d) const;
+    int findDirectionIndex(const Direction &d) const;
     void setDirectionByIndex(int idx);
     std::pair<int,int> directionToOffset(const std::string &dirStr) const;
 };

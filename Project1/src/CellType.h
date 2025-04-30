@@ -1,5 +1,5 @@
-#pragma once
-
+#pragma once  // Only need this, no need for #ifndef guards too
+#include <string>
 
 /**
  * 
@@ -9,8 +9,10 @@
  * - TANK2:    '2'
  * - EMPTY:    ' '
  * - UNKNOWN:  
+ * - SHELL:
+ * - BOOM:
+ * - WEAK_WALL:
  */
-
 
 enum class CellType {
     EMPTY,
@@ -18,23 +20,11 @@ enum class CellType {
     MINE,
     TANK1,
     TANK2,
-    SHELL, 
+    SHELL,
     BOOM,
-    WEAK_WALL, 
+    WEAK_WALL,
     UNKNOWN
 };
 
-std::string cellTypeToString(CellType type) {
-    switch (type) {
-        case CellType::EMPTY: return "EMPTY";
-        case CellType::WALL: return "WALL";
-        case CellType::MINE: return "MINE";
-        case CellType::TANK1: return "TANK1";
-        case CellType::TANK2: return "TANK2";
-        case CellType::SHELL: return "SHELL";
-        case CellType::BOOM: return "BOOM";
-        case CellType::WEAK_WALL: return "WEAK_WALL";
-        case CellType::UNKNOWN: return "UNKNOWN";
-        default: return "INVALID";
-    }
-}
+// Declaration of the function only
+std::string cellTypeToString(CellType type);
