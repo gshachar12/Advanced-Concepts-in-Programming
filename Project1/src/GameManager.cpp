@@ -7,6 +7,15 @@
 #include <vector>
 #include <algorithm>
 
+void GameManager::printToBoth(const std::string &message){
+    // Print to the console (std::cout)
+    std::cout << message << std::endl;
+
+    // Print to the file
+    outFile << message << std::endl;
+}
+
+
 bool GameManager::initializeGame()
 {
     if (Global::board == nullptr)
@@ -24,18 +33,25 @@ void GameManager::runGameLoop()
     tanks.push_back(&tank1);
     tanks.push_back(&tank2);
     //int currentTank = 0;
+    outFile.open("output.txt");
+
+    // Check if the file is open
+    if (!outFile) {
+        std::cerr << "Error opening the file!" << std::endl;
+    }
 
     while (!gameOver && turnCount < 1000)
     {
         turnCount++;
         std::cout << "\033[2J\033[1;1H"; // clear screen
 
-        std::cout << "Turn " << turnCount << std::endl;
+        printToBoth("Turn " + std::to_string(turnCount));
 
         ActionType action1 = alg1->DecideAction(tank1, tank2, shells);
-        ActionType action2 = alg2->DecideAction(tank2, tank1, shells);
-
+        ActionType action2 = ActionType::ROTATE_LEFT_1_4; //alg2->DecideAction(tank2, tank1, shells);
+        printToBoth("Tank 1 status:");
         applyAction(tank1, action1);
+        printToBoth("Tank 2 status:");
         applyAction(tank2, action2);
         for(int i=0; i<2; i++)
         {
@@ -46,12 +62,16 @@ void GameManager::runGameLoop()
         {
             displayGame();
         }
+
+
         tank1.printStatus();
         tank2.printStatus();
+
         for (const auto &shell : shells)
         {
-
+            printToBoth("Shell status:");
             shell.printStatus();
+
         }
 
         //currentTank = 1 - currentTank; // switch to the other player
@@ -63,48 +83,62 @@ void GameManager::applyAction( Tank &tank, ActionType action)
 {
     if(!tank.isAlive())
         return; 
+    std::string actionMessage;  // To store the action message
+
     switch (action)
     {
     case ActionType::MOVE_FORWARD:
     {
-        std::cout << "MOVE FORWARD: Tank " << tank.getTankID() << std::endl;
+        actionMessage = "MOVE FORWARD: Tank " + std::to_string(tank.getTankID());
+        printToBoth(actionMessage);
         auto [new_x, new_y] = tank.moveForward();
         moveTank(new_x, new_y, tank);
     }
     break;
     case ActionType::ROTATE_LEFT_1_8:
-        std::cout << "ROTATE LEFT 1/8TH Tank " << tank.getTankID() << std::endl;
+
+        actionMessage = "ROTATE LEFT 1/8TH Tank " + std::to_string(tank.getTankID());
+        printToBoth(actionMessage);
         tank.rotateLeft1_8();
         break;  
     case ActionType::ROTATE_RIGHT_1_8:
-        std::cout << "ROTATE RIGHT 1/8TH Tank " << tank.getTankID() << std::endl;
+        actionMessage = "ROTATE RIGHT 1/8TH Tank " + std::to_string(tank.getTankID());
+        printToBoth(actionMessage);
         tank.rotateRight1_8();
         break;
     case ActionType::ROTATE_LEFT_1_4:
-        std::cout << "ROTATE LEFT 1/4TH Tank " << tank.getTankID() << std::endl;
+        actionMessage = "ROTATE LEFT 1/4TH Tank " + std::to_string(tank.getTankID());
+        printToBoth(actionMessage);
         tank.rotateLeft1_4();
         break;
     case ActionType::ROTATE_RIGHT_1_4:
-        std::cout << "ROTATE RIGHT 1/4TH Tank " << tank.getTankID() << std::endl;
+        actionMessage = "ROTATE RIGHT 1/4TH Tank " + std::to_string(tank.getTankID());
+        printToBoth(actionMessage);
         tank.rotateRight1_4();
         break;
     case ActionType::MOVE_BACKWARD:
-        std::cout << "MOVE BACKWARD Tank Tank " << tank.getTankID() << std::endl;
+        actionMessage = "MOVE BACKWARD Tank Tank " + std::to_string(tank.getTankID());
+        printToBoth(actionMessage);
         tank.requestBackward();
         break;
     case ActionType::SHOOT:
         if (tank.canShoot())
         {
-            std::cout << "TANK " << tank.getTankID() << " SHOOT" << std::endl;
+            actionMessage = "TANK " + std::to_string(tank.getTankID()) + " SHOOT";
+            printToBoth(actionMessage);
             tank.shoot();
             Shell newShell(tank.getX(), tank.getY(), tank.getDirection());
             shells.push_back(newShell);
         }
         else
-            std::cout << "TANK " << tank.getTankID() << " CANNOT SHOOT" << std::endl;
-        break;
+        {
+            actionMessage = "TANK " + std::to_string(tank.getTankID()) + " CANNOT SHOOT";
+            printToBoth(actionMessage); 
+        }
+            break;
     default:
-        std::cout << "TANK " << tank.getTankID() << " NO ACTION TAKEN" << std::endl;
+        actionMessage = "TANK " + std::to_string(tank.getTankID()) + " NO ACTION TAKEN";
+        printToBoth(actionMessage);
 
         break;
     }
@@ -114,7 +148,9 @@ void GameManager::applyAction( Tank &tank, ActionType action)
         auto [new_x, new_y] = tank.moveBackward();
         moveTank(new_x, new_y, tank);
     }
-    std::cout << "stepped on (" << tank.getX()<< ", " << tank.getY() << ") " << cellTypeToString(tank.getObjectType()) << std::endl;
+
+    actionMessage = "stepped on " + tank.getPosition().toString() + ": "+ cellTypeToString(tank.getObjectType());
+    printToBoth(actionMessage);
 
     tanksCollided(); // check if tanks collided
     tank.update();
@@ -133,46 +169,46 @@ void GameManager::moveTank(int new_pos_x, int new_pos_y, Tank &tank)
 
 }
 
-void GameManager:: tanksCollided()
+void GameManager::tanksCollided()
 {
-        if (tank2.getX() == tank1.getX() && tank1.getY() == tank2.getY())
+    if (tank2.getX() == tank1.getX() && tank1.getY() == tank2.getY())
     {
         // Both tanks are destroyed if they collide
         Global::board->setCellType(tank1.getX(), tank1.getY(), CellType::BOOM);
-        std::cout << "Tank 1 collided with Tank 2 at (" << tank1.getX() << ", " << tank1.getY() << "). Both destroyed. RIP." << std::endl;
+        printToBoth("Tank 1 collided with Tank 2 at " + tank1.getPosition(). toString()+ ". Both destroyed. RIP.");
 
         tank1.destroy();
         tank2.destroy();
     }
 }
+
 void GameManager::GameSummary()
 {
-    std::cout << "=== Game Summary ===" << std::endl;
+    printToBoth("=== Game Summary ===");
 
-    if (tank1.getX() == tank2.getX() && tank1.getY() == tank2.getY())
+    if (tank1.getPosition() == tank2.getPosition())
     {
         tank1.destroy();
         tank2.destroy();
-        std::cout << "Tanks collided at (" << tank1.getX() << ", " << tank1.getY() << "). Both destroyed." << std::endl;
+        printToBoth("Tanks collided at " +tank1.getPosition().toString()+ " Both destroyed.");
     }
     if (!tank1.isAlive() && !tank2.isAlive())
     {
-        std::cout << "Tie: both tanks destroyed." << std::endl;
+        printToBoth("Tie: both tanks destroyed.");
     }
     else if (!tank1.isAlive())
     {
-        std::cout << "Player 2 wins!" << std::endl;
+        printToBoth("Player 2 wins!");
     }
     else if (!tank2.isAlive())
     {
-        std::cout << "Player 1 wins!" << std::endl;
+        printToBoth("Player 1 wins!");
     }
     else
     {
-        std::cout << "Game ended without a winner." << std::endl;
+        printToBoth("Game ended without a winner.");
     }
 }
-
 void GameManager::updateShells()
 {
     for (auto &shell : shells)
@@ -202,7 +238,7 @@ bool GameManager::ShellHit(Shell &shell)
     {
         Global::board->weakenWall(sx, sy);
         shell.deactivate();
-        std::cout << "Shell hit a wall at (" << sx << ", " << sy << ") and deactivated." << std::endl;
+        printToBoth( "Shell hit a wall at "+shell.getPosition().toString()+" and deactivated.");
 
     }
 
@@ -219,9 +255,9 @@ bool GameManager::ShellHit(Shell &shell)
         {
             shells[i].deactivate();
             shell.deactivate();
-            std::cout << "Shell collision at (" << shells[i].getX()
-                      << ", " << shells[i].getY() << "). Both shells deactivated."
-                      << std::endl;
+            printToBoth( "Shell collision at " + shells[i].getPosition().toString()+
+                      ". Both shells deactivated."
+                      );
             Global::board->setCellType(sx, sy, CellType::BOOM);
 
         }
@@ -229,19 +265,19 @@ bool GameManager::ShellHit(Shell &shell)
 
     // shell hit a tank
 
-    if (sx == tank1.getX() && sy == tank1.getY())
+    if (shell.getPosition()== tank1.getPosition())
     {
         Global::board->setCellType(tank1.getX(), tank1.getY(), CellType::BOOM);
         tank1.destroy();
         shell.deactivate();
-        std::cout << "Player 1's tank destroyed by a shell at (" << sx << ", " << sy << ")." << std::endl;
+        printToBoth("Player 1's tank destroyed by a shell at " +tank1.getPosition().toString()+ "." );
     }
-    if (sx == tank2.getX() && sy == tank2.getY())
+    if (shell.getPosition()== tank2.getPosition())
     {
-        Global::board->setCellType(tank1.getX(), tank1.getY(), CellType::BOOM);
+        Global::board->setCellType(tank2.getX(), tank2.getY(), CellType::BOOM);
         tank2.destroy();
         shell.deactivate();
-        std::cout << "Player 2's tank destroyed by a shell at (" << sx << ", " << sy << ")." << std::endl;
+        printToBoth("Player 2's tank destroyed by a shell at " +tank2.getPosition().toString()+ "." );
     }
 
     return false;
@@ -258,8 +294,12 @@ bool GameManager::hitWall(int x, int y, Tank &tank)
     {
         tank.destroy();
         tank.setObjectType(CellType::BOOM);
-        std::cout << "Tank " << tank.getTankID() << " stepped on a mine at ("
-                  << x << ", " << y << "). and was destroyed. RIP." << std::endl;
+        std::string message = "Tank " + std::to_string(tank.getTankID()) + " stepped on a mine at (" 
+                            + std::to_string(x) + ", " + std::to_string(y) 
+                            + "). and was destroyed. RIP.";
+
+        // Call printToBoth to print the message to both the console and the file
+        printToBoth(message);
         return true; // added return true here since tank is destroyed
     }
 
@@ -279,7 +319,7 @@ void GameManager::checkEndGameConditions()
         if (stepsSinceBothAmmoZero >= 40)
         {
             gameOver = true;
-            std::cout << "Tie: 40 steps elapsed with both tanks out of shells." << std::endl;
+            printToBoth("Tie: 40 steps elapsed with both tanks out of shells." );
         }
     }
     else

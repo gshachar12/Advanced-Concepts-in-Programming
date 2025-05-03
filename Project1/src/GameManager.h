@@ -10,13 +10,16 @@
 #include <vector>
 #include <memory>
 #include <string>
+#include <fstream>
+
+
 
 class GameManager {
 private:
     Tank tank1;
     Tank tank2;
     std::vector<Shell> shells;  // Vector to store all shells in the game
-
+    std::ofstream outFile;
     std::unique_ptr<Controller> alg1;
     std::unique_ptr<Controller> alg2;
 
@@ -69,6 +72,7 @@ private:
     void GameSummary();
     bool hitWall(int x, int y, Tank &tank);
     void checkEndGameConditions();
+    void printToBoth(const std::string &message); 
     void displayGame();
 };
 

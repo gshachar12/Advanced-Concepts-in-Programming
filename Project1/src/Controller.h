@@ -17,9 +17,8 @@ public:
     );
 
 private:
-    // Helper functions for decision making
     bool CanShoot(const Tank &enemyTank);
-    ActionType findSafePath(Board &gameBoard, Position start); 
+    ActionType chaseTank(Position chaserStart, Position target);
     bool IsShellChasingTank(const Shell &shell, const Tank &myTank);
     bool IsSafeToMoveForward( Tank &myTank);
     bool IsMineNearby( Tank &myTank);
