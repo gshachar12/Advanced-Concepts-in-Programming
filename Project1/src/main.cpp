@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <memory>
+#include <fstream>
+
 #include "Board.h"
 #include "Globals.h"
 #include "Tank.h"
@@ -35,6 +37,7 @@ int main(int argc, char* argv[]) {
         // Create tanks with custom starting positions and directions
     Tank t1(0, 0, "L", CellType::TANK1, 1);  
     Tank t2(0, 0, "R", CellType::TANK2, 2);  
+
 
     if (!Global::board->loadFromFile(filename, &t1, &t2)) {
         cerr << "Error: Failed to load board from " << filename << endl;

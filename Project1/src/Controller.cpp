@@ -2,67 +2,66 @@
 #include "Board.h"
 #include "Position.h"
 #include <iostream>
+#include <fstream>
 #include <queue>
 
 // BFS to find the safe path on the board
-ActionType Controller::findSafePath(Board &gameBoard, Position start) {
+
+ActionType Controller::chaseTank(Position chaserStart, Position target) {
     std::queue<Position> q;
-    // std::vector<std::vector<bool>> visited(gameBoard.getHeight(), std::vector<bool>(gameBoard.getWidth(), false));
+    std::vector<std::vector<bool>> visited(Global::board->getHeight(), std::vector<bool>(Global::board->getWidth(), false));
+    q.push(chaserStart);
+    visited[chaserStart.y][chaserStart.x] = true;
 
-    // q.push(start);
-    // visited[start.y][start.x] = true;
+    // To track the direction to take based on the BFS pathfinding
+    std::vector<std::vector<Position>> parent(Global::board->getHeight(), std::vector<Position>(Global::board->getWidth(), {-1, -1}));
 
-    // // To track the direction to take based on the BFS pathfinding
-    // std::vector<std::vector<Position>> parent(gameBoard.getHeight(), std::vector<Position>(gameBoard.getWidth(), {-1, -1}));
+    // BFS exploration
+    while (!q.empty()) {
+        Position current = q.front();
+        q.pop();
+        // If we find the target position
+        if ( current == target) {
+            // Backtrack to find the action to take (where the chaser should move)
+            Position safeSpot = current;
+            Position parentSpot = parent[safeSpot.y][safeSpot.x];
 
-    // // BFS exploration
-    // while (!q.empty()) {
-    //     Position current = q.front();
-    //     q.pop();
+            // Determine the direction of movement from the parent
+            if (parentSpot.x == safeSpot.x - 1 && parentSpot.y == safeSpot.y) {
+                return ActionType::MOVE_FORWARD;  // Move forward (down)
+            }
+            if (parentSpot.x == safeSpot.x + 1 && parentSpot.y == safeSpot.y) {
+                return ActionType::MOVE_FORWARD;  // Move backward (up)
+            }
+            if (parentSpot.x == safeSpot.x && parentSpot.y == safeSpot.y - 1) {
+                return ActionType::ROTATE_LEFT_1_8;  // Rotate left
+            }
+            if (parentSpot.x == safeSpot.x && parentSpot.y == safeSpot.y + 1) {
+                return ActionType::ROTATE_RIGHT_1_8;  // Rotate right
+            }
+        }
 
-    //     // If we find a safe position (an empty cell or an already discovered safe cell)
-    //     if (gameBoard.getCellType(current.x, current.y) == CellType::EMPTY) {
-    //         // Backtrack to find the action to take (where the tank should move)
-    //         Position safeSpot = current;
-    //         Position parentSpot = parent[safeSpot.y][safeSpot.x];
+        // Explore all possible directions
+        for (auto &dir : Directions::getAllDirections()) {
+            // Get the (dx, dy) offset for the current direction
+            auto [dx, dy] = Directions::directionToOffset(dir);
 
-    //         // Determine the direction of movement from the parent
-    //         if (parentSpot.x == safeSpot.x - 1 && parentSpot.y == safeSpot.y) {
-    //             return ActionType::MOVE_FORWARD;  // Move down in the direction
-    //         }
-    //         if (parentSpot.x == safeSpot.x + 1 && parentSpot.y == safeSpot.y) {
-    //             return ActionType::MOVE_BACKWARD;  // Move backward
-    //         }
-    //         // Add more cases for rotation if required (based on where the tank needs to move)
-    //         if (parentSpot.x == safeSpot.x && parentSpot.y == safeSpot.y - 1) {
-    //             return ActionType::ROTATE_LEFT_1_8;  // Rotate left
-    //         }
-    //         if (parentSpot.x == safeSpot.x && parentSpot.y == safeSpot.y + 1) {
-    //             return ActionType::ROTATE_RIGHT_1_8;  // Rotate right
-    //         }
-    //     }
+            // Calculate the neighbor position based on the current position
+            Position neighbor = {current.x + dx, current.y + dy};
 
+            // Check if the neighbor is within bounds, not visited, and not an obstacle (wall or mine)
+            if (neighbor.x >= 0 && neighbor.x < Global::board->getWidth() &&
+                neighbor.y >= 0 && neighbor.y < Global::board->getHeight() &&
+                !visited[neighbor.y][neighbor.x] &&
+                Global::board->getCellType(neighbor.x, neighbor.y) != CellType::WALL &&
+                Global::board->getCellType(neighbor.x, neighbor.y) != CellType::MINE) {
 
-    //     for (auto &dir : Directions::getAllDirections()) {
-    //         // Get the (dx, dy) offset for the current direction
-    //         auto [dx, dy] = Directions::directionToOffset(dir);
-
-    //         // Calculate the neighbor position based on the current position
-    //         Position neighbor = {current.x + dx, current.y + dy};
-
-    //         // Check if the neighbor is within bounds and not visited
-    //         if (neighbor.x >= 0 && neighbor.x < gameBoard.getWidth() &&
-    //             neighbor.y >= 0 && neighbor.y < gameBoard.getHeight() &&
-    //             !visited[neighbor.y][neighbor.x] &&
-    //             gameBoard.getCellType(neighbor.x, neighbor.y) != CellType::WALL && 
-    //             gameBoard.getCellType(neighbor.x, neighbor.y) != CellType::MINE) {
-
-    //             visited[neighbor.y][neighbor.x] = true;
-    //             parent[neighbor.y][neighbor.x] = current;
-    //             q.push(neighbor);
-    //         }
-    //     }
-    // }
+                visited[neighbor.y][neighbor.x] = true;
+                parent[neighbor.y][neighbor.x] = current;
+                q.push(neighbor);
+            }
+        }
+    }
 
     return ActionType::NONE;  // No safe path found
 }
@@ -76,13 +75,16 @@ ActionType Controller::DecideAction(
 {
     static int counter = 0;
 
-    // Try to shoot the opponent's tank if it's within a certain range and there is a clear shot.
-    if (CanShoot(enemyTank))
+    // Avoid stepping on a mine.
+    if (IsMineNearby(myTank))
     {
-        return ActionType::SHOOT;
+        return ActionType::ROTATE_RIGHT_1_8; // Rotate to avoid stepping on a mine (or another suitable action)
     }
 
-    // Try to move the tank if a shell is chasing it.
+    if(IsTankNearby(myTank))
+        return ActionType::SHOOT; 
+
+    return chaseTank( myTank.getPosition(), enemyTank.getPosition());
     for (const Shell &shell : shells)
     {
         if (shell.isTargeting(myTank))

@@ -1,0 +1,35 @@
+Turn 1
+Tank 1 status:
+MOVE FORWARD: Tank 1
+stepped on (7, 5): Tank
+Tank 2 status:
+ROTATE LEFT 1/4TH Tank 2
+stepped on (1, 5): Tank
+Turn 2
+Tank 1 status:
+MOVE FORWARD: Tank 1
+stepped on (6, 5): Tank
+Tank 2 status:
+ROTATE LEFT 1/4TH Tank 2
+stepped on (1, 5): Tank
+Turn 3
+Tank 1 status:
+MOVE FORWARD: Tank 1
+stepped on (5, 5): Tank
+Tank 2 status:
+ROTATE LEFT 1/4TH Tank 2
+stepped on (1, 5): Tank
+Turn 4
+Tank 1 status:
+MOVE FORWARD: Tank 1
+stepped on (4, 5): Tank
+Tank 2 status:
+ROTATE LEFT 1/4TH Tank 2
+stepped on (1, 5): Tank
+Turn 5
+Tank 1 status:
+MOVE FORWARD: Tank 1
+stepped on (3, 5): Tank
+Tank 2 status:
+ROTATE LEFT 1/4TH Tank 2
+stepped on (1, 5): Tank

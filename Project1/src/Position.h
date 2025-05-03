@@ -26,4 +26,5 @@ public:
 
     // Output position for debugging
     void print() const;
+    std::string toString() const ;
 };

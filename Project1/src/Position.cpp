@@ -33,3 +33,8 @@ bool Position::isInBounds(int width, int height) const {
 void Position::print() const {
     std::cout << "(" << x << ", " << y << ")\n";
 }
+
+std::string Position::toString() const {
+    // Create a string representing the position
+    return "(" + std::to_string(x) + ", " + std::to_string(y) + ")";
+}
