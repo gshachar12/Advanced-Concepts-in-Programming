@@ -1,5 +1,6 @@
 #include "../../src/GameManager.h"
 #include "../../src/algorithms/Controller.h"
+#include "../../src/algorithms/EvaderController.h"
 #include "../test_utils.h"
 #include <memory>
 #include <fstream>

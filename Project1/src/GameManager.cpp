@@ -47,8 +47,8 @@ void GameManager::runGameLoop()
 
         printToBoth("Turn " + std::to_string(turnCount));
 
-        ActionType action1 = alg1->DecideAction(tank1, tank2, shells);
-        ActionType action2 = ActionType::ROTATE_LEFT_1_4; //alg2->DecideAction(tank2, tank1, shells);
+        ActionType action1 = `alg1->DecideAction(tank1, tank2, shells);
+        ActionType action2 = alg2->pickEvadeDirection(tank2, tank1);
         printToBoth("Tank 1 status:");
         applyAction(tank1, action1);
         printToBoth("Tank 2 status:");
