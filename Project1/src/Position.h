@@ -24,6 +24,9 @@ public:
     // Check if the position is within grid bounds
     bool isInBounds(int width, int height) const;
 
+    // Calculate distance between two positions
+    double distanceTo(const Position& other) const;
+
     // Output position for debugging
     void print() const;
     std::string toString() const ;

@@ -7,7 +7,6 @@
 #include <memory>
 class Board; // forward declaration
 
-
 class Global {
 public:
     static std::unique_ptr<Board> board;  // Declaration of board

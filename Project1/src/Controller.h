@@ -15,10 +15,16 @@ public:
         Tank &enemyTank,
         const std::vector<Shell> &shells
     );
+    ActionType pickEvadeDirection(Tank &myTank, Tank &enemyTank);
+
+protected:
+    // Helper methods
+    bool isValidPosition(int x, int y);
 
 private:
     bool CanShoot(const Tank &enemyTank);
     ActionType chaseTank(Position chaserStart, Position target);
+    Direction angleToClosestDirection(double angle);
     bool IsShellChasingTank(const Shell &shell, const Tank &myTank);
     bool IsSafeToMoveForward( Tank &myTank);
     bool IsMineNearby( Tank &myTank);

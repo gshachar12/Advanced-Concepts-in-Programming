@@ -66,7 +66,174 @@ ActionType Controller::chaseTank(Position chaserStart, Position target) {
     return ActionType::NONE;  // No safe path found
 }
 
+ActionType Controller::pickEvadeDirection(Tank &myTank, Tank &enemyTank) {
+    // Create Position objects for the tanks
+    Position myPos(myTank.getX(), myTank.getY());
+    Position enemyPos(enemyTank.getX(), enemyTank.getY());
 
+    // Avoid stepping on a mine.
+    if (IsMineNearby(myTank))
+    {
+        return ActionType::ROTATE_RIGHT_1_8; // Rotate to avoid stepping on a mine (or another suitable action)
+    }
+
+    if(IsTankNearby(myTank))
+        return ActionType::SHOOT; 
+    
+    // Check if enemy is close enough to evade
+    double distance = myPos.distanceTo(enemyPos);
+    
+    // If enemy is within 4 units, evade
+    if (distance < 4.0) {
+        // Vector from myTank to enemyTank
+        double dx = enemyTank.getX() - myTank.getX();
+        double dy = enemyTank.getY() - myTank.getY();
+
+        // Angle toward enemy
+        double angleToEnemy = std::atan2(dy, dx);
+
+        // Desired angle is 180° away (opposite direction)
+        double evadeAngle = angleToEnemy + M_PI;
+        evadeAngle = std::fmod(evadeAngle, 2.0 * M_PI);
+        if (evadeAngle < 0) evadeAngle += 2.0 * M_PI;
+
+        Direction desired = angleToClosestDirection(evadeAngle);
+        Direction current = myTank.getDirection();
+        
+        // Check if we're already facing the enemy
+        Direction enemyDir = angleToClosestDirection(angleToEnemy);
+        bool facingEnemy = (current == enemyDir);
+        
+        // If we're facing the enemy, moving backward is most efficient
+        if (facingEnemy) {
+            // Check if backward move is valid
+            auto [dx, dy] = Directions::directionToOffset(current);
+            int backX = myTank.getX() - dx;
+            int backY = myTank.getY() - dy;
+            
+            if (isValidPosition(backX, backY)) {
+                return ActionType::MOVE_BACKWARD;
+            }
+        }
+        
+        // Check if facing away from enemy (ideal for moving forward)
+        bool facingAway = (current == desired);
+        
+        if (facingAway) {
+            // Try to move forward in the direction away from enemy
+            auto [dx, dy] = Directions::directionToOffset(current);
+            int forwardX = myTank.getX() + dx;
+            int forwardY = myTank.getY() + dy;
+            
+            if (isValidPosition(forwardX, forwardY)) {
+                return ActionType::MOVE_FORWARD;
+            } else {
+                // If there's a wall and we can shoot, break it
+                if (myTank.canShoot() && 
+                    (Global::board->getCellType(forwardX, forwardY) == CellType::WALL || 
+                     Global::board->getCellType(forwardX, forwardY) == CellType::WEAK_WALL)) {
+                    return ActionType::SHOOT;
+                }
+                // Otherwise, try to rotate to find another escape path
+                return ActionType::ROTATE_RIGHT_1_8;
+            }
+        }
+        
+        // We need to rotate toward the desired direction
+        int currentIdx = static_cast<int>(current);
+        int desiredIdx = static_cast<int>(desired);
+        int diff = (desiredIdx - currentIdx + 8) % 8;
+        
+        // Choose the shortest rotation direction
+        if (diff == 4) {
+            // 180 degrees, use 1/4 turn for faster rotation
+            return ActionType::ROTATE_LEFT_1_4;
+        } else if (diff < 4) {
+            return ActionType::ROTATE_RIGHT_1_8;
+        } else {
+            return ActionType::ROTATE_LEFT_1_8;
+        }
+    }
+    
+    // If enemy is not close enough, still try to increase distance
+    auto [new_x, new_y] = myTank.moveForward();
+    Position nextPos(new_x, new_y);
+    
+    if (nextPos.distanceTo(enemyPos) > distance && isValidPosition(new_x, new_y)) {
+        return ActionType::MOVE_FORWARD;
+    } else {
+        // Try to find a better direction that increases distance
+        Direction bestDir = myTank.getDirection();
+        double maxDist = distance;
+        
+        for (Direction dir : Directions::getAllDirections()) {
+            auto [dx, dy] = Directions::directionToOffset(dir);
+            int testX = myTank.getX() + dx;
+            int testY = myTank.getY() + dy;
+            
+            if (isValidPosition(testX, testY)) {
+                Position testPos(testX, testY);
+                double testDist = testPos.distanceTo(enemyPos);
+                
+                if (testDist > maxDist) {
+                    maxDist = testDist;
+                    bestDir = dir;
+                }
+            }
+        }
+        
+        // If current direction is not best, rotate toward best
+        if (bestDir != myTank.getDirection()) {
+            int currentIdx = static_cast<int>(myTank.getDirection());
+            int bestIdx = static_cast<int>(bestDir);
+            int diff = (bestIdx - currentIdx + 8) % 8;
+            
+            if (diff < 4) {
+                return ActionType::ROTATE_RIGHT_1_8;
+            } else {
+                return ActionType::ROTATE_LEFT_1_8;
+            }
+        }
+        
+        // Fall back to shoot if we can't move
+        if (myTank.canShoot()) {
+            return ActionType::SHOOT;
+        }
+    }
+    
+    return ActionType::ROTATE_RIGHT_1_8; // Last resort
+}
+
+bool Controller::isValidPosition(int x, int y) {
+    // Check if position is in bounds and not a wall or mine
+    if (x < 0 || x >= Global::board->getWidth() || 
+        y < 0 || y >= Global::board->getHeight()) {
+        return false;
+    }
+    
+    CellType cellType = Global::board->getCellType(x, y);
+    return cellType != CellType::WALL && 
+           cellType != CellType::WEAK_WALL && 
+           cellType != CellType::MINE;
+}
+
+Direction Controller::angleToClosestDirection(double angle) {
+    // Convert angle to 0..360 degrees
+    double degrees = fmod((angle * 180.0 / M_PI) + 360.0, 360.0);
+    // 8 directions split into 45° increments
+    int dirIndex = static_cast<int>(std::round(degrees / 45.0)) % 8;
+    // Map index to Direction
+    switch (dirIndex) {
+        case 0: return Direction::R;
+        case 1: return Direction::DR;
+        case 2: return Direction::D;
+        case 3: return Direction::DL;
+        case 4: return Direction::L;
+        case 5: return Direction::UL;
+        case 6: return Direction::U;
+        default: return Direction::UR;
+    }
+}
 
 ActionType Controller::DecideAction(
     Tank &myTank,

@@ -61,6 +61,7 @@ public:
     {}
 
     bool initializeGame();
+    bool initializeGame(const std::string& boardFile); // Add overload for test_collision.cpp
     void runGameLoop();
 
 private:

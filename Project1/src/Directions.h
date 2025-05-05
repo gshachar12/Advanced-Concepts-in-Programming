@@ -3,6 +3,7 @@
 #include <array>
 #include <string>
 #include <vector>
+#include "Position.h"
 const std::vector<std::string> validDirections = {"U", "UR", "R", "DR", "D", "DL", "L", "UL"};
 
 enum class Direction {
@@ -30,4 +31,10 @@ public:
 
     // Function to iterate over all directions and print them
     static std::array<Direction, static_cast<int>(Direction::NUM_DIRECTIONS)> getAllDirections();
+
+    // Helper to get the next position in a given direction
+    static Position getNextPosition(const Position &pos, Direction dir) {
+        auto [dx, dy] = directionToOffset(dir);
+        return Position(pos.x + dx, pos.y + dy);
+    }
 };
