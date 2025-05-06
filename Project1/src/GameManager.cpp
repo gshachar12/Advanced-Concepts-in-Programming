@@ -23,6 +23,12 @@ bool GameManager::initializeGame()
         std::cerr << "Error: Global board is nullptr!" << std::endl;
         return false;
     }
+    
+    // Reset game state
+    gameOver = false;
+    stepsSinceBothAmmoZero = 0;
+    turnCount = 0;
+    
     return true;
 }
 
@@ -47,7 +53,7 @@ void GameManager::runGameLoop()
 
         printToBoth("Turn " + std::to_string(turnCount));
 
-        ActionType action1 = `alg1->DecideAction(tank1, tank2, shells);
+        ActionType action1 = alg1->DecideAction(tank1, tank2, shells);
         ActionType action2 = alg2->pickEvadeDirection(tank2, tank1);
         printToBoth("Tank 1 status:");
         applyAction(tank1, action1);

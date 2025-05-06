@@ -1,5 +1,11 @@
 #include "Directions.h"
 
+// Initialize the static directions array
+const std::array<Direction, static_cast<int>(Direction::NUM_DIRECTIONS)> Directions::all_directions = {
+    Direction::U, Direction::UR, Direction::R, Direction::DR,
+    Direction::D, Direction::DL, Direction::L, Direction::UL
+};
+
 // Convert string to Direction enum
 Direction Directions::stringToDirection(const std::string &str) {
     if (str == "U") return Direction::U;
@@ -45,15 +51,12 @@ std::pair<int, int> Directions::directionToOffset(Direction dir) {
 
 // Function to print all directions
 void Directions::printAllDirections() {
-    for (Direction dir : getAllDirections()) {
+    for (Direction dir : all_directions) {
         std::cout << directionToString(dir) << std::endl;
     }
 }
 
-// Function to return all possible directions
-std::array<Direction, static_cast<int>(Direction::NUM_DIRECTIONS)> Directions::getAllDirections() {
-    return {
-        Direction::U, Direction::UR, Direction::R, Direction::DR,
-        Direction::D, Direction::DL, Direction::L, Direction::UL
-    };
+// Function to return all possible directions - now returns a const reference to avoid copying
+const std::array<Direction, static_cast<int>(Direction::NUM_DIRECTIONS)>& Directions::getAllDirections() {
+    return all_directions;
 }

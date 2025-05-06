@@ -2,11 +2,12 @@
 #include <iostream>
 #include <algorithm>
 
-
 void Tank::update() {
     if (shootCooldown > 0) {
         shootCooldown--;
     }
+    
+    // Update backward movement state
     switch (backwardState) {
         case BackwardState::WAITING_1:
             backwardState = BackwardState::WAITING_2;
@@ -31,7 +32,7 @@ void Tank::shoot() {
     }
 }
 
-std::pair<int,int>  Tank::moveForward() {
+std::pair<int,int> Tank::moveForward() {
     auto [dx, dy] = Directions::directionToOffset(getDirection());
     int new_pos_x = (getX() + dx + Global::width) % Global::width;
     int new_pos_y = (getY() + dy + Global::height) % Global::height;
@@ -59,18 +60,18 @@ void Tank::cancelBackward() {
 }
 
 void Tank::printPosition() {
-    std::cout << "Tank " << tankID<< " is at (" << getX() << ", " << getY() << ")." << std::endl;
+    std::cout << "Tank " << tankID << " is at (" << getX() << ", " << getY() << ")." << std::endl;
 }
 
 void Tank::printStatus() const {
-    std::cout << "Tank "<< tankID<< " at (" << getX() << ", " << getY() << "), direction="
+    std::cout << "Tank "<< tankID << " at (" << getX() << ", " << getY() << "), direction="
               << Directions::directionToString(getDirection())
               << ", shells=" << shellCount
               << ", cooldown=" << shootCooldown
               << ", alive=" << (alive ? "true" : "false") << std::endl;
 }
 
-// Optional rotation helpers
+// Rotation helpers
 void Tank::rotateLeft1_8() {
     int idx = findDirectionIndex(getDirection());
     if (idx >= 0) {
@@ -100,19 +101,19 @@ void Tank::rotateRight1_4() {
 }
 
 int Tank::findDirectionIndex(const Direction &d) const {
-    // Use size_t to avoid the integer-sign mismatch warning.
-    for (size_t i = 0; i < Directions::getAllDirections().size(); i++) {
-        if (Directions::getAllDirections()[i] == d)
+    const auto& all_directions = Directions::getAllDirections();
+    for (size_t i = 0; i < all_directions.size(); i++) {
+        if (all_directions[i] == d)
             return static_cast<int>(i);
     }
     return -1;
 }
 
 void Tank::setDirectionByIndex(int idx) {
-    int n = Directions::getAllDirections().size();
-    idx = (idx % n + n) % n;
-    setDirection(Directions::getAllDirections()[idx]);
+    const auto& all_directions = Directions::getAllDirections();
+    int n = all_directions.size();
+    idx = (idx % n + n) % n;  // Ensure positive modulo
+    setDirection(all_directions[idx]);
 }
 
- Tank:: ~Tank(){}
- 
+Tank::~Tank() {}
