@@ -2,11 +2,8 @@
 #include <iostream>
 #include <algorithm>
 
-<<<<<<< Updated upstream
-=======
 #include "Board.h"
 
->>>>>>> Stashed changes
 void Tank::update() {
     if (shootCooldown > 0) {
         shootCooldown--;
@@ -37,11 +34,7 @@ void Tank::shoot() {
     }
 }
 
-<<<<<<< Updated upstream
-std::pair<int,int> Tank::moveForward() {
-=======
 std::pair<int,int>  Tank::moveForward(Board board) {
->>>>>>> Stashed changes
     auto [dx, dy] = Directions::directionToOffset(getDirection());
     auto [new_pos_x, new_pos_y] = tryToMove( board, dx, dy); 
     return {new_pos_x, new_pos_y};

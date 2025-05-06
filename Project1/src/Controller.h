@@ -21,18 +21,18 @@ private:
     bool CanShoot(Tank &myTank, Tank &enemyTank);
     Position BFS(Board board, Position chaserStart, Position target);
     bool IsShellChasingTank(const Shell &shell, const Tank &myTank);
-    bool IsSafeToMoveForward( Tank &myTank);
-    bool IsMineNearby( Tank &myTank);
-    bool IsTankNearby( Tank &myTank);
-    bool IsInLineOfSight(const Tank &enemyTank);
-    bool IsInRange(const Tank &enemyTank);
-    bool IsObstacleAhead(const Tank &myTank);
+    bool IsSafeToMoveForward( Board board,Tank &myTank);
+    bool IsMineNearby(Board board, Tank &myTank);
+    bool IsTankNearby( Tank &myTank, Tank &enemyTank);
+    bool IsInLineOfSight( Tank &myTank, Tank &enemyTank);
+   // bool IsInRange(const Tank &enemyTank);
+    //bool IsObstacleAhead(const Tank &myTank);
     
     // New helper methods for pickEvadeDirection
-    ActionType handleCloseEvade(Tank &myTank, Tank &enemyTank, const Position &myPos, const Position &enemyPos, double distance);
-    ActionType handleFacingEnemyEvade(Tank &myTank);
-    ActionType handleFacingAwayEvade(Tank &myTank);
+    ActionType handleCloseEvade(Board board, Tank &myTank, Tank &enemyTank, const Position &myPos, const Position &enemyPos, double distance);
+    ActionType handleFacingEnemyEvade(Board board, Tank &myTank);
+    ActionType handleFacingAwayEvade(Board board, Tank &myTank);
     ActionType calculateRotationDirection(Direction current, Direction desired);
-    ActionType handleDistantEvade(Tank &myTank, Tank &enemyTank, const Position &myPos, const Position &enemyPos, double distance);
-    Direction findDirectionMaximizingDistance(Tank &myTank, const Position &enemyPos, double currentDistance);
+    ActionType handleDistantEvade(Board board, Tank &myTank, Tank &enemyTank, const Position &myPos, const Position &enemyPos, double distance);
+    Direction findDirectionMaximizingDistance(Board board,Tank &myTank, const Position &enemyPos, double currentDistance);
 };

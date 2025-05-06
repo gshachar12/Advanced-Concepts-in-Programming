@@ -52,13 +52,8 @@ void GameManager::runGameLoop()
 
         printToBoth("Turn " + std::to_string(turnCount));
 
-<<<<<<< Updated upstream
-        ActionType action1 = alg1->DecideAction(tank1, tank2, shells);
-        ActionType action2 = alg2->pickEvadeDirection(tank2, tank1);
-=======
         ActionType action1 = alg1->AvoidShells(*board, tank1, shells);//alg1->ChaseTank(*board, tank1, tank2, shells);
         ActionType action2 = ActionType::SHOOT;//alg2->pickEvadeDirection(tank2, tank1);
->>>>>>> Stashed changes
         printToBoth("Tank 1 status:");
         applyAction(tank1, action1);
         printToBoth("Tank 2 status:");
