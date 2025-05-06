@@ -7,6 +7,11 @@
 #include <vector>
 #include <algorithm>
 
+// Constants for game rules and settings
+const int MAX_TURNS = 1000;
+const int MAX_STEPS_WITHOUT_AMMO = 40;
+const int DISPLAY_DELAY_MS = 1000;
+
 void GameManager::printToBoth(const std::string &message){
     // Print to the console (std::cout)
     std::cout << message << std::endl;
@@ -45,23 +50,23 @@ void GameManager::runGameLoop()
         std::cerr << "Error opening the file!" << std::endl;
     }
 
-    while (!gameOver && turnCount < 1000)
+    while (!gameOver && turnCount < MAX_TURNS)
     {
         turnCount++;
         std::cout << "\033[2J\033[1;1H"; // clear screen
 
         printToBoth("Turn " + std::to_string(turnCount));
 
-        ActionType action1 = alg1->AvoidShells(*board, tank1, shells);//alg1->ChaseTank(*board, tank1, tank2, shells);
-        ActionType action2 = ActionType::SHOOT;//alg2->pickEvadeDirection(tank2, tank1);
+        ActionType action1 = alg1->AvoidShells(*board, tank1, shells);
+        ActionType action2 = ActionType::SHOOT;
         printToBoth("Tank 1 status:");
         applyAction(tank1, action1);
         printToBoth("Tank 2 status:");
         applyAction(tank2, action2);
         for(int i=0; i<2; i++)
         {
-        updateShells(); // advance shells twice
-        checkEndGameConditions();
+            updateShells(); // advance shells twice
+            checkEndGameConditions();
         }
         if (visualMode)
         {
@@ -79,8 +84,7 @@ void GameManager::runGameLoop()
 
         }
 
-        //currentTank = 1 - currentTank; // switch to the other player
-        std::this_thread::sleep_for(std::chrono::seconds(1));
+        std::this_thread::sleep_for(std::chrono::milliseconds(DISPLAY_DELAY_MS));
     }
 }
 
@@ -321,10 +325,10 @@ void GameManager::checkEndGameConditions()
     if (tank1.getShellCount() == 0 && tank2.getShellCount() == 0)
     {
         stepsSinceBothAmmoZero++;
-        if (stepsSinceBothAmmoZero >= 40)
+        if (stepsSinceBothAmmoZero >= MAX_STEPS_WITHOUT_AMMO)
         {
             gameOver = true;
-            printToBoth("Tie: 40 steps elapsed with both tanks out of shells." );
+            printToBoth("Tie: " + std::to_string(MAX_STEPS_WITHOUT_AMMO) + " steps elapsed with both tanks out of shells." );
         }
     }
     else

@@ -2,7 +2,9 @@
 #include <algorithm>
 #include "Board.h"
 
-
+// Constants for wall damage
+const int WALL_DAMAGE_WEAK = 1;
+const int WALL_DAMAGE_DESTROYED = 2;
 
 /**
  * Convert a CellType back to a char if needed.
@@ -92,13 +94,13 @@ void Board::weakenWall(int x, int y) {
     
     wallInfo[y][x].hitsTaken++;
     // If hits = 1, turn it into a weak wall
-    if (wallInfo[y][x].hitsTaken == 1) {
+    if (wallInfo[y][x].hitsTaken == WALL_DAMAGE_WEAK) {
         grid[y][x] = CellType::WEAK_WALL;
         std::cout << "Weak wall at (" << x << ", " << y << ")" << std::endl;
     }
     
     // If hits >= 2, destroy the wall
-    if (wallInfo[y][x].hitsTaken >= 2) {
+    if (wallInfo[y][x].hitsTaken >= WALL_DAMAGE_DESTROYED) {
         // turn cell into empty
         grid[y][x] = CellType::EMPTY;
         wallInfo[y][x].isWall = false;

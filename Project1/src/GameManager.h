@@ -11,7 +11,10 @@
 #include <string>
 #include <fstream>
 
-
+// Constants for game rules and settings
+extern const int MAX_TURNS;
+extern const int MAX_STEPS_WITHOUT_AMMO;
+extern const int DISPLAY_DELAY_MS;
 
 class GameManager {
 private:

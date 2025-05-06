@@ -4,6 +4,10 @@
 
 #include "Board.h"
 
+// Constants for tank properties
+const int DEFAULT_SHELL_COUNT = 16;
+const int SHOOT_COOLDOWN = 4;
+
 void Tank::update() {
     if (shootCooldown > 0) {
         shootCooldown--;
@@ -28,7 +32,7 @@ void Tank::update() {
 void Tank::shoot() {
     if (canShoot()) {
         shellCount = std::max(0, shellCount - 1);
-        shootCooldown = 4; 
+        shootCooldown = SHOOT_COOLDOWN; 
     } else {
         std::cerr << "Cannot shoot: either on cooldown or out of shells." << std::endl;
     }

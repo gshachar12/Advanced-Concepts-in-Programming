@@ -17,6 +17,10 @@ enum class BackwardState {
     MOVING_BACKWARD
 };
 
+// Constants for tank properties
+extern const int DEFAULT_SHELL_COUNT;
+extern const int SHOOT_COOLDOWN;
+
 class Tank : public GameObject {
 private:
     bool alive;
@@ -29,7 +33,7 @@ public:
     Tank(int x, int y, const std::string &dir, CellType ObjectType, int ID)
             : GameObject(x, y, Directions::stringToDirection(dir), ObjectType),
               alive(true),
-              shellCount(16),
+              shellCount(DEFAULT_SHELL_COUNT),
               shootCooldown(0),
               tankID(ID),
               backwardState(BackwardState::NOT_REQUESTED)

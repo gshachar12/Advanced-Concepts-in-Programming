@@ -8,6 +8,10 @@
 #include <fstream>
 #include "CellType.h"
 
+// Constants for wall damage
+extern const int WALL_DAMAGE_WEAK;
+extern const int WALL_DAMAGE_DESTROYED;
+
 /**
  * Tracks how many hits a wall has taken.
  * After 2 hits, we consider it destroyed and turn it into EMPTY.
