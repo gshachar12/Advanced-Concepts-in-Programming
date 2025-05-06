@@ -42,7 +42,6 @@ public:
     void setMaxRange(int rng) { maxRange = rng; }
 
     int getDistanceTraveled() const { return distanceTraveled; }
-    bool isTargeting( const GameObject &tank) const;
     int getOwnerID() const { return ownerID; }
     void setOwnerID(int id) { ownerID = id; }
 

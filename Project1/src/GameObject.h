@@ -30,6 +30,7 @@ public:
     void move(Board board, int dx, int dy); 
     void setPosition(int newX, int newY);
     void setDirection(Direction newDir);
+    bool isTargeting( const GameObject &tank) const;
 
 };
 

@@ -23,11 +23,8 @@ ActionType Controller::EvadeTank(Board board, Tank &myTank, Tank &enemyTank)
 
     // Avoid stepping on a mine.
     if (IsMineNearby(board, myTank)) {
+        printf("Mine nearby, evading...\n");
         return ActionType::ROTATE_RIGHT_1_8;
-    }
-
-    if(IsTankNearby( myTank, enemyTank)) {
-        return ActionType::SHOOT; 
     }
     
     // Check if enemy is close enough to evade
@@ -39,7 +36,7 @@ ActionType Controller::EvadeTank(Board board, Tank &myTank, Tank &enemyTank)
     }
     
     // If enemy is not close enough, still try to increase distance
-    return handleDistantEvade(board,myTank, enemyTank, myPos, enemyPos, distance);
+    return handleDistantEvade(board, myTank, enemyTank, myPos, enemyPos, distance);
 }
 
 ActionType Controller::handleCloseEvade(Board board, Tank &myTank, Tank &enemyTank, 
@@ -89,7 +86,15 @@ ActionType Controller::handleFacingEnemyEvade(Board board, Tank &myTank) {
         return ActionType::MOVE_BACKWARD;
     }
     
-    return ActionType::ROTATE_RIGHT_1_8; // Default to rotation if we can't move backward
+    // If there's a wall blocking the backward move and we can shoot
+    if (myTank.canShoot() && 
+        (board.getCellType(backX, backY) == CellType::WALL || 
+         board.getCellType(backX, backY) == CellType::WEAK_WALL)) {
+        // Rotate 180 degrees to face the wall and then shoot it
+        return ActionType::ROTATE_LEFT_1_4; // Use 1/4 rotation for faster turnaround
+    }
+    
+    return ActionType::ROTATE_RIGHT_1_8; // Default to rotation if we can't move backward or shoot
 }
 
 ActionType Controller::handleFacingAwayEvade(Board board, Tank &myTank) {
@@ -101,15 +106,33 @@ ActionType Controller::handleFacingAwayEvade(Board board, Tank &myTank) {
     if (isValidPosition(board, forwardX, forwardY)) {
         return ActionType::MOVE_FORWARD;
     } else {
-        // If there's a wall and we can shoot, break it
+        // If there's a wall and we can shoot, break it only if it helps escape
         if (myTank.canShoot() && 
             (board.getCellType(forwardX, forwardY) == CellType::WALL || 
              board.getCellType(forwardX, forwardY) == CellType::WEAK_WALL)) {
-            return ActionType::SHOOT;
+            // Check if breaking this wall is the best escape option by looking at alternatives
+            if (!isAnyValidMovePossible(board, myTank)) {
+                return ActionType::SHOOT;
+            }
         }
         // Otherwise, try to rotate to find another escape path
         return ActionType::ROTATE_RIGHT_1_8;
     }
+}
+
+// New helper method to check if any valid move is possible
+bool Controller::isAnyValidMovePossible(Board board, Tank &myTank) {
+    // Check if any direction allows movement
+    for (Direction dir : Directions::getAllDirections()) {
+        auto [dx, dy] = Directions::directionToOffset(dir);
+        int testX = myTank.getX() + dx;
+        int testY = myTank.getY() + dy;
+        
+        if (isValidPosition(board, testX, testY)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 ActionType Controller::calculateRotationDirection(Direction current, Direction desired) {
@@ -133,12 +156,10 @@ ActionType Controller::handleDistantEvade(Board board, Tank &myTank, Tank &enemy
     auto [new_x, new_y] = myTank.moveForward(board);
     Position nextPos(new_x, new_y);
 
-    if (nextPos.distanceTo(enemyPos) > distance && isValidPosition(board, new_x, new_y))
-    {
+    if (nextPos.distanceTo(enemyPos) > distance && isValidPosition(board, new_x, new_y)) {
         return ActionType::MOVE_FORWARD;
     }
-    else
-    {
+    else {
         // Try to find a better direction that increases distance
         Direction bestDir = findDirectionMaximizingDistance(board, myTank, enemyPos, distance);
         
@@ -179,9 +200,6 @@ Direction Controller::findDirectionMaximizingDistance(Board board, Tank &myTank,
     
     return bestDir;
 }
-
-
-
 
 Position Controller::BFS(Board board, Position chaserStart, Position target)
 {
@@ -224,7 +242,6 @@ Position Controller::BFS(Board board, Position chaserStart, Position target)
     nextPos = current; 
     return nextPos;
 }
-
 
 ActionType Controller::AvoidShells(Board board, Tank &myTank, const std::vector<Shell> &shells)
 {
@@ -277,7 +294,6 @@ ActionType Controller::ChaseTank(Board board,
     return AvoidShells(board, myTank, shells);     // Try to avoid shells
 }
 
-
 bool Controller::isValidPosition(Board board, int x, int y)
 {
     // Check if position is in bounds and not a wall or mine
@@ -317,8 +333,22 @@ bool Controller::IsSafeToMoveForward(Board board,Tank &myTank)
 // Helper function to check if there's a mine nearby
 bool Controller::IsMineNearby(Board board, Tank &myTank)
 {
-    // Implement logic to check if the tank is about to step on a mine (based on known mine locations)
+    // Check the forward position for mines
     auto [new_x, new_y] = myTank.moveForward(board);
+    
+    // Also check surrounding cells for mines to be more cautious
+    for (Direction dir : Directions::getAllDirections()) {
+        auto [dx, dy] = Directions::directionToOffset(dir);
+        int checkX = myTank.getX() + dx;
+        int checkY = myTank.getY() + dy;
+        
+        // If any surrounding cell has a mine and it's in the direction we're heading
+        if (checkX == new_x && checkY == new_y && 
+            board.getCellType(checkX, checkY) == CellType::MINE) {
+            return true;
+        }
+    }
+    
     return board.getCellType(new_x, new_y) == CellType::MINE;
 }
 
@@ -331,22 +361,15 @@ bool Controller::IsTankNearby(Tank &myTank, Tank &enemyTank)
     return distance <= EVADE_DISTANCE_THRESHOLD;
 }
 
-
- // // Helper function to check if the opponent's tank is in line of sight
+ // Helper function to check if the opponent's tank is in line of sight
 bool Controller::IsInLineOfSight(Tank &myTank, Tank &enemyTank)
 {
-    // Implement line of sight check
-    return true;
+    // For the evading tank, we don't need to shoot at the enemy, so return false
+    return false;
 }
 
 // // Helper function to check if the opponent's tank is within shooting range
 // bool Controller::IsInRange(const Tank &enemyTank)
 // {
 //     return true; // Placeholder for actual range logic
-// }
-
-// // Helper function to check if there's an obstacle ahead
-// bool Controller::IsObstacleAhead(const Tank &myTank)
-// {
-//     return false; // Placeholder for actual obstacle check
 // }

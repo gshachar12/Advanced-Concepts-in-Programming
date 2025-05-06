@@ -25,6 +25,7 @@ private:
     bool IsMineNearby(Board board, Tank &myTank);
     bool IsTankNearby( Tank &myTank, Tank &enemyTank);
     bool IsInLineOfSight( Tank &myTank, Tank &enemyTank);
+    bool isAnyValidMovePossible(Board board, Tank &myTank);
    // bool IsInRange(const Tank &enemyTank);
     //bool IsObstacleAhead(const Tank &myTank);
     
