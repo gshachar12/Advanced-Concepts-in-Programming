@@ -1,5 +1,4 @@
 #include "Shell.h"
-#include "Globals.h"
 #include <iostream>
 #include <utility>
 #include <cmath>
@@ -16,12 +15,22 @@ bool Shell::isTargeting(const GameObject& obj) const {
     // Get direction offset based on the shell's direction
     auto [dx, dy] = Directions::directionToOffset(direction);
 
+<<<<<<< Updated upstream
     // Check if the obj is in the same line of movement
     
     // Check horizontal targeting
     if (dx != 0 && shellY == objY) {
         if ((dx > 0 && shellX < objX) || (dx < 0 && shellX > objX)) {
             return true;  // Shell is heading toward obj horizontally
+=======
+    // Check if the obj is in the same line of movement (same x or y axis)
+    if (dx != 0) {
+        // If moving horizontally
+        if (shellY == objY) {   
+            if ((dx > 0 && shellX < objX) || (dx < 0 && shellX > objX)) {
+                return true;  // Shell is heading toward obj horizontally
+            }
+>>>>>>> Stashed changes
         }
     }
 

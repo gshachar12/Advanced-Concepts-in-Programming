@@ -5,26 +5,21 @@
 #include <vector>
 
 class Controller {
+
 public:
     virtual ~Controller() = default;
-
-
-    // Main action decision function
-    virtual ActionType DecideAction(
-        Tank &myTank,
-        Tank &enemyTank,
-        const std::vector<Shell> &shells
-    );
-    ActionType pickEvadeDirection(Tank &myTank, Tank &enemyTank);
+    virtual ActionType ChaseTank( Board board, Tank &myTank,Tank &enemyTank, const std::vector<Shell> &shells);
+    ActionType pickEvadeDirection(Board board, Tank &myTank, Tank &enemyTank);
+    ActionType AvoidShells(Board board, Tank &myTank, const std::vector<Shell> &shells);
 
 protected:
     // Helper methods
-    bool isValidPosition(int x, int y);
+    bool isValidPosition(Board board, int x, int y);
 
 private:
-    bool CanShoot(const Tank &enemyTank);
-    ActionType chaseTank(Position chaserStart, Position target);
-    Direction angleToClosestDirection(double angle);
+    static int count; 
+    bool CanShoot(Tank &myTank, Tank &enemyTank);
+    Position BFS(Board board, Position chaserStart, Position target);
     bool IsShellChasingTank(const Shell &shell, const Tank &myTank);
     bool IsSafeToMoveForward( Tank &myTank);
     bool IsMineNearby( Tank &myTank);

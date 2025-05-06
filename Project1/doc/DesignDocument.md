@@ -34,7 +34,7 @@
                       |            |          +---------------+
                       |            |          |   Controller  |
                       |            |          +---------------+
-                      |            +----------| +decideAction()|
+                      |            +----------| +ChaseTank()|
                       |                       +---------------+
                       |
          +------------------------+       +---------------+
@@ -74,7 +74,7 @@
           |--------------->|               |            |            |
           |                |--update------>|            |            |
           |                |               |            |            |
-          |                |--decideAction |            |            |
+          |                |--ChaseTank |            |            |
           |                |               |            |            |
           |                |--applyAction->|            |            |
           |                |               |--shoot---->|            |
@@ -153,7 +153,7 @@
 
 ### 6. AI Controller Design
 
-**Current Design**: A Controller interface with a decideAction method that can be implemented by different algorithms.
+**Current Design**: A Controller interface with a ChaseTank method that can be implemented by different algorithms.
 
 **Alternatives Considered**:
 - **Rule-Based AI**: Hard-coded rules for specific situations. Simple but limited in adaptability.

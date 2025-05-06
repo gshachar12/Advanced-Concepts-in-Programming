@@ -5,10 +5,11 @@
 #include <vector>
 #include <string>
 #include "Position.h"
-
-#include "Globals.h"
+#include "Board.h"
 #include "CellType.h"
 #include "Directions.h"
+
+class Board;
 
 class GameObject {
 protected:
@@ -24,8 +25,9 @@ public:
     int getY() const{ return position.y; }
     Direction getDirection() const { return direction; }
     CellType getObjectType() const {return ObjectType; }
+    std::pair<int, int> tryToMove(Board board, int dx, int dy);
     void setObjectType(CellType objecType)  { ObjectType = objecType; }
-    void move(int dx, int dy); 
+    void move(Board board, int dx, int dy); 
     void setPosition(int newX, int newY);
     void setDirection(Direction newDir);
 

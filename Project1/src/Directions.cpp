@@ -49,6 +49,39 @@ std::pair<int, int> Directions::directionToOffset(Direction dir) {
     }
 }
 
+// Convert (dx, dy) offset  Direction enum to
+Direction Directions::OffsetToDirection(Position d) {
+        if (d.x == 0 && d.y==-1)  return Direction::U;
+        if (d.x == 1 && d.y==-1) return Direction::UR;
+        if (d.x == 1 && d.y==0) return Direction::R;
+        if (d.x == 1 && d.y==1) return Direction::DR;
+        if (d.x == 0 && d.y==1) return Direction::D;
+        if (d.x == -1 && d.y==1) return Direction::DL;
+        if (d.x == -1 && d.y==0) return Direction::L;
+        if (d.x == -1 && d.y==-1) return Direction::UL;
+        else            return Direction::D; // Default case
+    
+}
+
+
+Direction Directions::angleToClosestDirection(double angle) {
+     // Convert angle to 0..360 degrees
+     double degrees = fmod((angle * 180.0 / M_PI) + 360.0, 360.0);
+     // 8 directions split into 45° increments
+     int dirIndex = static_cast<int>(std::round(degrees / 45.0)) % 8;
+     // Map index to Direction
+     switch (dirIndex) {
+         case 0: return Direction::R;
+         case 1: return Direction::DR;
+         case 2: return Direction::D;
+         case 3: return Direction::DL;
+         case 4: return Direction::L;
+         case 5: return Direction::UL;
+         case 6: return Direction::U;
+         default: return Direction::UR;
+     }
+ }
+
 // Function to print all directions
 void Directions::printAllDirections() {
     for (Direction dir : all_directions) {

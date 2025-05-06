@@ -6,47 +6,50 @@
 #include <iostream>
 #include <limits>
 #include <fstream>
-#include "Tank.h"
 #include "CellType.h"
 
 /**
  * Tracks how many hits a wall has taken.
  * After 2 hits, we consider it destroyed and turn it into EMPTY.
  */
-struct WallDamage {
+struct WallDamage
+{
     bool isWall = false;
-    int hitsTaken = 0;  // after 2 hits => destroyed
+    int hitsTaken = 0; // after 2 hits => destroyed
 };
 
-class Board {
+class Board
+{
 private:
     int width;
     int height;
-    bool wrapAround;  // if true, we do (x + width) % width for indexing
-    
+    bool wrapAround; // if true, we do (x + width) % width for indexing
+
 public:
     Board() : width(0), height(0), wrapAround(false) {}
     std::vector<std::vector<CellType>> grid;
     std::vector<std::vector<WallDamage>> wallInfo;
 
-    bool loadFromFile(const std::string &filename, Tank* tank1, Tank* tank2);
-
     // Basic getters
     int getWidth() const { return width; }
     int getHeight() const { return height; }
-
+    void setWidth(int w) { width = w; }
+    void setHeight(int h) { height = h; }
     void setWrapAround(bool enable) { wrapAround = enable; }
     bool isWrapAround() const { return wrapAround; }
 
+    
     // Check if (x, y) is within normal bounds (no wrap-around here).
-    bool inBounds(int x, int y) const {
+    bool inBounds(int x, int y) const
+    {
         return (x >= 0 && x < width && y >= 0 && y < height);
     }
 
     // Get the CellType at (x, y),
+    static CellType charToCellType(char c);
     // applying wrap-around or bounding checks as needed.
+    
     CellType getCellType(int x, int y) const;
-
     // Set the CellType at (x, y),
     // applying wrap-around or bounding checks as needed.
     void setCellType(int x, int y, CellType type);

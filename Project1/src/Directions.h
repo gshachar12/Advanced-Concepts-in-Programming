@@ -1,3 +1,10 @@
+/*
+*
+* Auxilary operation related to directions
+*
+*/
+
+
 #pragma once
 #include <iostream>
 #include <array>
@@ -28,7 +35,13 @@ private:
 public:
     // Function to convert a string to a Direction enum
     static Direction stringToDirection(const std::string &str);
+    static Direction OffsetToDirection(Position d);
     static std::pair<int, int> directionToOffset(Direction dir);
+    static Direction 
+    
+    
+    
+    angleToClosestDirection(double angle);
     // Function to print all directions
     static void printAllDirections();
 

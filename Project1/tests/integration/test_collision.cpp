@@ -19,7 +19,7 @@ public:
         next_action = action;
     }
     
-    ActionType decideAction(const Board &board, const Tank &myTank,
+    ActionType ChaseTank(const Board &board, const Tank &myTank,
                             const Tank &enemyTank, const std::vector<Shell> &shells) override {
         return next_action;
     }

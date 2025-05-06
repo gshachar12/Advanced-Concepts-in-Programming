@@ -39,7 +39,8 @@ run: $(TARGET)
 	./$(TARGET) $(ARGS)
 
 # Additional target for visual mode:
-run_visual:
-	./$(TARGET) $(ARGS) --visual
+run_visual: $(TARGET)
+	./$(TARGET) resources/exampleBoard.txt --visual
+
 
 .PHONY: all clean run run_visual tests run_tests

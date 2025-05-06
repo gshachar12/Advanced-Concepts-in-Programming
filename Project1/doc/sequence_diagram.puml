@@ -30,7 +30,7 @@ loop until gameOver or maxTurns reached
     Tank --> GM
     deactivate Tank
     
-    GM -> Ctrl : decideAction(board, myTank, enemyTank, shells)
+    GM -> Ctrl : ChaseTank(board, myTank, enemyTank, shells)
     activate Ctrl
     Ctrl --> GM : ActionType
     deactivate Ctrl

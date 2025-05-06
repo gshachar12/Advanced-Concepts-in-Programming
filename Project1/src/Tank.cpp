@@ -2,6 +2,11 @@
 #include <iostream>
 #include <algorithm>
 
+<<<<<<< Updated upstream
+=======
+#include "Board.h"
+
+>>>>>>> Stashed changes
 void Tank::update() {
     if (shootCooldown > 0) {
         shootCooldown--;
@@ -32,17 +37,20 @@ void Tank::shoot() {
     }
 }
 
+<<<<<<< Updated upstream
 std::pair<int,int> Tank::moveForward() {
+=======
+std::pair<int,int>  Tank::moveForward(Board board) {
+>>>>>>> Stashed changes
     auto [dx, dy] = Directions::directionToOffset(getDirection());
-    int new_pos_x = (getX() + dx + Global::width) % Global::width;
-    int new_pos_y = (getY() + dy + Global::height) % Global::height;
+    auto [new_pos_x, new_pos_y] = tryToMove( board, dx, dy); 
     return {new_pos_x, new_pos_y};
 }
 
-std::pair<int,int> Tank::moveBackward() {
+std::pair<int,int> Tank::moveBackward(Board board) {
     auto [dx, dy] = Directions::directionToOffset(getDirection());
-    int new_pos_x = (getX() - dx + Global::width) % Global::width;
-    int new_pos_y = (getY() - dy + Global::height) % Global::height;
+    int new_pos_x = (getX() - dx + board.getWidth()) % board.getWidth();
+    int new_pos_y = (getY() - dy + board.getHeight()) % board.getHeight();
     return {new_pos_x, new_pos_y};
 }
 

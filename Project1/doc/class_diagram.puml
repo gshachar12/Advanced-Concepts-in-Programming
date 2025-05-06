@@ -131,7 +131,7 @@ class Board {
 
 ' Controller class
 class Controller {
-    + decideAction(board: Board, myTank: Tank, enemyTank: Tank, shells: vector<Shell>): ActionType
+    + ChaseTank(board: Board, myTank: Tank, enemyTank: Tank, shells: vector<Shell>): ActionType
     + {virtual} ~Controller()
 }
 

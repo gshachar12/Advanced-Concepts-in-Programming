@@ -16,7 +16,7 @@ public:
     ScenarioController(const std::vector<ActionType>& action_sequence)
         : actions(action_sequence), current_action(0) {}
     
-    ActionType decideAction(const Board &board, const Tank &myTank,
+    ActionType ChaseTank(const Board &board, const Tank &myTank,
                             const Tank &enemyTank, const std::vector<Shell> &shells) override {
         if (current_action < actions.size()) {
             return actions[current_action++];

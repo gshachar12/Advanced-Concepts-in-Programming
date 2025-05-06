@@ -1,16 +1,90 @@
+/*
+*  Tanks Game
+*  Made By: Shachar Gabbay And Dor Liberman
+*  May 2025
+*  
+*
+*/
+
+
 #include <iostream>
 #include <string>
 #include <memory>
 #include <fstream>
 
 #include "Board.h"
-#include "Globals.h"
 #include "Tank.h"
 #include "Shell.h"
 #include "GameManager.h"
 #include "GameObject.h"
 
 using namespace std;
+
+auto board = std::make_unique<Board>();
+
+bool openFile(std::ifstream &fin, const std::string &filename)
+{
+    int w,h; 
+    if (!fin.is_open()) {
+        std::cerr << "Error: Could not open file '" << filename << "'\n";
+        return false;
+    }
+
+    // Read width, height
+    if (!(fin >> w >> h )) {
+        std::cerr << "Error: Failed to read board dimensions.\n";
+        return false;
+    }
+
+    board->setWidth(w);  // Set the width using the setter method
+    board->setHeight(h);  // Set the height using the setter method
+
+    if (board->getWidth() <= 0 || board->getHeight() <= 0) {
+        std::cerr << "Error: Invalid board dimensions.\n";
+        return false;
+    }
+
+
+    return true; 
+}
+
+bool loadFromFile(const std::string &filename, Tank* tank1, Tank* tank2) {
+    // Ignore the rest of the line
+    std::ifstream fin(filename);
+    openFile(fin, filename);
+    fin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    // Resize grid and wallInfo
+    board->grid.resize(board->getHeight(), std::vector<CellType>(board->getWidth(), CellType::EMPTY));
+    board->wallInfo.resize(board->getHeight(), std::vector<WallDamage>(board->getWidth()));
+    for (int row = 0; row < board->getHeight(); ++row) {
+        std::string line;
+        if (!std::getline(fin, line)) {
+            break;
+        }
+
+        for (int col = 0; col < board->getWidth(); ++col) {
+            char c = (col < (int)line.size()) ? line[col] : ' ';
+            CellType type = Board::charToCellType(c);
+            board->grid[row][col] = type;
+            if (type == CellType::TANK1 && tank1) {
+                tank1->setPosition(col, row);
+            }
+            else if (type == CellType::TANK2 && tank2) {
+                tank2->setPosition(col, row);
+            }
+            // If it's a wall, set wallInfo
+            if (type == CellType::WALL) {
+                board->wallInfo[row][col].isWall = true;
+                board->wallInfo[row][col].hitsTaken = 0;
+            }
+        }
+    }
+
+    fin.close();
+    return true;
+}
+
+
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
@@ -33,20 +107,19 @@ int main(int argc, char* argv[]) {
     }
 
     // Load board
-    Global::board = std::make_unique<Board>();
         // Create tanks with custom starting positions and directions
     Tank t1(0, 0, "L", CellType::TANK1, 1);  
     Tank t2(0, 0, "R", CellType::TANK2, 2);  
 
 
-    if (!Global::board->loadFromFile(filename, &t1, &t2)) {
+    if (!loadFromFile(filename, &t1, &t2)) {
         cerr << "Error: Failed to load board from " << filename << endl;
         return 1;
     }
-    Global::width = Global::board->getWidth();
-    Global::height = Global::board->getHeight();
+    int width = board->getWidth();
+    int height = board->getHeight();
 
-    cout << "width: " << Global::width << " height: " << Global::height << endl;
+    cout << "width: " << width << " height: " << height << endl;
 
 
 
@@ -55,7 +128,7 @@ int main(int argc, char* argv[]) {
     auto ctrl2 = make_unique<Controller>();
 
     // Create the GameManager using the new constructor
-    GameManager gameManager(t1, t2, move(ctrl1), move(ctrl2), visual_mode);
+    GameManager gameManager(t1, t2, move(ctrl1), move(ctrl2), move(board), visual_mode);
 
     // Initialize game
     if (!gameManager.initializeGame()) {

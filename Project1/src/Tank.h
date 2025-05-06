@@ -2,10 +2,13 @@
 #define TANK_H
 #include "CellType.h"
 #include "GameObject.h"
+#include "Directions.h"
+#include "Board.h"
 #include <algorithm>
 #include <iostream>
 #include <vector>
 
+class Board;
 // For backward movement state:
 enum class BackwardState {
     NOT_REQUESTED,
@@ -45,8 +48,8 @@ public:
     BackwardState getBackwardState() const { return backwardState; }
 
     void shoot();          // Shoot
-    std::pair<int,int>  moveForward();    // Move 1 step in current direction.
-    std::pair<int,int>  moveBackward();   // Move 1 step in opposite direction.
+    std::pair<int,int>  moveForward(Board board);    // Move 1 step in current direction.
+    std::pair<int,int>  moveBackward(Board board);   // Move 1 step in opposite direction.
 
     void requestBackward();
     void cancelBackward();
@@ -64,7 +67,6 @@ private:
     // Helpers for rotation
     int findDirectionIndex(const Direction &d) const;
     void setDirectionByIndex(int idx);
-    std::pair<int,int> directionToOffset(const std::string &dirStr) const;
 };
 
 #endif // TANK_H

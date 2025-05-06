@@ -24,3 +24,4 @@ public:
 };
 
 #endif // GLOBALS_H
+
