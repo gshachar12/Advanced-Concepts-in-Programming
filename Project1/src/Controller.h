@@ -32,4 +32,12 @@ private:
     bool IsInLineOfSight(const Tank &enemyTank);
     bool IsInRange(const Tank &enemyTank);
     bool IsObstacleAhead(const Tank &myTank);
+    
+    // New helper methods for pickEvadeDirection
+    ActionType handleCloseEvade(Tank &myTank, Tank &enemyTank, const Position &myPos, const Position &enemyPos, double distance);
+    ActionType handleFacingEnemyEvade(Tank &myTank);
+    ActionType handleFacingAwayEvade(Tank &myTank);
+    ActionType calculateRotationDirection(Direction current, Direction desired);
+    ActionType handleDistantEvade(Tank &myTank, Tank &enemyTank, const Position &myPos, const Position &enemyPos, double distance);
+    Direction findDirectionMaximizingDistance(Tank &myTank, const Position &enemyPos, double currentDistance);
 };
