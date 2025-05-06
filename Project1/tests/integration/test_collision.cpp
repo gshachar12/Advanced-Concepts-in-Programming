@@ -7,6 +7,9 @@
 #include <memory>
 #include <fstream>
 
+// Constants for testing
+const int COLLISION_TEST_ITERATIONS = 5;
+
 // Custom controller for testing that returns specified actions
 class TestController : public Controller {
 private:
@@ -65,8 +68,7 @@ bool test_shell_wall_collision() {
     ctrl1_ptr->setNextAction(ActionType::SHOOT);
     
     // Let the game run for a short time to process the collision
-    // This is a simplified approach - in a real test, we might want more control
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < COLLISION_TEST_ITERATIONS; i++) {
         game.runGameLoop();
     }
     
@@ -97,8 +99,7 @@ bool test_shell_tank_collision() {
     ctrl1_ptr->setNextAction(ActionType::SHOOT);
     
     // Let the game run to process the collision
-    // This is a simplified test - we can't directly observe the result
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < COLLISION_TEST_ITERATIONS; i++) {
         game.runGameLoop();
     }
     
@@ -131,7 +132,7 @@ bool test_tank_mine_collision() {
     ctrl1_ptr->setNextAction(ActionType::MOVE_FORWARD);
     
     // Let the game run to process the collision
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < COLLISION_TEST_ITERATIONS; i++) {
         game.runGameLoop();
     }
     

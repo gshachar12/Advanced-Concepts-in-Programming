@@ -57,8 +57,8 @@ void GameManager::runGameLoop()
 
         printToBoth("Turn " + std::to_string(turnCount));
 
-        ActionType action1 = alg1->AvoidShells(*board, tank1, shells);
-        ActionType action2 = ActionType::SHOOT;
+        ActionType action1 = alg1->ChaseTank(*board, tank1, tank2, shells);
+        ActionType action2 = alg2->EvadeTank(*board, tank2, tank1);
         printToBoth("Tank 1 status:");
         applyAction(tank1, action1);
         printToBoth("Tank 2 status:");

@@ -9,7 +9,7 @@ class Controller {
 public:
     virtual ~Controller() = default;
     virtual ActionType ChaseTank( Board board, Tank &myTank,Tank &enemyTank, const std::vector<Shell> &shells);
-    ActionType pickEvadeDirection(Board board, Tank &myTank, Tank &enemyTank);
+    ActionType EvadeTank(Board board, Tank &myTank, Tank &enemyTank);
     ActionType AvoidShells(Board board, Tank &myTank, const std::vector<Shell> &shells);
 
 protected:

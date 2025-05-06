@@ -5,10 +5,17 @@
 #include <fstream>
 #include <queue>
 
+// Constants for Controller behavior
+const double EVADE_DISTANCE_THRESHOLD = 4.0;  // Distance threshold for evasion
+const int BFS_CALCULATION_INTERVAL = 1;       // How often to calculate BFS (every n steps)
+const int MAX_DIRECTIONS = 8;                 // Number of possible directions
+const double PI = M_PI;                       // Pi constant for angle calculations
+const double TWO_PI = 2.0 * M_PI;             // 2π for angle calculations
+const int HALF_ROTATION_INDEX = 4;            // Half rotation index (180 degrees)
 
 int Controller::count = 0; // Initialize static variable
 
-ActionType Controller::pickEvadeDirection(Board board, Tank &myTank, Tank &enemyTank)
+ActionType Controller::EvadeTank(Board board, Tank &myTank, Tank &enemyTank)
 {
     // Create Position objects for the tanks
     Position myPos(myTank.getX(), myTank.getY());
@@ -26,8 +33,8 @@ ActionType Controller::pickEvadeDirection(Board board, Tank &myTank, Tank &enemy
     // Check if enemy is close enough to evade
     double distance = myPos.distanceTo(enemyPos);
 
-    // If enemy is within 4 units, evade
-    if (distance < 4.0) {
+    // If enemy is within threshold distance, evade
+    if (distance < EVADE_DISTANCE_THRESHOLD) {
         return handleCloseEvade(board, myTank, enemyTank, myPos, enemyPos, distance);
     }
     
@@ -45,9 +52,9 @@ ActionType Controller::handleCloseEvade(Board board, Tank &myTank, Tank &enemyTa
     double angleToEnemy = std::atan2(dy, dx);
 
     // Desired angle is 180° away (opposite direction)
-    double evadeAngle = angleToEnemy + M_PI;
-    evadeAngle = std::fmod(evadeAngle, 2.0 * M_PI);
-    if (evadeAngle < 0) evadeAngle += 2.0 * M_PI;
+    double evadeAngle = angleToEnemy + PI;
+    evadeAngle = std::fmod(evadeAngle, TWO_PI);
+    if (evadeAngle < 0) evadeAngle += TWO_PI;
 
     Direction desired = Directions::angleToClosestDirection(evadeAngle);
     Direction current = myTank.getDirection();
@@ -108,13 +115,13 @@ ActionType Controller::handleFacingAwayEvade(Board board, Tank &myTank) {
 ActionType Controller::calculateRotationDirection(Direction current, Direction desired) {
     int currentIdx = static_cast<int>(current);
     int desiredIdx = static_cast<int>(desired);
-    int diff = (desiredIdx - currentIdx + 8) % 8;
+    int diff = (desiredIdx - currentIdx + MAX_DIRECTIONS) % MAX_DIRECTIONS;
     
     // Choose the shortest rotation direction
-    if (diff == 4) {
+    if (diff == HALF_ROTATION_INDEX) {
         // 180 degrees, use 1/4 turn for faster rotation
         return ActionType::ROTATE_LEFT_1_4;
-    } else if (diff < 4) {
+    } else if (diff < HALF_ROTATION_INDEX) {
         return ActionType::ROTATE_RIGHT_1_8;
     } else {
         return ActionType::ROTATE_LEFT_1_8;
@@ -249,7 +256,7 @@ ActionType Controller::ChaseTank(Board board,
     // if (IsTankNearby(myTank, enemyTank) && CanShoot(myTank, enemyTank))
     //     return ActionType::SHOOT;
     // If we're not at the target yet, check if we can move forward or need to rotate
-    if (count % 2 ==0) // calculate BFS every 4 steps
+    if (count % BFS_CALCULATION_INTERVAL == 0) // calculate BFS based on interval
     {
         Position chaserStart = myTank.getPosition();
         Position target = enemyTank.getPosition();                                          
@@ -321,7 +328,7 @@ bool Controller::IsTankNearby(Tank &myTank, Tank &enemyTank)
     // Check if the tank is about to step on another tank
     int distance = myTank.getPosition().distanceTo(enemyTank.getPosition()); 
  
-    return distance <= 4;
+    return distance <= EVADE_DISTANCE_THRESHOLD;
 }
 
 

@@ -6,6 +6,10 @@
 #include <fstream>
 #include <vector>
 
+// Constants for testing
+const int SHORT_GAME_ITERATIONS = 10;
+const int AMMO_DEPLETION_ITERATIONS = 50;
+
 // Custom controller for scenario testing
 class ScenarioController : public Controller {
 private:
@@ -72,7 +76,7 @@ bool test_full_game_scenario() {
     ASSERT_TRUE(init_success);
     
     // Run the game for a fixed number of turns
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < SHORT_GAME_ITERATIONS; i++) {
         game.runGameLoop();
     }
     
@@ -110,7 +114,7 @@ bool test_ammo_depletion_scenario() {
     ASSERT_TRUE(init_success);
     
     // Run the game until ammo is depleted (should be at least 16 turns)
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < AMMO_DEPLETION_ITERATIONS; i++) {
         game.runGameLoop();
     }
     
