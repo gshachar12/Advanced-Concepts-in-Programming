@@ -21,8 +21,8 @@ public:
     GameObject(int startX, int startY, Direction startDir, CellType type);
     virtual ~GameObject() {}
     Position getPosition() const { return position; }
-    int getX() const { return  position.x; }
-    int getY() const{ return position.y; }
+    int getX()  { return  position.getX(); }
+    int getY() { return position.getY(); }
     Direction getDirection() const { return direction; }
     CellType getObjectType() const {return ObjectType; }
     std::pair<int, int> tryToMove(Board board, int dx, int dy);
@@ -30,6 +30,7 @@ public:
     void move(Board board, int dx, int dy); 
     void setPosition(int newX, int newY);
     void setDirection(Direction newDir);
+    bool isTargeting( GameObject &tank) ;
 
 };
 

@@ -51,14 +51,14 @@ std::pair<int, int> Directions::directionToOffset(Direction dir) {
 
 // Convert (dx, dy) offset  Direction enum to
 Direction Directions::OffsetToDirection(Position d) {
-        if (d.x == 0 && d.y==-1)  return Direction::U;
-        if (d.x == 1 && d.y==-1) return Direction::UR;
-        if (d.x == 1 && d.y==0) return Direction::R;
-        if (d.x == 1 && d.y==1) return Direction::DR;
-        if (d.x == 0 && d.y==1) return Direction::D;
-        if (d.x == -1 && d.y==1) return Direction::DL;
-        if (d.x == -1 && d.y==0) return Direction::L;
-        if (d.x == -1 && d.y==-1) return Direction::UL;
+        if (d.getX() == 0 && d.getY()==-1)  return Direction::U;
+        if (d.getX() == 1 && d.getY()==-1) return Direction::UR;
+        if (d.getX() == 1 && d.getY()==0) return Direction::R;
+        if (d.getX() == 1 && d.getY()==1) return Direction::DR;
+        if (d.getX() == 0 && d.getY()==1) return Direction::D;
+        if (d.getX() == -1 && d.getY()==1) return Direction::DL;
+        if (d.getX() == -1 && d.getY()==0) return Direction::L;
+        if (d.getX() == -1 && d.getY()==-1) return Direction::UL;
         else            return Direction::D; // Default case
     
 }

@@ -3,14 +3,15 @@
 ## UML Class Diagram
 
 ```
-                              +--------------+
-                              |  GameObject  |
-                              +--------------+
-                              | +position    |
-                              | +direction   |
-                              +--------------+
-                              | +move()      |
-                              | +update()    |
+                              +---------------+
+                              |  GameObject   |
+                              +---------------+
+                              | +position     |
+                              | +direction    |
+                              +---------------+
+                              | +move()       |
+                              | +update()     |
+                              | +isTargeting()|
                               +--------------+
                                      ▲
                                      |
@@ -237,10 +238,3 @@ This Markdown file can be converted to PDF using various tools:
 
 3. **Online converters** like Markdown to PDF
 
-The ASCII art UML diagrams can be replaced with proper UML diagrams using tools like:
-- PlantUML
-- draw.io
-- Lucidchart
-- Microsoft Visio
-
-Include the exported diagrams in your final PDF for a more professional appearance.

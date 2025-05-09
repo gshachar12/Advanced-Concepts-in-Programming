@@ -1,6 +1,6 @@
 # Compiler settings
 CXX = g++
-CXXFLAGS = -Wall -Wextra -std=c++17
+CXXFLAGS = -Wall -Wextra -Werror -pedantic -std=c++17
 
 # Find all .cpp files in src/
 SRCS := $(wildcard src/*.cpp) $(wildcard src/algorithms/*.cpp)
@@ -39,8 +39,7 @@ run: $(TARGET)
 	./$(TARGET) $(ARGS)
 
 # Additional target for visual mode:
-run_visual: $(TARGET)
-	./$(TARGET) resources/exampleBoard.txt --visual
-
+run_visual:
+	./$(TARGET) $(ARGS) --visual
 
 .PHONY: all clean run run_visual tests run_tests

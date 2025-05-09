@@ -68,7 +68,7 @@ void Tank::printPosition() {
     std::cout << "Tank " << tankID << " is at (" << getX() << ", " << getY() << ")." << std::endl;
 }
 
-void Tank::printStatus() const {
+void Tank::printStatus()  {
     std::cout << "Tank "<< tankID << " at (" << getX() << ", " << getY() << "), direction="
               << Directions::directionToString(getDirection())
               << ", shells=" << shellCount

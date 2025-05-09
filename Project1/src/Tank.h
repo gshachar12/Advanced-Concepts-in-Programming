@@ -59,7 +59,7 @@ public:
     void cancelBackward();
 
     void printPosition();
-    void printStatus() const;
+    void printStatus();
 
     // (Optional) Rotation helpers (not mandatory if you don't need them)
     void rotateLeft1_8();

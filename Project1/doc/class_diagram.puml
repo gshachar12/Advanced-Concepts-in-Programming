@@ -54,6 +54,8 @@ class GameObject {
     + move(dx: int, dy: int): void
     + {abstract} update(): void
     + {static} stringToDirection(str: string): Direction
+    + isTargeting( const GameObject &tank) const: bool
+
 }
 
 ' Tank class
@@ -132,6 +134,8 @@ class Board {
 ' Controller class
 class Controller {
     + ChaseTank(board: Board, myTank: Tank, enemyTank: Tank, shells: vector<Shell>): ActionType
+    + EvadeTank(Board board, Tank &myTank, Tank &enemyTank): ActionType
+    + AvoidShells(Board board, Tank &myTank, const std::vector<Shell> &shells): ActionType
     + {virtual} ~Controller()
 }
 
