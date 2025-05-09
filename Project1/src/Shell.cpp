@@ -18,7 +18,7 @@ std::pair<int, int> Shell::advance() {
     return {dx, dy};
 }
 
-void Shell::printStatus() const {
+void Shell::printStatus()  {
     std::cout << "Shell at (" << getX() << ", " << getY() << ")"
               << ", direction=" << Directions::directionToString(getDirection()) 
               << ", active=" << (active ? "true" : "false")

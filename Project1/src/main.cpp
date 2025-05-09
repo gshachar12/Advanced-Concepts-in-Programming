@@ -11,6 +11,7 @@
 #include <string>
 #include <memory>
 #include <fstream>
+#include <filesystem>
 
 #include "Board.h"
 #include "Tank.h"
@@ -22,18 +23,31 @@ using namespace std;
 
 auto board = std::make_unique<Board>();
 
+// Function to remove the file extension (.txt) if present
+std::string extractFileName(const std::string& filePath) {
+    // Find the position of the last '/'
+    size_t startPos = filePath.find_last_of("/\\") + 1;
+
+    // Find the position of the first '.' after the '/'
+    size_t endPos = filePath.find('.', startPos);
+
+    // Extract the substring between the two positions
+    return filePath.substr(startPos, endPos - startPos);
+}
 bool openFile(std::ifstream &fin, const std::string &filename)
 {
     int w,h; 
     if (!fin.is_open()) {
         std::cerr << "Error: Could not open file '" << filename << "'\n";
-        return false;
+        exit(1); 
+
     }
 
     // Read width, height
     if (!(fin >> w >> h )) {
         std::cerr << "Error: Failed to read board dimensions.\n";
-        return false;
+        exit(1); 
+
     }
 
     board->setWidth(w);  // Set the width using the setter method
@@ -41,7 +55,7 @@ bool openFile(std::ifstream &fin, const std::string &filename)
 
     if (board->getWidth() <= 0 || board->getHeight() <= 0) {
         std::cerr << "Error: Invalid board dimensions.\n";
-        return false;
+        exit(1); 
     }
 
 
@@ -93,6 +107,7 @@ int main(int argc, char* argv[]) {
     }
 
     string filename = argv[1];
+
     bool visual_mode = false;
     if (argc >= 3) {
         string modeArg = argv[2];
@@ -105,6 +120,7 @@ int main(int argc, char* argv[]) {
     } else {
         cout << "Running the game in text mode." << endl;
     }
+
 
     // Load board
         // Create tanks with custom starting positions and directions
@@ -122,10 +138,13 @@ int main(int argc, char* argv[]) {
     cout << "width: " << width << " height: " << height << endl;
 
 
-
     // Create minimal stub controllers
     auto ctrl1 = make_unique<Controller>();
     auto ctrl2 = make_unique<Controller>();
+    std::string boardFileName = extractFileName(filename); // "exampleBoard"
+    
+    // Construct the output file name
+    std::string outputFileName = "outputs/output_" + boardFileName + ".txt";
 
     // Create the GameManager using the new constructor
     GameManager gameManager(t1, t2, move(ctrl1), move(ctrl2), move(board), visual_mode);
@@ -137,7 +156,7 @@ int main(int argc, char* argv[]) {
     }
 
     // Run the game loop
-    gameManager.runGameLoop();
+    gameManager.runGameLoop(outputFileName);
 
     return 0;
 }

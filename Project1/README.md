@@ -1,8 +1,8 @@
 # Tank Battle Game
 
 ## Authors
-- Shachar Gabbay
-- Dor Liberman
+- Shachar Gabbay 213144173
+- Dor Liberman 318635463s
 
 ## Project Overview
 This project implements a turn-based tank battle game where two tanks navigate a 2D grid and attempt to destroy each other. The game features collision detection, wall destruction mechanics, mine placement, and shell firing.
@@ -103,6 +103,23 @@ A high-level design document (HLD) is available in the `/doc` directory, contain
 - Implementation of the Observer pattern for game state monitoring
 - Strategy pattern for tank control algorithms
 
+
+## Actions
+
+- Each tank in GameManager has an algorithm (alg1, alg2)
+- Use ChaseTank to chase a tank (for example alg1->ChaseTank(*board, tank1, tank2, shells);)
+- Use EvadeTank to evade (for example alg2->EvadeTank(*board, tank2, tank1, shells);)
+- For Other operations, you may use one of the operations in ActionType:
+
+    MOVE_FORWARD,
+    MOVE_BACKWARD,
+    ROTATE_LEFT_1_8,
+    ROTATE_RIGHT_1_8,
+    ROTATE_LEFT_1_4,
+    ROTATE_RIGHT_1_4,
+    SHOOT,
+    NONE
+(For example, ActionType::SHOOT)
 ## Testing
 The game has been tested through:
 - Manual testing with various board configurations (open arenas, maze-like structures)

@@ -15,6 +15,9 @@ bool Position::operator!=(const Position &other) const {
     return !(*this == other);
 }
 
+Position Position::operator*(int scalar) const {
+    return Position(x * scalar, y * scalar);
+}
 // Add an offset to the current position
 Position Position::operator+(const Position &offset) const {
     return Position(x + offset.x, y + offset.y);
@@ -28,6 +31,18 @@ Position Position::operator-(const Position &offset) const {
 // Check if the position is within grid bounds
 bool Position::isInBounds(int width, int height) const {
     return x >= 0 && x < width && y >= 0 && y < height;
+}
+// not real vector normalization, but converts displacement to 1/0/-1 format 
+void Position::normalize()
+{
+    if(x<0)
+        x =-1; 
+    if(x>0)
+        x =1; 
+    if(y<0)
+       y =-1; 
+    if(y>0)
+       y =1; 
 }
 
 // Calculate Euclidean distance between two positions

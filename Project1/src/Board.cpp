@@ -10,7 +10,10 @@ const int WALL_DAMAGE_DESTROYED = 2;
  * Convert a CellType back to a char if needed.
  * Could be used for display or debugging.
  */
-static char cellTypeToChar(CellType t) {
+
+
+char Board::cellTypeToChar(CellType t)
+{
     switch(t) {
         case CellType::WALL:   return '#';
         case CellType::MINE:   return '@';
@@ -22,8 +25,7 @@ static char cellTypeToChar(CellType t) {
         case CellType::EMPTY:  return ' ';
         case CellType::UNKNOWN:return '?';
     }
-    return '?';
-}
+    return '?';}
 
 /**
  * Convert a character from the file into a CellType enum.

@@ -37,13 +37,15 @@ bool GameManager::initializeGame()
     return true;
 }
 
-void GameManager::runGameLoop()
+void GameManager::runGameLoop(const std::string& boardFile)
 {
     turnCount = 0;
     std::vector<Tank *> tanks;
     tanks.push_back(&tank1);
     tanks.push_back(&tank2);
-    outFile.open("output.txt");
+    outFile.open(boardFile);
+    std::cout << "Opening file: " + boardFile << std::endl;
+
 
     // Check if the file is open
     if (!outFile) {
@@ -53,12 +55,11 @@ void GameManager::runGameLoop()
     while (!gameOver && turnCount < MAX_TURNS)
     {
         turnCount++;
-        std::cout << "\033[2J\033[1;1H"; // clear screen
-
+        if (visualMode)
+            std::cout << "\033[2J\033[1;1H"; // clear screen
         printToBoth("Turn " + std::to_string(turnCount));
-
         ActionType action1 = alg1->ChaseTank(*board, tank1, tank2, shells);
-        ActionType action2 = alg2->EvadeTank(*board, tank2, tank1);
+        ActionType action2 = ActionType::SHOOT;// alg2->EvadeTank(*board, tank2, tank1, shells);
         printToBoth("Tank 1 status:");
         applyAction(tank1, action1);
         printToBoth("Tank 2 status:");
@@ -77,7 +78,7 @@ void GameManager::runGameLoop()
         tank1.printStatus();
         tank2.printStatus();
 
-        for (const auto &shell : shells)
+        for ( auto &shell : shells)
         {
             printToBoth("Shell status:");
             shell.printStatus();
@@ -347,7 +348,7 @@ void GameManager::displayGame()
         {
             // Check if there's an active shell at (x, y)
             bool hasShell = false;
-            for (const auto &shell : shells)
+            for ( auto &shell : shells)
             {
                 if (shell.getX() == x && shell.getY() == y)
                 {

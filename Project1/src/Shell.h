@@ -51,7 +51,7 @@ public:
     // Override update() so that each turn the shell automatically advances.
 
     // Print the shell’s current status (for debugging)
-    void printStatus() const;
+    void printStatus() ;
 };
 
 #endif // SHELL_H

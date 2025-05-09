@@ -51,9 +51,5 @@ public:
     // Function to get all directions - now returns a const reference to avoid copying
     static const std::array<Direction, static_cast<int>(Direction::NUM_DIRECTIONS)>& getAllDirections();
 
-    // Helper to get the next position in a given direction
-    static Position getNextPosition(const Position &pos, Direction dir) {
-        auto [dx, dy] = directionToOffset(dir);
-        return Position(pos.x + dx, pos.y + dy);
-    }
+
 };

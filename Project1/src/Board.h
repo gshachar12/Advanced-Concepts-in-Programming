@@ -42,7 +42,8 @@ public:
     void setWrapAround(bool enable) { wrapAround = enable; }
     bool isWrapAround() const { return wrapAround; }
 
-    
+    static char cellTypeToChar(CellType t);
+
     // Check if (x, y) is within normal bounds (no wrap-around here).
     bool inBounds(int x, int y) const
     {
@@ -52,7 +53,6 @@ public:
     // Get the CellType at (x, y),
     static CellType charToCellType(char c);
     // applying wrap-around or bounding checks as needed.
-    
     CellType getCellType(int x, int y) const;
     // Set the CellType at (x, y),
     // applying wrap-around or bounding checks as needed.
