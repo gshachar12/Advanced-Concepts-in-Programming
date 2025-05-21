@@ -1,0 +1,33 @@
+Project2/
+   ├── src/
+   │   ├── GameObject.cpp
+   │   ├── GameObject.h
+   │   ├── Board.cpp
+   │   ├── Board.h
+   │   ├── Position.cpp
+   │   ├── Position.h
+   │   ├── GameManager.cpp
+   │   ├── GameManager.h
+   │   └── main.cpp
+   ├── maps/
+   │   └── game_map.txt
+   └── CMakeLists.txt
+```
+game_map.txt:
+```plaintext
+Simple Test Battle
+MaxSteps = 100
+NumShells = 16
+Rows = 10
+Cols = 15
+###############
+#      @      #
+#  1       2  #
+#             #
+#     ###     #
+#     ###     #
+#             #
+#  1       2  #
+#      @      #
+###############
+```
