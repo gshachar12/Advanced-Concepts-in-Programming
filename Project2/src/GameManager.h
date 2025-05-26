@@ -39,6 +39,7 @@ private:
     size_t currentStep;
     bool gameOver;
     std::string gameResultMessage;
+    bool visualMode;
     
     // Constants for game rules
     static const size_t MAX_NO_SHELLS_STEPS = 40;  // Tie after 40 steps with no shells
@@ -51,9 +52,10 @@ private:
     MyTankAlgorithmFactory algorithmFactory;
 
 public:
-    // Constructor accepting factories
+    // Constructor accepting factories and visual mode
     GameManager(const PlayerFactory& playerFactory, 
-                const TankAlgorithmFactory& algorithmFactory);
+                const TankAlgorithmFactory& algorithmFactory,
+                bool visualMode = false);
 
     // Core game methods
     bool readBoard(const std::string& filename);
@@ -71,6 +73,7 @@ private:
     void cleanupDeadObjects();
     void processTankAction(Tank& tank);
     void handleCollisions();
+    void displayGame(); // New method for visualization
 };
 
 #endif // GAME_MANAGER_H

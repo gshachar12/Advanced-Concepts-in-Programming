@@ -1,0 +1,41 @@
+Turn 1
+Tank 1 status:
+MOVE FORWARD: Tank 1
+stepped on (7, 5): Tank
+Tank 2 status:
+TANK 2 SHOOT
+stepped on (0, 3): Tank
+Shell status:
+Turn 2
+Tank 1 status:
+ROTATE LEFT 1/8TH Tank 1
+stepped on (7, 5): Tank
+Tank 2 status:
+TANK 2 CANNOT SHOOT
+stepped on (0, 3): Tank
+Shell status:
+Turn 3
+Tank 1 status:
+MOVE FORWARD: Tank 1
+stepped on (6, 6): Tank
+Tank 2 status:
+TANK 2 CANNOT SHOOT
+stepped on (0, 3): Tank
+Shell status:
+Turn 4
+Tank 1 status:
+ROTATE RIGHT 1/8TH Tank 1
+stepped on (6, 6): Tank
+Tank 2 status:
+TANK 2 CANNOT SHOOT
+stepped on (0, 3): Tank
+Shell status:
+Turn 5
+Tank 1 status:
+MOVE FORWARD: Tank 1
+stepped on (5, 6): Tank
+Tank 2 status:
+TANK 2 SHOOT
+stepped on (0, 3): Tank
+Player 2's tank destroyed by a shell at (0, 3).
+Shell status:
