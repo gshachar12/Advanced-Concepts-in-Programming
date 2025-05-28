@@ -117,6 +117,11 @@ public:
     void rotateLeft90();   // Rotate 90 degrees counter-clockwise
     void rotateRight90();  // Rotate 90 degrees clockwise
 
+    // Get a reference to the algorithm for the Player to access
+    TankAlgorithm* getAlgorithm() const { 
+        return algorithm.get();
+    }
+
 private:
     // Helpers for rotation
     int findDirectionIndex(const Direction &d) const;

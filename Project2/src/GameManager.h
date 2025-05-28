@@ -11,6 +11,8 @@
 #include "common/PlayerFactory.h"
 #include "common/TankAlgorithmFactory.h"
 #include "common/Player.h"
+#include "algorithms/Controller.h"
+#include "algorithms/Defensive.h"
 
 // Concrete implementation of PlayerFactory
 class MyPlayerFactory : public PlayerFactory {

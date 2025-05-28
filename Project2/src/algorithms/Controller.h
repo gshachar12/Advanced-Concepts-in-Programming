@@ -4,6 +4,8 @@
 #include "../common/TankAlgorithm.h"
 #include "../common/ActionRequest.h"
 #include "../TankBattleInfo.h"
+#include "../Position.h"
+#include "../Directions.h"
 #include <vector>
 
 class Controller : public TankAlgorithm {
