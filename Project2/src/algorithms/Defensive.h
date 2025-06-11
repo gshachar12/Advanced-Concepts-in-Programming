@@ -23,15 +23,15 @@ private:
 public:
     Defensive(int player_index, int tank_index);
     ActionRequest getAction() override;
+    
     void updateBattleInfo(BattleInfo& info) override;
     
 private:
     // Initialize a defensive action sequence based on player and tank index
     void initActionSequence();
-    
+    void ChaseBFS(const TankBattleInfo& info);
     // Determine if we should retreat based on battle info
     bool shouldRetreat(const TankBattleInfo& info) const;
-    
     // Plan a defensive action when under threat
     ActionRequest planDefensiveAction(const TankBattleInfo& info);
 };

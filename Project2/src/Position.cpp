@@ -29,11 +29,13 @@ bool Position::isWithinBounds(int maxX, int maxY) const {
 }
 
 // Clamps the position to stay within bounds
-void Position::clamp(int maxX, int maxY) {
-    if (x < 0) x = 0;
-    if (x >= maxX) x = maxX - 1;
-    if (y < 0) y = 0;
-    if (y >= maxY) y = maxY - 1;
+void Position::clamp(int minVal, int maxVal) {
+
+    
+    if (x!=0&&x < minVal) x = minVal;
+    if (x!=0&&x > maxVal) x = maxVal;
+    if (y!=0&&y < minVal) y = minVal;
+    if (y!=0&&y > maxVal) y = maxVal;
 }
 
 // Wraps the position around the bounds (like in Pac-Man)

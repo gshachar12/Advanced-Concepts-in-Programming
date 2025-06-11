@@ -2,6 +2,9 @@
 CXX = g++
 CXXFLAGS = -Wall -Wextra -pedantic -std=c++17
 
+# Linker flags for SFML
+LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+
 # Find all .cpp files in src/ and subdirectories, excluding problematic ones
 SRCS := $(filter-out src/Controller.cpp, $(wildcard src/*.cpp)) $(wildcard src/algorithms/*.cpp) $(wildcard src/api/*.cpp)
 OBJS := $(SRCS:.cpp=.o)
@@ -12,7 +15,7 @@ TARGET = tank_game
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@

@@ -25,8 +25,9 @@ public:
           boardHeight(y),
           maxSteps(max_steps),
           numShells(num_shells) {}
-    
+            
     void updateTankWithBattleInfo(TankAlgorithm& tank, SatelliteView& satellite_view) override;
+    void setDirection(TankAlgorithm& tank, Direction direction);
 };
 
 #endif // MY_PLAYER_H

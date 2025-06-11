@@ -45,6 +45,8 @@ int main(int argc, char** argv) {
         game.run();
         
         std::cout << "Game completed successfully!" << std::endl;
+
+        
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
         return 3;

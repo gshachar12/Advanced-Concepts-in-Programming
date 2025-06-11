@@ -75,6 +75,8 @@ void Controller::initActionSequence() {
 
 ActionRequest Controller::getAction() {
     // After some actions, request battle info
+    return ActionRequest::Shoot;
+
     if (needsBattleInfo) {
         needsBattleInfo = false;
         return ActionRequest::GetBattleInfo;

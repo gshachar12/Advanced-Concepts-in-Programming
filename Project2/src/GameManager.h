@@ -33,49 +33,63 @@ public:
 class GameManager {
 private:
     Board board;
+    std::vector<Position> explosions;
     std::vector<std::unique_ptr<Tank>> tanks;
     std::vector<std::unique_ptr<GameObject>> shells;
-    std::unique_ptr<Player> player1;
+    std::unique_ptr<MyPlayer> player1;
     std::unique_ptr<Player> player2;
     std::ofstream outputFile;
     size_t currentStep;
     bool gameOver;
     std::string gameResultMessage;
     bool visualMode;
-    
-    // Constants for game rules
+
     static const size_t MAX_NO_SHELLS_STEPS = 40;  // Tie after 40 steps with no shells
-    
-    // Tracking variables
     size_t noShellsSteps;  // Count of consecutive steps where no player has shells
-    
-    // Factory objects for creating players and algorithms
+
     MyPlayerFactory playerFactory;
     MyTankAlgorithmFactory algorithmFactory;
 
+    // Visual board representation for display
+    std::vector<std::vector<std::string>> visualBoard;
+
 public:
-    // Constructor accepting factories and visual mode
+    // Constructor
     GameManager(const PlayerFactory& playerFactory, 
                 const TankAlgorithmFactory& algorithmFactory,
                 bool visualMode = false);
 
-    // Core game methods
+    // Game control
     bool readBoard(const std::string& filename);
     void run();
 
 private:
-    // Helper methods
+    // Core logic
     void initializePlayers();
     void initializeTanks();
+    bool isTankAboutToHitWall(const int newX, const int newY) const; 
+    bool isTankCollidingWithOthers(const Tank &tank,   Board &board);
+    bool checkTankOnMine(Tank& tank);
     void processRound();
     bool isGameOver();
-    void checkInitialGameOver();  // Check if game is over before first round
+    void checkInitialGameOver();
     void writeOutputLine();
     void writeFinalOutput();
     void cleanupDeadObjects();
     void processTankAction(Tank& tank);
-    void handleCollisions();
-    void displayGame(); // New method for visualization
+    void handleShellCollisions(Shell* shell);
+
+    
+    // Visualization
+    void displayGame();              // Main visual output function
+    void initVisualBoard();         // Fill visualBoard with base cell types
+    void overlayShells();           // Place shells on visualBoard
+    void overlayTanks();            // Place tanks (as arrows) on visualBoard
+    void printBoard();              // Print visualBoard to console
+    void printTankStatus();         // Show tank state info
+    void printShellStatus();        // Show shell state info
+    void printGameSummary();        // Summary of tank/shell counts
+    void waitForVisualPause();      // Wait and clear screen
 };
 
 #endif // GAME_MANAGER_H

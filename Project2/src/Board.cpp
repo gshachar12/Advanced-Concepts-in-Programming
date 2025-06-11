@@ -100,7 +100,6 @@ void Board::weakenWall(int x, int y) {
     // If hits = 1, turn it into a weak wall
     if (wallInfo[y][x].hitsTaken == WALL_DAMAGE_WEAK) {
         grid[y][x] = CellType::WEAK_WALL;
-        std::cout << "Weak wall at (" << x << ", " << y << ")" << std::endl;
     }
     
     // If hits >= 2, destroy the wall
@@ -109,7 +108,6 @@ void Board::weakenWall(int x, int y) {
         grid[y][x] = CellType::EMPTY;
         wallInfo[y][x].isWall = false;
         wallInfo[y][x].hitsTaken = 0; // reset
-        std::cout << "Wall destroyed at (" << x << ", " << y << ")" << std::endl;
     }
 }
 

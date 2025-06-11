@@ -3,7 +3,6 @@
 
 #include <memory>
 #include "TankAlgorithm.h"
-
 class TankAlgorithmFactory {
 public:
     virtual ~TankAlgorithmFactory() {}

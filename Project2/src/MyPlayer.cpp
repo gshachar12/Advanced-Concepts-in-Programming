@@ -1,5 +1,5 @@
 #include "MyPlayer.h"
-#include "Tank.h" // We need this for dynamic_cast
+#include "Tank.h" 
 #include "TankBattleInfo.h"
 #include <iostream>
 
@@ -25,6 +25,8 @@ void MyPlayer::updateTankWithBattleInfo(TankAlgorithm& tank, SatelliteView& sate
     std::vector<Position> friendlyTankPositions;
     std::vector<Position> minePositions;
     std::vector<Position> wallPositions;
+    std::vector<Position> shellPositions;
+
     
     // First scan: find the requesting tank's position
     for (size_t y = 0; y < boardHeight; ++y) {
@@ -41,14 +43,9 @@ void MyPlayer::updateTankWithBattleInfo(TankAlgorithm& tank, SatelliteView& sate
     // Set tank position in battle info
     tankBattleInfos[tankKey]->setPosition(tankPosition);
     
-    // We don't have direct access to the tank's direction from this method
-    // In a real implementation, we'd store these or pass them in
-    // For now, we'll just use UP as default
-    tankBattleInfos[tankKey]->setDirection(Direction::UP);
-
     // Set remaining shells and shoot ability (defaults since we don't have the real data)
-    tankBattleInfos[tankKey]->setRemainingShells(numShells); // This is a placeholder
-    tankBattleInfos[tankKey]->setCanShoot(true);            // This is a placeholder
+    tankBattleInfos[tankKey]->setRemainingShells(numShells); 
+    tankBattleInfos[tankKey]->setCanShoot(true);           
     
     // Second scan: collect all battlefield information
     for (size_t y = 0; y < boardHeight; ++y) {
@@ -113,6 +110,9 @@ void MyPlayer::updateTankWithBattleInfo(TankAlgorithm& tank, SatelliteView& sate
                 case '*': // Artillery shell
                 {
                     // Could track shells if needed for advanced strategies
+                    Position shellPos{static_cast<int>(x), static_cast<int>(y)};
+                    tankBattleInfos[tankKey]->addShell(shellPos);
+                    shellPositions.push_back(shellPos);
                     break;
                 }
                 
@@ -121,14 +121,15 @@ void MyPlayer::updateTankWithBattleInfo(TankAlgorithm& tank, SatelliteView& sate
         }
     }
     
-    // Here we could implement tank coordination strategies
-    // For example:
-    // - Assign different areas of the map to different tanks
-    // - Coordinate attacks on enemy tanks
-    // - Share information about discovered mines and walls
-    
-    // For this basic implementation, we simply pass the collected information
-
     // Update the tank algorithm with the battle info
     tank.updateBattleInfo(*tankBattleInfos[tankKey]);
+}
+
+void MyPlayer::setDirection(TankAlgorithm& tank, Direction direction) {
+    // Get tank's battle info
+    int tankKey = reinterpret_cast<std::intptr_t>(&tank);
+    
+    if (tankBattleInfos.find(tankKey) != tankBattleInfos.end()) {
+        tankBattleInfos[tankKey]->setDirection(direction);
+    }
 }
