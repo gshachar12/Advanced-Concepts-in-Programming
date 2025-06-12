@@ -1,0 +1,5 @@
+if(EXISTS "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/tanks_game_tests[1]_tests.cmake")
+  include("/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/tanks_game_tests[1]_tests.cmake")
+else()
+  add_test(tanks_game_tests_NOT_BUILT tanks_game_tests_NOT_BUILT)
+endif()
