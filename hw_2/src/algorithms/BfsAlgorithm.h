@@ -4,39 +4,42 @@
 #include "Direction.h"
 #include "MyTankAlgorithm.h"
 
+// Intelligent tank algorithm that uses breadth-first search for pathfinding
 class BfsAlgorithm final : public MyTankAlgorithm {
 public:
+    // Constructor initializes the tank with player and tank identifiers
     explicit BfsAlgorithm(int player_id, int tank_index) : MyTankAlgorithm(player_id, tank_index) {
-        initLatestEnemyPosition();
+        initEnemyPositionTracking();
     }
 
+    // Return algorithm identifier
     std::string getName() const override { return "BfsAlgorithm"; }
 
+    // Main decision-making method for the tank's actions
     void calculateAction(ActionRequest *request, std::string *request_title) override;
 
 private:
-    bool was_threatened{false};
-    std::vector<Position> last_enemy_positions = {};
+    // State tracking
+    bool danger_detected{false};
+    std::vector<Position> enemy_position_history = {};
 
-    void initLatestEnemyPosition();
+    // Enemy position tracking methods
+    void initEnemyPositionTracking();
+    void refreshEnemyPositions();
+    bool haveEnemiesMoved() const;
 
-    void updateLatestEnemyPosition();
+    // Threat response methods
+    void respondToThreat(ActionRequest *request, std::string *request_title);
+    void attemptToEngageEnemy(ActionRequest *request, std::string *request_title);
+    bool turnTowardsEnemy(ActionRequest *request, std::string *request_title) const;
 
-    void handleTankThreatened(ActionRequest *request, std::string *request_title);
-
-    void tryShootEnemy(ActionRequest *request, std::string *request_title);
-
-    bool rotateToEnemy(ActionRequest *request, std::string *request_title) const;
-
-    void updatePathIfNeeded();
-
-    void handleEmptyPath(ActionRequest *request, std::string *request_title) const;
-
-    void followPathOrRotate(ActionRequest *request, std::string *request_title);
-
-    std::vector<Direction::DirectionType> computeBFS();
-
-    bool hasEnemyMoved() const;
+    // Path management methods
+    void updateNavigationPath();
+    void handleNoValidPath(ActionRequest *request, std::string *request_title) const;
+    void followCurrentPath(ActionRequest *request, std::string *request_title);
+    
+    // Core pathfinding algorithm
+    std::vector<Direction::DirectionType> findPathWithBFS();
 };
 
 

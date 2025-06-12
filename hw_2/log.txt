@@ -1,648 +1,777 @@
-2025-06-12 11:21:36 - Parsing file:  inputs/input2.txt
-2025-06-12 11:21:36 - Board Info Read: Board description: 2 - Many tanks, player 1 wins, MaxSteps: 5000, NumShells: 20, Rows: 12, Cols: 18
-2025-06-12 11:21:36 - Board loaded successfully
-2025-06-12 11:21:37 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:37 - Player_id: 1
-2025-06-12 11:21:37 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:37 - Player_id: 1
-2025-06-12 11:21:37 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:37 - Player_id: 1
-2025-06-12 11:21:37 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:37 - Player_id: 2
-2025-06-12 11:21:37 - Player 2 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:37 - Player_id: 2
-2025-06-12 11:21:37 - Player 2 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:37 - Player_id: 2
-2025-06-12 11:21:37 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:37 - Player_id: 1
-2025-06-12 11:21:37 - Player 1 - Tank Index 1 Threatened by enemy
-2025-06-12 11:21:37 - Player 1 - Tank Index 1 Escape threat
-2025-06-12 11:21:37 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:37 - Player_id: 1
-2025-06-12 11:21:37 - Player 2 - Tank Index 0 Threatened by enemy
-2025-06-12 11:21:37 - Player 2 - Tank Index 0 Moving because currently threatened
-2025-06-12 11:21:37 - Player 2 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:37 - Player_id: 2
-2025-06-12 11:21:37 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:37 - Player_id: 2
-2025-06-12 11:21:38 - Player 1 - Tank Index 0 Performing BFS. Start Position = (13, 3)
-2025-06-12 11:21:38 - Player 1 - Tank Index 0 Rotating from direction LEFT to DOWN_LEFT
-2025-06-12 11:21:38 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:38 - Player_id: 1
-2025-06-12 11:21:38 - Player 1 - Tank Index 2 Performing BFS. Start Position = (4, 8)
-2025-06-12 11:21:38 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-12 11:21:38 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:38 - Player_id: 2
-2025-06-12 11:21:38 - Player 2 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 2
-2025-06-12 11:21:38 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 2
-2025-06-12 11:21:38 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 1
-2025-06-12 11:21:38 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 1
-2025-06-12 11:21:38 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 1
-2025-06-12 11:21:38 - Player 2 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 2
-2025-06-12 11:21:38 - Player 2 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 2
-2025-06-12 11:21:38 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 2
-2025-06-12 11:21:38 - Player 1 - Tank Index 0 Performing BFS. Start Position = (13, 3)
-2025-06-12 11:21:38 - Player 1 - Tank Index 0 Moving forward to (12,4)
-2025-06-12 11:21:38 - Player 1 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:38 - Player 1 - Tank Index 1 Escape threat
-2025-06-12 11:21:38 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:38 - Player 1 - Tank Index 2 Escape threat
-2025-06-12 11:21:38 - Player 2 - Tank Index 0 Threatened by shells
-2025-06-12 11:21:38 - Player 2 - Tank Index 0 Moving because currently threatened
-2025-06-12 11:21:38 - Player 2 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 2
-2025-06-12 11:21:38 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 2
-2025-06-12 11:21:38 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 1
-2025-06-12 11:21:38 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:38 - Player_id: 1
-2025-06-12 11:21:38 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:38 - Player_id: 1
-2025-06-12 11:21:38 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:38 - Player_id: 2
-2025-06-12 11:21:38 - Player 2 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 2
-2025-06-12 11:21:38 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 2
-2025-06-12 11:21:38 - Player 1 - Tank Index 0 Performing BFS. Start Position = (12, 4)
-2025-06-12 11:21:38 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-12 11:21:38 - Player 1 - Tank Index 1 Threatened by enemy
-2025-06-12 11:21:38 - Player 1 - Tank Index 1 Escape threat
-2025-06-12 11:21:38 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 1
-2025-06-12 11:21:38 - Player 2 - Tank Index 0 Threatened by enemy
-2025-06-12 11:21:38 - Player 2 - Tank Index 0 Moving because currently threatened
-2025-06-12 11:21:38 - Player 2 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 2
-2025-06-12 11:21:38 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 2
-2025-06-12 11:21:38 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 1
-2025-06-12 11:21:38 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:38 - Player_id: 1
-2025-06-12 11:21:38 - Player 1 - Tank Index 2 Performing BFS. Start Position = (4, 8)
-2025-06-12 11:21:38 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-12 11:21:38 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:38 - Player_id: 2
-2025-06-12 11:21:38 - Player 2 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 2
-2025-06-12 11:21:38 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:38 - Player_id: 2
-2025-06-12 11:21:39 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-12 11:21:39 - Player 1 - Tank Index 0 Escape threat
-2025-06-12 11:21:39 - Player 1 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:39 - Player 1 - Tank Index 1 Escape threat
-2025-06-12 11:21:39 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 2 - Tank Index 0 Threatened by enemy
-2025-06-12 11:21:39 - Player 2 - Tank Index 0 Moving because currently threatened
-2025-06-12 11:21:39 - Player 2 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:39 - Player 2 - Tank Index 1 Moving because currently threatened
-2025-06-12 11:21:39 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:39 - Player 2 - Tank Index 2 Moving because currently threatened
-2025-06-12 11:21:39 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:39 - Player 1 - Tank Index 2 Escape threat
-2025-06-12 11:21:39 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 2 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 2 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 1 - Tank Index 1 Threatened by enemy
-2025-06-12 11:21:39 - Player 1 - Tank Index 1 Escape threat
-2025-06-12 11:21:39 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 2 - Tank Index 0 Threatened by enemy
-2025-06-12 11:21:39 - Player 2 - Tank Index 0 Moving because currently threatened
-2025-06-12 11:21:39 - Player 2 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 1 - Tank Index 0 Performing BFS. Start Position = (12, 4)
-2025-06-12 11:21:39 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-12 11:21:39 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 2 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 1 - Tank Index 2 Performing BFS. Start Position = (4, 8)
-2025-06-12 11:21:39 - Player 1 - Tank Index 2 Rotating from direction LEFT to UP_LEFT
-2025-06-12 11:21:39 - Player 2 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 2 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-12 11:21:39 - Player 1 - Tank Index 0 Escape threat
-2025-06-12 11:21:39 - Player 1 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:39 - Player 1 - Tank Index 1 Escape threat
-2025-06-12 11:21:39 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 2 - Tank Index 0 Threatened by shells
-2025-06-12 11:21:39 - Player 2 - Tank Index 0 Moving because currently threatened
-2025-06-12 11:21:39 - Player 2 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:39 - Player 2 - Tank Index 1 Moving because currently threatened
-2025-06-12 11:21:39 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:39 - Player 2 - Tank Index 2 Moving because currently threatened
-2025-06-12 11:21:39 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 1 - Tank Index 2 Performing BFS. Start Position = (4, 8)
-2025-06-12 11:21:39 - Player 1 - Tank Index 2 Moving forward to (3,7)
-2025-06-12 11:21:39 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 2 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 2 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 2 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 2 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 1 - Tank Index 0 Performing BFS. Start Position = (12, 4)
-2025-06-12 11:21:39 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-12 11:21:39 - Player 1 - Tank Index 1 Performing BFS. Start Position = (8, 4)
-2025-06-12 11:21:39 - Player 1 - Tank Index 1 Moving forward to (9,4)
-2025-06-12 11:21:39 - Player 1 - Tank Index 2 Rotating 2 toward enemy
-2025-06-12 11:21:39 - Player 2 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 2 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 2 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 2 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-12 11:21:39 - Player 1 - Tank Index 0 Escape threat
-2025-06-12 11:21:39 - Player 1 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:39 - Player 1 - Tank Index 1 Escape threat
-2025-06-12 11:21:39 - Player 1 - Tank Index 2 Rotating 2 toward enemy
-2025-06-12 11:21:39 - Player 2 - Tank Index 0 Threatened by shells
-2025-06-12 11:21:39 - Player 2 - Tank Index 0 Moving because currently threatened
-2025-06-12 11:21:39 - Player 2 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:39 - Player 2 - Tank Index 1 Moving because currently threatened
-2025-06-12 11:21:39 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:39 - Player 2 - Tank Index 2 Moving because currently threatened
-2025-06-12 11:21:39 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:39 - Player_id: 1
-2025-06-12 11:21:39 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 2 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:39 - Player 2 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:39 - Player_id: 2
-2025-06-12 11:21:40 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 1 - Tank Index 2 Shoot Enemy
-2025-06-12 11:21:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 2 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 1 - Tank Index 0 Performing BFS. Start Position = (12, 4)
-2025-06-12 11:21:40 - Player 1 - Tank Index 0 Rotating from direction DOWN_LEFT to LEFT
-2025-06-12 11:21:40 - Player 1 - Tank Index 1 Rotating from direction RIGHT to LEFT
-2025-06-12 11:21:40 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 2 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:40 - Player 1 - Tank Index 2 Escape threat
-2025-06-12 11:21:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 2 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 1 - Tank Index 0 Performing BFS. Start Position = (12, 4)
-2025-06-12 11:21:40 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-12 11:21:40 - Player 1 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:40 - Player 1 - Tank Index 1 Escape threat
-2025-06-12 11:21:40 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 2 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:40 - Player 1 - Tank Index 2 Escape threat
-2025-06-12 11:21:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 2 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:40 - Player 2 - Tank Index 1 Moving because currently threatened
-2025-06-12 11:21:40 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:40 - Player 2 - Tank Index 2 Moving because currently threatened
-2025-06-12 11:21:40 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-12 11:21:40 - Player 1 - Tank Index 0 Escape threat
-2025-06-12 11:21:40 - Player 1 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:40 - Player 1 - Tank Index 1 Escape threat
-2025-06-12 11:21:40 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 2 - Tank Index 0 Threatened by shells
-2025-06-12 11:21:40 - Player 2 - Tank Index 0 Moving because currently threatened
-2025-06-12 11:21:40 - Player 2 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 2 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:40 - Player 2 - Tank Index 2 Moving because currently threatened
-2025-06-12 11:21:40 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-12 11:21:40 - Player 1 - Tank Index 0 Escape threat
-2025-06-12 11:21:40 - Player 1 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:40 - Player 1 - Tank Index 1 Escape threat
-2025-06-12 11:21:40 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:40 - Player 1 - Tank Index 2 Escape threat
-2025-06-12 11:21:40 - Player 2 - Tank Index 0 Threatened by shells
-2025-06-12 11:21:40 - Player 2 - Tank Index 0 Moving because currently threatened
-2025-06-12 11:21:40 - Player 2 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:40 - Player 1 - Tank Index 2 Escape threat
-2025-06-12 11:21:40 - Player 2 - Tank Index 0 Threatened by shells
-2025-06-12 11:21:40 - Player 2 - Tank Index 0 Moving because currently threatened
-2025-06-12 11:21:40 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 1 - Tank Index 0 Performing BFS. Start Position = (12, 4)
-2025-06-12 11:21:40 - Player 1 - Tank Index 0 Rotating from direction UP to UP_LEFT
-2025-06-12 11:21:40 - Player 1 - Tank Index 1 Rotating 2 toward enemy
-2025-06-12 11:21:40 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 1
-2025-06-12 11:21:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:40 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:40 - Player_id: 2
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Performing BFS. Start Position = (12, 4)
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Moving forward to (11,3)
-2025-06-12 11:21:41 - Player 1 - Tank Index 1 Shoot Enemy
-2025-06-12 11:21:41 - Player 1 - Tank Index 2 Performing BFS. Start Position = (3, 7)
-2025-06-12 11:21:41 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-12 11:21:41 - Player 2 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 2 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Escape threat
-2025-06-12 11:21:41 - Player 1 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:41 - Player 1 - Tank Index 1 Escape threat
-2025-06-12 11:21:41 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:41 - Player 1 - Tank Index 2 Escape threat
-2025-06-12 11:21:41 - Player 2 - Tank Index 0 Threatened by shells
-2025-06-12 11:21:41 - Player 2 - Tank Index 0 Moving because currently threatened
-2025-06-12 11:21:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Escape threat
-2025-06-12 11:21:41 - Player 1 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:41 - Player 1 - Tank Index 1 Escape threat
-2025-06-12 11:21:41 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 2 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 1 - Tank Index 2 Performing BFS. Start Position = (3, 7)
-2025-06-12 11:21:41 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-12 11:21:41 - Player 2 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Threatened by enemy
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Escape threat
-2025-06-12 11:21:41 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 2 - Tank Index 0 Threatened by enemy
-2025-06-12 11:21:41 - Player 2 - Tank Index 0 Moving because currently threatened
-2025-06-12 11:21:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 1 - Tank Index 1 Shoot Enemy
-2025-06-12 11:21:41 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:41 - Player 1 - Tank Index 2 Escape threat
-2025-06-12 11:21:41 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Escape threat
-2025-06-12 11:21:41 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 1 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:41 - Player 1 - Tank Index 1 Escape threat
-2025-06-12 11:21:41 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Escape threat
-2025-06-12 11:21:41 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 1 - Tank Index 2 Performing BFS. Start Position = (3, 7)
-2025-06-12 11:21:41 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-12 11:21:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:41 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 1 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:41 - Player 1 - Tank Index 1 Escape threat
-2025-06-12 11:21:41 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 1
-2025-06-12 11:21:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:41 - Player_id: 2
-2025-06-12 11:21:42 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 1
-2025-06-12 11:21:42 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:42 - Player_id: 1
-2025-06-12 11:21:42 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:42 - Player 1 - Tank Index 2 Escape threat
-2025-06-12 11:21:42 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 2
-2025-06-12 11:21:42 - Player 1 - Tank Index 0 Performing BFS. Start Position = (9, 1)
-2025-06-12 11:21:42 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-12 11:21:42 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 1
-2025-06-12 11:21:42 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:42 - Player_id: 1
-2025-06-12 11:21:42 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 2
-2025-06-12 11:21:42 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 1
-2025-06-12 11:21:42 - Player 1 - Tank Index 1 Performing BFS. Start Position = (11, 1)
-2025-06-12 11:21:42 - Player 1 - Tank Index 1 Moving forward to (11,2)
-2025-06-12 11:21:42 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 1
-2025-06-12 11:21:42 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 2
-2025-06-12 11:21:42 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 1
-2025-06-12 11:21:42 - Player 1 - Tank Index 2 Performing BFS. Start Position = (3, 7)
-2025-06-12 11:21:42 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-12 11:21:42 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 2
-2025-06-12 11:21:42 - Player 1 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:42 - Player 1 - Tank Index 1 Escape threat
-2025-06-12 11:21:42 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 1
-2025-06-12 11:21:42 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 2
-2025-06-12 11:21:42 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:42 - Player_id: 1
-2025-06-12 11:21:42 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:42 - Player 1 - Tank Index 2 Escape threat
-2025-06-12 11:21:42 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 2
-2025-06-12 11:21:42 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 1
-2025-06-12 11:21:42 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:42 - Player_id: 1
-2025-06-12 11:21:42 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 2
-2025-06-12 11:21:42 - Player 1 - Tank Index 1 Performing BFS. Start Position = (11, 3)
-2025-06-12 11:21:42 - Player 1 - Tank Index 1 Moving forward to (11,4)
-2025-06-12 11:21:42 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 1
-2025-06-12 11:21:42 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 2
-2025-06-12 11:21:42 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 1
-2025-06-12 11:21:42 - Player 1 - Tank Index 2 Performing BFS. Start Position = (3, 7)
-2025-06-12 11:21:42 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-12 11:21:42 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 2
-2025-06-12 11:21:42 - Player 1 - Tank Index 1 Performing BFS. Start Position = (11, 4)
-2025-06-12 11:21:42 - Player 1 - Tank Index 1 Moving forward to (11,5)
-2025-06-12 11:21:42 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 1
-2025-06-12 11:21:42 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 2
-2025-06-12 11:21:42 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 1
-2025-06-12 11:21:42 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:42 - Player 1 - Tank Index 2 Escape threat
-2025-06-12 11:21:42 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 2
-2025-06-12 11:21:42 - Player 1 - Tank Index 1 Performing BFS. Start Position = (11, 5)
-2025-06-12 11:21:42 - Player 1 - Tank Index 1 Shooting randomly due to stuck state
-2025-06-12 11:21:42 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:42 - Player_id: 1
-2025-06-12 11:21:42 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:42 - Player_id: 2
-2025-06-12 11:21:43 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 1
-2025-06-12 11:21:43 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 1
-2025-06-12 11:21:43 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 2
-2025-06-12 11:21:43 - Player 1 - Tank Index 1 Performing BFS. Start Position = (11, 5)
-2025-06-12 11:21:43 - Player 1 - Tank Index 1 Stuck, rotating randomly
-2025-06-12 11:21:43 - Player 1 - Tank Index 2 Performing BFS. Start Position = (3, 7)
-2025-06-12 11:21:43 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-12 11:21:43 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 2
-2025-06-12 11:21:43 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 1
-2025-06-12 11:21:43 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 1
-2025-06-12 11:21:43 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 2
-2025-06-12 11:21:43 - Player 1 - Tank Index 1 Performing BFS. Start Position = (11, 5)
-2025-06-12 11:21:43 - Player 1 - Tank Index 1 Stuck, rotating randomly
-2025-06-12 11:21:43 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:43 - Player 1 - Tank Index 2 Escape threat
-2025-06-12 11:21:43 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 2
-2025-06-12 11:21:43 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 1
-2025-06-12 11:21:43 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:43 - Player_id: 1
-2025-06-12 11:21:43 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 2
-2025-06-12 11:21:43 - Player 1 - Tank Index 1 Performing BFS. Start Position = (11, 5)
-2025-06-12 11:21:43 - Player 1 - Tank Index 1 Shooting randomly due to stuck state
-2025-06-12 11:21:43 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 1
-2025-06-12 11:21:43 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 2
-2025-06-12 11:21:43 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 1
-2025-06-12 11:21:43 - Player 1 - Tank Index 2 Performing BFS. Start Position = (3, 7)
-2025-06-12 11:21:43 - Player 1 - Tank Index 2 Rotating from direction DOWN to RIGHT
-2025-06-12 11:21:43 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 2
-2025-06-12 11:21:43 - Player 1 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:43 - Player 1 - Tank Index 1 Escape threat
-2025-06-12 11:21:43 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 1
-2025-06-12 11:21:43 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:43 - Player 2 - Tank Index 2 Moving because currently threatened
-2025-06-12 11:21:43 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:43 - Player_id: 1
-2025-06-12 11:21:43 - Player 1 - Tank Index 2 Performing BFS. Start Position = (3, 7)
-2025-06-12 11:21:43 - Player 1 - Tank Index 2 Moving forward to (4,7)
-2025-06-12 11:21:43 - Player 2 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:43 - Player_id: 2
-2025-06-12 11:21:43 - Player 1 - Tank Index 1 Threatened by shells
-2025-06-12 11:21:43 - Player 1 - Tank Index 1 Escape threat
-2025-06-12 11:21:43 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 1
-2025-06-12 11:21:43 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:43 - Player 2 - Tank Index 2 Moving because currently threatened
-2025-06-12 11:21:43 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:43 - Player_id: 1
-2025-06-12 11:21:43 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:43 - Player 1 - Tank Index 2 Shoot threat
-2025-06-12 11:21:43 - Player 2 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:43 - Player_id: 2
-2025-06-12 11:21:43 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 1
-2025-06-12 11:21:43 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:43 - Player_id: 1
-2025-06-12 11:21:43 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:43 - Player_id: 2
-2025-06-12 11:21:44 - Player 1 - Tank Index 1 Performing BFS. Start Position = (11, 5)
-2025-06-12 11:21:44 - Player 1 - Tank Index 1 Shooting randomly due to stuck state
-2025-06-12 11:21:44 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:44 - Player 1 - Tank Index 2 Escape threat
-2025-06-12 11:21:44 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:44 - Player_id: 2
-2025-06-12 11:21:44 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-12 11:21:44 - Player_id: 1
-2025-06-12 11:21:44 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:44 - Player_id: 1
-2025-06-12 11:21:44 - Player 2 - Tank Index 2 Requesting updated Battle Info
-2025-06-12 11:21:44 - Player_id: 2
-2025-06-12 11:21:44 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:44 - Player 1 - Tank Index 2 Escape threat
-2025-06-12 11:21:44 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-12 11:21:44 - Player 2 - Tank Index 2 Moving because currently threatened
-2025-06-12 11:21:44 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-12 11:21:44 - Player_id: 1
+2025-06-12 14:08:35 - Parsing file:  inputs/input2.txt
+2025-06-12 14:08:35 - Board Info Read: Board description: 2 - Many tanks, player 1 wins, MaxSteps: 5000, NumShells: 20, Rows: 12, Cols: 18
+2025-06-12 14:08:35 - Board loaded successfully
+2025-06-12 14:08:36 - Player 1 - Tank Index 0 Intelligence gathering
+2025-06-12 14:08:36 - Player_id: 1
+2025-06-12 14:08:36 - Player 1 - Tank Index 1 Battlefield surveillance
+2025-06-12 14:08:36 - Player_id: 1
+2025-06-12 14:08:36 - Player 1 - Tank Index 2 Strategic reconnaissance
+2025-06-12 14:08:36 - Player_id: 1
+2025-06-12 14:08:36 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:36 - Player_id: 2
+2025-06-12 14:08:36 - Player 2 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:36 - Player_id: 2
+2025-06-12 14:08:36 - Player 2 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:36 - Player_id: 2
+2025-06-12 14:08:36 - Player 1 - Tank Index 0 Battlefield reconnaissance
+2025-06-12 14:08:36 - Player_id: 1
+2025-06-12 14:08:36 - Player 1 - Tank Index 1 Threatened by enemy
+2025-06-12 14:08:36 - Player 1 - Tank Index 1 Tactical Evasion
+2025-06-12 14:08:36 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:36 - Player_id: 1
+2025-06-12 14:08:36 - Player 2 - Tank Index 0 Threatened by enemy
+2025-06-12 14:08:36 - Player 2 - Tank Index 0 Moving because currently threatened
+2025-06-12 14:08:36 - Player 2 - Tank Index 1 Requesting updated Battle Info
+2025-06-12 14:08:36 - Player_id: 2
+2025-06-12 14:08:36 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:36 - Player_id: 2
+2025-06-12 14:08:36 - Player 1 - Tank Index 0 Performing tactical recalculation: no existing path
+2025-06-12 14:08:36 - Player 1 - Tank Index 0 Tactical navigation analysis from (13, 3)
+2025-06-12 14:08:36 - Player 1 - Tank Index 0 Aligning from LEFT toward DOWN_LEFT
+2025-06-12 14:08:36 - Player 1 - Tank Index 1 Battlefield surveillance
+2025-06-12 14:08:36 - Player_id: 1
+2025-06-12 14:08:36 - Player 1 - Tank Index 2 Recalculating tactical route: initial planning
+2025-06-12 14:08:36 - Player 1 - Tank Index 2 Beginning route analysis from (4, 8)
+2025-06-12 14:08:36 - Player 1 - Tank Index 2 Tactical area denial
+2025-06-12 14:08:36 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:36 - Player_id: 2
+2025-06-12 14:08:36 - Player 2 - Tank Index 1 Requesting updated Battle Info
+2025-06-12 14:08:36 - Player_id: 2
+2025-06-12 14:08:36 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:36 - Player_id: 2
+2025-06-12 14:08:36 - Player 1 - Tank Index 0 Battlefield reconnaissance
+2025-06-12 14:08:36 - Player_id: 1
+2025-06-12 14:08:36 - Player 1 - Tank Index 1 Tactical intelligence update
+2025-06-12 14:08:36 - Player_id: 1
+2025-06-12 14:08:36 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:36 - Player_id: 1
+2025-06-12 14:08:36 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:36 - Player_id: 2
+2025-06-12 14:08:36 - Player 2 - Tank Index 1 Requesting updated Battle Info
+2025-06-12 14:08:36 - Player_id: 2
+2025-06-12 14:08:36 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:36 - Player_id: 2
+2025-06-12 14:08:37 - Player 1 - Tank Index 0 Performing tactical recalculation: battlefield changes detected
+2025-06-12 14:08:37 - Player 1 - Tank Index 0 Tactical navigation analysis from (13, 3)
+2025-06-12 14:08:37 - Player 1 - Tank Index 0 Advancing to coordinates (12,4)
+2025-06-12 14:08:37 - Player 1 - Tank Index 1 Threatened by shells
+2025-06-12 14:08:37 - Player 1 - Tank Index 1 Tactical Evasion
+2025-06-12 14:08:37 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-12 14:08:37 - Player 1 - Tank Index 2 Emergency evasion maneuver
+2025-06-12 14:08:37 - Player 2 - Tank Index 0 Threatened by shells
+2025-06-12 14:08:37 - Player 2 - Tank Index 0 Moving because currently threatened
+2025-06-12 14:08:37 - Player 2 - Tank Index 1 Requesting updated Battle Info
+2025-06-12 14:08:37 - Player_id: 2
+2025-06-12 14:08:37 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:37 - Player_id: 2
+2025-06-12 14:08:37 - Player 1 - Tank Index 0 Battlefield reconnaissance
+2025-06-12 14:08:37 - Player_id: 1
+2025-06-12 14:08:37 - Player 1 - Tank Index 1 Battlefield surveillance
+2025-06-12 14:08:37 - Player_id: 1
+2025-06-12 14:08:37 - Player 1 - Tank Index 2 Strategic reconnaissance
+2025-06-12 14:08:37 - Player_id: 1
+2025-06-12 14:08:37 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:37 - Player_id: 2
+2025-06-12 14:08:37 - Player 2 - Tank Index 1 Requesting updated Battle Info
+2025-06-12 14:08:37 - Player_id: 2
+2025-06-12 14:08:37 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:37 - Player_id: 2
+2025-06-12 14:08:37 - Player 1 - Tank Index 0 Performing tactical recalculation: no existing path
+2025-06-12 14:08:37 - Player 1 - Tank Index 0 Tactical navigation analysis from (12, 4)
+2025-06-12 14:08:37 - Player 1 - Tank Index 0 Suppressive fire - clearing obstacles
+2025-06-12 14:08:37 - Player 1 - Tank Index 1 Threatened by enemy
+2025-06-12 14:08:37 - Player 1 - Tank Index 1 Tactical Evasion
+2025-06-12 14:08:37 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:37 - Player_id: 1
+2025-06-12 14:08:37 - Player 2 - Tank Index 0 Threatened by enemy
+2025-06-12 14:08:37 - Player 2 - Tank Index 0 Moving because currently threatened
+2025-06-12 14:08:37 - Player 2 - Tank Index 1 Requesting updated Battle Info
+2025-06-12 14:08:37 - Player_id: 2
+2025-06-12 14:08:37 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:37 - Player_id: 2
+2025-06-12 14:08:37 - Player 1 - Tank Index 0 Battlefield reconnaissance
+2025-06-12 14:08:37 - Player_id: 1
+2025-06-12 14:08:37 - Player 1 - Tank Index 1 Battlefield surveillance
+2025-06-12 14:08:37 - Player_id: 1
+2025-06-12 14:08:37 - Player 1 - Tank Index 2 Recalculating tactical route: initial planning
+2025-06-12 14:08:37 - Player 1 - Tank Index 2 Beginning route analysis from (4, 8)
+2025-06-12 14:08:37 - Player 1 - Tank Index 2 Tactical area denial
+2025-06-12 14:08:37 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:37 - Player_id: 2
+2025-06-12 14:08:37 - Player 2 - Tank Index 1 Requesting updated Battle Info
+2025-06-12 14:08:37 - Player_id: 2
+2025-06-12 14:08:37 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:37 - Player_id: 2
+2025-06-12 14:08:37 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-12 14:08:37 - Player 1 - Tank Index 0 Evasive Maneuver
+2025-06-12 14:08:37 - Player 1 - Tank Index 1 Threatened by shells
+2025-06-12 14:08:37 - Player 1 - Tank Index 1 Tactical Evasion
+2025-06-12 14:08:37 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:37 - Player_id: 1
+2025-06-12 14:08:37 - Player 2 - Tank Index 0 Threatened by enemy
+2025-06-12 14:08:37 - Player 2 - Tank Index 0 Moving because currently threatened
+2025-06-12 14:08:37 - Player 2 - Tank Index 1 Threatened by shells
+2025-06-12 14:08:37 - Player 2 - Tank Index 1 Moving because currently threatened
+2025-06-12 14:08:37 - Player 2 - Tank Index 2 Threatened by shells
+2025-06-12 14:08:37 - Player 2 - Tank Index 2 Moving because currently threatened
+2025-06-12 14:08:38 - Player 1 - Tank Index 0 Intelligence gathering
+2025-06-12 14:08:38 - Player_id: 1
+2025-06-12 14:08:38 - Player 1 - Tank Index 1 Battlefield surveillance
+2025-06-12 14:08:38 - Player_id: 1
+2025-06-12 14:08:38 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-12 14:08:38 - Player 1 - Tank Index 2 Emergency evasion maneuver
+2025-06-12 14:08:38 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:38 - Player_id: 2
+2025-06-12 14:08:38 - Player 2 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:38 - Player_id: 2
+2025-06-12 14:08:38 - Player 2 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:38 - Player_id: 2
+2025-06-12 14:08:38 - Player 1 - Tank Index 0 Battlefield reconnaissance
+2025-06-12 14:08:38 - Player_id: 1
+2025-06-12 14:08:38 - Player 1 - Tank Index 1 Threatened by enemy
+2025-06-12 14:08:38 - Player 1 - Tank Index 1 Tactical Evasion
+2025-06-12 14:08:38 - Player 1 - Tank Index 2 Strategic reconnaissance
+2025-06-12 14:08:38 - Player_id: 1
+2025-06-12 14:08:38 - Player 2 - Tank Index 0 Threatened by enemy
+2025-06-12 14:08:38 - Player 2 - Tank Index 0 Moving because currently threatened
+2025-06-12 14:08:38 - Player 2 - Tank Index 1 Requesting updated Battle Info
+2025-06-12 14:08:38 - Player_id: 2
+2025-06-12 14:08:38 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:38 - Player_id: 2
+2025-06-12 14:08:38 - Player 1 - Tank Index 0 Performing tactical recalculation: no existing path
+2025-06-12 14:08:38 - Player 1 - Tank Index 0 Tactical navigation analysis from (12, 4)
+2025-06-12 14:08:38 - Player 1 - Tank Index 0 Suppressive fire - clearing obstacles
+2025-06-12 14:08:38 - Player 1 - Tank Index 1 Battlefield surveillance
+2025-06-12 14:08:38 - Player_id: 1
+2025-06-12 14:08:38 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:38 - Player_id: 1
+2025-06-12 14:08:38 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:38 - Player_id: 2
+2025-06-12 14:08:38 - Player 2 - Tank Index 1 Requesting updated Battle Info
+2025-06-12 14:08:38 - Player_id: 2
+2025-06-12 14:08:38 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:38 - Player_id: 2
+2025-06-12 14:08:38 - Player 1 - Tank Index 0 Battlefield reconnaissance
+2025-06-12 14:08:38 - Player_id: 1
+2025-06-12 14:08:38 - Player 1 - Tank Index 1 Tactical intelligence update
+2025-06-12 14:08:38 - Player_id: 1
+2025-06-12 14:08:38 - Player 1 - Tank Index 2 Recalculating tactical route: initial planning
+2025-06-12 14:08:38 - Player 1 - Tank Index 2 Beginning route analysis from (4, 8)
+2025-06-12 14:08:38 - Player 1 - Tank Index 2 Aligning from LEFT toward UP_LEFT
+2025-06-12 14:08:38 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:38 - Player_id: 2
+2025-06-12 14:08:38 - Player 2 - Tank Index 1 Requesting updated Battle Info
+2025-06-12 14:08:38 - Player_id: 2
+2025-06-12 14:08:38 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:38 - Player_id: 2
+2025-06-12 14:08:38 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-12 14:08:38 - Player 1 - Tank Index 0 Evasive Maneuver
+2025-06-12 14:08:38 - Player 1 - Tank Index 1 Threatened by shells
+2025-06-12 14:08:38 - Player 1 - Tank Index 1 Tactical Evasion
+2025-06-12 14:08:38 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:38 - Player_id: 1
+2025-06-12 14:08:38 - Player 2 - Tank Index 0 Threatened by shells
+2025-06-12 14:08:38 - Player 2 - Tank Index 0 Moving because currently threatened
+2025-06-12 14:08:38 - Player 2 - Tank Index 1 Threatened by shells
+2025-06-12 14:08:38 - Player 2 - Tank Index 1 Moving because currently threatened
+2025-06-12 14:08:38 - Player 2 - Tank Index 2 Threatened by shells
+2025-06-12 14:08:38 - Player 2 - Tank Index 2 Moving because currently threatened
+2025-06-12 14:08:39 - Player 1 - Tank Index 0 Intelligence gathering
+2025-06-12 14:08:39 - Player_id: 1
+2025-06-12 14:08:39 - Player 1 - Tank Index 1 Battlefield surveillance
+2025-06-12 14:08:39 - Player_id: 1
+2025-06-12 14:08:39 - Player 1 - Tank Index 2 Advancing to coordinates (3,7)
+2025-06-12 14:08:39 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:39 - Player 2 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:39 - Player 2 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:39 - Player 1 - Tank Index 0 Battlefield reconnaissance
+2025-06-12 14:08:39 - Player_id: 1
+2025-06-12 14:08:39 - Player 1 - Tank Index 1 Tactical intelligence update
+2025-06-12 14:08:39 - Player_id: 1
+2025-06-12 14:08:39 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:39 - Player_id: 1
+2025-06-12 14:08:39 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:39 - Player 2 - Tank Index 1 Requesting updated Battle Info
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:39 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:39 - Player 1 - Tank Index 0 Performing tactical recalculation: no existing path
+2025-06-12 14:08:39 - Player 1 - Tank Index 0 Tactical navigation analysis from (12, 4)
+2025-06-12 14:08:39 - Player 1 - Tank Index 0 Suppressive fire - clearing obstacles
+2025-06-12 14:08:39 - Player 1 - Tank Index 1 Strategic route recalculation initiated: initial route planning
+2025-06-12 14:08:39 - Player 1 - Tank Index 1 Beginning tactical route analysis from (8, 4)
+2025-06-12 14:08:39 - Player 1 - Tank Index 1 Advancing to grid (9,4)
+2025-06-12 14:08:39 - Player 1 - Tank Index 2 Tactical Realignment to Position 2
+2025-06-12 14:08:39 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:39 - Player 2 - Tank Index 1 Requesting updated Battle Info
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:39 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:39 - Player 1 - Tank Index 0 Battlefield reconnaissance
+2025-06-12 14:08:39 - Player_id: 1
+2025-06-12 14:08:39 - Player 1 - Tank Index 1 Tactical intelligence update
+2025-06-12 14:08:39 - Player_id: 1
+2025-06-12 14:08:39 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:39 - Player_id: 1
+2025-06-12 14:08:39 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:39 - Player 2 - Tank Index 1 Requesting updated Battle Info
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:39 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:39 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-12 14:08:39 - Player 1 - Tank Index 0 Evasive Maneuver
+2025-06-12 14:08:39 - Player 1 - Tank Index 1 Threatened by shells
+2025-06-12 14:08:39 - Player 1 - Tank Index 1 Tactical Evasion
+2025-06-12 14:08:39 - Player 1 - Tank Index 2 Tactical Realignment to Position 2
+2025-06-12 14:08:39 - Player 2 - Tank Index 0 Threatened by shells
+2025-06-12 14:08:39 - Player 2 - Tank Index 0 Moving because currently threatened
+2025-06-12 14:08:39 - Player 2 - Tank Index 1 Threatened by shells
+2025-06-12 14:08:39 - Player 2 - Tank Index 1 Moving because currently threatened
+2025-06-12 14:08:39 - Player 2 - Tank Index 2 Threatened by shells
+2025-06-12 14:08:39 - Player 2 - Tank Index 2 Moving because currently threatened
+2025-06-12 14:08:39 - Player 1 - Tank Index 0 Intelligence gathering
+2025-06-12 14:08:39 - Player_id: 1
+2025-06-12 14:08:39 - Player 1 - Tank Index 1 Battlefield surveillance
+2025-06-12 14:08:39 - Player_id: 1
+2025-06-12 14:08:39 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:39 - Player_id: 1
+2025-06-12 14:08:39 - Player 2 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:39 - Player 2 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:39 - Player 2 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:39 - Player 1 - Tank Index 0 Battlefield reconnaissance
+2025-06-12 14:08:39 - Player_id: 1
+2025-06-12 14:08:39 - Player 1 - Tank Index 1 Tactical intelligence update
+2025-06-12 14:08:39 - Player_id: 1
+2025-06-12 14:08:39 - Player 1 - Tank Index 2 Direct Target Engagement
+2025-06-12 14:08:39 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:39 - Player 2 - Tank Index 1 Requesting updated Battle Info
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:39 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:39 - Player_id: 2
+2025-06-12 14:08:40 - Player 1 - Tank Index 0 Performing tactical recalculation: no existing path
+2025-06-12 14:08:40 - Player 1 - Tank Index 0 Tactical navigation analysis from (12, 4)
+2025-06-12 14:08:40 - Player 1 - Tank Index 0 Aligning from DOWN_LEFT toward LEFT
+2025-06-12 14:08:40 - Player 1 - Tank Index 1 Strategic route recalculation initiated: initial route planning
+2025-06-12 14:08:40 - Player 1 - Tank Index 1 Beginning tactical route analysis from (10, 4)
+2025-06-12 14:08:40 - Player 1 - Tank Index 1 Advancing to grid (11,4)
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:40 - Player_id: 1
+2025-06-12 14:08:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 2 - Tank Index 1 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 1 - Tank Index 0 Battlefield reconnaissance
+2025-06-12 14:08:40 - Player_id: 1
+2025-06-12 14:08:40 - Player 1 - Tank Index 1 Tactical intelligence update
+2025-06-12 14:08:40 - Player_id: 1
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Emergency evasion maneuver
+2025-06-12 14:08:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 2 - Tank Index 1 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 1 - Tank Index 0 Advancing to coordinates (11,4)
+2025-06-12 14:08:40 - Player 1 - Tank Index 1 Threatened by shells
+2025-06-12 14:08:40 - Player 1 - Tank Index 1 Tactical Evasion
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Strategic reconnaissance
+2025-06-12 14:08:40 - Player_id: 1
+2025-06-12 14:08:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 2 - Tank Index 1 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Emergency evasion maneuver
+2025-06-12 14:08:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 2 - Tank Index 1 Threatened by shells
+2025-06-12 14:08:40 - Player 2 - Tank Index 1 Moving because currently threatened
+2025-06-12 14:08:40 - Player 2 - Tank Index 2 Threatened by shells
+2025-06-12 14:08:40 - Player 2 - Tank Index 2 Moving because currently threatened
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Strategic reconnaissance
+2025-06-12 14:08:40 - Player_id: 1
+2025-06-12 14:08:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 2 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 2 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:40 - Player_id: 1
+2025-06-12 14:08:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 2 - Tank Index 2 Threatened by shells
+2025-06-12 14:08:40 - Player 2 - Tank Index 2 Moving because currently threatened
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Recalculating tactical route: target movement
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Beginning route analysis from (3, 7)
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Tactical area denial
+2025-06-12 14:08:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 2 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:40 - Player_id: 1
+2025-06-12 14:08:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Emergency evasion maneuver
+2025-06-12 14:08:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Strategic reconnaissance
+2025-06-12 14:08:40 - Player_id: 1
+2025-06-12 14:08:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:40 - Player_id: 1
+2025-06-12 14:08:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Recalculating tactical route: initial planning
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Beginning route analysis from (3, 7)
+2025-06-12 14:08:40 - Player 1 - Tank Index 2 Tactical area denial
+2025-06-12 14:08:40 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:40 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:40 - Player_id: 2
+2025-06-12 14:08:41 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:41 - Player_id: 1
+2025-06-12 14:08:41 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:41 - Player_id: 2
+2025-06-12 14:08:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:41 - Player_id: 2
+2025-06-12 14:08:41 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-12 14:08:41 - Player 1 - Tank Index 2 Emergency evasion maneuver
+2025-06-12 14:08:41 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:41 - Player_id: 2
+2025-06-12 14:08:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:41 - Player_id: 2
+2025-06-12 14:08:41 - Player 1 - Tank Index 2 Strategic reconnaissance
+2025-06-12 14:08:41 - Player_id: 1
+2025-06-12 14:08:41 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:41 - Player_id: 2
+2025-06-12 14:08:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:41 - Player_id: 2
+2025-06-12 14:08:41 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:41 - Player_id: 1
+2025-06-12 14:08:41 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:41 - Player_id: 2
+2025-06-12 14:08:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:41 - Player_id: 2
+2025-06-12 14:08:41 - Player 1 - Tank Index 2 Recalculating tactical route: initial planning
+2025-06-12 14:08:41 - Player 1 - Tank Index 2 Beginning route analysis from (3, 7)
+2025-06-12 14:08:41 - Player 1 - Tank Index 2 Tactical area denial
+2025-06-12 14:08:41 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:41 - Player_id: 2
+2025-06-12 14:08:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:41 - Player_id: 2
+2025-06-12 14:08:41 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:41 - Player_id: 1
+2025-06-12 14:08:41 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:41 - Player_id: 2
+2025-06-12 14:08:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:41 - Player_id: 2
+2025-06-12 14:08:41 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-12 14:08:41 - Player 1 - Tank Index 2 Emergency evasion maneuver
+2025-06-12 14:08:41 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:41 - Player_id: 2
+2025-06-12 14:08:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:41 - Player_id: 2
+2025-06-12 14:08:41 - Player 1 - Tank Index 2 Strategic reconnaissance
+2025-06-12 14:08:41 - Player_id: 1
+2025-06-12 14:08:41 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:41 - Player_id: 2
+2025-06-12 14:08:41 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:41 - Player_id: 2
+2025-06-12 14:08:42 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:42 - Player_id: 1
+2025-06-12 14:08:42 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:42 - Player_id: 2
+2025-06-12 14:08:42 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:42 - Player_id: 2
+2025-06-12 14:08:42 - Player 1 - Tank Index 2 Recalculating tactical route: initial planning
+2025-06-12 14:08:42 - Player 1 - Tank Index 2 Beginning route analysis from (3, 7)
+2025-06-12 14:08:42 - Player 1 - Tank Index 2 Tactical area denial
+2025-06-12 14:08:42 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:42 - Player_id: 2
+2025-06-12 14:08:42 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:42 - Player_id: 2
+2025-06-12 14:08:42 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:42 - Player_id: 1
+2025-06-12 14:08:42 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:42 - Player_id: 2
+2025-06-12 14:08:42 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:42 - Player_id: 2
+2025-06-12 14:08:42 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-12 14:08:42 - Player 1 - Tank Index 2 Emergency evasion maneuver
+2025-06-12 14:08:42 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:42 - Player_id: 2
+2025-06-12 14:08:42 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:42 - Player_id: 2
+2025-06-12 14:08:42 - Player 1 - Tank Index 2 Strategic reconnaissance
+2025-06-12 14:08:42 - Player_id: 1
+2025-06-12 14:08:42 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:42 - Player_id: 2
+2025-06-12 14:08:42 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:42 - Player_id: 2
+2025-06-12 14:08:43 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:43 - Player_id: 1
+2025-06-12 14:08:43 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:43 - Player_id: 2
+2025-06-12 14:08:43 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:43 - Player_id: 2
+2025-06-12 14:08:43 - Player 1 - Tank Index 2 Recalculating tactical route: initial planning
+2025-06-12 14:08:43 - Player 1 - Tank Index 2 Beginning route analysis from (3, 7)
+2025-06-12 14:08:43 - Player 1 - Tank Index 2 Tactical area denial
+2025-06-12 14:08:43 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:43 - Player_id: 2
+2025-06-12 14:08:43 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:43 - Player_id: 2
+2025-06-12 14:08:43 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:43 - Player_id: 1
+2025-06-12 14:08:43 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:43 - Player_id: 2
+2025-06-12 14:08:43 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:43 - Player_id: 2
+2025-06-12 14:08:43 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-12 14:08:43 - Player 1 - Tank Index 2 Emergency evasion maneuver
+2025-06-12 14:08:43 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:43 - Player_id: 2
+2025-06-12 14:08:43 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:43 - Player_id: 2
+2025-06-12 14:08:44 - Player 1 - Tank Index 2 Strategic reconnaissance
+2025-06-12 14:08:44 - Player_id: 1
+2025-06-12 14:08:44 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:44 - Player_id: 1
+2025-06-12 14:08:44 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 1 - Tank Index 2 Recalculating tactical route: initial planning
+2025-06-12 14:08:44 - Player 1 - Tank Index 2 Beginning route analysis from (3, 7)
+2025-06-12 14:08:44 - Player 1 - Tank Index 2 Tactical area denial
+2025-06-12 14:08:44 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:44 - Player_id: 1
+2025-06-12 14:08:44 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-12 14:08:44 - Player 1 - Tank Index 2 Emergency evasion maneuver
+2025-06-12 14:08:44 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 1 - Tank Index 2 Strategic reconnaissance
+2025-06-12 14:08:44 - Player_id: 1
+2025-06-12 14:08:44 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:44 - Player_id: 1
+2025-06-12 14:08:44 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 1 - Tank Index 2 Recalculating tactical route: initial planning
+2025-06-12 14:08:44 - Player 1 - Tank Index 2 Beginning route analysis from (3, 7)
+2025-06-12 14:08:44 - Player 1 - Tank Index 2 Aligning from DOWN toward RIGHT
+2025-06-12 14:08:44 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:44 - Player_id: 1
+2025-06-12 14:08:44 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 1 - Tank Index 2 Advancing to coordinates (4,7)
+2025-06-12 14:08:44 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:44 - Player_id: 1
+2025-06-12 14:08:44 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:44 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:44 - Player_id: 2
+2025-06-12 14:08:45 - Player 1 - Tank Index 2 Advancing to coordinates (5,7)
+2025-06-12 14:08:45 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:45 - Player_id: 1
+2025-06-12 14:08:45 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 1 - Tank Index 2 Advancing to coordinates (6,7)
+2025-06-12 14:08:45 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:45 - Player_id: 1
+2025-06-12 14:08:45 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 1 - Tank Index 2 Advancing to coordinates (7,7)
+2025-06-12 14:08:45 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:45 - Player_id: 1
+2025-06-12 14:08:45 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 1 - Tank Index 2 Advancing to coordinates (8,7)
+2025-06-12 14:08:45 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:45 - Player_id: 1
+2025-06-12 14:08:45 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 1 - Tank Index 2 Advancing to coordinates (9,7)
+2025-06-12 14:08:45 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:45 - Player_id: 1
+2025-06-12 14:08:45 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 1 - Tank Index 2 Aligning from RIGHT toward UP_RIGHT
+2025-06-12 14:08:45 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:45 - Player_id: 1
+2025-06-12 14:08:45 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:45 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:45 - Player_id: 2
+2025-06-12 14:08:46 - Player 1 - Tank Index 2 Advancing to coordinates (10,6)
+2025-06-12 14:08:46 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:46 - Player_id: 1
+2025-06-12 14:08:46 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 1 - Tank Index 2 Aligning from UP_RIGHT toward UP_LEFT
+2025-06-12 14:08:46 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:46 - Player_id: 1
+2025-06-12 14:08:46 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 1 - Tank Index 2 Advancing to coordinates (9,5)
+2025-06-12 14:08:46 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:46 - Player_id: 1
+2025-06-12 14:08:46 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 1 - Tank Index 2 Aligning from UP_LEFT toward LEFT
+2025-06-12 14:08:46 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:46 - Player_id: 1
+2025-06-12 14:08:46 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 1 - Tank Index 2 Advancing to coordinates (8,5)
+2025-06-12 14:08:46 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:46 - Player_id: 1
+2025-06-12 14:08:46 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 1 - Tank Index 2 Advancing to coordinates (7,5)
+2025-06-12 14:08:46 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:46 - Player_id: 1
+2025-06-12 14:08:46 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:46 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:46 - Player_id: 2
+2025-06-12 14:08:47 - Player 1 - Tank Index 2 Tactical Realignment to Position 0
+2025-06-12 14:08:47 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:47 - Player_id: 2
+2025-06-12 14:08:47 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:47 - Player_id: 2
+2025-06-12 14:08:47 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:47 - Player_id: 1
+2025-06-12 14:08:47 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:47 - Player_id: 2
+2025-06-12 14:08:47 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:47 - Player_id: 2
+2025-06-12 14:08:47 - Player 1 - Tank Index 2 Direct Target Engagement
+2025-06-12 14:08:47 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:47 - Player_id: 2
+2025-06-12 14:08:47 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:47 - Player_id: 2
+2025-06-12 14:08:47 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:47 - Player_id: 1
+2025-06-12 14:08:47 - Player 2 - Tank Index 0 Requesting updated Battle Info
+2025-06-12 14:08:47 - Player_id: 2
+2025-06-12 14:08:47 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:47 - Player_id: 2
+2025-06-12 14:08:47 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-12 14:08:47 - Player 1 - Tank Index 2 Emergency evasion maneuver
+2025-06-12 14:08:47 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:47 - Player_id: 2
+2025-06-12 14:08:47 - Player 1 - Tank Index 2 Strategic reconnaissance
+2025-06-12 14:08:47 - Player_id: 1
+2025-06-12 14:08:47 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:47 - Player_id: 2
+2025-06-12 14:08:50 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:50 - Player_id: 1
+2025-06-12 14:08:50 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:50 - Player_id: 2
+2025-06-12 14:08:51 - Player 1 - Tank Index 2 Recalculating tactical route: target movement
+2025-06-12 14:08:51 - Player 1 - Tank Index 2 Beginning route analysis from (7, 5)
+2025-06-12 14:08:51 - Player 1 - Tank Index 2 Advancing to coordinates (7,4)
+2025-06-12 14:08:51 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:51 - Player_id: 2
+2025-06-12 14:08:51 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:51 - Player_id: 1
+2025-06-12 14:08:51 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:51 - Player_id: 2
+2025-06-12 14:08:51 - Player 1 - Tank Index 2 Recalculating tactical route: initial planning
+2025-06-12 14:08:51 - Player 1 - Tank Index 2 Beginning route analysis from (7, 4)
+2025-06-12 14:08:51 - Player 1 - Tank Index 2 Advancing to coordinates (7,3)
+2025-06-12 14:08:51 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:51 - Player_id: 2
+2025-06-12 14:08:51 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:51 - Player_id: 1
+2025-06-12 14:08:51 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:51 - Player_id: 2
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Recalculating tactical route: initial planning
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Beginning route analysis from (7, 3)
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Advancing to coordinates (7,2)
+2025-06-12 14:08:52 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:52 - Player_id: 2
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:52 - Player_id: 1
+2025-06-12 14:08:52 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:52 - Player_id: 2
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Recalculating tactical route: initial planning
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Beginning route analysis from (7, 2)
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Advancing to coordinates (7,1)
+2025-06-12 14:08:52 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:52 - Player_id: 2
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:52 - Player_id: 1
+2025-06-12 14:08:52 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:52 - Player_id: 2
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Recalculating tactical route: initial planning
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Beginning route analysis from (7, 1)
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Obstacle Clearance
+2025-06-12 14:08:52 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:52 - Player_id: 2
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:52 - Player_id: 1
+2025-06-12 14:08:52 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:52 - Player_id: 2
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Recalculating tactical route: initial planning
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Beginning route analysis from (7, 1)
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Tactical reorientation
+2025-06-12 14:08:52 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:52 - Player_id: 2
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:52 - Player_id: 1
+2025-06-12 14:08:52 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:52 - Player_id: 2
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Recalculating tactical route: initial planning
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Beginning route analysis from (7, 1)
+2025-06-12 14:08:52 - Player 1 - Tank Index 2 Tactical reorientation
+2025-06-12 14:08:52 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:52 - Player_id: 2
+2025-06-12 14:08:53 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:53 - Player_id: 1
+2025-06-12 14:08:53 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:53 - Player_id: 2
+2025-06-12 14:08:53 - Player 1 - Tank Index 2 Recalculating tactical route: initial planning
+2025-06-12 14:08:53 - Player 1 - Tank Index 2 Beginning route analysis from (7, 1)
+2025-06-12 14:08:53 - Player 1 - Tank Index 2 Tactical area denial
+2025-06-12 14:08:53 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:53 - Player_id: 2
+2025-06-12 14:08:53 - Player 1 - Tank Index 2 Battlefield analysis
+2025-06-12 14:08:53 - Player_id: 1
+2025-06-12 14:08:53 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:53 - Player_id: 2
+2025-06-12 14:08:53 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-12 14:08:53 - Player 1 - Tank Index 2 Emergency evasion maneuver
+2025-06-12 14:08:53 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:53 - Player_id: 2
+2025-06-12 14:08:53 - Player 1 - Tank Index 2 Strategic reconnaissance
+2025-06-12 14:08:53 - Player_id: 1
+2025-06-12 14:08:53 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:53 - Player_id: 2
+2025-06-12 14:08:53 - Player 2 - Tank Index 2 Requesting updated Battle Info
+2025-06-12 14:08:53 - Player_id: 2

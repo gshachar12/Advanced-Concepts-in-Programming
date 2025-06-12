@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/AdvancedPathfinder.cpp" "CMakeFiles/tanks_game.dir/src/algorithms/AdvancedPathfinder.cpp.o" "gcc" "CMakeFiles/tanks_game.dir/src/algorithms/AdvancedPathfinder.cpp.o.d"
   "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/BfsAlgorithm.cpp" "CMakeFiles/tanks_game.dir/src/algorithms/BfsAlgorithm.cpp.o" "gcc" "CMakeFiles/tanks_game.dir/src/algorithms/BfsAlgorithm.cpp.o.d"
   "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/MyBattleStatus.cpp" "CMakeFiles/tanks_game.dir/src/algorithms/MyBattleStatus.cpp.o" "gcc" "CMakeFiles/tanks_game.dir/src/algorithms/MyBattleStatus.cpp.o.d"
   "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/MyPlayerFactory.cpp" "CMakeFiles/tanks_game.dir/src/algorithms/MyPlayerFactory.cpp.o" "gcc" "CMakeFiles/tanks_game.dir/src/algorithms/MyPlayerFactory.cpp.o.d"
@@ -16,6 +17,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/Player1.cpp" "CMakeFiles/tanks_game.dir/src/algorithms/Player1.cpp.o" "gcc" "CMakeFiles/tanks_game.dir/src/algorithms/Player1.cpp.o.d"
   "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/Player2.cpp" "CMakeFiles/tanks_game.dir/src/algorithms/Player2.cpp.o" "gcc" "CMakeFiles/tanks_game.dir/src/algorithms/Player2.cpp.o.d"
   "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/SimpleAlgorithm.cpp" "CMakeFiles/tanks_game.dir/src/algorithms/SimpleAlgorithm.cpp.o" "gcc" "CMakeFiles/tanks_game.dir/src/algorithms/SimpleAlgorithm.cpp.o.d"
+  "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/TacticalEngine.cpp" "CMakeFiles/tanks_game.dir/src/algorithms/TacticalEngine.cpp.o" "gcc" "CMakeFiles/tanks_game.dir/src/algorithms/TacticalEngine.cpp.o.d"
   "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/ActionRequest.cpp" "CMakeFiles/tanks_game.dir/src/gameManager/ActionRequest.cpp.o" "gcc" "CMakeFiles/tanks_game.dir/src/gameManager/ActionRequest.cpp.o.d"
   "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/Board.cpp" "CMakeFiles/tanks_game.dir/src/gameManager/Board.cpp.o" "gcc" "CMakeFiles/tanks_game.dir/src/gameManager/Board.cpp.o.d"
   "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/Collision.cpp" "CMakeFiles/tanks_game.dir/src/gameManager/Collision.cpp.o" "gcc" "CMakeFiles/tanks_game.dir/src/gameManager/Collision.cpp.o.d"

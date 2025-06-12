@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/tanks_game.dir/src/algorithms/AdvancedPathfinder.cpp.o"
+  "CMakeFiles/tanks_game.dir/src/algorithms/AdvancedPathfinder.cpp.o.d"
   "CMakeFiles/tanks_game.dir/src/algorithms/BfsAlgorithm.cpp.o"
   "CMakeFiles/tanks_game.dir/src/algorithms/BfsAlgorithm.cpp.o.d"
   "CMakeFiles/tanks_game.dir/src/algorithms/MyBattleStatus.cpp.o"
@@ -15,6 +17,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/tanks_game.dir/src/algorithms/Player2.cpp.o.d"
   "CMakeFiles/tanks_game.dir/src/algorithms/SimpleAlgorithm.cpp.o"
   "CMakeFiles/tanks_game.dir/src/algorithms/SimpleAlgorithm.cpp.o.d"
+  "CMakeFiles/tanks_game.dir/src/algorithms/TacticalEngine.cpp.o"
+  "CMakeFiles/tanks_game.dir/src/algorithms/TacticalEngine.cpp.o.d"
   "CMakeFiles/tanks_game.dir/src/gameManager/ActionRequest.cpp.o"
   "CMakeFiles/tanks_game.dir/src/gameManager/ActionRequest.cpp.o.d"
   "CMakeFiles/tanks_game.dir/src/gameManager/Board.cpp.o"

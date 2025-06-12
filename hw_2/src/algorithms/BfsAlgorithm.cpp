@@ -2,198 +2,305 @@
 
 #include <queue>
 #include <set>
+#include <limits>
 #include "Logger.h"
 #include "Direction.h"
 
-// a boolean to indicate if we are stuck in the current BFS path and need to recompute the path
-bool tried_path_without_success = false;
-std::vector<Direction::DirectionType> current_path; // the current path we got from the BFS computation
+// Navigation state variables
+// Flag to track if the current path is viable or needs recalculation
+bool path_viability_flag = false;
+// Store the sequence of directions for the tank to follow
+std::vector<Direction::DirectionType> navigation_path;
 
-void BfsAlgorithm::initLatestEnemyPosition() {
-    last_enemy_positions = std::vector<Position>(battle_status.getEnemyTankCounts(), {-1, -1});
+// Initialize tracking of enemy positions with default values
+void BfsAlgorithm::initEnemyPositionTracking() {
+    enemy_position_history = std::vector<Position>(battle_status.getOpponentVehicleCount(), {-1, -1});
 }
 
-void BfsAlgorithm::updateLatestEnemyPosition() {
-    last_enemy_positions = battle_status.getEnemyPositions();
+// Update the stored enemy positions with current battlefield data
+void BfsAlgorithm::refreshEnemyPositions() {
+    enemy_position_history = battle_status.getOpponentLocations();
 }
 
 
-void BfsAlgorithm::handleTankThreatened(ActionRequest *request, std::string *request_title) {
-    //or shell is approaching or enemy tank is close
-    was_threatened = true;
-    if (battle_status.canTankShootEnemy(true)) {
+void BfsAlgorithm::respondToThreat(ActionRequest *request, std::string *request_title) {
+    // Set the danger flag to request battlefield info in next turn
+    danger_detected = true;
+    
+    // If we have a direct shot at an enemy, prioritize offensive action
+    if (battle_status.canHitTarget(true)) {
         *request = ActionRequest::Shoot;
-        *request_title = "Shoot threat";
+        *request_title = "Defensive Fire";
         return;
     }
+    
+    // Otherwise, take evasive action
     *request = moveIfThreatened();
-    *request_title = "Escape threat";
+    *request_title = "Evasive Maneuver";
 }
 
-void BfsAlgorithm::tryShootEnemy(ActionRequest *request, std::string *request_title) {
-    if (battle_status.canTankShootEnemy()) {
-        tried_path_without_success = false;
+void BfsAlgorithm::attemptToEngageEnemy(ActionRequest *request, std::string *request_title) {
+    // If we have a clean shot, take it immediately
+    if (battle_status.canHitTarget()) {
+        path_viability_flag = false; // Reset path flag as we're taking action
         *request = ActionRequest::Shoot;
-        *request_title = "Shoot Enemy";
+        *request_title = "Engaging Target";
         return;
     }
-    rotateToEnemy(request, request_title);
+    
+    // Otherwise try to rotate to get a shot
+    turnTowardsEnemy(request, request_title);
 }
 
-bool BfsAlgorithm::rotateToEnemy(ActionRequest *request, std::string *request_title) const {
-    for (auto dir_index = 0; dir_index < 8; ++dir_index) {
-        Direction::DirectionType dir = Direction::getDirectionFromIndex(dir_index);
-        if (battle_status.tank_direction == dir) continue;
-        if (battle_status.canTankShootEnemy(dir)) {
-            current_path.clear();
-            tried_path_without_success = false;
-            *request = battle_status.rotateTowards(dir);
-            *request_title = "Rotating " + std::to_string(dir_index) + " toward enemy";
+bool BfsAlgorithm::turnTowardsEnemy(ActionRequest *request, std::string *request_title) const {
+    // Check all 8 possible directions for a shot opportunity
+    for (int direction_id = 0; direction_id < 8; ++direction_id) {
+        // Get the direction from the index (0-7)
+        Direction::DirectionType target_direction = Direction::getDirectionFromIndex(direction_id);
+        
+        // Skip our current direction - no need to rotate
+        if (battle_status.vehicle_orientation == target_direction) {
+            continue;
+        }
+        
+        // Check if we can shoot an enemy from this direction
+        if (battle_status.canHitTarget(target_direction)) {
+            // Clear any existing path as we're changing strategy
+            navigation_path.clear();
+            path_viability_flag = false;
+            
+            // Request rotation toward the target direction
+            *request = battle_status.calculateOptimalRotation(target_direction);
+            *request_title = "Rotating to firing position " + std::to_string(direction_id);
             return true;
         }
     }
+    
+    // No suitable rotation found
     return false;
 }
 
-bool BfsAlgorithm::hasEnemyMoved() const {
-    auto enemy_positions = battle_status.getEnemyPositions();
-    if (enemy_positions.size() != last_enemy_positions.size()) {
-        return true; // if the number of enemies changed, we definitely need to recompute the path
+bool BfsAlgorithm::haveEnemiesMoved() const {
+    // Get the current positions of all enemies
+    auto current_enemy_positions = battle_status.getOpponentLocations();
+    
+    // If the count of enemies has changed, consider it a movement
+    if (current_enemy_positions.size() != enemy_position_history.size()) {
+        return true;
     }
-    return enemy_positions == last_enemy_positions;
+    
+    // Otherwise check if any positions have changed
+    return current_enemy_positions != enemy_position_history;
 }
 
-void BfsAlgorithm::updatePathIfNeeded() {
-    const bool enemy_moved = hasEnemyMoved();
-    if (current_path.empty() || enemy_moved || tried_path_without_success) {
-        const std::string reason = current_path.empty()
-                                       ? "empty"
-                                       : (enemy_moved ? "enemy moved" : "triedPathWithoutSuccess");
-        std::string msg = "Computing BFS (reason: " + reason + ")";
-        current_path = computeBFS();
-        tried_path_without_success = current_path.empty();
-        updateLatestEnemyPosition();
+void BfsAlgorithm::updateNavigationPath() {
+    // Check if we need to recalculate our path
+    bool enemies_repositioned = haveEnemiesMoved();
+    bool recalculation_needed = navigation_path.empty() || enemies_repositioned || path_viability_flag;
+    
+    if (recalculation_needed) {
+        // Determine and log the reason for recalculation
+        std::string recalculation_reason;
+        if (navigation_path.empty()) {
+            recalculation_reason = "no existing path";
+        } else if (enemies_repositioned) {
+            recalculation_reason = "battlefield changes detected";
+        } else {
+            recalculation_reason = "previous path navigation failed";
+        }
+        
+        std::string log_message = "Performing tactical recalculation: " + recalculation_reason;
+        printLogs(log_message);
+        
+        // Calculate new path and update state
+        navigation_path = findPathWithBFS();
+        path_viability_flag = navigation_path.empty();
+        refreshEnemyPositions();
     }
 }
 
-void BfsAlgorithm::handleEmptyPath(ActionRequest *request, std::string *request_title) const {
-    if (battle_status.canTankShoot()) {
+void BfsAlgorithm::handleNoValidPath(ActionRequest *request, std::string *request_title) const {
+    // If no path is available but we can shoot, take the shot
+    if (battle_status.isWeaponReady()) {
         *request = ActionRequest::Shoot;
-        tried_path_without_success = !battle_status.canTankShootEnemy();
-        *request_title = (tried_path_without_success)
-                             ? "Shooting randomly due to stuck state"
-                             : "No path but can shoot directly";
+        
+        // Track whether this is targeted or random fire
+        bool can_hit_enemy = battle_status.canHitTarget();
+        path_viability_flag = !can_hit_enemy;
+        
+        // Set appropriate message
+        *request_title = can_hit_enemy 
+                       ? "Direct fire - no navigation needed" 
+                       : "Suppressive fire - clearing obstacles";
         return;
     }
-    *request_title = "Stuck, rotating randomly";
+    
+    // If we can't shoot, try rotating to find a better position
+    *request_title = "Tactical reorientation";
     *request = ActionRequest::RotateLeft45;
-    tried_path_without_success = true;
+    path_viability_flag = true;
 }
 
 
-void BfsAlgorithm::followPathOrRotate(ActionRequest *request, std::string *request_title) {
-    Direction::DirectionType target_dir = current_path.front();
-    if (battle_status.tank_direction == target_dir) {
-        const Position next_pos = battle_status.wrapPosition(battle_status.tank_position + target_dir);
+void BfsAlgorithm::followCurrentPath(ActionRequest *request, std::string *request_title) {
+    // Get the next direction from our path
+    Direction::DirectionType desired_direction = navigation_path.front();
+    
+    // If we're already facing the right way, try to move forward
+    if (battle_status.vehicle_orientation == desired_direction) {
+        // Calculate the next position
+        Position destination = battle_status.normalizeCoordinates(battle_status.vehicle_location + desired_direction);
 
-        if (battle_status.getBoardItem(next_pos) == '@') {
+        // Check for mines - don't move if there's a mine
+        if (battle_status.getTerrainAt(destination) == '@') {
             *request = ActionRequest::DoNothing;
-            *request_title = "Mine ahead – aborting move and resetting path";
-            current_path.clear();
-            tried_path_without_success = true;
+            *request_title = "Mine detected - holding position";
+            navigation_path.clear();
+            path_viability_flag = true;
             return;
         }
 
-        if (battle_status.getBoardItem(next_pos) == '#') {
-            if (battle_status.canTankShoot()) {
+        // Check for walls - shoot if possible
+        if (battle_status.getTerrainAt(destination) == '#') {
+            if (battle_status.isWeaponReady()) {
                 *request = ActionRequest::Shoot;
-                *request_title = "Wall ahead – shooting it";
-                tried_path_without_success = false;
+                *request_title = "Clearing obstacle";
+                path_viability_flag = false;
                 return;
             }
-            *request_title = "Wall ahead – Can't shoot. Do nothing";
+            // Can't shoot the wall, so wait
+            *request_title = "Obstacle ahead - awaiting clearance";
             *request = ActionRequest::DoNothing;
             return;
         }
 
-        current_path.erase(current_path.begin());
-        tried_path_without_success = false;
-        *request_title = "Moving forward to (" + std::to_string(next_pos.x) + "," + std::to_string(next_pos.y) + ")";
+        // Path is clear, move forward and update path
+        navigation_path.erase(navigation_path.begin());
+        path_viability_flag = false;
+        *request_title = "Advancing to coordinates (" + std::to_string(destination.x) + "," + std::to_string(destination.y) + ")";
         *request = ActionRequest::MoveForward;
         return;
     }
 
-    // if he isn't able to do anything, just rotate and maybe it will help in the next steps
-    tried_path_without_success = false;
-    *request_title = "Rotating from direction " + Direction::directionToString(battle_status.tank_direction) + " to " +
-                     Direction::directionToString(target_dir);
-    *request = battle_status.rotateTowards(target_dir);
+    // We need to rotate to face the right direction
+    path_viability_flag = false;
+    *request_title = "Aligning from " + Direction::directionToString(battle_status.vehicle_orientation) + 
+                     " toward " + Direction::directionToString(desired_direction);
+    *request = battle_status.calculateOptimalRotation(desired_direction);
 }
 
 
-std::vector<Direction::DirectionType> BfsAlgorithm::computeBFS() {
-    struct Node {
-        Position pos;
-        std::vector<Direction::DirectionType> path;
+std::vector<Direction::DirectionType> BfsAlgorithm::findPathWithBFS() {
+    // Define the search node structure for the BFS algorithm
+    struct SearchNode {
+        // Current position in the battlefield
+        Position location;
+        // Sequence of directions to reach this position
+        std::vector<Direction::DirectionType> route;
 
-        Node(const Position &pos, const std::vector<Direction::DirectionType> &path): pos(pos), path(path) {
-        }
+        // Constructor for easy node creation
+        SearchNode(Position loc, const std::vector<Direction::DirectionType>& r)
+            : location(loc), route(r) {}
     };
-    std::string msg = "Performing BFS. Start Position = " + battle_status.tank_position.toString();
-    printLogs(msg);
+    
+    // Log the start of path calculation
+    std::string log_entry = "Tactical navigation analysis from " + battle_status.vehicle_location.toString();
+    printLogs(log_entry);
 
-    std::queue<Node> q;
-    std::set<Position> visited;
-    q.push(Node(battle_status.tank_position, {}));
-    std::vector<Direction::DirectionType> best_path;
-    size_t shortest_length = std::numeric_limits<size_t>::max();
+    // Initialize the search structures
+    std::queue<SearchNode> frontier;
+    std::set<Position> explored_positions;
+    
+    // Add starting position to the search frontier
+    frontier.push(SearchNode(battle_status.vehicle_location, {}));
+    
+    // Track the optimal path found so far
+    std::vector<Direction::DirectionType> optimal_route;
+    size_t optimal_distance = std::numeric_limits<size_t>::max();
 
-    while (!q.empty()) {
-        auto [position, path] = q.front();
-        q.pop();
-        if (visited.contains(position)) continue;
-        visited.insert(position);
-        // checking if the next step in the queue can lead to shooting the enemy directly
-        if (battle_status.canTankShootEnemy(position)) {
-            if (path.size() < shortest_length) {
-                best_path = path;
-                shortest_length = path.size();
+    // Process the search frontier until exhausted
+    while (!frontier.empty()) {
+        // Get the next position to explore
+        SearchNode current = frontier.front();
+        frontier.pop();
+        
+        // Skip already explored positions
+        if (explored_positions.count(current.location) > 0)
+            continue;
+            
+        // Mark position as explored
+        explored_positions.insert(current.location);
+        
+        // Check if this position gives us a firing solution
+        if (battle_status.canHitTarget(current.location)) {
+            // If this is a shorter path than previously found
+            if (current.route.size() < optimal_distance) {
+                optimal_route = current.route;
+                optimal_distance = current.route.size();
             }
+            // Continue searching for potentially better paths
             continue;
         }
-        for (const auto dir: battle_status.getSafeDirections(position)) {
-            const Position next = battle_status.wrapPosition(position + dir);
-            if (visited.contains(next)) continue;
-            std::vector<Direction::DirectionType> new_path = path;
-            new_path.push_back(dir);
-            q.push(Node(next, new_path));
+        
+        // Explore safe directions from current position
+        for (const auto& direction : battle_status.getSafeDirections(current.location)) {
+            // Calculate the next position
+            Position next_location = battle_status.normalizeCoordinates(current.location + direction);
+            
+            // Skip if already explored
+            if (explored_positions.count(next_location) > 0)
+                continue;
+                
+            // Create the new path by extending current path
+            std::vector<Direction::DirectionType> extended_route = current.route;
+            extended_route.push_back(direction);
+            
+            // Add to search frontier
+            frontier.push(SearchNode(next_location, extended_route));
         }
     }
-    return best_path;
+    
+    // Return the optimal path found (may be empty if no path exists)
+    return optimal_route;
 }
 
 void BfsAlgorithm::calculateAction(ActionRequest *request, std::string *request_title) {
-    if (battle_status.turn_number == 0 || was_threatened) {
-        was_threatened = false;
+    // Initial turn or following a danger state - gather intelligence
+    if (battle_status.current_turn == 0 || danger_detected) {
+        // Reset danger flag after gathering intel
+        danger_detected = false;
         *request = ActionRequest::GetBattleInfo;
-        *request_title = "Requesting Battle Info (first turn or previously threatened)";
+        *request_title = "Intelligence gathering";
         return;
     }
+    
+    // Priority 1: Check for immediate threats and respond
     if (isTankThreatened()) {
-        handleTankThreatened(request, request_title);
+        respondToThreat(request, request_title);
         return;
     }
-    if (!battle_status.hasTankAmmo() || (battle_status.last_requested_info_turn < battle_status.turn_number)) {
-        battle_status.last_requested_info_turn = battle_status.turn_number + 1;
+    
+    // Priority 2: Gather intelligence if ammunition is low or info is outdated
+    if (!battle_status.hasAmmunition() || (battle_status.last_requested_info_turn < battle_status.current_turn)) {
+        battle_status.last_requested_info_turn = battle_status.current_turn + 1;
         *request = ActionRequest::GetBattleInfo;
-        *request_title = "Requesting updated Battle Info";
+        *request_title = "Battlefield reconnaissance";
         return;
     }
-    tryShootEnemy(request, request_title);
+    
+    // Priority 3: Attack if enemy is in sight
+    attemptToEngageEnemy(request, request_title);
+    
+    // Priority 4: Navigate towards enemy if no immediate action was taken
     if (*request == ActionRequest::DoNothing) {
-        updatePathIfNeeded();
-        (current_path.empty())
-            ? handleEmptyPath(request, request_title)
-            : followPathOrRotate(request, request_title);
+        // Update navigation path if needed
+        updateNavigationPath();
+        
+        // Either follow the path or handle situation with no path
+        if (navigation_path.empty()) {
+            handleNoValidPath(request, request_title);
+        } else {
+            followCurrentPath(request, request_title);
+        }
     }
 }

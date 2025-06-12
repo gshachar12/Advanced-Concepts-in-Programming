@@ -262,6 +262,36 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+src/algorithms/AdvancedPathfinder.o: src/algorithms/AdvancedPathfinder.cpp.o
+.PHONY : src/algorithms/AdvancedPathfinder.o
+
+# target to build an object file
+src/algorithms/AdvancedPathfinder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game.dir/build.make CMakeFiles/tanks_game.dir/src/algorithms/AdvancedPathfinder.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_lib.dir/build.make CMakeFiles/tanks_game_lib.dir/src/algorithms/AdvancedPathfinder.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/src/algorithms/AdvancedPathfinder.cpp.o
+.PHONY : src/algorithms/AdvancedPathfinder.cpp.o
+
+src/algorithms/AdvancedPathfinder.i: src/algorithms/AdvancedPathfinder.cpp.i
+.PHONY : src/algorithms/AdvancedPathfinder.i
+
+# target to preprocess a source file
+src/algorithms/AdvancedPathfinder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game.dir/build.make CMakeFiles/tanks_game.dir/src/algorithms/AdvancedPathfinder.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_lib.dir/build.make CMakeFiles/tanks_game_lib.dir/src/algorithms/AdvancedPathfinder.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/src/algorithms/AdvancedPathfinder.cpp.i
+.PHONY : src/algorithms/AdvancedPathfinder.cpp.i
+
+src/algorithms/AdvancedPathfinder.s: src/algorithms/AdvancedPathfinder.cpp.s
+.PHONY : src/algorithms/AdvancedPathfinder.s
+
+# target to generate assembly for a file
+src/algorithms/AdvancedPathfinder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game.dir/build.make CMakeFiles/tanks_game.dir/src/algorithms/AdvancedPathfinder.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_lib.dir/build.make CMakeFiles/tanks_game_lib.dir/src/algorithms/AdvancedPathfinder.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/src/algorithms/AdvancedPathfinder.cpp.s
+.PHONY : src/algorithms/AdvancedPathfinder.cpp.s
+
 src/algorithms/BfsAlgorithm.o: src/algorithms/BfsAlgorithm.cpp.o
 .PHONY : src/algorithms/BfsAlgorithm.o
 
@@ -501,6 +531,36 @@ src/algorithms/SimpleAlgorithm.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_lib.dir/build.make CMakeFiles/tanks_game_lib.dir/src/algorithms/SimpleAlgorithm.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/src/algorithms/SimpleAlgorithm.cpp.s
 .PHONY : src/algorithms/SimpleAlgorithm.cpp.s
+
+src/algorithms/TacticalEngine.o: src/algorithms/TacticalEngine.cpp.o
+.PHONY : src/algorithms/TacticalEngine.o
+
+# target to build an object file
+src/algorithms/TacticalEngine.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game.dir/build.make CMakeFiles/tanks_game.dir/src/algorithms/TacticalEngine.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_lib.dir/build.make CMakeFiles/tanks_game_lib.dir/src/algorithms/TacticalEngine.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/src/algorithms/TacticalEngine.cpp.o
+.PHONY : src/algorithms/TacticalEngine.cpp.o
+
+src/algorithms/TacticalEngine.i: src/algorithms/TacticalEngine.cpp.i
+.PHONY : src/algorithms/TacticalEngine.i
+
+# target to preprocess a source file
+src/algorithms/TacticalEngine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game.dir/build.make CMakeFiles/tanks_game.dir/src/algorithms/TacticalEngine.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_lib.dir/build.make CMakeFiles/tanks_game_lib.dir/src/algorithms/TacticalEngine.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/src/algorithms/TacticalEngine.cpp.i
+.PHONY : src/algorithms/TacticalEngine.cpp.i
+
+src/algorithms/TacticalEngine.s: src/algorithms/TacticalEngine.cpp.s
+.PHONY : src/algorithms/TacticalEngine.s
+
+# target to generate assembly for a file
+src/algorithms/TacticalEngine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game.dir/build.make CMakeFiles/tanks_game.dir/src/algorithms/TacticalEngine.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_lib.dir/build.make CMakeFiles/tanks_game_lib.dir/src/algorithms/TacticalEngine.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/src/algorithms/TacticalEngine.cpp.s
+.PHONY : src/algorithms/TacticalEngine.cpp.s
 
 src/gameManager/ActionRequest.o: src/gameManager/ActionRequest.cpp.o
 .PHONY : src/gameManager/ActionRequest.o
@@ -960,6 +1020,9 @@ help:
 	@echo "... tanks_game"
 	@echo "... tanks_game_lib"
 	@echo "... tanks_game_tests"
+	@echo "... src/algorithms/AdvancedPathfinder.o"
+	@echo "... src/algorithms/AdvancedPathfinder.i"
+	@echo "... src/algorithms/AdvancedPathfinder.s"
 	@echo "... src/algorithms/BfsAlgorithm.o"
 	@echo "... src/algorithms/BfsAlgorithm.i"
 	@echo "... src/algorithms/BfsAlgorithm.s"
@@ -984,6 +1047,9 @@ help:
 	@echo "... src/algorithms/SimpleAlgorithm.o"
 	@echo "... src/algorithms/SimpleAlgorithm.i"
 	@echo "... src/algorithms/SimpleAlgorithm.s"
+	@echo "... src/algorithms/TacticalEngine.o"
+	@echo "... src/algorithms/TacticalEngine.i"
+	@echo "... src/algorithms/TacticalEngine.s"
 	@echo "... src/gameManager/ActionRequest.o"
 	@echo "... src/gameManager/ActionRequest.i"
 	@echo "... src/gameManager/ActionRequest.s"
