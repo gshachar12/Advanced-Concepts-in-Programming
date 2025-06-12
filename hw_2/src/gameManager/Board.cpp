@@ -275,3 +275,21 @@ void Board::fillSatelliteView(MySatelliteView &satellite_view) const {
         }
     }
 }
+
+bool Board::shoot(Position fromPos, Position toPos) {
+    // Implementation of shoot method
+    // We can ignore the fromPos parameter for now
+    (void)fromPos;  // Mark as used to avoid unused parameter warning
+    
+    if (isOccupied(toPos)) {
+        GameObject* obj = getObjectAt(toPos);
+        if (obj->isDestroyable()) {
+            obj->takeDamage(1);
+            if (obj->isDestroyed()) {
+                removeObject(toPos);
+            }
+            return true;
+        }
+    }
+    return false;
+}

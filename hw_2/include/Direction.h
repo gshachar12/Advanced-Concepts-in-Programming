@@ -59,6 +59,7 @@ struct Position {
 class Direction {
 public:
     enum DirectionType {
+        NONE = -1,
         UP = 0,
         UP_RIGHT = 45,
         RIGHT = 90,
@@ -71,6 +72,7 @@ public:
 
     static std::string directionToString(const DirectionType dir) {
         switch (dir) {
+            case NONE: return "NONE";
             case UP: return "UP";
             case UP_RIGHT: return "UP_RIGHT";
             case RIGHT: return "RIGHT";
@@ -84,10 +86,12 @@ public:
     }
 
     static constexpr Position getDirectionDelta(const DirectionType dir) {
+        if (dir == NONE) return Position(0, 0);
         return directionOffsets[dir / 45];
     }
 
     static constexpr DirectionType getDirection(const int dir) {
+        if (dir == -1) return NONE;
         int mod_dir = (dir % 360 + 360) % 360;
         if (mod_dir % 45 != 0) return UP;
         return static_cast<DirectionType>(mod_dir);

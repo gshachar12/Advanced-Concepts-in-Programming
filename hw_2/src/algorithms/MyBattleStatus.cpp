@@ -2,76 +2,71 @@
 
 #include "Direction.h"
 
-MyBattleStatus::MyBattleStatus(int player_id, int tank_index): vehicle_orientation(
+MyBattleStatus::MyBattleStatus(int player_id, int tank_index): tank_direction(
                                                                    player_id == 1
                                                                        ? Direction::LEFT
                                                                        : Direction::RIGHT),
                                                                player_id(player_id),
                                                                tank_index(tank_index) {
-    updateVehiclePositions();
+    updateTanksPosition();
 }
 
-Position MyBattleStatus::normalizeCoordinates(Position p) const {
-    const size_t mod_x = p.x % arena_width;
-    const size_t mod_y = p.y % arena_height;
+Position MyBattleStatus::wrapPosition(Position p) const {
+    const size_t mod_x = p.x % board_x;
+    const size_t mod_y = p.y % board_y;
     return {mod_x, mod_y};
 }
 
 void MyBattleStatus::updateBoard(const std::vector<std::vector<char> > &updated_board) {
-    terrain_grid = updated_board;
-    arena_width = terrain_grid.size();
-    arena_height = terrain_grid[0].size();
-    updateVehiclePositions();
+    board = updated_board;
+    board_x = board.size();
+    board_y = board[0].size();
+    updateTanksPosition();
 }
 
-Position MyBattleStatus::getVehicleLocation() const {
-    return vehicle_location;
+Position MyBattleStatus::getTankPosition() const {
+    return tank_position;
 }
 
-bool MyBattleStatus::hasAmmunition() const {
-    return ammo_count > 0;
+bool MyBattleStatus::hasTankAmmo() const {
+    return num_shells > 0;
 }
 
-bool MyBattleStatus::isWeaponReady() const {
-    return hasAmmunition() && weapon_cooldown == 0;
+bool MyBattleStatus::canTankShoot() const {
+    return hasTankAmmo() && cool_down == 0;
 }
 
-char MyBattleStatus::getTerrainAt(int x, int y) const {
-    return terrain_grid[x][y];
+char MyBattleStatus::getBoardItem(int x, int y) const {
+    return board[x][y];
 }
 
-char MyBattleStatus::getTerrainAt(Position p) const {
-    return getTerrainAt(p.x, p.y);
+char MyBattleStatus::getBoardItem(Position p) const {
+    return getBoardItem(p.x, p.y);
 }
 
-size_t MyBattleStatus::calculateDistance(const Position &a, const Position &b) const {
+size_t MyBattleStatus::getDistance(const Position &a, const Position &b) const {
     int raw_dx = std::abs(static_cast<int>(a.x) - static_cast<int>(b.x));
     int raw_dy = std::abs(static_cast<int>(a.y) - static_cast<int>(b.y));
 
-    size_t dx = std::min(static_cast<size_t>(raw_dx), arena_width - static_cast<size_t>(raw_dx));
-    size_t dy = std::min(static_cast<size_t>(raw_dy), arena_height - static_cast<size_t>(raw_dy));
+    size_t dx = std::min(static_cast<size_t>(raw_dx), board_x - static_cast<size_t>(raw_dx));
+    size_t dy = std::min(static_cast<size_t>(raw_dy), board_y - static_cast<size_t>(raw_dy));
 
     return std::max(dx, dy);
 }
 
-bool MyBattleStatus::canHitTarget(Direction::DirectionType dir, bool include_projectiles) const {
-    // For test scenarios with specific direction testing
-    if (test_direction_shooting_enabled && dir == test_direction_can_shoot) {
-        return true;
-    }
-    
-    if (opponent_positions.empty() || !isWeaponReady()) {
+bool MyBattleStatus::canTankShootEnemy(Direction::DirectionType dir, bool include_shells) const {
+    if (enemy_positions.empty() || !canTankShoot()) {
         return false;
     }
 
-    for (Position opponent: opponent_positions) {
-        if (isTargetInSightline(dir, opponent)) {
+    for (Position enemy: enemy_positions) {
+        if (isTargetOnSight(dir, enemy)) {
             return true;
         }
     }
-    if (include_projectiles) {
-        for (Position projectile: projectile_positions) {
-            if (isTargetInSightline(dir, projectile)) {
+    if (include_shells) {
+        for (Position shell: shells_position) {
+            if (isTargetOnSight(dir, shell)) {
                 return true;
             }
         }
@@ -79,27 +74,23 @@ bool MyBattleStatus::canHitTarget(Direction::DirectionType dir, bool include_pro
     return false;
 }
 
-bool MyBattleStatus::canHitTarget(Position target) const {
-    if (!isWeaponReady()) {
+bool MyBattleStatus::canTankShootEnemy(Position enemy) const {
+    if (!canTankShoot()) {
         return false;
     }
-    return isTargetInSightline(vehicle_orientation, target);
+    return isTargetOnSight(tank_direction, enemy);
 }
 
-bool MyBattleStatus::canHitTarget(bool include_projectiles) const {
-    // For test scenarios, use the test flag
-    if (test_can_shoot) {
-        return true;
-    }
-    return canHitTarget(vehicle_orientation, include_projectiles);
+bool MyBattleStatus::canTankShootEnemy(bool include_shells) const {
+    return canTankShootEnemy(tank_direction, include_shells);
 }
 
-bool MyBattleStatus::isTargetInSightline(Direction::DirectionType dir, Position target) const {
-    Position p = vehicle_location;
-    for (size_t i = 1; i <= std::max(arena_width, arena_height); i++) {
-        p = normalizeCoordinates(p + dir);
+bool MyBattleStatus::isTargetOnSight(Direction::DirectionType dir, Position target) const {
+    Position p = tank_position;
+    for (size_t i = 1; i <= std::max(board_x, board_y); i++) {
+        p = wrapPosition(p + dir);
         if (target == p) return true;
-        if (terrain_grid[p.x][p.y] == terrainObjectToChar(TerrainObject::WALL) || terrain_grid[p.x][p.y] == getFriendlyIdentifier()) {
+        if (board[p.x][p.y] == boardItemToChar(BoardItem::WALL) || board[p.x][p.y] == getAllyName()) {
             return false;
         }
     }
@@ -108,14 +99,14 @@ bool MyBattleStatus::isTargetInSightline(Direction::DirectionType dir, Position 
 
 
 bool MyBattleStatus::isSafePosition(Position p, const bool immediate_safe) const {
-    if (terrain_grid[p.x][p.y] != terrainObjectToChar(TerrainObject::EMPTY)) {
+    if (board[p.x][p.y] != boardItemToChar(BoardItem::EMPTY)) {
         return false;
     }
     // If only checking immediate safety, we're done
     if (immediate_safe) {
         return true;
     }
-    return !(isProjectileInVicinity(p) || isOpponentNearby(p));
+    return !(isShellClose(p) || isEnemyClose(p));
 }
 
 std::vector<Direction::DirectionType> MyBattleStatus::getSafeDirections(const Position position) const {
@@ -123,7 +114,7 @@ std::vector<Direction::DirectionType> MyBattleStatus::getSafeDirections(const Po
 
     for (int i = 0; i < Direction::getDirectionSize(); i++) {
         auto direction = Direction::getDirectionFromIndex(i);
-        Position next_position = normalizeCoordinates(position + direction);
+        Position next_position = wrapPosition(position + direction);
         if (isSafePosition(next_position)) {
             safe_directions.push_back(direction);
         }
@@ -132,11 +123,11 @@ std::vector<Direction::DirectionType> MyBattleStatus::getSafeDirections(const Po
     return safe_directions;
 }
 
-ActionRequest MyBattleStatus::calculateOptimalRotation(Direction::DirectionType to_direction) const {
-    if (vehicle_orientation == to_direction) return ActionRequest::DoNothing;
+ActionRequest MyBattleStatus::rotateTowards(Direction::DirectionType to_direction) const {
+    if (tank_direction == to_direction) return ActionRequest::DoNothing;
 
     // Find the shortest rotation path
-    if (int diff = (vehicle_orientation - to_direction + 360) % 360; diff > 180) {
+    if (int diff = (tank_direction - to_direction + 360) % 360; diff > 180) {
         diff = 360 - diff;
         // Clockwise is shorter
         if (diff == 45) return ActionRequest::RotateRight45;
@@ -155,92 +146,88 @@ ActionRequest MyBattleStatus::calculateOptimalRotation(Direction::DirectionType 
 }
 
 
-void MyBattleStatus::updateVehiclePositions() {
-    std::vector<Position> opponents;
-    std::vector<Position> allies;
-    std::vector<Position> projectiles;
-    for (size_t i{0}; i < terrain_grid.size(); i++) {
-        for (size_t j{0}; j < terrain_grid.front().size(); j++) {
+void MyBattleStatus::updateTanksPosition() {
+    std::vector<Position> enemy;
+    std::vector<Position> ally;
+    std::vector<Position> shells;
+    for (size_t i{0}; i < board.size(); i++) {
+        for (size_t j{0}; j < board.front().size(); j++) {
             Position p = {i, j};
 
-            if (terrain_grid[i][j] == getFriendlyIdentifier()) {
-                allies.push_back(p);
-            } else if (terrain_grid[i][j] == terrainObjectToChar(TerrainObject::CURRENT_TANK)) {
-                vehicle_location = p;
-            } else if (terrain_grid[i][j] == getOpponentIdentifier()) {
-                opponents.push_back(p);
-            } else if (terrain_grid[i][j] == terrainObjectToChar(TerrainObject::SHELL)) {
-                projectiles.push_back(p);
+            if (board[i][j] == getAllyName()) {
+                ally.push_back(p);
+            } else if (board[i][j] == boardItemToChar(BoardItem::CURRENT_TANK)) {
+                tank_position = p;
+            } else if (board[i][j] == getEnemyName()) {
+                enemy.push_back(p);
+            } else if (board[i][j] == boardItemToChar(BoardItem::SHELL)) {
+                shells.push_back(p);
             }
         }
     }
-    friendly_positions = allies;
-    opponent_positions = opponents;
-    projectile_positions = projectiles;
+    ally_positions = ally;
+    enemy_positions = enemy;
+    shells_position = shells;
 }
 
-char MyBattleStatus::getOpponentIdentifier() const {
+char MyBattleStatus::getEnemyName() const {
     (void) tank_index;
-    return (player_id == 1) ? terrainObjectToChar(TerrainObject::TANK_PLAYER_2) : terrainObjectToChar(TerrainObject::TANK_PLAYER_1);
+    return (player_id == 1) ? boardItemToChar(BoardItem::TANK_PLAYER_2) : boardItemToChar(BoardItem::TANK_PLAYER_1);
 }
 
-char MyBattleStatus::getFriendlyIdentifier() const {
-    return (player_id == 1) ? terrainObjectToChar(TerrainObject::TANK_PLAYER_1) : terrainObjectToChar(TerrainObject::TANK_PLAYER_2);
+char MyBattleStatus::getAllyName() const {
+    return (player_id == 1) ? boardItemToChar(BoardItem::TANK_PLAYER_1) : boardItemToChar(BoardItem::TANK_PLAYER_2);
 }
 
-std::vector<Position> MyBattleStatus::getOpponentLocations() const {
-    return opponent_positions;
+std::vector<Position> MyBattleStatus::getEnemyPositions() const {
+    return enemy_positions;
 }
 
-size_t MyBattleStatus::getOpponentVehicleCount() const {
-    return opponent_positions.size();
+size_t MyBattleStatus::getEnemyTankCounts() const {
+    return enemy_positions.size();
 }
 
-void MyBattleStatus::updateVehicleOrientationAfterAction(const ActionRequest action) {
-    vehicle_orientation = Direction::getDirectionAfterAction(vehicle_orientation, action);
+void MyBattleStatus::updateTankDirectionBaseAction(const ActionRequest action) {
+    tank_direction = Direction::getDirectionAfterAction(tank_direction, action);
 }
 
 void MyBattleStatus::updateBattleStatusBaseAction(ActionRequest action) {
     if (action == ActionRequest::Shoot) {
-        weapon_cooldown = 4;
-        ammo_count--;
+        cool_down = 4;
+        num_shells--;
         return;
     }
-    weapon_cooldown = (weapon_cooldown == 0) ? 0 : weapon_cooldown - 1;
-    updateVehicleOrientationAfterAction(action);
+    cool_down = (cool_down == 0) ? 0 : cool_down - 1;
+    updateTankDirectionBaseAction(action);
 }
 
-bool MyBattleStatus::isProjectileInVicinity(Position position, size_t thresh) const {
-    for (auto projectile_pos: projectile_positions) {
-        if (calculateDistance(position, projectile_pos) < thresh) {
+bool MyBattleStatus::isShellClose(Position position, size_t thresh) const {
+    for (auto shell_pos: shells_position) {
+        if (getDistance(position, shell_pos) < thresh) {
             return true;
         }
     }
     return false;
 }
 
-bool MyBattleStatus::isOpponentNearby(Position position) const {
-    if (opponent_positions.empty()) {
+bool MyBattleStatus::isEnemyClose(Position position) const {
+    if (enemy_positions.empty()) {
         return false;
     }
-    for (auto opponent_position: opponent_positions) {
-        if (calculateDistance(position, opponent_position) <= 2) {
+    for (auto enemy_position: enemy_positions) {
+        if (getDistance(position, enemy_position) <= 2) {
             return true;
         }
     }
     return false;
 }
 
-//this time we cannot know the projectiles' direction.
-//we say a projectile is threatening a vehicle if it is close to it
-bool MyBattleStatus::isProjectileInVicinity(size_t thresh) const {
-    return isProjectileInVicinity(vehicle_location, thresh);
+//this time we cannot know the shells' direction.
+//we say shell is threatening a tank if is close to him
+bool MyBattleStatus::isShellClose(size_t thresh) const {
+    return isShellClose(tank_position, thresh);
 }
 
-bool MyBattleStatus::isOpponentNearby() const {
-    // For test scenarios, use the test flag
-    if (test_is_threatened) {
-        return true;
-    }
-    return isOpponentNearby(vehicle_location);
+bool MyBattleStatus::isEnemyClose() const {
+    return isEnemyClose(tank_position);
 }

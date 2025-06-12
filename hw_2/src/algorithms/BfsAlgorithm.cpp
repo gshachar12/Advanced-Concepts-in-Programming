@@ -14,12 +14,12 @@ std::vector<Direction::DirectionType> navigation_path;
 
 // Initialize tracking of enemy positions with default values
 void BfsAlgorithm::initEnemyPositionTracking() {
-    enemy_position_history = std::vector<Position>(battle_status.getOpponentVehicleCount(), {-1, -1});
+    enemy_position_history = std::vector<Position>(battle_status.getEnemyTankCounts(), {-1, -1});
 }
 
 // Update the stored enemy positions with current battlefield data
 void BfsAlgorithm::refreshEnemyPositions() {
-    enemy_position_history = battle_status.getOpponentLocations();
+    enemy_position_history = battle_status.getEnemyPositions();
 }
 
 
@@ -28,7 +28,7 @@ void BfsAlgorithm::respondToThreat(ActionRequest *request, std::string *request_
     danger_detected = true;
     
     // If we have a direct shot at an enemy, prioritize offensive action
-    if (battle_status.canHitTarget(true)) {
+    if (battle_status.canTankShootEnemy(true)) {
         *request = ActionRequest::Shoot;
         *request_title = "Defensive Fire";
         return;
@@ -41,7 +41,7 @@ void BfsAlgorithm::respondToThreat(ActionRequest *request, std::string *request_
 
 void BfsAlgorithm::attemptToEngageEnemy(ActionRequest *request, std::string *request_title) {
     // If we have a clean shot, take it immediately
-    if (battle_status.canHitTarget()) {
+    if (battle_status.canTankShootEnemy()) {
         path_viability_flag = false; // Reset path flag as we're taking action
         *request = ActionRequest::Shoot;
         *request_title = "Engaging Target";
@@ -59,18 +59,18 @@ bool BfsAlgorithm::turnTowardsEnemy(ActionRequest *request, std::string *request
         Direction::DirectionType target_direction = Direction::getDirectionFromIndex(direction_id);
         
         // Skip our current direction - no need to rotate
-        if (battle_status.vehicle_orientation == target_direction) {
+        if (battle_status.tank_direction == target_direction) {
             continue;
         }
         
         // Check if we can shoot an enemy from this direction
-        if (battle_status.canHitTarget(target_direction)) {
+        if (battle_status.canTankShootEnemy(target_direction)) {
             // Clear any existing path as we're changing strategy
             navigation_path.clear();
             path_viability_flag = false;
             
             // Request rotation toward the target direction
-            *request = battle_status.calculateOptimalRotation(target_direction);
+            *request = battle_status.rotateTowards(target_direction);
             *request_title = "Rotating to firing position " + std::to_string(direction_id);
             return true;
         }
@@ -82,7 +82,7 @@ bool BfsAlgorithm::turnTowardsEnemy(ActionRequest *request, std::string *request
 
 bool BfsAlgorithm::haveEnemiesMoved() const {
     // Get the current positions of all enemies
-    auto current_enemy_positions = battle_status.getOpponentLocations();
+    auto current_enemy_positions = battle_status.getEnemyPositions();
     
     // If the count of enemies has changed, consider it a movement
     if (current_enemy_positions.size() != enemy_position_history.size()) {
@@ -121,11 +121,11 @@ void BfsAlgorithm::updateNavigationPath() {
 
 void BfsAlgorithm::handleNoValidPath(ActionRequest *request, std::string *request_title) const {
     // If no path is available but we can shoot, take the shot
-    if (battle_status.isWeaponReady()) {
+    if (battle_status.canTankShoot()) {
         *request = ActionRequest::Shoot;
         
         // Track whether this is targeted or random fire
-        bool can_hit_enemy = battle_status.canHitTarget();
+        bool can_hit_enemy = battle_status.canTankShootEnemy();
         path_viability_flag = !can_hit_enemy;
         
         // Set appropriate message
@@ -147,12 +147,12 @@ void BfsAlgorithm::followCurrentPath(ActionRequest *request, std::string *reques
     Direction::DirectionType desired_direction = navigation_path.front();
     
     // If we're already facing the right way, try to move forward
-    if (battle_status.vehicle_orientation == desired_direction) {
+    if (battle_status.tank_direction == desired_direction) {
         // Calculate the next position
-        Position destination = battle_status.normalizeCoordinates(battle_status.vehicle_location + desired_direction);
+        Position destination = battle_status.wrapPosition(battle_status.tank_position + desired_direction);
 
         // Check for mines - don't move if there's a mine
-        if (battle_status.getTerrainAt(destination) == '@') {
+        if (battle_status.getBoardItem(destination) == '@') {
             *request = ActionRequest::DoNothing;
             *request_title = "Mine detected - holding position";
             navigation_path.clear();
@@ -161,8 +161,8 @@ void BfsAlgorithm::followCurrentPath(ActionRequest *request, std::string *reques
         }
 
         // Check for walls - shoot if possible
-        if (battle_status.getTerrainAt(destination) == '#') {
-            if (battle_status.isWeaponReady()) {
+        if (battle_status.getBoardItem(destination) == '#') {
+            if (battle_status.canTankShoot()) {
                 *request = ActionRequest::Shoot;
                 *request_title = "Clearing obstacle";
                 path_viability_flag = false;
@@ -184,9 +184,9 @@ void BfsAlgorithm::followCurrentPath(ActionRequest *request, std::string *reques
 
     // We need to rotate to face the right direction
     path_viability_flag = false;
-    *request_title = "Aligning from " + Direction::directionToString(battle_status.vehicle_orientation) + 
+    *request_title = "Aligning from " + Direction::directionToString(battle_status.tank_direction) + 
                      " toward " + Direction::directionToString(desired_direction);
-    *request = battle_status.calculateOptimalRotation(desired_direction);
+    *request = battle_status.rotateTowards(desired_direction);
 }
 
 
@@ -204,7 +204,7 @@ std::vector<Direction::DirectionType> BfsAlgorithm::findPathWithBFS() {
     };
     
     // Log the start of path calculation
-    std::string log_entry = "Tactical navigation analysis from " + battle_status.vehicle_location.toString();
+    std::string log_entry = "Tactical navigation analysis from " + battle_status.tank_position.toString();
     printLogs(log_entry);
 
     // Initialize the search structures
@@ -212,7 +212,7 @@ std::vector<Direction::DirectionType> BfsAlgorithm::findPathWithBFS() {
     std::set<Position> explored_positions;
     
     // Add starting position to the search frontier
-    frontier.push(SearchNode(battle_status.vehicle_location, {}));
+    frontier.push(SearchNode(battle_status.tank_position, {}));
     
     // Track the optimal path found so far
     std::vector<Direction::DirectionType> optimal_route;
@@ -232,7 +232,7 @@ std::vector<Direction::DirectionType> BfsAlgorithm::findPathWithBFS() {
         explored_positions.insert(current.location);
         
         // Check if this position gives us a firing solution
-        if (battle_status.canHitTarget(current.location)) {
+        if (battle_status.canTankShootEnemy(current.location)) {
             // If this is a shorter path than previously found
             if (current.route.size() < optimal_distance) {
                 optimal_route = current.route;
@@ -245,7 +245,7 @@ std::vector<Direction::DirectionType> BfsAlgorithm::findPathWithBFS() {
         // Explore safe directions from current position
         for (const auto& direction : battle_status.getSafeDirections(current.location)) {
             // Calculate the next position
-            Position next_location = battle_status.normalizeCoordinates(current.location + direction);
+            Position next_location = battle_status.wrapPosition(current.location + direction);
             
             // Skip if already explored
             if (explored_positions.count(next_location) > 0)
@@ -266,7 +266,7 @@ std::vector<Direction::DirectionType> BfsAlgorithm::findPathWithBFS() {
 
 void BfsAlgorithm::calculateAction(ActionRequest *request, std::string *request_title) {
     // Initial turn or following a danger state - gather intelligence
-    if (battle_status.current_turn == 0 || danger_detected) {
+    if (battle_status.turn_number == 0 || danger_detected) {
         // Reset danger flag after gathering intel
         danger_detected = false;
         *request = ActionRequest::GetBattleInfo;
@@ -281,8 +281,8 @@ void BfsAlgorithm::calculateAction(ActionRequest *request, std::string *request_
     }
     
     // Priority 2: Gather intelligence if ammunition is low or info is outdated
-    if (!battle_status.hasAmmunition() || (battle_status.last_requested_info_turn < battle_status.current_turn)) {
-        battle_status.last_requested_info_turn = battle_status.current_turn + 1;
+    if (!battle_status.hasTankAmmo() || (battle_status.last_requested_info_turn < battle_status.turn_number)) {
+        battle_status.last_requested_info_turn = battle_status.turn_number + 1;
         *request = ActionRequest::GetBattleInfo;
         *request_title = "Battlefield reconnaissance";
         return;

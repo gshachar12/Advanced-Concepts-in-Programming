@@ -126,6 +126,8 @@ public:
     size_t getMaxSteps() const { return max_steps; }
 
     void fillSatelliteView(MySatelliteView &satellite_view) const;
+    
+    bool shoot(Position fromPos, Position toPos);
 
     ~Board() = default;
 };

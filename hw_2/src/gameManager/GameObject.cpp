@@ -25,6 +25,13 @@ std::ostream &operator<<(std::ostream &os, const GameObject &element) {
         case '@':
             os << "[  💣  ]";
             break;
+        case 'W':
+            if (const auto weakWall = dynamic_cast<const Wall *>(&element)) {
+                os << "[  🧩 " << weakWall->getHealth() << "]";
+            } else {
+                os << "[  🧩  ]";
+            }
+            break;
         case 'X':
             os << "[  💥  ]";
             break;

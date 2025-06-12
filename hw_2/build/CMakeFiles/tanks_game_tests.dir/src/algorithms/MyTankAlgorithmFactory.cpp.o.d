@@ -903,7 +903,7 @@ CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithmFactory.cpp.o: \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/common/TankAlgorithm.h \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/common/ActionRequest.h \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/common/BattleInfo.h \
-  /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/AdvancedPathfinder.h \
+  /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/BfsAlgorithm.h \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/include/Direction.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/ostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h \
@@ -940,8 +940,4 @@ CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithmFactory.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/unistd.h \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/MyTankAlgorithm.h \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/MyBattleStatus.h \
-  /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/StrategicPlanner.h \
-  /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/TacticalStrategies.h \
-  /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/BfsAlgorithm.h \
-  /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/SimpleAlgorithm.h \
-  /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/TacticalEngine.h
+  /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/SimpleAlgorithm.h

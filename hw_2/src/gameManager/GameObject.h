@@ -3,6 +3,16 @@
 
 #include "Direction.h"
 
+// Define CellType enum
+enum class CellType {
+    EMPTY,
+    WALL,
+    WEAK_WALL,
+    MINE,
+    TANK,
+    SHELL
+};
+
 static int static_id = 0;
 
 class GameObject {
@@ -56,6 +66,23 @@ public:
     virtual bool isCollision() const { return false; }
 
     virtual bool isTank() const { return false; }
+    
+    // Add missing virtual methods
+    virtual void setObjectType(CellType type) { 
+        // Silence unused parameter warning
+        (void)type;
+    }
+    [[nodiscard]] virtual CellType getObjectType() const { return CellType::EMPTY; }
+    [[nodiscard]] virtual CellType getType() const { return getObjectType(); }
+    [[nodiscard]] virtual char getDisplayChar() const { return getSymbol(); }
+    [[nodiscard]] virtual bool isDestroyable() const { return false; }
+    [[nodiscard]] virtual bool isCollidable() const { return false; }
+    [[nodiscard]] virtual bool isPassable() const { return true; }
+    [[nodiscard]] virtual int getHitPoints() const { return 0; }
+    virtual void takeDamage(const int amount = 1) { 
+        // Silence unused parameter warning
+        (void)amount;
+    }
 
     friend std::ostream &operator<<(std::ostream &os, const GameObject &element);
 };

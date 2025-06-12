@@ -532,36 +532,6 @@ src/algorithms/SimpleAlgorithm.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/src/algorithms/SimpleAlgorithm.cpp.s
 .PHONY : src/algorithms/SimpleAlgorithm.cpp.s
 
-src/algorithms/TacticalEngine.o: src/algorithms/TacticalEngine.cpp.o
-.PHONY : src/algorithms/TacticalEngine.o
-
-# target to build an object file
-src/algorithms/TacticalEngine.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game.dir/build.make CMakeFiles/tanks_game.dir/src/algorithms/TacticalEngine.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_lib.dir/build.make CMakeFiles/tanks_game_lib.dir/src/algorithms/TacticalEngine.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/src/algorithms/TacticalEngine.cpp.o
-.PHONY : src/algorithms/TacticalEngine.cpp.o
-
-src/algorithms/TacticalEngine.i: src/algorithms/TacticalEngine.cpp.i
-.PHONY : src/algorithms/TacticalEngine.i
-
-# target to preprocess a source file
-src/algorithms/TacticalEngine.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game.dir/build.make CMakeFiles/tanks_game.dir/src/algorithms/TacticalEngine.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_lib.dir/build.make CMakeFiles/tanks_game_lib.dir/src/algorithms/TacticalEngine.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/src/algorithms/TacticalEngine.cpp.i
-.PHONY : src/algorithms/TacticalEngine.cpp.i
-
-src/algorithms/TacticalEngine.s: src/algorithms/TacticalEngine.cpp.s
-.PHONY : src/algorithms/TacticalEngine.s
-
-# target to generate assembly for a file
-src/algorithms/TacticalEngine.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game.dir/build.make CMakeFiles/tanks_game.dir/src/algorithms/TacticalEngine.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_lib.dir/build.make CMakeFiles/tanks_game_lib.dir/src/algorithms/TacticalEngine.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/src/algorithms/TacticalEngine.cpp.s
-.PHONY : src/algorithms/TacticalEngine.cpp.s
-
 src/gameManager/ActionRequest.o: src/gameManager/ActionRequest.cpp.o
 .PHONY : src/gameManager/ActionRequest.o
 
@@ -1047,9 +1017,6 @@ help:
 	@echo "... src/algorithms/SimpleAlgorithm.o"
 	@echo "... src/algorithms/SimpleAlgorithm.i"
 	@echo "... src/algorithms/SimpleAlgorithm.s"
-	@echo "... src/algorithms/TacticalEngine.o"
-	@echo "... src/algorithms/TacticalEngine.i"
-	@echo "... src/algorithms/TacticalEngine.s"
 	@echo "... src/gameManager/ActionRequest.o"
 	@echo "... src/gameManager/ActionRequest.i"
 	@echo "... src/gameManager/ActionRequest.s"

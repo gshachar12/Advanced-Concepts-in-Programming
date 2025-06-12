@@ -935,5 +935,6 @@ CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObjectFactory.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/unistd.h \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/common/ActionRequest.h \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/Wall.h \
+  /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/WeakWall.h \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/Mine.h \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/Tank.h

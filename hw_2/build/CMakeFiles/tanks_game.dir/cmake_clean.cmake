@@ -17,8 +17,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/tanks_game.dir/src/algorithms/Player2.cpp.o.d"
   "CMakeFiles/tanks_game.dir/src/algorithms/SimpleAlgorithm.cpp.o"
   "CMakeFiles/tanks_game.dir/src/algorithms/SimpleAlgorithm.cpp.o.d"
-  "CMakeFiles/tanks_game.dir/src/algorithms/TacticalEngine.cpp.o"
-  "CMakeFiles/tanks_game.dir/src/algorithms/TacticalEngine.cpp.o.d"
   "CMakeFiles/tanks_game.dir/src/gameManager/ActionRequest.cpp.o"
   "CMakeFiles/tanks_game.dir/src/gameManager/ActionRequest.cpp.o.d"
   "CMakeFiles/tanks_game.dir/src/gameManager/Board.cpp.o"
