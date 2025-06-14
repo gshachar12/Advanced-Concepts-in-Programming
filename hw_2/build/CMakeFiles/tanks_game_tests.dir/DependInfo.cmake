@@ -26,12 +26,13 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/InputParser.cpp" "CMakeFiles/tanks_game_tests.dir/src/gameManager/InputParser.cpp.o" "gcc" "CMakeFiles/tanks_game_tests.dir/src/gameManager/InputParser.cpp.o.d"
   "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/Logger.cpp" "CMakeFiles/tanks_game_tests.dir/src/gameManager/Logger.cpp.o" "gcc" "CMakeFiles/tanks_game_tests.dir/src/gameManager/Logger.cpp.o.d"
   "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/MySatelliteView.cpp" "CMakeFiles/tanks_game_tests.dir/src/gameManager/MySatelliteView.cpp.o" "gcc" "CMakeFiles/tanks_game_tests.dir/src/gameManager/MySatelliteView.cpp.o.d"
-  "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/algorithms_test.cpp" "CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.o" "gcc" "CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.o.d"
   "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/board_test.cpp" "CMakeFiles/tanks_game_tests.dir/tests/board_test.cpp.o" "gcc" "CMakeFiles/tanks_game_tests.dir/tests/board_test.cpp.o.d"
-  "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/game_manager_test.cpp" "CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.o" "gcc" "CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.o.d"
+  "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/collision_test.cpp" "CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.o" "gcc" "CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.o.d"
   "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/game_state_test.cpp" "CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.o" "gcc" "CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.o.d"
-  "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/input_parser_test.cpp" "CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.o" "gcc" "CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.o.d"
-  "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/position_test.cpp" "CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.o" "gcc" "CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.o.d"
+  "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/tank_movement_test.cpp" "CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.o" "gcc" "CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.o.d"
+  "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/tank_shooting_test.cpp" "CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.o" "gcc" "CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.o.d"
+  "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/wall_damage_test.cpp" "CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.o" "gcc" "CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.o.d"
+  "/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/weak_wall_test.cpp" "CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.o" "gcc" "CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

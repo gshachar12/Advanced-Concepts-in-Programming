@@ -1,7 +1,6 @@
 CMakeFiles/tanks_game_lib.dir/src/algorithms/MyPlayerFactory.cpp.o: \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/MyPlayerFactory.cpp \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/include/MyPlayerFactory.h \
-  /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/common/PlayerFactory.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/memory \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \
@@ -513,6 +512,7 @@ CMakeFiles/tanks_game_lib.dir/src/algorithms/MyPlayerFactory.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/sortable.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/unreachable_sentinel.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stdexcept \
+  /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/common/PlayerFactory.h \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/common/Player.h \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/common/SatelliteView.h \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/common/TankAlgorithm.h \

@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "gameManager/Board.h"
-#include "gameManager/Wall.h"
+#include "Board.h"
+#include "Wall.h"
 
 TEST(WallDamageTest, WallTakesDamage) {
     Board board("Test", 10, 5, 10, 10);

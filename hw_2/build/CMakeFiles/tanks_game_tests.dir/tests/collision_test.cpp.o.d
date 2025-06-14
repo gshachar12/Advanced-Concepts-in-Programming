@@ -1,5 +1,5 @@
-CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.o: \
-  /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/game_state_test.cpp \
+CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.o: \
+  /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/collision_test.cpp \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/_deps/googletest-src/googletest/include/gtest/gtest.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cstddef \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
@@ -999,4 +999,4 @@ CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.o: \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/Shell.h \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/Tank.h \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/Wall.h \
-  /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/WeakWall.h
+  /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/Collision.h

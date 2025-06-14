@@ -226,12 +226,12 @@ CMakeFiles/tanks_game_tests.dir/all: _deps/googletest-build/googletest/CMakeFile
 CMakeFiles/tanks_game_tests.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72 "Built target tanks_game_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73 "Built target tanks_game_tests"
 .PHONY : CMakeFiles/tanks_game_tests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/tanks_game_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles 31
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles 32
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tanks_game_tests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles 0
 .PHONY : CMakeFiles/tanks_game_tests.dir/rule
@@ -243,7 +243,7 @@ tanks_game_tests: CMakeFiles/tanks_game_tests.dir/rule
 # codegen rule for target.
 CMakeFiles/tanks_game_tests.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72 "Finished codegen for target tanks_game_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73 "Finished codegen for target tanks_game_tests"
 .PHONY : CMakeFiles/tanks_game_tests.dir/codegen
 
 # clean rule for target.

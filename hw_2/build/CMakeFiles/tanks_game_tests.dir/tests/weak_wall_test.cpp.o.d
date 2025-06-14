@@ -1,5 +1,5 @@
-CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.o: \
-  /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/game_state_test.cpp \
+CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.o: \
+  /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/weak_wall_test.cpp \
   /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/_deps/googletest-src/googletest/include/gtest/gtest.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cstddef \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
