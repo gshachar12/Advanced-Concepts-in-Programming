@@ -72,24 +72,10 @@ include CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/codegen:
 .PHONY : CMakeFiles/tanks_game_tests.dir/codegen
 
-CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
-CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/position_test.cpp
-CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.o -MF CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/position_test.cpp
-
-CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/position_test.cpp > CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.i
-
-CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/position_test.cpp -o CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.s
-
 CMakeFiles/tanks_game_tests.dir/tests/board_test.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/tests/board_test.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/board_test.cpp
 CMakeFiles/tanks_game_tests.dir/tests/board_test.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tanks_game_tests.dir/tests/board_test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tanks_game_tests.dir/tests/board_test.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/tests/board_test.cpp.o -MF CMakeFiles/tanks_game_tests.dir/tests/board_test.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/tests/board_test.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/board_test.cpp
 
 CMakeFiles/tanks_game_tests.dir/tests/board_test.cpp.i: cmake_force
@@ -100,24 +86,10 @@ CMakeFiles/tanks_game_tests.dir/tests/board_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tanks_game_tests.dir/tests/board_test.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/board_test.cpp -o CMakeFiles/tanks_game_tests.dir/tests/board_test.cpp.s
 
-CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
-CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/input_parser_test.cpp
-CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.o -MF CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/input_parser_test.cpp
-
-CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/input_parser_test.cpp > CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.i
-
-CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/input_parser_test.cpp -o CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.s
-
 CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/game_state_test.cpp
 CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.o -MF CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/game_state_test.cpp
 
 CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.i: cmake_force
@@ -128,38 +100,80 @@ CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/game_state_test.cpp -o CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.s
 
-CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
-CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/algorithms_test.cpp
-CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.o -MF CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/algorithms_test.cpp
+CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
+CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/wall_damage_test.cpp
+CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.o -MF CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/wall_damage_test.cpp
 
-CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/algorithms_test.cpp > CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.i
+CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/wall_damage_test.cpp > CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.i
 
-CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/algorithms_test.cpp -o CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.s
+CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/wall_damage_test.cpp -o CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.s
 
-CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
-CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/game_manager_test.cpp
-CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.o -MF CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/game_manager_test.cpp
+CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
+CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/weak_wall_test.cpp
+CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.o -MF CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/weak_wall_test.cpp
 
-CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/game_manager_test.cpp > CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.i
+CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/weak_wall_test.cpp > CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.i
 
-CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/game_manager_test.cpp -o CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.s
+CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/weak_wall_test.cpp -o CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.s
+
+CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
+CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/tank_movement_test.cpp
+CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.o -MF CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/tank_movement_test.cpp
+
+CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/tank_movement_test.cpp > CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.i
+
+CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/tank_movement_test.cpp -o CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.s
+
+CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
+CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/tank_shooting_test.cpp
+CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.o -MF CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/tank_shooting_test.cpp
+
+CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/tank_shooting_test.cpp > CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.i
+
+CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/tank_shooting_test.cpp -o CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.s
+
+CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
+CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/collision_test.cpp
+CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.o -MF CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/collision_test.cpp
+
+CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/collision_test.cpp > CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.i
+
+CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/tests/collision_test.cpp -o CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.s
 
 CMakeFiles/tanks_game_tests.dir/src/algorithms/AdvancedPathfinder.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/algorithms/AdvancedPathfinder.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/AdvancedPathfinder.cpp
 CMakeFiles/tanks_game_tests.dir/src/algorithms/AdvancedPathfinder.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/AdvancedPathfinder.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/AdvancedPathfinder.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/algorithms/AdvancedPathfinder.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/algorithms/AdvancedPathfinder.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/algorithms/AdvancedPathfinder.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/AdvancedPathfinder.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/algorithms/AdvancedPathfinder.cpp.i: cmake_force
@@ -173,7 +187,7 @@ CMakeFiles/tanks_game_tests.dir/src/algorithms/AdvancedPathfinder.cpp.s: cmake_f
 CMakeFiles/tanks_game_tests.dir/src/algorithms/BfsAlgorithm.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/algorithms/BfsAlgorithm.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/BfsAlgorithm.cpp
 CMakeFiles/tanks_game_tests.dir/src/algorithms/BfsAlgorithm.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/BfsAlgorithm.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/BfsAlgorithm.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/algorithms/BfsAlgorithm.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/algorithms/BfsAlgorithm.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/algorithms/BfsAlgorithm.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/BfsAlgorithm.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/algorithms/BfsAlgorithm.cpp.i: cmake_force
@@ -187,7 +201,7 @@ CMakeFiles/tanks_game_tests.dir/src/algorithms/BfsAlgorithm.cpp.s: cmake_force
 CMakeFiles/tanks_game_tests.dir/src/algorithms/MyBattleStatus.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/algorithms/MyBattleStatus.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/MyBattleStatus.cpp
 CMakeFiles/tanks_game_tests.dir/src/algorithms/MyBattleStatus.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/MyBattleStatus.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/MyBattleStatus.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/algorithms/MyBattleStatus.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/algorithms/MyBattleStatus.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/algorithms/MyBattleStatus.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/MyBattleStatus.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/algorithms/MyBattleStatus.cpp.i: cmake_force
@@ -201,7 +215,7 @@ CMakeFiles/tanks_game_tests.dir/src/algorithms/MyBattleStatus.cpp.s: cmake_force
 CMakeFiles/tanks_game_tests.dir/src/algorithms/MyPlayerFactory.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/algorithms/MyPlayerFactory.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/MyPlayerFactory.cpp
 CMakeFiles/tanks_game_tests.dir/src/algorithms/MyPlayerFactory.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/MyPlayerFactory.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/MyPlayerFactory.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/algorithms/MyPlayerFactory.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/algorithms/MyPlayerFactory.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/algorithms/MyPlayerFactory.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/MyPlayerFactory.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/algorithms/MyPlayerFactory.cpp.i: cmake_force
@@ -215,7 +229,7 @@ CMakeFiles/tanks_game_tests.dir/src/algorithms/MyPlayerFactory.cpp.s: cmake_forc
 CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithm.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithm.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/MyTankAlgorithm.cpp
 CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithm.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithm.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithm.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithm.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithm.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithm.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/MyTankAlgorithm.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithm.cpp.i: cmake_force
@@ -229,7 +243,7 @@ CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithm.cpp.s: cmake_forc
 CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithmFactory.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithmFactory.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/MyTankAlgorithmFactory.cpp
 CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithmFactory.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithmFactory.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithmFactory.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithmFactory.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithmFactory.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithmFactory.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/MyTankAlgorithmFactory.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithmFactory.cpp.i: cmake_force
@@ -243,7 +257,7 @@ CMakeFiles/tanks_game_tests.dir/src/algorithms/MyTankAlgorithmFactory.cpp.s: cma
 CMakeFiles/tanks_game_tests.dir/src/algorithms/Player1.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/algorithms/Player1.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/Player1.cpp
 CMakeFiles/tanks_game_tests.dir/src/algorithms/Player1.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/Player1.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/Player1.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/algorithms/Player1.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/algorithms/Player1.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/algorithms/Player1.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/Player1.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/algorithms/Player1.cpp.i: cmake_force
@@ -257,7 +271,7 @@ CMakeFiles/tanks_game_tests.dir/src/algorithms/Player1.cpp.s: cmake_force
 CMakeFiles/tanks_game_tests.dir/src/algorithms/Player2.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/algorithms/Player2.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/Player2.cpp
 CMakeFiles/tanks_game_tests.dir/src/algorithms/Player2.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/Player2.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/Player2.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/algorithms/Player2.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/algorithms/Player2.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/algorithms/Player2.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/Player2.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/algorithms/Player2.cpp.i: cmake_force
@@ -271,7 +285,7 @@ CMakeFiles/tanks_game_tests.dir/src/algorithms/Player2.cpp.s: cmake_force
 CMakeFiles/tanks_game_tests.dir/src/algorithms/SimpleAlgorithm.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/algorithms/SimpleAlgorithm.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/SimpleAlgorithm.cpp
 CMakeFiles/tanks_game_tests.dir/src/algorithms/SimpleAlgorithm.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/SimpleAlgorithm.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/algorithms/SimpleAlgorithm.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/algorithms/SimpleAlgorithm.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/algorithms/SimpleAlgorithm.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/algorithms/SimpleAlgorithm.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/algorithms/SimpleAlgorithm.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/algorithms/SimpleAlgorithm.cpp.i: cmake_force
@@ -285,7 +299,7 @@ CMakeFiles/tanks_game_tests.dir/src/algorithms/SimpleAlgorithm.cpp.s: cmake_forc
 CMakeFiles/tanks_game_tests.dir/src/gameManager/ActionRequest.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/gameManager/ActionRequest.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/ActionRequest.cpp
 CMakeFiles/tanks_game_tests.dir/src/gameManager/ActionRequest.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/ActionRequest.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/ActionRequest.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/gameManager/ActionRequest.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/gameManager/ActionRequest.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/gameManager/ActionRequest.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/ActionRequest.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/gameManager/ActionRequest.cpp.i: cmake_force
@@ -299,7 +313,7 @@ CMakeFiles/tanks_game_tests.dir/src/gameManager/ActionRequest.cpp.s: cmake_force
 CMakeFiles/tanks_game_tests.dir/src/gameManager/Board.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/gameManager/Board.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/Board.cpp
 CMakeFiles/tanks_game_tests.dir/src/gameManager/Board.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/Board.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/Board.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/gameManager/Board.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/gameManager/Board.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/gameManager/Board.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/Board.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/gameManager/Board.cpp.i: cmake_force
@@ -313,7 +327,7 @@ CMakeFiles/tanks_game_tests.dir/src/gameManager/Board.cpp.s: cmake_force
 CMakeFiles/tanks_game_tests.dir/src/gameManager/Collision.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/gameManager/Collision.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/Collision.cpp
 CMakeFiles/tanks_game_tests.dir/src/gameManager/Collision.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/Collision.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/Collision.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/gameManager/Collision.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/gameManager/Collision.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/gameManager/Collision.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/Collision.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/gameManager/Collision.cpp.i: cmake_force
@@ -327,7 +341,7 @@ CMakeFiles/tanks_game_tests.dir/src/gameManager/Collision.cpp.s: cmake_force
 CMakeFiles/tanks_game_tests.dir/src/gameManager/GameManager.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/gameManager/GameManager.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/GameManager.cpp
 CMakeFiles/tanks_game_tests.dir/src/gameManager/GameManager.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/GameManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/GameManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/gameManager/GameManager.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/gameManager/GameManager.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/gameManager/GameManager.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/GameManager.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/gameManager/GameManager.cpp.i: cmake_force
@@ -341,7 +355,7 @@ CMakeFiles/tanks_game_tests.dir/src/gameManager/GameManager.cpp.s: cmake_force
 CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObject.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObject.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/GameObject.cpp
 CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObject.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObject.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObject.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObject.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObject.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObject.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/GameObject.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObject.cpp.i: cmake_force
@@ -355,7 +369,7 @@ CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObject.cpp.s: cmake_force
 CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObjectFactory.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObjectFactory.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/GameObjectFactory.cpp
 CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObjectFactory.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObjectFactory.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObjectFactory.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObjectFactory.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObjectFactory.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObjectFactory.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/GameObjectFactory.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObjectFactory.cpp.i: cmake_force
@@ -369,7 +383,7 @@ CMakeFiles/tanks_game_tests.dir/src/gameManager/GameObjectFactory.cpp.s: cmake_f
 CMakeFiles/tanks_game_tests.dir/src/gameManager/InputParser.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/gameManager/InputParser.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/InputParser.cpp
 CMakeFiles/tanks_game_tests.dir/src/gameManager/InputParser.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/InputParser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/InputParser.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/gameManager/InputParser.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/gameManager/InputParser.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/gameManager/InputParser.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/InputParser.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/gameManager/InputParser.cpp.i: cmake_force
@@ -383,7 +397,7 @@ CMakeFiles/tanks_game_tests.dir/src/gameManager/InputParser.cpp.s: cmake_force
 CMakeFiles/tanks_game_tests.dir/src/gameManager/Logger.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/gameManager/Logger.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/Logger.cpp
 CMakeFiles/tanks_game_tests.dir/src/gameManager/Logger.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/Logger.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/Logger.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/gameManager/Logger.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/gameManager/Logger.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/gameManager/Logger.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/Logger.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/gameManager/Logger.cpp.i: cmake_force
@@ -397,7 +411,7 @@ CMakeFiles/tanks_game_tests.dir/src/gameManager/Logger.cpp.s: cmake_force
 CMakeFiles/tanks_game_tests.dir/src/gameManager/MySatelliteView.cpp.o: CMakeFiles/tanks_game_tests.dir/flags.make
 CMakeFiles/tanks_game_tests.dir/src/gameManager/MySatelliteView.cpp.o: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/MySatelliteView.cpp
 CMakeFiles/tanks_game_tests.dir/src/gameManager/MySatelliteView.cpp.o: CMakeFiles/tanks_game_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/MySatelliteView.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/tanks_game_tests.dir/src/gameManager/MySatelliteView.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tanks_game_tests.dir/src/gameManager/MySatelliteView.cpp.o -MF CMakeFiles/tanks_game_tests.dir/src/gameManager/MySatelliteView.cpp.o.d -o CMakeFiles/tanks_game_tests.dir/src/gameManager/MySatelliteView.cpp.o -c /Users/dorliber/Advanced-Concepts-in-Programming/hw_2/src/gameManager/MySatelliteView.cpp
 
 CMakeFiles/tanks_game_tests.dir/src/gameManager/MySatelliteView.cpp.i: cmake_force
@@ -410,12 +424,13 @@ CMakeFiles/tanks_game_tests.dir/src/gameManager/MySatelliteView.cpp.s: cmake_for
 
 # Object files for target tanks_game_tests
 tanks_game_tests_OBJECTS = \
-"CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.o" \
 "CMakeFiles/tanks_game_tests.dir/tests/board_test.cpp.o" \
-"CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.o" \
 "CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.o" \
-"CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.o" \
-"CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.o" \
+"CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.o" \
+"CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.o" \
+"CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.o" \
+"CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.o" \
+"CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.o" \
 "CMakeFiles/tanks_game_tests.dir/src/algorithms/AdvancedPathfinder.cpp.o" \
 "CMakeFiles/tanks_game_tests.dir/src/algorithms/BfsAlgorithm.cpp.o" \
 "CMakeFiles/tanks_game_tests.dir/src/algorithms/MyBattleStatus.cpp.o" \
@@ -438,12 +453,13 @@ tanks_game_tests_OBJECTS = \
 # External object files for target tanks_game_tests
 tanks_game_tests_EXTERNAL_OBJECTS =
 
-tanks_game_tests: CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.o
 tanks_game_tests: CMakeFiles/tanks_game_tests.dir/tests/board_test.cpp.o
-tanks_game_tests: CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.o
 tanks_game_tests: CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.o
-tanks_game_tests: CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.o
-tanks_game_tests: CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.o
+tanks_game_tests: CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.o
+tanks_game_tests: CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.o
+tanks_game_tests: CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.o
+tanks_game_tests: CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.o
+tanks_game_tests: CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.o
 tanks_game_tests: CMakeFiles/tanks_game_tests.dir/src/algorithms/AdvancedPathfinder.cpp.o
 tanks_game_tests: CMakeFiles/tanks_game_tests.dir/src/algorithms/BfsAlgorithm.cpp.o
 tanks_game_tests: CMakeFiles/tanks_game_tests.dir/src/algorithms/MyBattleStatus.cpp.o
@@ -467,7 +483,7 @@ tanks_game_tests: lib/libgtest_main.a
 tanks_game_tests: lib/libgmock.a
 tanks_game_tests: lib/libgtest.a
 tanks_game_tests: CMakeFiles/tanks_game_tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking CXX executable tanks_game_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Linking CXX executable tanks_game_tests"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tanks_game_tests.dir/link.txt --verbose=$(VERBOSE)
 	/opt/homebrew/bin/cmake -D TEST_TARGET=tanks_game_tests -D TEST_EXECUTABLE=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/tanks_game_tests -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=tanks_game_tests_TESTS -D CTEST_FILE=/Users/dorliber/Advanced-Concepts-in-Programming/hw_2/build/tanks_game_tests[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_DISCOVERY_EXTRA_ARGS= -D TEST_XML_OUTPUT_DIR= -P /opt/homebrew/share/cmake/Modules/GoogleTestAddTests.cmake
 

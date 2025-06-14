@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "gameManager/Board.h"
-#include "gameManager/WeakWall.h"
+#include "Board.h"
+#include "WeakWall.h"
 
 TEST(WeakWallTest, DestroyedAfterOneDamage) {
     Board board("Test", 10, 5, 10, 10);

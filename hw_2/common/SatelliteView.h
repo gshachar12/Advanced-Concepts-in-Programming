@@ -1,17 +1,32 @@
-//
-// Created by Ishay Yemini on 26/05/2025.
-//
-
-#ifndef SATELLITEVIEW_H
-#define SATELLITEVIEW_H
+/**
+ * @file SatelliteView.h
+ * @brief Defines the interface for battlefield observation.
+ * @author Advanced Programming Team
+ */
+#pragma once
 
 #include <cstddef>
 
+/**
+ * @class SatelliteView
+ * @brief Interface for observing the battlefield from above
+ *
+ * Provides an abstract mechanism to view the battlefield grid
+ * and identify objects at specific coordinates.
+ */
 class SatelliteView {
 public:
-    virtual ~SatelliteView() {}
-    virtual char getObjectAt(size_t x, size_t y) const = 0;
+    /**
+     * @brief Virtual destructor for proper inheritance cleanup
+     */
+    virtual ~SatelliteView() = default;
+    
+    /**
+     * @brief Retrieves the character representation of an object at the specified coordinates
+     * 
+     * @param posX X-coordinate to examine
+     * @param posY Y-coordinate to examine
+     * @return char Character representing the object at the specified location
+     */
+    virtual char getObjectAt(size_t posX, size_t posY) const = 0;
 };
-
-
-#endif //SATELLITEVIEW_H

@@ -24,7 +24,7 @@ void GameManager::readBoard(const std::string &file_name) {
     board = input_parser.parseInputFile(file_name);
 
     if (board == nullptr) {
-        board = make_unique<Board>();
+        board = std::make_unique<Board>();
         std::cerr << "Can't parse file " << file_name << std::endl;
     }
 

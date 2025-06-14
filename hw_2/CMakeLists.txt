@@ -55,12 +55,13 @@ enable_testing()
 
 # Add tests
 add_executable(tanks_game_tests
-        "tests/position_test.cpp"
         "tests/board_test.cpp"
-        "tests/input_parser_test.cpp"
         "tests/game_state_test.cpp"
-        "tests/algorithms_test.cpp"
-        "tests/game_manager_test.cpp"
+        "tests/wall_damage_test.cpp"
+        "tests/weak_wall_test.cpp"
+        "tests/tank_movement_test.cpp"
+        "tests/tank_shooting_test.cpp"
+        "tests/collision_test.cpp"
         ${SOURCES}
 )
 target_link_libraries(tanks_game_tests gtest_main gmock)

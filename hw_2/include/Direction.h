@@ -1,35 +1,61 @@
-#ifndef DIRECTION_H
-#define DIRECTION_H
+#pragma once
+/**
+ * @file Direction.h
+ * @brief Defines utilities for position and direction management.
+ */
 
 #include <array>
 #include <string>
 #include <ostream>
 #include "ActionRequest.h"
 
+// Forward declarations
 class Direction;
 enum class DirectionType : int;
 
+/**
+ * @struct Position
+ * @brief Represents a 2D coordinate in the game grid.
+ */
 struct Position {
-    int x;
-    int y;
+    // Coordinates
+    int x;  // x-coordinate (horizontal)
+    int y;  // y-coordinate (vertical)
 
-    bool operator==(const Position &pos2) const {
-        return x == pos2.x && y == pos2.y;
+    /**
+     * @brief Equality comparison operator.
+     * @param other The position to compare with.
+     * @return true if positions are equal, false otherwise.
+     */
+    bool operator==(const Position &other) const {
+        return (x == other.x && y == other.y);
     }
 
+    /**
+     * @brief Less than operator for container sorting.
+     * @param other The position to compare with.
+     * @return true if this position is less than other.
+     */
     bool operator<(const Position &other) const {
-        if (x == other.x) {
-            return y < other.y;
-        }
-        return x < other.x;
+        return (x == other.x) ? (y < other.y) : (x < other.x);
     }
 
-    Position operator+(const Position &pos2) const {
-        return Position(x + pos2.x, y + pos2.y);
+    /**
+     * @brief Addition operator for combining two positions.
+     * @param other The position to add.
+     * @return A new position with combined coordinates.
+     */
+    Position operator+(const Position &other) const {
+        return Position(x + other.x, y + other.y);
     }
 
-    Position operator-(const Position &pos2) const {
-        return Position(x - pos2.x, y - pos2.y);
+    /**
+     * @brief Subtraction operator between positions.
+     * @param other The position to subtract.
+     * @return A new position with the difference.
+     */
+    Position operator-(const Position &other) const {
+        return Position(x - other.x, y - other.y);
     }
 
     Position operator*(const int by) const {
@@ -197,5 +223,3 @@ inline Position Position::operator-(const int dirValue) const {
     if (dirValue % 45 != 0 || dirValue < 0 || dirValue > 360) return Position(x, y);
     return Position(x, y) - Direction::getDirectionDelta(static_cast<Direction::DirectionType>(dirValue));
 }
-
-#endif // DIRECTION_H

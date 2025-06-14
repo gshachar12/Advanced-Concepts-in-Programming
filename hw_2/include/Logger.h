@@ -1,68 +1,112 @@
-#ifndef LOGGER_H
-#define LOGGER_H
+#pragma once
+/**
+ * @file Logger.h
+ * @brief Defines a singleton Logger class for game logging functionality.
+ */
 
 #include <fstream>
 #include <map>
 #include <string>
 #include <vector>
+#include <tuple>
 
 #include "ActionRequest.h"
 
+/**
+ * @class Logger
+ * @brief Singleton class for handling all logging activities in the game.
+ * 
+ * This class manages log files for standard output, errors, and input errors.
+ * It follows the Singleton design pattern to ensure only one logger instance exists.
+ */
 class Logger {
 public:
-    // Singleton instance getter
-    static Logger &getInstance();
+    /**
+     * @brief Get the singleton instance of the logger.
+     * @return Reference to the singleton Logger instance.
+     */
+    static Logger& getInstance();
 
-    // Log a message to the log file
-    void log(const std::string &message);
+    /**
+     * @brief Log a general message to the log file.
+     * @param message The message to be logged.
+     */
+    void log(const std::string& message);
 
-    void logActions(std::vector<std::tuple<bool, ActionRequest, bool, bool> > actions);
+    /**
+     * @brief Log player/tank actions with their status.
+     * @param actions Vector of action tuples (isValid, actionType, success, isPlayer).
+     */
+    void logActions(std::vector<std::tuple<bool, ActionRequest, bool, bool>> actions);
 
-    void logResult(const std::string &message);
+    /**
+     * @brief Log game result information.
+     * @param message The result message to be logged.
+     */
+    void logResult(const std::string& message);
 
-    // Log an error to the error file
-    void error(const std::string &message);
+    /**
+     * @brief Log an error message to the error file.
+     * @param message The error message to be logged.
+     */
+    void error(const std::string& message);
 
-    // Log input errors
-    void inputError(const std::string &message);
+    /**
+     * @brief Log input parsing errors.
+     * @param message The input error message to be logged.
+     */
+    void inputError(const std::string& message);
 
-    // Initialize with custom file paths
-    bool init(const std::string &path);
+    /**
+     * @brief Initialize the logger with custom file paths.
+     * @param path Base path for log files.
+     * @return true if initialization was successful, false otherwise.
+     */
+    bool init(const std::string& path);
 
-    // Close log files
+    /**
+     * @brief Close all open log files.
+     */
     void close();
 
-    // Delete copy and assignment to ensure singleton pattern
-    Logger(const Logger &) = delete;
+    // Delete copy constructor and assignment operator
+    Logger(const Logger&) = delete;
+    Logger& operator=(const Logger&) = delete;
 
-    Logger &operator=(const Logger &) = delete;
-
-    // Delete move and assignment to ensure singleton pattern
-    Logger(Logger &&) = delete;
-
-    Logger &operator=(Logger &&) = delete;
+    // Delete move constructor and assignment operator
+    Logger(Logger&&) = delete;
+    Logger& operator=(Logger&&) = delete;
 
 private:
-    // Private constructor for singleton pattern
+    /**
+     * @brief Private constructor for singleton pattern.
+     */
     Logger();
 
+    /**
+     * @brief Destructor ensures files are closed.
+     */
     ~Logger();
 
-    // Get timestamp for log entries
+    /**
+     * @brief Generate a timestamp string for log entries.
+     * @return Formatted timestamp string.
+     */
     std::string getTimestamp() const;
 
     // File streams
-    std::ofstream out_file;
-    std::ofstream log_file;
-    std::ofstream err_file;
-    std::string input_err_file_path;
-    std::ofstream input_err_file;
+    std::ofstream out_file;     ///< Stream for general output
+    std::ofstream log_file;     ///< Stream for logging game events
+    std::ofstream err_file;     ///< Stream for logging errors
+    std::string input_err_file_path;  ///< Path to input error file
+    std::ofstream input_err_file;     ///< Stream for logging input errors
 
-    // Initialization status
-    bool initialized;
+    bool initialized{false};    ///< Flag indicating if logger is initialized
 };
 
-
+/**
+ * @brief Mapping of action requests to human-readable strings
+ */
 inline std::map<ActionRequest, std::string> action_strings = {
     {ActionRequest::DoNothing, "None"},
     {ActionRequest::MoveForward, "Move Forward"},
@@ -74,5 +118,3 @@ inline std::map<ActionRequest, std::string> action_strings = {
     {ActionRequest::Shoot, "Shoot"},
     {ActionRequest::GetBattleInfo, "Get Battle Info"},
 };
-
-#endif // LOGGER_H

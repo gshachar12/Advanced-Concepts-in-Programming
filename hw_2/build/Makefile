@@ -826,30 +826,6 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game.dir/build.make CMakeFiles/tanks_game.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-tests/algorithms_test.o: tests/algorithms_test.cpp.o
-.PHONY : tests/algorithms_test.o
-
-# target to build an object file
-tests/algorithms_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.o
-.PHONY : tests/algorithms_test.cpp.o
-
-tests/algorithms_test.i: tests/algorithms_test.cpp.i
-.PHONY : tests/algorithms_test.i
-
-# target to preprocess a source file
-tests/algorithms_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.i
-.PHONY : tests/algorithms_test.cpp.i
-
-tests/algorithms_test.s: tests/algorithms_test.cpp.s
-.PHONY : tests/algorithms_test.s
-
-# target to generate assembly for a file
-tests/algorithms_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/algorithms_test.cpp.s
-.PHONY : tests/algorithms_test.cpp.s
-
 tests/board_test.o: tests/board_test.cpp.o
 .PHONY : tests/board_test.o
 
@@ -874,29 +850,29 @@ tests/board_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/board_test.cpp.s
 .PHONY : tests/board_test.cpp.s
 
-tests/game_manager_test.o: tests/game_manager_test.cpp.o
-.PHONY : tests/game_manager_test.o
+tests/collision_test.o: tests/collision_test.cpp.o
+.PHONY : tests/collision_test.o
 
 # target to build an object file
-tests/game_manager_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.o
-.PHONY : tests/game_manager_test.cpp.o
+tests/collision_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.o
+.PHONY : tests/collision_test.cpp.o
 
-tests/game_manager_test.i: tests/game_manager_test.cpp.i
-.PHONY : tests/game_manager_test.i
+tests/collision_test.i: tests/collision_test.cpp.i
+.PHONY : tests/collision_test.i
 
 # target to preprocess a source file
-tests/game_manager_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.i
-.PHONY : tests/game_manager_test.cpp.i
+tests/collision_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.i
+.PHONY : tests/collision_test.cpp.i
 
-tests/game_manager_test.s: tests/game_manager_test.cpp.s
-.PHONY : tests/game_manager_test.s
+tests/collision_test.s: tests/collision_test.cpp.s
+.PHONY : tests/collision_test.s
 
 # target to generate assembly for a file
-tests/game_manager_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/game_manager_test.cpp.s
-.PHONY : tests/game_manager_test.cpp.s
+tests/collision_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/collision_test.cpp.s
+.PHONY : tests/collision_test.cpp.s
 
 tests/game_state_test.o: tests/game_state_test.cpp.o
 .PHONY : tests/game_state_test.o
@@ -922,53 +898,101 @@ tests/game_state_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/game_state_test.cpp.s
 .PHONY : tests/game_state_test.cpp.s
 
-tests/input_parser_test.o: tests/input_parser_test.cpp.o
-.PHONY : tests/input_parser_test.o
+tests/tank_movement_test.o: tests/tank_movement_test.cpp.o
+.PHONY : tests/tank_movement_test.o
 
 # target to build an object file
-tests/input_parser_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.o
-.PHONY : tests/input_parser_test.cpp.o
+tests/tank_movement_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.o
+.PHONY : tests/tank_movement_test.cpp.o
 
-tests/input_parser_test.i: tests/input_parser_test.cpp.i
-.PHONY : tests/input_parser_test.i
+tests/tank_movement_test.i: tests/tank_movement_test.cpp.i
+.PHONY : tests/tank_movement_test.i
 
 # target to preprocess a source file
-tests/input_parser_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.i
-.PHONY : tests/input_parser_test.cpp.i
+tests/tank_movement_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.i
+.PHONY : tests/tank_movement_test.cpp.i
 
-tests/input_parser_test.s: tests/input_parser_test.cpp.s
-.PHONY : tests/input_parser_test.s
+tests/tank_movement_test.s: tests/tank_movement_test.cpp.s
+.PHONY : tests/tank_movement_test.s
 
 # target to generate assembly for a file
-tests/input_parser_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/input_parser_test.cpp.s
-.PHONY : tests/input_parser_test.cpp.s
+tests/tank_movement_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/tank_movement_test.cpp.s
+.PHONY : tests/tank_movement_test.cpp.s
 
-tests/position_test.o: tests/position_test.cpp.o
-.PHONY : tests/position_test.o
+tests/tank_shooting_test.o: tests/tank_shooting_test.cpp.o
+.PHONY : tests/tank_shooting_test.o
 
 # target to build an object file
-tests/position_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.o
-.PHONY : tests/position_test.cpp.o
+tests/tank_shooting_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.o
+.PHONY : tests/tank_shooting_test.cpp.o
 
-tests/position_test.i: tests/position_test.cpp.i
-.PHONY : tests/position_test.i
+tests/tank_shooting_test.i: tests/tank_shooting_test.cpp.i
+.PHONY : tests/tank_shooting_test.i
 
 # target to preprocess a source file
-tests/position_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.i
-.PHONY : tests/position_test.cpp.i
+tests/tank_shooting_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.i
+.PHONY : tests/tank_shooting_test.cpp.i
 
-tests/position_test.s: tests/position_test.cpp.s
-.PHONY : tests/position_test.s
+tests/tank_shooting_test.s: tests/tank_shooting_test.cpp.s
+.PHONY : tests/tank_shooting_test.s
 
 # target to generate assembly for a file
-tests/position_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/position_test.cpp.s
-.PHONY : tests/position_test.cpp.s
+tests/tank_shooting_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/tank_shooting_test.cpp.s
+.PHONY : tests/tank_shooting_test.cpp.s
+
+tests/wall_damage_test.o: tests/wall_damage_test.cpp.o
+.PHONY : tests/wall_damage_test.o
+
+# target to build an object file
+tests/wall_damage_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.o
+.PHONY : tests/wall_damage_test.cpp.o
+
+tests/wall_damage_test.i: tests/wall_damage_test.cpp.i
+.PHONY : tests/wall_damage_test.i
+
+# target to preprocess a source file
+tests/wall_damage_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.i
+.PHONY : tests/wall_damage_test.cpp.i
+
+tests/wall_damage_test.s: tests/wall_damage_test.cpp.s
+.PHONY : tests/wall_damage_test.s
+
+# target to generate assembly for a file
+tests/wall_damage_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/wall_damage_test.cpp.s
+.PHONY : tests/wall_damage_test.cpp.s
+
+tests/weak_wall_test.o: tests/weak_wall_test.cpp.o
+.PHONY : tests/weak_wall_test.o
+
+# target to build an object file
+tests/weak_wall_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.o
+.PHONY : tests/weak_wall_test.cpp.o
+
+tests/weak_wall_test.i: tests/weak_wall_test.cpp.i
+.PHONY : tests/weak_wall_test.i
+
+# target to preprocess a source file
+tests/weak_wall_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.i
+.PHONY : tests/weak_wall_test.cpp.i
+
+tests/weak_wall_test.s: tests/weak_wall_test.cpp.s
+.PHONY : tests/weak_wall_test.s
+
+# target to generate assembly for a file
+tests/weak_wall_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tanks_game_tests.dir/build.make CMakeFiles/tanks_game_tests.dir/tests/weak_wall_test.cpp.s
+.PHONY : tests/weak_wall_test.cpp.s
 
 # Help Target
 help:
@@ -1047,24 +1071,27 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... tests/algorithms_test.o"
-	@echo "... tests/algorithms_test.i"
-	@echo "... tests/algorithms_test.s"
 	@echo "... tests/board_test.o"
 	@echo "... tests/board_test.i"
 	@echo "... tests/board_test.s"
-	@echo "... tests/game_manager_test.o"
-	@echo "... tests/game_manager_test.i"
-	@echo "... tests/game_manager_test.s"
+	@echo "... tests/collision_test.o"
+	@echo "... tests/collision_test.i"
+	@echo "... tests/collision_test.s"
 	@echo "... tests/game_state_test.o"
 	@echo "... tests/game_state_test.i"
 	@echo "... tests/game_state_test.s"
-	@echo "... tests/input_parser_test.o"
-	@echo "... tests/input_parser_test.i"
-	@echo "... tests/input_parser_test.s"
-	@echo "... tests/position_test.o"
-	@echo "... tests/position_test.i"
-	@echo "... tests/position_test.s"
+	@echo "... tests/tank_movement_test.o"
+	@echo "... tests/tank_movement_test.i"
+	@echo "... tests/tank_movement_test.s"
+	@echo "... tests/tank_shooting_test.o"
+	@echo "... tests/tank_shooting_test.i"
+	@echo "... tests/tank_shooting_test.s"
+	@echo "... tests/wall_damage_test.o"
+	@echo "... tests/wall_damage_test.i"
+	@echo "... tests/wall_damage_test.s"
+	@echo "... tests/weak_wall_test.o"
+	@echo "... tests/weak_wall_test.i"
+	@echo "... tests/weak_wall_test.s"
 .PHONY : help
 
 
