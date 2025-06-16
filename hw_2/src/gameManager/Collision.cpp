@@ -2,6 +2,7 @@
 
 #include "Tank.h"
 #include "Wall.h"
+#include "WeakWall.h"
 
 std::unique_ptr<GameObject> Collision::popElement() {
     if (elements.empty()) return nullptr;
@@ -10,7 +11,7 @@ std::unique_ptr<GameObject> Collision::popElement() {
     return popped;
 }
 
-bool Collision::checkOkCollision() {
+bool Collision::checkCollision() {
     if (marked) return shell != nullptr && mine != nullptr;
     marked = true;
 
@@ -39,10 +40,26 @@ bool Collision::checkOkCollision() {
 
     for (auto it = elements.begin(); it != elements.end();) {
         if (auto *wallPtr = dynamic_cast<Wall *>(it->get())) {
-            wallPtr->takeDamage();
-            if (!wallPtr->isDestroyed()) hasWeakenedWall = true;
-            else hasWeakenedWall = false;
-        } else it->get()->destroy();
+            // Check if it's a regular wall that needs to transform to weak wall
+            if (wallPtr->getSymbol() == '#' && wallPtr->getHealth() == 2) {
+                // First hit - transform to weak wall
+                wallPtr->takeDamage();
+                if (!wallPtr->isDestroyed()) {
+                    transformToWeakWall = true;
+                    transformPosition = wallPtr->getPosition();
+                    hasWeakenedWall = true;
+                } else {
+                    hasWeakenedWall = false;
+                }
+            } else {
+                // Normal damage handling
+                wallPtr->takeDamage();
+                if (!wallPtr->isDestroyed()) hasWeakenedWall = true;
+                else hasWeakenedWall = false;
+            }
+        } else {
+            it->get()->destroy();
+        }
         ++it;
     }
 

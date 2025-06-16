@@ -83,8 +83,6 @@ public:
         // Silence unused parameter warning
         (void)amount;
     }
-
-    friend std::ostream &operator<<(std::ostream &os, const GameObject &element);
 };
 
 #endif //GAME_OBJECT_H

@@ -7,6 +7,7 @@
 #include "Mine.h"
 #include "Tank.h"
 #include "Wall.h"
+#include "WeakWall.h"
 #include "Shell.h"
 
 GameObject *Board::placeObjectReal(std::unique_ptr<GameObject> element, const Position real_pos) {
@@ -72,7 +73,7 @@ GameObject *Board::replaceObjectReal(const Position from_real, const Position to
 
     // Handle moving collisions -> If not ok, move entire collision. Else, move just the shell.
     if (const auto collision = dynamic_cast<Collision *>(getObjectAtReal(from_real))) {
-        if (collision->checkOkCollision()) {
+        if (collision->checkCollision()) {
             element = collision->getShell();
             std::unique_ptr<Mine> mine = collision->getMine();
             removeIndices(collision);
@@ -204,24 +205,17 @@ Tank *Board::getPlayerTank(int player_index, int tank_index) const {
     return nullptr;
 }
 
-void Board::displayBoard() const {
-    for (size_t i = 0; i < height; i += 2) {
-        for (size_t j = 0; j < width; j += 2) {
-            if (board[i][j] != nullptr) {
-                std::cout << *board[i][j];
-            } else {
-                std::cout << "[     ]";
-            }
-        }
-        std::cout << std::endl;
-    }
-    std::cout << std::endl;
-}
-
 void Board::checkCollisions() {
     for (auto tmp_pos = collisions_pos; const auto [id, pos]: tmp_pos) {
         if (const auto collision = dynamic_cast<Collision *>(getObjectAtReal(pos))) {
-            if (collision->checkOkCollision()) continue;
+            if (collision->checkCollision()) continue;
+
+            // Check if regular wall should transform to weak wall
+            if (collision->shouldTransformToWeakWall()) {
+                removeObjectReal(pos);
+                placeObjectReal(std::make_unique<WeakWall>(collision->getTransformPosition()), pos);
+                continue;
+            }
 
             if (std::unique_ptr<Wall> wall = collision->getWeakenedWall()) {
                 removeObjectReal(pos);
@@ -255,7 +249,7 @@ std::map<int, Shell *> Board::getShells() const {
             shells[id] = shell;
         }
         if (const auto collision = dynamic_cast<Collision *>(getObjectAtReal(pos))) {
-            if (collision->checkOkCollision()) {
+            if (collision->checkCollision()) {
                 shells[id] = collision->getShellPtr();
             }
         }
@@ -284,9 +278,23 @@ bool Board::shoot(Position fromPos, Position toPos) {
     if (isOccupied(toPos)) {
         GameObject* obj = getObjectAt(toPos);
         if (obj->isDestroyable()) {
-            obj->takeDamage(1);
-            if (obj->isDestroyed()) {
-                removeObject(toPos);
+            // Check if it's a normal wall that needs to be transformed to a weak wall
+            Wall* wallPtr = dynamic_cast<Wall*>(obj);
+            if (wallPtr && wallPtr->getSymbol() == '#' && wallPtr->getHealth() == 2) {
+                // First hit on a normal wall - transform to weak wall
+                wallPtr->takeDamage(1);
+                // Replace with weak wall if not destroyed
+                if (!wallPtr->isDestroyed()) {
+                    Position pos = wallPtr->getPosition();
+                    removeObject(pos);
+                    placeObject(std::make_unique<WeakWall>(pos));
+                }
+            } else {
+                // Normal damage handling
+                obj->takeDamage(1);
+                if (obj->isDestroyed()) {
+                    removeObject(toPos);
+                }
             }
             return true;
         }

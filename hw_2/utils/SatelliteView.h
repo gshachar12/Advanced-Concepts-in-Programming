@@ -24,9 +24,9 @@ public:
     /**
      * @brief Retrieves the character representation of an object at the specified coordinates
      * 
-     * @param x X-coordinate to examine
-     * @param y Y-coordinate to examine
+     * @param posX X-coordinate to examine
+     * @param posY Y-coordinate to examine
      * @return char Character representing the object at the specified location
      */
-    virtual char getObjectAt(size_t x, size_t y) const = 0;
+    virtual char getObjectAt(size_t posX, size_t posY) const = 0;
 };

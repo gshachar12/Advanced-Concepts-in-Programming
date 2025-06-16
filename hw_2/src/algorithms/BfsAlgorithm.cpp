@@ -3,8 +3,8 @@
 #include <queue>
 #include <set>
 #include <limits>
-#include "Logger.h"
 #include "Direction.h"
+#include "Logger.h"
 
 // Navigation state variables
 // Flag to track if the current path is viable or needs recalculation
@@ -80,19 +80,6 @@ bool BfsAlgorithm::turnTowardsEnemy(ActionRequest *request, std::string *request
     return false;
 }
 
-bool BfsAlgorithm::haveEnemiesMoved() const {
-    // Get the current positions of all enemies
-    auto current_enemy_positions = battle_status.getEnemyPositions();
-    
-    // If the count of enemies has changed, consider it a movement
-    if (current_enemy_positions.size() != enemy_position_history.size()) {
-        return true;
-    }
-    
-    // Otherwise check if any positions have changed
-    return current_enemy_positions != enemy_position_history;
-}
-
 void BfsAlgorithm::updateNavigationPath() {
     // Check if we need to recalculate our path
     bool enemies_repositioned = haveEnemiesMoved();
@@ -117,6 +104,19 @@ void BfsAlgorithm::updateNavigationPath() {
         path_viability_flag = navigation_path.empty();
         refreshEnemyPositions();
     }
+}
+
+bool BfsAlgorithm::haveEnemiesMoved() const {
+    // Get the current positions of all enemies
+    auto current_enemy_positions = battle_status.getEnemyPositions();
+    
+    // If the count of enemies has changed, consider it a movement
+    if (current_enemy_positions.size() != enemy_position_history.size()) {
+        return true;
+    }
+    
+    // Otherwise check if any positions have changed
+    return current_enemy_positions != enemy_position_history;
 }
 
 void BfsAlgorithm::handleNoValidPath(ActionRequest *request, std::string *request_title) const {
@@ -208,21 +208,21 @@ std::vector<Direction::DirectionType> BfsAlgorithm::findPathWithBFS() {
     printLogs(log_entry);
 
     // Initialize the search structures
-    std::queue<SearchNode> frontier;
+    std::queue<SearchNode> q;
     std::set<Position> explored_positions;
     
-    // Add starting position to the search frontier
-    frontier.push(SearchNode(battle_status.tank_position, {}));
+    // Add starting position to the search q
+    q.push(SearchNode(battle_status.tank_position, {}));
     
     // Track the optimal path found so far
     std::vector<Direction::DirectionType> optimal_route;
     size_t optimal_distance = std::numeric_limits<size_t>::max();
 
-    // Process the search frontier until exhausted
-    while (!frontier.empty()) {
+    // Process the search q until exhausted
+    while (!q.empty()) {
         // Get the next position to explore
-        SearchNode current = frontier.front();
-        frontier.pop();
+        SearchNode current = q.front();
+        q.pop();
         
         // Skip already explored positions
         if (explored_positions.count(current.location) > 0)
@@ -255,8 +255,8 @@ std::vector<Direction::DirectionType> BfsAlgorithm::findPathWithBFS() {
             std::vector<Direction::DirectionType> extended_route = current.route;
             extended_route.push_back(direction);
             
-            // Add to search frontier
-            frontier.push(SearchNode(next_location, extended_route));
+            // Add to search q
+            q.push(SearchNode(next_location, extended_route));
         }
     }
     
@@ -266,11 +266,11 @@ std::vector<Direction::DirectionType> BfsAlgorithm::findPathWithBFS() {
 
 void BfsAlgorithm::calculateAction(ActionRequest *request, std::string *request_title) {
     // Initial turn or following a danger state - gather intelligence
-    if (battle_status.turn_number == 0 || danger_detected) {
+    if (danger_detected || battle_status.turn_number == 0) {
         // Reset danger flag after gathering intel
-        danger_detected = false;
         *request = ActionRequest::GetBattleInfo;
         *request_title = "Intelligence gathering";
+        danger_detected = false;
         return;
     }
     
@@ -284,7 +284,7 @@ void BfsAlgorithm::calculateAction(ActionRequest *request, std::string *request_
     if (!battle_status.hasTankAmmo() || (battle_status.last_requested_info_turn < battle_status.turn_number)) {
         battle_status.last_requested_info_turn = battle_status.turn_number + 1;
         *request = ActionRequest::GetBattleInfo;
-        *request_title = "Battlefield reconnaissance";
+        *request_title = "Update Battlefield";
         return;
     }
     

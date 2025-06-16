@@ -26,21 +26,15 @@ public:
      * @param maxSteps Maximum movement steps allowed
      * @param shellCount Number of shells available
      */
-    Player(int player_index, size_t x, size_t y, 
-           size_t max_steps, size_t num_shells) {
-        // Parameters intentionally unused in base class
-        // Derived classes will use these parameters
-        (void)player_index;
-        (void)x;
-        (void)y;
-        (void)max_steps;
-        (void)num_shells;
+    Player(int /* playerIndex */, size_t /* startX */, size_t /* startY */, 
+           size_t /* maxSteps */, size_t /* shellCount */) {
+        // Implementation in derived classes
     }
 
     /**
      * @brief Virtual destructor for proper inheritance cleanup
      */
-    virtual ~Player() {}
+    virtual ~Player() = default;
 
     /**
      * @brief Updates tank with the current battlefield information
@@ -49,5 +43,5 @@ public:
      * @param satelliteView Current view of the battlefield
      */
     virtual void updateTankWithBattleInfo(
-        TankAlgorithm &tank, SatelliteView &satellite_view) = 0;
+        TankAlgorithm &tank, SatelliteView &satelliteView) = 0;
 };

@@ -98,7 +98,7 @@ bool MyBattleStatus::isTargetOnSight(Direction::DirectionType dir, Position targ
 }
 
 
-bool MyBattleStatus::isSafePosition(Position p, const bool immediate_safe) const {
+bool MyBattleStatus::checkPosition(Position p, const bool immediate_safe) const {
     if (board[p.x][p.y] != boardItemToChar(BoardItem::EMPTY)) {
         return false;
     }
@@ -115,7 +115,7 @@ std::vector<Direction::DirectionType> MyBattleStatus::getSafeDirections(const Po
     for (int i = 0; i < Direction::getDirectionSize(); i++) {
         auto direction = Direction::getDirectionFromIndex(i);
         Position next_position = wrapPosition(position + direction);
-        if (isSafePosition(next_position)) {
+        if (checkPosition(next_position)) {
             safe_directions.push_back(direction);
         }
     }

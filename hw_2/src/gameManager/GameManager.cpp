@@ -15,8 +15,6 @@
 #include "MySatelliteView.h"
 #include "Direction.h"
 
-// Use Direction::DirectionType instead of DirectionType
-
 using namespace std::chrono_literals;
 
 void GameManager::readBoard(const std::string &file_name) {
@@ -261,11 +259,6 @@ void GameManager::processStep() {
 
     checkDeaths();
     logStep();
-
-    // Export game state for visualization after each step
-    if (export_game_state) {
-        exportGameState();
-    }
 }
 
 std::string GameManager::getGameResult() const {
@@ -308,47 +301,7 @@ void GameManager::logStep() {
     }
 }
 
-void GameManager::exportGameState() {
-    if (!game_state_file.is_open()) return;
-    game_state_file << "STEP " << game_step << std::endl;
-    game_state_file << board->getWidth() << " " << board->getHeight() << std::endl;
 
-    for (int y = 0; y < board->getHeight(); y++) {
-        for (int x = 0; x < board->getWidth(); x++) {
-            Position pos{x, y};
-            auto obj = board->getObjectAt(pos);
-            if (obj) {
-                char symbol = obj->getSymbol();
-                if (symbol == '1' || symbol == '2') {
-                    auto tank = dynamic_cast<Tank *>(obj);
-                    if (tank) {
-                        int player_id = tank->getPlayerIndex();
-                        int dir = tank->getDirection();
-                        int ammo = tank->getAmmunition();
-                        game_state_file << "T," << x << "," << y << "," << player_id << "," << dir << "," << ammo <<
-                                std::endl;
-                    }
-                } else if (symbol == '*' || symbol == 'X') {
-                    int dir = obj->getDirection();
-                    game_state_file << "*," << x << "," << y << "," << dir << std::endl;
-                } else if (symbol == '@') {
-                    game_state_file << "@," << x << "," << y << std::endl;
-                } else if (symbol == '#') {
-                    game_state_file << "#," << x << "," << y << std::endl;
-                }
-            }
-        }
-    }
-
-    game_state_file << "END_STEP" << std::endl;
-    game_state_file.flush();
-
-    if (game_over) {
-        game_state_file << "GAME_OVER" << std::endl;
-        game_state_file << getGameResult() << std::endl;
-        game_state_file.close();
-    }
-}
 
 /**
  * Displays the current game state in a visual format with emojis and symbols.
@@ -377,7 +330,7 @@ void GameManager::displayGame() {
  */
 void GameManager::initVisualBoard() {
     visual_board = std::vector<std::vector<std::string>>(
-        board->getHeight(), std::vector<std::string>(board->getWidth(), "⬜"));
+        board->getHeight(), std::vector<std::string>(board->getWidth(), "🟦"));
 
     for (int y = 0; y < board->getHeight(); ++y) {
         for (int x = 0; x < board->getWidth(); ++x) {
@@ -389,28 +342,16 @@ void GameManager::initVisualBoard() {
                     case '#':
                         visual_board[y][x] = "🟩";
                         break;
+                    case '=':
+                        visual_board[y][x] = "🧱";
+                        break;
                     case '@':
                         visual_board[y][x] = "💣";
                         break;
-                    case 'X':
-                        visual_board[y][x] = "💥";
-                        break;
-                    default:
-                        visual_board[y][x] = "⬜";
                 }
             }
         }
     }
-
-    // Add explosions
-    for (const auto &pos : explosions) {
-        if (pos.x >= 0 && pos.x < board->getWidth() && pos.y >= 0 && pos.y < board->getHeight()) {
-            visual_board[pos.y][pos.x] = "💥";
-        }
-    }
-    
-    // Clear explosions for next frame
-    explosions.clear();
 }
 
 /**
@@ -453,6 +394,13 @@ void GameManager::overlayTanks() {
             std::string arrow = dirSymbols.count(dir) ? dirSymbols.at(dir) : "?";
 
             std::string playerNum = std::to_string(tank->getPlayerIndex());
+            std::string coloredArrow;
+
+            if (tank->getPlayerIndex() == 1) {
+                coloredArrow = "\033[34m" + arrow + playerNum + "\033[0m";  // Blue
+            } else {
+                coloredArrow = "\033[31m" + arrow + playerNum + "\033[0m";  // Red
+            }
             visual_board[y][x] = arrow + playerNum;
         }
     }
@@ -585,4 +533,3 @@ void GameManager::waitForVisualPause() {
 
     tcsetattr(STDIN_FILENO, TCSANOW, &oldt); // restore old settings
 }
-

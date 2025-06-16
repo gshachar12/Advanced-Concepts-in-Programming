@@ -63,7 +63,7 @@ public:
 
     bool canTankShootEnemy(Direction::DirectionType dir, bool include_shells = false) const;
 
-    bool isSafePosition(Position p, bool immediate_safe = false) const;
+    bool checkPosition(Position p, bool immediate_safe = false) const;
 
     std::vector<Direction::DirectionType> getSafeDirections(Position position) const;
 

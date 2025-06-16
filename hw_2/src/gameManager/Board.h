@@ -99,8 +99,6 @@ public:
 
     std::vector<Tank *> getTanks() const;
 
-    void displayBoard() const;
-
     void finishMove();
 
     std::map<int, Shell *> getShells() const;

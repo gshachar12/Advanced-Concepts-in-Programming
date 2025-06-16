@@ -1,72 +1,125 @@
 #include "MyTankAlgorithm.h"
-
 #include "Logger.h"
 #include "MyBattleInfo.h"
 
-MyTankAlgorithm::MyTankAlgorithm(const int player_id, const int tank_index): player_id{player_id},
-                                                                             tank_index(tank_index),
-                                                                             battle_status(
-                                                                                 MyBattleStatus(
-                                                                                     player_id, tank_index)) {
+// Constructor initializes the algorithm with player and tank identifiers
+// and creates a battle status tracker specific to this tank
+MyTankAlgorithm::MyTankAlgorithm(const int player_id, const int tank_index) 
+    : player_id(player_id),
+      tank_index(tank_index),
+      battle_status(MyBattleStatus(player_id, tank_index)) {
+    // No additional initialization needed
 }
 
-
+// Updates the internal battle status with new information from the game
 void MyTankAlgorithm::updateBattleInfo(BattleInfo &info) {
-    if (const MyBattleInfo *my_battle_info = dynamic_cast<MyBattleInfo *>(&info)) {
-        battle_status.updateBoard(my_battle_info->getBoard());
-        battle_status.num_shells = my_battle_info->getNumShells();
-        battle_status.max_steps = my_battle_info->getMaxSteps();
+    // Try to cast to our specific battle info type
+    auto* battleInfoPtr = dynamic_cast<MyBattleInfo*>(&info);
+    
+    // Update our status if the cast was successful
+    if (battleInfoPtr) {
+        // Update the board representation
+        battle_status.updateBoard(battleInfoPtr->getBoard());
+        
+        // Update game parameters
+        battle_status.num_shells = battleInfoPtr->getNumShells();
+        battle_status.max_steps = battleInfoPtr->getMaxSteps();
     }
 }
 
+// Helper method to log tank actions with proper identification
 void MyTankAlgorithm::printLogs(const std::string &msg) const {
-    Logger::getInstance().log("Player " + std::to_string(player_id) + " - Tank Index " +
-                              std::to_string(tank_index) + " " + msg);
+    // Format: "Player X - Tank Index Y: Message"
+    std::string logMessage = "Player " + std::to_string(player_id) + 
+                           " - Tank Index " + std::to_string(tank_index) + 
+                           " " + msg;
+    
+    // Send to the logging system
+    Logger::getInstance().log(logMessage);
 }
 
+// Primary method to determine the next action for this tank
 ActionRequest MyTankAlgorithm::getAction() {
-    ActionRequest request = ActionRequest::DoNothing;
-    std::string request_title = "Doing nothing";
-    calculateAction(&request, &request_title);
+    // Default to doing nothing unless the strategy determines otherwise
+    ActionRequest requestedAction = ActionRequest::DoNothing;
+    std::string actionDescription = "Doing nothing";
+    
+    // Determine the best action based on current battle conditions
+    calculateAction(&requestedAction, &actionDescription);
+    
+    // Increment turn counter to track battle progression
     battle_status.turn_number++;
-    printLogs(request_title);
-    battle_status.updateBattleStatusBaseAction(request);
-    return request;
+    
+    // Log the chosen action for debugging
+    printLogs(actionDescription);
+    
+    // Update internal state based on the action we're about to take
+    battle_status.updateBattleStatusBaseAction(requestedAction);
+    
+    // Return the selected action to the game engine
+    return requestedAction;
 }
 
+// Determines if the tank is in immediate danger
 bool MyTankAlgorithm::isTankThreatened() const {
+    // Check for nearby enemy shells first (highest priority threat)
     if (battle_status.isShellClose()) {
+        // Log the threat type
         printLogs("Threatened by shells");
         return true;
     }
+    
+    // Check for nearby enemy tanks second
     if (battle_status.isEnemyClose()) {
+        // Log the threat type
         printLogs("Threatened by enemy");
         return true;
     }
+    
+    // No immediate threats detected
     return false;
 }
 
 
+// Determine the best evasive action when threatened
 ActionRequest MyTankAlgorithm::moveIfThreatened() const {
-    // we'll try first moving forward in the current direction
-    Position forward_pos = battle_status.wrapPosition(battle_status.tank_position + battle_status.tank_direction);
+    // STRATEGY 1: Try moving forward if that position is safe
+    // Calculate the position directly ahead of us
+    Position positionAhead = battle_status.wrapPosition(
+        battle_status.tank_position + battle_status.tank_direction
+    );
 
-    if (battle_status.isSafePosition(forward_pos)) {
+    // Check if moving forward is safe
+    if (battle_status.checkPosition(positionAhead)) {
+        // Safe to move forward
         return ActionRequest::MoveForward;
     }
 
-    // If we can't move forward in the current direction, we'll find a safe cell around us and rotate towards it
-    for (int i = 0; i < Direction::getDirectionSize(); ++i) {
-        Direction::DirectionType possible_dir = Direction::getDirectionFromIndex(i);
-        Position possible_pos = battle_status.wrapPosition(battle_status.tank_position + possible_dir);
-        if (battle_status.isSafePosition(possible_pos)) {
-            return battle_status.rotateTowards(possible_dir);
+    // STRATEGY 2: Look in all possible directions for a safe position
+    const int directionCount = Direction::getDirectionSize();
+    for (int dirIdx = 0; dirIdx < directionCount; ++dirIdx) {
+        // Get direction type from index
+        Direction::DirectionType candidateDirection = Direction::getDirectionFromIndex(dirIdx);
+        
+        // Calculate position in this direction
+        Position candidatePosition = battle_status.wrapPosition(
+            battle_status.tank_position + candidateDirection
+        );
+        
+        // Check if this position would be safe
+        if (battle_status.checkPosition(candidatePosition)) {
+            // Found a safe direction - rotate toward it
+            return battle_status.rotateTowards(candidateDirection);
         }
     }
-
-    if (battle_status.isSafePosition(forward_pos, true)) {
+    
+    // STRATEGY 3: Less strict safety check for forward movement
+    // If no completely safe position found, try moving forward with relaxed safety requirements
+    if (battle_status.checkPosition(positionAhead, true)) {
         return ActionRequest::MoveForward;
     }
-
+    
+    // STRATEGY 4: No safe moves found
+    // Stay in place as a last resort
     return ActionRequest::DoNothing;
 }

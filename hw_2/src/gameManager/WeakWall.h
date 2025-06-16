@@ -13,7 +13,7 @@ public:
         setDirection(Direction::NONE);
     }
 
-    [[nodiscard]] char getSymbol() const override { return 'W'; }
+    [[nodiscard]] char getSymbol() const override { return '='; }
     [[nodiscard]] char getDisplayChar() const override { return '='; } // Using a wall-like symbol
     [[nodiscard]] bool isDestroyable() const override { return true; }
     [[nodiscard]] bool isCollidable() const override { return true; }

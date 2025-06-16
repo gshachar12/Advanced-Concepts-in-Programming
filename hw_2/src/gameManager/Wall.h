@@ -30,7 +30,7 @@ public:
 
     [[nodiscard]] bool isWall() const override { return true; }
     
-    [[nodiscard]] bool isDestroyable() const override { return false; }
+    [[nodiscard]] bool isDestroyable() const override { return true; }
     [[nodiscard]] bool isCollidable() const override { return true; }
     [[nodiscard]] bool isPassable() const override { return false; }
     [[nodiscard]] int getHitPoints() const override { return MAX_HEALTH; }
