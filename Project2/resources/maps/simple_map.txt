@@ -1,0 +1,15 @@
+Simple Test Battle
+MaxSteps = 100
+NumShells = 16
+Rows = 10
+Cols = 15
+###############
+#      @      #
+#             #
+#             #
+#     ###     #
+#     ###      
+#             
+#   2     @1     
+#      @       
+###############
