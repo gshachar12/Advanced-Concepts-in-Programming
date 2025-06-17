@@ -1,28 +1,51 @@
 # Configuration
+CXX = g++
+CXXFLAGS = -std=c++20 -Wall -Wextra -Werror -pedantic -fPIC
+INCLUDES = -I./include -I./src/algo -I./src/game_manager -I./common
 BUILD_DIR = build
 EXECUTABLE = tanks_game
-CMAKE = cmake
-CMAKE_FLAGS = -DCMAKE_BUILD_TYPE=Release
 
-all: all
+# Source files
+SRC_DIR = src
+ALGO_DIR = $(SRC_DIR)/algo
+GAME_MANAGER_DIR = $(SRC_DIR)/game_manager
 
-# Create build directory if it doesn't exist
-$(BUILD_DIR):
-	mkdir -p $(BUILD_DIR)
+# Find all source files
+SOURCES := $(wildcard $(ALGO_DIR)/*.cpp) $(wildcard $(GAME_MANAGER_DIR)/*.cpp) 
+MAIN_SRC = $(SRC_DIR)/main.cpp
+OBJ_FILES := $(patsubst %.cpp,$(BUILD_DIR)/%.o,$(SOURCES))
+MAIN_OBJ = $(BUILD_DIR)/$(SRC_DIR)/main.o
 
-all: $(BUILD_DIR)
-	$(CMAKE) -S . -B $(BUILD_DIR) -DUSE_SFML=OFF $(CMAKE_FLAGS)
-	$(CMAKE) --build $(BUILD_DIR) --parallel
-	cp $(BUILD_DIR)/$(EXECUTABLE) ./$(EXECUTABLE)
+# Default target
+all: prepare $(EXECUTABLE)
 
-# Build and run tests
-test: $(BUILD_DIR)
-	$(CMAKE) -S . -B $(BUILD_DIR) $(CMAKE_FLAGS)
-	$(CMAKE) --build $(BUILD_DIR) --target tanks_game_tests --parallel
-	cd $(BUILD_DIR) && ctest --verbose
+# Create build directory structure
+prepare:
+	@mkdir -p $(BUILD_DIR)/$(ALGO_DIR)
+	@mkdir -p $(BUILD_DIR)/$(GAME_MANAGER_DIR)
+	@mkdir -p $(BUILD_DIR)/$(SRC_DIR)
+
+# Compile main executable
+$(EXECUTABLE): $(OBJ_FILES) $(MAIN_OBJ)
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
+# Compile source files
+$(BUILD_DIR)/%.o: %.cpp
+	@mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
+
+# Create a shared library (equivalent to tanks_game_lib in CMake)
+lib: $(OBJ_FILES)
+	$(CXX) $(CXXFLAGS) -shared $^ -o $(BUILD_DIR)/libtanks_game.dylib
 
 # Clean build artifacts
 clean:
 	rm -rf $(BUILD_DIR)
 	rm -f $(EXECUTABLE)
 	rm -f output.txt errors.txt input_errors.txt
+
+# Run target
+run: all
+	./$(EXECUTABLE) -g input/input_b.txt
+
+.PHONY: all clean prepare lib run
