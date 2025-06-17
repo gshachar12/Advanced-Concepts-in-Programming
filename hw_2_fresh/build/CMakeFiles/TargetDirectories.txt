@@ -1,4 +1,0 @@
-/Users/dorliber/Advanced-Concepts-in-Programming/hw_2_fresh/build/CMakeFiles/tanks_game.dir
-/Users/dorliber/Advanced-Concepts-in-Programming/hw_2_fresh/build/CMakeFiles/tanks_game_lib.dir
-/Users/dorliber/Advanced-Concepts-in-Programming/hw_2_fresh/build/CMakeFiles/edit_cache.dir
-/Users/dorliber/Advanced-Concepts-in-Programming/hw_2_fresh/build/CMakeFiles/rebuild_cache.dir

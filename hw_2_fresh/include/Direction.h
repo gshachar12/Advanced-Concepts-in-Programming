@@ -1,6 +1,11 @@
 #ifndef DIRECTION_H
 #define DIRECTION_H
 
+/**
+ * @file Direction.h
+ * @brief Navigation-related structures and utilities for the tank game
+ */
+
 #include <array>
 #include <string>
 #include <ostream>
@@ -9,19 +14,32 @@
 class Direction;
 enum class DirectionType : int;
 
+/**
+ * @brief 2D coordinate system representation 
+ */
 struct Position {
+    // Row coordinate
     int x;
+    // Column coordinate
     int y;
 
+    /**
+     * @brief Equality comparison operator
+     * @param pos2 Position to compare against
+     * @return true if positions are equal
+     */
     bool operator==(const Position &pos2) const {
-        return x == pos2.x && y == pos2.y;
+        return (this->x == pos2.x) && (this->y == pos2.y);
     }
 
+    /**
+     * @brief Less-than comparison for container ordering
+     * @param other Position to compare against
+     * @return true if this position comes before other
+     */
     bool operator<(const Position &other) const {
-        if (x == other.x) {
-            return y < other.y;
-        }
-        return x < other.x;
+        // Primary sort by x, secondary by y
+        return (x != other.x) ? (x < other.x) : (y < other.y);
     }
 
     Position operator+(const Position &pos2) const {
@@ -32,12 +50,12 @@ struct Position {
         return Position(x - pos2.x, y - pos2.y);
     }
 
-    Position operator*(const int by) const {
-        return Position(x * by, y * by);
-    }
-
     Position operator/(const int by) const {
         return Position(x / by, y / by);
+    }
+
+    Position operator*(const int by) const {
+        return Position(x * by, y * by);
     }
 
     std::string toString() const {
@@ -56,30 +74,44 @@ struct Position {
 };
 
 
+/**
+ * @brief Utility class for handling directional navigation and transformations
+ * 
+ * This class provides static methods for direction calculations
+ * and cannot be instantiated.
+ */
 class Direction {
 public:
+    // Direction angles in degrees (compass-like representation)
     enum DirectionType {
-        UP = 0,
-        UP_RIGHT = 45,
-        RIGHT = 90,
-        DOWN_RIGHT = 135,
-        DOWN = 180,
-        DOWN_LEFT = 225,
-        LEFT = 270,
-        UP_LEFT = 315,
+        // Cardinal and intercardinal directions
+        UP = 0,           // North
+        DOWN = 180,       // South
+        RIGHT = 90,       // East
+        LEFT = 270,       // West
+        UP_RIGHT = 45,    // Northeast
+        DOWN_RIGHT = 135, // Southeast
+        DOWN_LEFT = 225,  // Southwest
+        UP_LEFT = 315,    // Northwest
     };
 
+    /**
+     * @brief Converts a direction to its string representation
+     * @param dir Direction to convert
+     * @return String representation of the direction
+     */
     static std::string directionToString(const DirectionType dir) {
-        switch (dir) {
-            case UP: return "UP";
-            case UP_RIGHT: return "UP_RIGHT";
-            case RIGHT: return "RIGHT";
-            case DOWN_RIGHT: return "DOWN_RIGHT";
-            case DOWN: return "DOWN";
-            case DOWN_LEFT: return "DOWN_LEFT";
-            case LEFT: return "LEFT";
-            case UP_LEFT: return "UP_LEFT";
+        // Map each direction enum to its name
+        const static std::array<std::string, 8> dirNames = {
+            "UP", "DOWN", "RIGHT", "LEFT", 
+            "DOWN_LEFT", "DOWN_RIGHT", "UP_LEFT", "UP_RIGHT"
+        };
+        
+        // Check if valid direction value
+        if (dir % 45 == 0 && dir >= 0 && dir <= 315) {
+            return dirNames[dir / 45];
         }
+        
         return "UNKNOWN";
     }
 
@@ -128,12 +160,12 @@ public:
         const int dy = to.y - from.y;
 
         if (dx == 0 && dy < 0) return UP;
-        if (dx > 0 && dy < 0) return UP_RIGHT;
-        if (dx > 0 && dy == 0) return RIGHT;
-        if (dx > 0) return DOWN_RIGHT;
         if (dx == 0 && dy > 0) return DOWN;
-        if (dx < 0 && dy > 0) return DOWN_LEFT;
+        if (dx > 0 && dy == 0) return RIGHT;
         if (dx < 0 && dy == 0) return LEFT;
+        if (dx > 0 && dy < 0) return UP_RIGHT;
+        if (dx > 0) return DOWN_RIGHT;
+        if (dx < 0 && dy > 0) return DOWN_LEFT;
         if (dx < 0) return UP_LEFT;
 
         return UP;

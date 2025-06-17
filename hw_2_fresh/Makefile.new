@@ -1,14 +1,15 @@
+# filepath: /Users/dorliber/Advanced-Concepts-in-Programming/hw_2_fresh/Makefile
 # Configuration
 CXX = g++
 CXXFLAGS = -std=c++20 -Wall -Wextra -Werror -pedantic -fPIC
-INCLUDES = -I./include -I./src/algorithms -I./src/gameManager -I./common
+INCLUDES = -I./include -I./src/algo -I./src/game_manager -I./common
 BUILD_DIR = build
 EXECUTABLE = tanks_game
 
 # Source files
 SRC_DIR = src
-ALGO_DIR = $(SRC_DIR)/algorithms
-GAME_MANAGER_DIR = $(SRC_DIR)/gameManager
+ALGO_DIR = $(SRC_DIR)/algo
+GAME_MANAGER_DIR = $(SRC_DIR)/game_manager
 
 # Find all source files
 SOURCES := $(wildcard $(ALGO_DIR)/*.cpp) $(wildcard $(GAME_MANAGER_DIR)/*.cpp) 

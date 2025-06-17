@@ -1,0 +1,8 @@
+1 - Close Combat
+MaxSteps=3000
+NumShells=15
+Rows=3
+Cols=8
+####@@ @
+# 1   #
+#@ 2  #  
