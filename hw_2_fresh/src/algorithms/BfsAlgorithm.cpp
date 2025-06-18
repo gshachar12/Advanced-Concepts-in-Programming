@@ -1,4 +1,4 @@
-#include "PathfindingAlgorithm.h"
+#include "BfsAlgorithm.h"
 
 #include <queue>
 #include <set>
@@ -22,7 +22,7 @@ void PathfindingAlgorithm::updateLatestEnemyPosition() {
 void PathfindingAlgorithm::handleTankThreatened(ActionRequest *request, std::string *request_title) {
     //or shell is approaching or enemy tank is close
     was_threatened = true;
-    if (battle_status.canTankShootEnemy(true)) {
+    if (battle_status.canTankHitEnemy(true)) {
         *request = ActionRequest::Shoot;
         *request_title = "Shoot threat";
         return;
@@ -32,7 +32,7 @@ void PathfindingAlgorithm::handleTankThreatened(ActionRequest *request, std::str
 }
 
 void PathfindingAlgorithm::tryShootEnemy(ActionRequest *request, std::string *request_title) {
-    if (battle_status.canTankShootEnemy()) {
+    if (battle_status.canTankHitEnemy()) {
         tried_path_without_success = false;
         *request = ActionRequest::Shoot;
         *request_title = "Shoot Enemy";
@@ -45,7 +45,7 @@ bool PathfindingAlgorithm::rotateToEnemy(ActionRequest *request, std::string *re
     for (auto dir_index = 0; dir_index < 8; ++dir_index) {
         Direction::DirectionType dir = Direction::getDirectionFromIndex(dir_index);
         if (battle_status.tank_direction == dir) continue;
-        if (battle_status.canTankShootEnemy(dir)) {
+        if (battle_status.canTankHitEnemy(dir)) {
             current_path.clear();
             tried_path_without_success = false;
             *request = battle_status.rotateTowards(dir);
@@ -80,7 +80,7 @@ void PathfindingAlgorithm::updatePathIfNeeded() {
 void PathfindingAlgorithm::handleEmptyPath(ActionRequest *request, std::string *request_title) const {
     if (battle_status.canTankShoot()) {
         *request = ActionRequest::Shoot;
-        tried_path_without_success = !battle_status.canTankShootEnemy();
+        tried_path_without_success = !battle_status.canTankHitEnemy();
         *request_title = (tried_path_without_success)
                              ? "Shooting randomly due to stuck state"
                              : "No path but can shoot directly";
@@ -95,7 +95,7 @@ void PathfindingAlgorithm::handleEmptyPath(ActionRequest *request, std::string *
 void PathfindingAlgorithm::followPathOrRotate(ActionRequest *request, std::string *request_title) {
     Direction::DirectionType target_dir = current_path.front();
     if (battle_status.tank_direction == target_dir) {
-        const Position next_pos = battle_status.wrapPosition(battle_status.tank_position + target_dir);
+        const Position next_pos = battle_status.updatePosition(battle_status.tank_position + target_dir);
 
         if (battle_status.getBoardItem(next_pos) == '@') {
             *request = ActionRequest::DoNothing;
@@ -140,7 +140,7 @@ std::vector<Direction::DirectionType> PathfindingAlgorithm::computeBFS() {
         Node(const Position &pos, const std::vector<Direction::DirectionType> &path): pos(pos), path(path) {
         }
     };
-    std::string msg = "Performing BFS. Start Position = " + battle_status.tank_position.toString();
+    std::string msg = "Computing BFS. Start Position = " + battle_status.tank_position.toString();
     printLogs(msg);
 
     std::queue<Node> q;
@@ -155,7 +155,7 @@ std::vector<Direction::DirectionType> PathfindingAlgorithm::computeBFS() {
         if (visited.contains(position)) continue;
         visited.insert(position);
         // checking if the next step in the queue can lead to shooting the enemy directly
-        if (battle_status.canTankShootEnemy(position)) {
+        if (battle_status.canTankHitEnemy(position)) {
             if (path.size() < shortest_length) {
                 best_path = path;
                 shortest_length = path.size();
@@ -163,7 +163,7 @@ std::vector<Direction::DirectionType> PathfindingAlgorithm::computeBFS() {
             continue;
         }
         for (const auto dir: battle_status.getSafeDirections(position)) {
-            const Position next = battle_status.wrapPosition(position + dir);
+            const Position next = battle_status.updatePosition(position + dir);
             if (visited.contains(next)) continue;
             std::vector<Direction::DirectionType> new_path = path;
             new_path.push_back(dir);

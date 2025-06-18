@@ -9,17 +9,17 @@ class Player2 final : public Player {
     size_t x;
     size_t y;
     size_t max_steps;
-    size_t num_shells;
+    size_t shellsCount;
 
     std::vector<std::vector<char> > createPartialBoard(const SatelliteView &satellite_view) const;
 
 public:
     Player2(int player_index,
             size_t x, size_t y,
-            size_t max_steps, size_t num_shells): Player(player_index, x, y, max_steps, num_shells),
+            size_t max_steps, size_t shellsCount): Player(player_index, x, y, max_steps, shellsCount),
                                                   player_index(player_index), x(x), y(y),
                                                   max_steps(max_steps),
-                                                  num_shells(num_shells) {
+                                                  shellsCount(shellsCount) {
     }
 
     void updateTankWithBattleInfo(TankAlgorithm &tank, SatelliteView &satellite_view) override;

@@ -23,9 +23,9 @@ public:
 
     void setDimensions(size_t width, size_t height);
 
-    char getObjectAt(size_t x, size_t y) const override;
+    char getObject(size_t x, size_t y) const override;
 
-    void setObjectAt(size_t x, size_t y, char c);
+    void setObject(size_t x, size_t y, char c);
 };
 
 #endif //MYSATELLITEVIEW_H

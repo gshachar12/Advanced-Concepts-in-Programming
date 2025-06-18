@@ -57,7 +57,7 @@ void InputParser::processLine(size_t row, const std::string &line) {
             symbol = default_symbol;
         }
 
-        auto obj = GameObjectFactory::create(symbol, Position(col, row), num_shells);
+        auto obj = GameObjectFactory::create(symbol, Position(col, row), shellsCount);
         if (const auto t = dynamic_cast<Tank *>(obj.get())) {
             tanks.push_back({t->getPlayerIndex(), t->getTankIndex()});
         }
@@ -96,7 +96,7 @@ bool InputParser::parseBoardInfo(std::ifstream &inFile) {
         return true;
     };
     if (!checkParse(max_steps, "MaxSteps") ||
-        !checkParse(num_shells, "NumShells") ||
+        !checkParse(shellsCount, "NumShells") ||
         !checkParse(height, "Rows") ||
         !checkParse(width, "Cols")) {
         return false;
@@ -125,7 +125,7 @@ std::unique_ptr<Board> InputParser::parseInputFile(const std::string &file_name)
         return nullptr;
     }
 
-    board = std::make_unique<Board>(board_description, max_steps, num_shells, width, height);
+    board = std::make_unique<Board>(board_description, max_steps, shellsCount, width, height);
     populateBoard(inFile);
     Logger::getInstance().log("Board loaded successfully");
     inFile.close();

@@ -23,7 +23,7 @@ enum ObjectType {
 class Board {
     std::string desc;
     size_t max_steps;
-    size_t num_shells;
+    size_t shellsCount;
     size_t width = 2;
     size_t height = 2;
     std::vector<std::vector<std::unique_ptr<GameObject> > > board;
@@ -41,9 +41,9 @@ class Board {
 
     GameObject *replaceObjectReal(Position from_real, Position to_real);
 
-    Position wrapPositionReal(Position real_pos) const;
+    Position updatePositionReal(Position real_pos) const;
 
-    GameObject *getObjectAtReal(Position real_pos) const;
+    GameObject *getObjectReal(Position real_pos) const;
 
     GameObject *moveObjectReal(Position from_real, Direction::DirectionType dir);
 
@@ -52,7 +52,7 @@ class Board {
     void checkCollisions();
 
     void print_info() {
-        std::cout << "Description: " << desc << ", max_steps: " << max_steps << ", num_shells: " << num_shells <<
+        std::cout << "Description: " << desc << ", max_steps: " << max_steps << ", shellsCount: " << shellsCount <<
                 std::endl;
     }
 
@@ -68,7 +68,7 @@ class Board {
 public:
     Board();
 
-    Board(std::string desc, size_t max_steps, size_t num_shells, size_t width, size_t height);
+    Board(std::string desc, size_t max_steps, size_t shellsCount, size_t width, size_t height);
 
     [[nodiscard]] int getHeight() const { return height / 2; }
 
@@ -91,9 +91,9 @@ public:
 
     Tank *getPlayerTank(int player_index, int tank_index) const;
 
-    Position wrapPosition(Position pos) const;
+    Position updatePosition(Position pos) const;
 
-    GameObject *getObjectAt(Position pos) const;
+    GameObject *getObject(Position pos) const;
 
     std::vector<Tank *> getAliveTanks() const;
 
@@ -103,17 +103,17 @@ public:
 
     std::map<int, Shell *> getShells() const;
 
-    bool isWall(const Position pos) const { return isOccupied(pos) && getObjectAt(pos)->isWall(); }
+    bool isWall(const Position pos) const { return isOccupied(pos) && getObject(pos)->isWall(); }
 
-    bool isTank(const Position pos) const { return isOccupied(pos) && getObjectAt(pos)->isTank(); }
+    bool isTank(const Position pos) const { return isOccupied(pos) && getObject(pos)->isTank(); }
 
-    bool isShell(const Position pos) const { return isOccupied(pos) && getObjectAt(pos)->isShell(); }
+    bool isShell(const Position pos) const { return isOccupied(pos) && getObject(pos)->isShell(); }
 
-    bool isCollision(const Position pos) const { return isOccupied(pos) && getObjectAt(pos)->isCollision(); }
+    bool isCollision(const Position pos) const { return isOccupied(pos) && getObject(pos)->isCollision(); }
 
-    bool isMine(const Position pos) const { return isOccupied(pos) && getObjectAt(pos)->isMine(); }
+    bool isMine(const Position pos) const { return isOccupied(pos) && getObject(pos)->isMine(); }
 
-    size_t getNumShells() const { return num_shells; }
+    size_t getNumShells() const { return shellsCount; }
 
     size_t getMaxSteps() const { return max_steps; }
 

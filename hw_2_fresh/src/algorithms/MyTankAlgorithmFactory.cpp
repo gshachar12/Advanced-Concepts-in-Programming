@@ -1,6 +1,6 @@
 #include "MyTankAlgorithmFactory.h"
 
-#include "PathfindingAlgorithm.h"
+#include "BfsAlgorithm.h"
 #include "SimpleAlgorithm.h"
 
 unique_ptr<TankAlgorithm> MyTankAlgorithmFactory::create(int player_index, int tank_index) const {

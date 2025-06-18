@@ -10,7 +10,7 @@
 #include "Shell.h"
 
 GameObject *Board::placeObjectReal(std::unique_ptr<GameObject> element, const Position real_pos) {
-    const auto [x, y] = wrapPositionReal(real_pos);
+    const auto [x, y] = updatePositionReal(real_pos);
 
     if (const auto tank = dynamic_cast<Tank *>(element.get())) {
         tanks_pos[{tank->getPlayerIndex(), tank->getTankIndex()}] = Position(x, y);
@@ -22,7 +22,7 @@ GameObject *Board::placeObjectReal(std::unique_ptr<GameObject> element, const Po
 
     // Check for collision
     if (isOccupiedReal(real_pos)) {
-        if (const auto collision = dynamic_cast<Collision *>(getObjectAtReal(real_pos))) {
+        if (const auto collision = dynamic_cast<Collision *>(getObjectReal(real_pos))) {
             collision->addElement(std::move(element));
         } else {
             board[y][x] = std::make_unique<Collision>(std::move(board[y][x]), std::move(element));
@@ -43,35 +43,35 @@ GameObject *Board::placeObjectReal(std::unique_ptr<GameObject> element, const Po
     return game_object;
 }
 
-Position Board::wrapPositionReal(const Position real_pos) const {
+Position Board::updatePositionReal(const Position real_pos) const {
     const size_t mod_x = (real_pos.x % width + width) % width;
     const size_t mod_y = (real_pos.y % height + height) % height;
     return {mod_x, mod_y};
 }
 
-GameObject *Board::getObjectAtReal(const Position real_pos) const {
-    const auto [x, y] = wrapPositionReal(real_pos);
+GameObject *Board::getObjectReal(const Position real_pos) const {
+    const auto [x, y] = updatePositionReal(real_pos);
     return board[y][x].get();
 }
 
 bool Board::isOccupiedReal(const Position real_pos) const {
-    return getObjectAtReal(real_pos) != nullptr;
+    return getObjectReal(real_pos) != nullptr;
 }
 
 void Board::removeObjectReal(const Position real_pos) {
-    const auto [x, y] = wrapPositionReal(real_pos);
+    const auto [x, y] = updatePositionReal(real_pos);
     if (board[y][x] != nullptr) removeIndices(board[y][x].get());
     destroyed.push_back(std::move(board[y][x]));
 }
 
 GameObject *Board::replaceObjectReal(const Position from_real, const Position to_real) {
-    const auto [f_x, f_y] = wrapPositionReal(from_real);
+    const auto [f_x, f_y] = updatePositionReal(from_real);
     if (!isOccupiedReal(from_real)) return nullptr;
 
     std::unique_ptr<GameObject> element = nullptr;
 
     // Handle moving collisions -> If not ok, move entire collision. Else, move just the shell.
-    if (const auto collision = dynamic_cast<Collision *>(getObjectAtReal(from_real))) {
+    if (const auto collision = dynamic_cast<Collision *>(getObjectReal(from_real))) {
         if (collision->checkOkCollision()) {
             element = collision->getShell();
             std::unique_ptr<Mine> mine = collision->getMine();
@@ -111,11 +111,11 @@ void Board::removeIndices(GameObject *game_object) {
     moving_pos.erase(game_object->getId());
 }
 
-Board::Board(): max_steps(0), num_shells(0) {
+Board::Board(): max_steps(0), shellsCount(0) {
 }
 
-Board::Board(std::string desc, const size_t max_steps, const size_t num_shells, size_t width,
-             size_t height) : desc(std::move(desc)), max_steps(max_steps), num_shells((num_shells)), width(width * 2),
+Board::Board(std::string desc, const size_t max_steps, const size_t shellsCount, size_t width,
+             size_t height) : desc(std::move(desc)), max_steps(max_steps), shellsCount((shellsCount)), width(width * 2),
                               height(height * 2),
                               board(std::vector<std::vector<std::unique_ptr<GameObject> > >(
                                   height * 2)) {
@@ -134,18 +134,18 @@ void Board::removeObject(const Position pos) {
     removeObjectReal(pos * 2);
 }
 
-Position Board::wrapPosition(const Position pos) const {
-    return wrapPositionReal(pos * 2) / 2;
+Position Board::updatePosition(const Position pos) const {
+    return updatePositionReal(pos * 2) / 2;
 }
 
-GameObject *Board::getObjectAt(const Position pos) const {
-    return getObjectAtReal(pos * 2);
+GameObject *Board::getObject(const Position pos) const {
+    return getObjectReal(pos * 2);
 }
 
 std::vector<Tank *> Board::getAliveTanks() const {
     std::vector<Tank *> tanks;
     for (auto pos: tanks_pos) {
-        GameObject *b = getObjectAtReal(pos.second);
+        GameObject *b = getObjectReal(pos.second);
         if (auto t = dynamic_cast<Tank *>(b)) {
             if (!t->isDestroyed()) tanks.push_back(t);
         }
@@ -157,7 +157,7 @@ std::vector<Tank *> Board::getTanks() const {
     std::vector<Tank *> tanks;
 
     for (auto pos: tanks_pos) {
-        GameObject *b = getObjectAtReal(pos.second);
+        GameObject *b = getObjectReal(pos.second);
         if (auto t = dynamic_cast<Tank *>(b)) {
             tanks.push_back(t);
         }
@@ -206,7 +206,7 @@ Tank *Board::getPlayerTank(int player_index, int tank_index) const {
 
 void Board::checkCollisions() {
     for (auto tmp_pos = collisions_pos; const auto [id, pos]: tmp_pos) {
-        if (const auto collision = dynamic_cast<Collision *>(getObjectAtReal(pos))) {
+        if (const auto collision = dynamic_cast<Collision *>(getObjectReal(pos))) {
             if (collision->checkOkCollision()) continue;
 
             if (std::unique_ptr<Wall> wall = collision->getWeakenedWall()) {
@@ -224,7 +224,7 @@ void Board::finishMove() {
     checkCollisions(); // After this, we only have ok collisions
 
     for (const auto tmp_pos = moving_pos; const auto [id, pos]: tmp_pos) {
-        if (const auto obj = getObjectAtReal(pos)) {
+        if (const auto obj = getObjectReal(pos)) {
             moveObjectReal(pos, obj->getDirection());
         } else {
             moving_pos.erase(id);
@@ -237,10 +237,10 @@ void Board::finishMove() {
 std::map<int, Shell *> Board::getShells() const {
     std::map<int, Shell *> shells;
     for (const auto [id, pos]: shells_pos) {
-        if (const auto shell = dynamic_cast<Shell *>(getObjectAtReal(pos))) {
+        if (const auto shell = dynamic_cast<Shell *>(getObjectReal(pos))) {
             shells[id] = shell;
         }
-        if (const auto collision = dynamic_cast<Collision *>(getObjectAtReal(pos))) {
+        if (const auto collision = dynamic_cast<Collision *>(getObjectReal(pos))) {
             if (collision->checkOkCollision()) {
                 shells[id] = collision->getShellPtr();
             }
@@ -253,11 +253,11 @@ void Board::fillSatelliteView(MySatelliteView &satellite_view) const {
     for (size_t i = 0; i < width; i++) {
         for (size_t j = 0; j < height; j++) {
             if (isCollision({i, j}))
-                satellite_view.setObjectAt(i, j, '*'); // We can only have mine-shell collisions here
+                satellite_view.setObject(i, j, '*'); // We can only have mine-shell collisions here
             else if (isOccupied({i, j}))
-                satellite_view.setObjectAt(i, j, getObjectAt({i, j})->getSymbol());
+                satellite_view.setObject(i, j, getObject({i, j})->getSymbol());
             else
-                satellite_view.setObjectAt(i, j, ' ');
+                satellite_view.setObject(i, j, ' ');
         }
     }
 }

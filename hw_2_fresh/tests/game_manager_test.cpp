@@ -162,7 +162,7 @@
 //     // board->placeObject(std::make_unique<Shell>(shellPos, initialDir, tank1->getId()));
 //     //
 //     // // Now verify that shell can be placed on the board
-//     // GameObject *testObj = board->getObjectAt(shellPos);
+//     // GameObject *testObj = board->getObject(shellPos);
 //     // ASSERT_NE(testObj, nullptr) << "Test shell could not be placed at ("
 //     //                             << shellPos.x << "," << shellPos.y << ")";
 //     //
@@ -178,7 +178,7 @@
 //     for (int y = 0; y < board->getHeight(); ++y) {
 //         for (int x = 0; x < board->getWidth(); ++x) {
 //             Position pos(x, y);
-//             GameObject *obj = board->getObjectAt(pos);
+//             GameObject *obj = board->getObject(pos);
 //             if (obj && dynamic_cast<Shell *>(obj)) {
 //                 foundShell = true;
 //                 foundShellPos = pos;
@@ -193,7 +193,7 @@
 //             << foundShellPos.y << ")" << std::endl;
 //
 //     // Use the found shell position for verification
-//     GameObject *obj = board->getObjectAt(foundShellPos);
+//     GameObject *obj = board->getObject(foundShellPos);
 //     ASSERT_NE(obj, nullptr);
 //
 //     Shell *shell = dynamic_cast<Shell *>(obj);
@@ -300,7 +300,7 @@
 //     for (int y = 0; y < board->getHeight(); ++y) {
 //         for (int x = 0; x < board->getWidth(); ++x) {
 //             Position checkPos(x, y);
-//             GameObject *obj = board->getObjectAt(checkPos);
+//             GameObject *obj = board->getObject(checkPos);
 //             if (obj && dynamic_cast<Shell *>(obj)) {
 //                 foundShell = true;
 //                 break;

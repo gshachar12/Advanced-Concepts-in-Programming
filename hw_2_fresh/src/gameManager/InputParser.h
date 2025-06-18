@@ -12,7 +12,7 @@ class InputParser {
     size_t width{};
     size_t height{};
     size_t max_steps{};
-    size_t num_shells{};
+    size_t shellsCount{};
     std::vector<std::pair<int, int> > tanks;
     const char default_symbol = ' ';
     const std::unordered_set<char> validSymbols = {'1', '2', '@', '#', ' '};

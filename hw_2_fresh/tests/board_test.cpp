@@ -24,30 +24,30 @@
 //     EXPECT_EQ(board->getHeight(), 8);
 // }
 //
-// TEST_F(BoardTest, WrapPosition) {
+// TEST_F(BoardTest, updatePosition) {
 //     // Test wrapping in different directions
 //     Position pos1(12, 5); // Right edge wrap
-//     Position wrapped1 = board->wrapPosition(pos1);
+//     Position wrapped1 = board->updatePosition(pos1);
 //     EXPECT_EQ(wrapped1.x, 2);
 //     EXPECT_EQ(wrapped1.y, 5);
 //
 //     Position pos2(-2, 3); // Left edge wrap
-//     Position wrapped2 = board->wrapPosition(pos2);
+//     Position wrapped2 = board->updatePosition(pos2);
 //     EXPECT_EQ(wrapped2.x, 8);
 //     EXPECT_EQ(wrapped2.y, 3);
 //
 //     Position pos3(4, -1); // Top edge wrap
-//     Position wrapped3 = board->wrapPosition(pos3);
+//     Position wrapped3 = board->updatePosition(pos3);
 //     EXPECT_EQ(wrapped3.x, 4);
 //     EXPECT_EQ(wrapped3.y, 7);
 //
 //     Position pos4(7, 10); // Bottom edge wrap
-//     Position wrapped4 = board->wrapPosition(pos4);
+//     Position wrapped4 = board->updatePosition(pos4);
 //     EXPECT_EQ(wrapped4.x, 7);
 //     EXPECT_EQ(wrapped4.y, 2);
 //
 //     Position pos5(-3, -2); // Multiple wraps
-//     Position wrapped5 = board->wrapPosition(pos5);
+//     Position wrapped5 = board->updatePosition(pos5);
 //     EXPECT_EQ(wrapped5.x, 7);
 //     EXPECT_EQ(wrapped5.y, 6);
 // }
@@ -57,7 +57,7 @@
 //     Tank *tank = board->placeObject(std::make_unique<Tank>(Position(3, 4), 1));
 //
 //     // Retrieve the object from the board
-//     GameObject *retrieved = board->getObjectAt(Position(3, 4));
+//     GameObject *retrieved = board->getObject(Position(3, 4));
 //     EXPECT_EQ(retrieved, tank);
 //
 //     // Check that the location is now occupied

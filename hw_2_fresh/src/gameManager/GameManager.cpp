@@ -153,14 +153,14 @@ void GameManager::checkDeaths() {
 }
 
 bool GameManager::moveForward(Tank &tank) {
-    if (const auto obj = board->getObjectAt(tank.getPosition() + tank.getDirection())) {
+    if (const auto obj = board->getObject(tank.getPosition() + tank.getDirection())) {
         if (obj->getSymbol() == '#') return false;
     }
     return board->moveObject(tank.getPosition(), tank.getDirection());
 }
 
 bool GameManager::moveBackward(Tank &tank) {
-    if (const auto obj = board->getObjectAt(tank.getPosition() + tank.getDirection())) {
+    if (const auto obj = board->getObject(tank.getPosition() + tank.getDirection())) {
         if (obj->getSymbol() == '#') return false;
     }
     return board->moveObject(tank.getPosition(), -tank.getDirection());
@@ -191,7 +191,7 @@ bool GameManager::getBattleInfo(const Tank &tank, const size_t player_i) {
     const int tank_algo_i = tank.getTankAlgoIndex();
     auto [x,y] = tank.getPosition();
     MySatelliteView satellite_view = this->satellite_view;
-    satellite_view.setObjectAt(x, y, '%');
+    satellite_view.setObject(x, y, '%');
     players[player_i - 1]->updateTankWithBattleInfo(*tanks[tank_algo_i], satellite_view);
     return true;
 }
@@ -325,7 +325,7 @@ void GameManager::initVisualBoard() {
     for (int y = 0; y < board->getHeight(); ++y) {
         for (int x = 0; x < board->getWidth(); ++x) {
             Position pos{x, y};
-            GameObject* obj = board->getObjectAt(pos);
+            GameObject* obj = board->getObject(pos);
             if (obj) {
                 char symbol = obj->getSymbol();
                 switch (symbol) {
@@ -352,7 +352,7 @@ void GameManager::initVisualBoard() {
 void GameManager::overlayShells() {
     for (auto [id, shell_ptr] : board->getShells()) {
         Position pos = shell_ptr->getPosition();
-        GameObject* obj = board->getObjectAt(pos);
+        GameObject* obj = board->getObject(pos);
         if (obj && obj->getSymbol() == '*') {
             visualBoard[pos.y][pos.x] = "🚀";
         }
