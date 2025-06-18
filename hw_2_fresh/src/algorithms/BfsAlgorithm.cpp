@@ -19,8 +19,10 @@ void PathfindingAlgorithm::updateLatestEnemyPosition() {
 }
 
 
-void PathfindingAlgorithm::handleTankThreatened(ActionRequest *request, std::string *request_title) {
-    //or shell is approaching or enemy tank is close
+void PathfindingAlgorithm::handleAttack(ActionRequest *request, std::string *request_title) {
+    // If the tank is threatened, decide whether to shoot or escape.
+    // First, check if the tank can shoot the enemy immediately.
+    // If not, attempt to move to a safer position.
     was_threatened = true;
     if (battle_status.canTankHitEnemy(true)) {
         *request = ActionRequest::Shoot;
@@ -32,6 +34,7 @@ void PathfindingAlgorithm::handleTankThreatened(ActionRequest *request, std::str
 }
 
 void PathfindingAlgorithm::tryShootEnemy(ActionRequest *request, std::string *request_title) {
+    // If the tank is not threatened, check if it can shoot the enemy.
     if (battle_status.canTankHitEnemy()) {
         tried_path_without_success = false;
         *request = ActionRequest::Shoot;
@@ -42,6 +45,7 @@ void PathfindingAlgorithm::tryShootEnemy(ActionRequest *request, std::string *re
 }
 
 bool PathfindingAlgorithm::rotateToEnemy(ActionRequest *request, std::string *request_title) const {
+    // If the tank is not threatened and cannot shoot, try to rotate towards the enemy.
     for (auto dir_index = 0; dir_index < 8; ++dir_index) {
         Direction::DirectionType dir = Direction::getDirectionFromIndex(dir_index);
         if (battle_status.tank_direction == dir) continue;
@@ -108,11 +112,11 @@ void PathfindingAlgorithm::followPathOrRotate(ActionRequest *request, std::strin
         if (battle_status.getBoardItem(next_pos) == '#') {
             if (battle_status.canTankShoot()) {
                 *request = ActionRequest::Shoot;
-                *request_title = "Wall ahead – shooting it";
+                *request_title = "Wall ahead - shooting it";
                 tried_path_without_success = false;
                 return;
             }
-            *request_title = "Wall ahead – Can't shoot. Do nothing";
+            *request_title = "Wall ahead - Can't shoot. Do nothing";
             *request = ActionRequest::DoNothing;
             return;
         }
@@ -140,7 +144,7 @@ std::vector<Direction::DirectionType> PathfindingAlgorithm::computeBFS() {
         Node(const Position &pos, const std::vector<Direction::DirectionType> &path): pos(pos), path(path) {
         }
     };
-    std::string msg = "Computing BFS. Start Position = " + battle_status.tank_position.toString();
+    std::string msg = "Calculating BFS. Start Position = " + battle_status.tank_position.toString();
     printLogs(msg);
 
     std::queue<Node> q;
@@ -181,7 +185,7 @@ void PathfindingAlgorithm::calculateAction(ActionRequest *request, std::string *
         return;
     }
     if (isTankThreatened()) {
-        handleTankThreatened(request, request_title);
+        handleAttack(request, request_title);
         return;
     }
     if (!battle_status.hasTankAmmo() || (battle_status.last_requested_info_turn < battle_status.turn_number)) {

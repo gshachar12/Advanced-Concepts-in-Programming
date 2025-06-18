@@ -22,7 +22,7 @@ private:
 
     void updateLatestEnemyPosition();
 
-    void handleTankThreatened(ActionRequest *request, std::string *request_title);
+    void handleAttack(ActionRequest *request, std::string *request_title);
 
     void tryShootEnemy(ActionRequest *request, std::string *request_title);
 
