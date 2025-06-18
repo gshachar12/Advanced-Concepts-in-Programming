@@ -16,13 +16,17 @@ bool Collision::checkOkCollision() {
 
     for (auto it = elements.begin(); it != elements.end();) {
         if (auto *shellPtr = dynamic_cast<Shell *>(it->get())) {
-            if (shell != nullptr) break;
+            if (shell != nullptr) {
+                break;
+            }
             setDirection(shellPtr->getDirection());
             shell.reset(shellPtr);
             it->release();
             it = elements.erase(it);
         } else if (auto *minePtr = dynamic_cast<Mine *>(it->get())) {
-            if (mine != nullptr) break;
+            if (mine != nullptr) {
+                break;
+            }
             mine.reset(minePtr);
             it->release();
             it = elements.erase(it);
@@ -34,8 +38,13 @@ bool Collision::checkOkCollision() {
         shell->setPosition(getPosition());
         return true;
     }
-    if (mine != nullptr) elements.push_back(std::move(mine));
-    if (shell != nullptr) elements.push_back(std::move(shell));
+    if (mine != nullptr) {
+        elements.push_back(std::move(mine));
+    }
+
+    if (shell != nullptr) {
+        elements.push_back(std::move(shell));
+    }
 
     for (auto it = elements.begin(); it != elements.end();) {
         if (auto *wallPtr = dynamic_cast<Wall *>(it->get())) {

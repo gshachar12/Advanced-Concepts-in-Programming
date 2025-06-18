@@ -15,7 +15,7 @@ class InputParser {
     size_t shellsCount{};
     std::vector<std::pair<int, int> > tanks;
     const char default_symbol = ' ';
-    const std::unordered_set<char> validSymbols = {'1', '2', '@', '#', ' '};
+    const std::unordered_set<char> validSymbols = {'1', '2', '@', '#', '=', ' '};
 
     bool parseBoardConfig(std::ifstream &inFile, size_t &retrieved_data, const std::string &expected_field_name);
 

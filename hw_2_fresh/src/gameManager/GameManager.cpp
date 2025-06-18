@@ -332,6 +332,9 @@ void GameManager::initVisualBoard() {
                     case '#':
                         visualBoard[y][x] = "🟩";
                         break;
+                    case '=':
+                        visualBoard[y][x] = "🧱";
+                        break;
                     case '@':
                         visualBoard[y][x] = "💣";
                         break;
@@ -367,12 +370,12 @@ void GameManager::overlayTanks() {
     // Create a mapping of directions to symbols
     std::map<Direction::DirectionType, std::string> dirSymbols;
     dirSymbols[Direction::UP] = "↑";
-    dirSymbols[Direction::UP_RIGHT] = "↗";
-    dirSymbols[Direction::RIGHT] = "→";
-    dirSymbols[Direction::DOWN_RIGHT] = "↘";
     dirSymbols[Direction::DOWN] = "↓";
-    dirSymbols[Direction::DOWN_LEFT] = "↙";
+    dirSymbols[Direction::RIGHT] = "→";
     dirSymbols[Direction::LEFT] = "←";
+    dirSymbols[Direction::UP_RIGHT] = "↗";
+    dirSymbols[Direction::DOWN_RIGHT] = "↘";
+    dirSymbols[Direction::DOWN_LEFT] = "↙";
     dirSymbols[Direction::UP_LEFT] = "↖";
 
     for (const auto tank : board->getTanks()) {
@@ -423,12 +426,12 @@ void GameManager::printTankStatus() {
 
         std::map<Direction::DirectionType, std::string> dirSymbols;
         dirSymbols[Direction::UP] = "↑";
-        dirSymbols[Direction::UP_RIGHT] = "↗";
-        dirSymbols[Direction::RIGHT] = "→";
-        dirSymbols[Direction::DOWN_RIGHT] = "↘";
         dirSymbols[Direction::DOWN] = "↓";
-        dirSymbols[Direction::DOWN_LEFT] = "↙";
+        dirSymbols[Direction::RIGHT] = "→";
         dirSymbols[Direction::LEFT] = "←";
+        dirSymbols[Direction::UP_RIGHT] = "↗";
+        dirSymbols[Direction::DOWN_RIGHT] = "↘";
+        dirSymbols[Direction::DOWN_LEFT] = "↙";
         dirSymbols[Direction::UP_LEFT] = "↖";
 
         Direction::DirectionType dir = tank->getDirection();
@@ -448,19 +451,20 @@ void GameManager::printTankStatus() {
  */
 void GameManager::printShellStatus() {
     auto shells = board->getShells();
-    if (shells.empty())
+    if (shells.empty()) {
         return;
+    }
 
     std::cout << "\nShell Status:\n";
 
     std::map<Direction::DirectionType, std::string> dirSymbols;
     dirSymbols[Direction::UP] = "↑";
-    dirSymbols[Direction::UP_RIGHT] = "↗";
-    dirSymbols[Direction::RIGHT] = "→";
-    dirSymbols[Direction::DOWN_RIGHT] = "↘";
     dirSymbols[Direction::DOWN] = "↓";
-    dirSymbols[Direction::DOWN_LEFT] = "↙";
+    dirSymbols[Direction::RIGHT] = "→";
     dirSymbols[Direction::LEFT] = "←";
+    dirSymbols[Direction::UP_RIGHT] = "↗";
+    dirSymbols[Direction::DOWN_RIGHT] = "↘";
+    dirSymbols[Direction::DOWN_LEFT] = "↙";
     dirSymbols[Direction::UP_LEFT] = "↖";
 
     for (auto [id, shell_ptr] : shells) {
