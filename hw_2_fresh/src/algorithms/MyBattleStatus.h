@@ -17,7 +17,7 @@ public:
     size_t board_x{0};           ///< Width of the game board
     size_t board_y{0};           ///< Height of the game board
     size_t max_steps{0};         ///< Maximum number of steps allowed in the game
-    size_t shellsCount{0};       ///< Number of shells (ammunition) available to the tank
+    size_t shells_count{0};       ///< Number of shells (ammunition) available to the tank
     size_t turn_number{0};       ///< Current turn number in the game
     size_t cool_down{0};         ///< Cooldown timer for the tank's shooting ability
     size_t last_requested_info_turn{0}; ///< Last turn when satellite info was requested

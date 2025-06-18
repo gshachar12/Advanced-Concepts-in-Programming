@@ -20,7 +20,7 @@ class MyBattleInfo final : public BattleInfo {
     // Maximum number of steps allowed in a game
     size_t max_steps;
     // Number of shells available to a player
-    size_t shellsCount;
+    size_t shells_count;
 
 public:
     /**
@@ -28,10 +28,10 @@ public:
      * @param board A 2D vector representing the game board
      * @param player_id The ID of the player
      * @param max_steps Maximum number of steps allowed in the game
-     * @param shellsCount Number of shells available to the player
+     * @param shells_count Number of shells available to the player
      */
     explicit MyBattleInfo(const std::vector<std::vector<char> > &board, const int player_id, size_t max_steps,
-                          const size_t shellsCount): board(board), max_steps(max_steps), shellsCount(shellsCount) {
+                          const size_t shells_count): board(board), max_steps(max_steps), shells_count(shells_count) {
         // Log the player ID for debugging purposes
         Logger::getInstance().log("Player_id: " + std::to_string(player_id));
     }
@@ -46,7 +46,7 @@ public:
      * @brief Get the number of shells available to the player
      * @return The number of shells as a size_t
      */
-    size_t getNumShells() const { return shellsCount; }
+    size_t getNumShells() const { return shells_count; }
     
     /**
      * @brief Get the maximum number of steps allowed in the game

@@ -53,7 +53,7 @@ Position MyBattleStatus::getTankPosition() const {
  * @return false If the tank has no shells left
  */
 bool MyBattleStatus::hasTankAmmo() const {
-    return shellsCount > 0;
+    return shells_count > 0;
 }
 
 /**
@@ -385,7 +385,7 @@ void MyBattleStatus::updateTankDirectionBaseAction(const ActionRequest action) {
 void MyBattleStatus::updateBattleStatusBaseAction(ActionRequest action) {
     if (action == ActionRequest::Shoot) {
         cool_down = 4;
-        shellsCount--;
+        shells_count--;
         return;
     }
     cool_down = (cool_down == 0) ? 0 : cool_down - 1;

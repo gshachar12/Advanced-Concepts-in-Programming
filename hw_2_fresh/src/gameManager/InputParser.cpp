@@ -57,7 +57,7 @@ void InputParser::processLine(size_t row, const std::string &line) {
             symbol = default_symbol;
         }
 
-        auto obj = GameObjectFactory::create(symbol, Position(col, row), shellsCount);
+        auto obj = GameObjectFactory::create(symbol, Position(col, row), shells_count);
         if (const auto t = dynamic_cast<Tank *>(obj.get())) {
             tanks.push_back({t->getPlayerIndex(), t->getTankIndex()});
         }
@@ -96,7 +96,7 @@ bool InputParser::parseBoardInfo(std::ifstream &inFile) {
         return true;
     };
     if (!checkParse(max_steps, "MaxSteps") ||
-        !checkParse(shellsCount, "NumShells") ||
+        !checkParse(shells_count, "NumShells") ||
         !checkParse(height, "Rows") ||
         !checkParse(width, "Cols")) {
         return false;
@@ -115,8 +115,8 @@ std::unique_ptr<Board> InputParser::parseInputFile(const std::string &file_name)
     Logger::getInstance().log("Parsing file:  " + file_name);
     std::ifstream inFile(file_name);
     if (!inFile) {
-        std::cerr << "Error: Failed to create board. Could not open file " << file_name << " for reading.\n";
-        addErrorMessage("Error opening file " + file_name);
+        std::cerr << "error: failed to create board. Could not open file " << file_name << " for reading.\n";
+        addErrorMessage("error while opening file " + file_name);
         addErrorMessagesToLog();
         return nullptr;
     }
@@ -125,7 +125,7 @@ std::unique_ptr<Board> InputParser::parseInputFile(const std::string &file_name)
         return nullptr;
     }
 
-    board = std::make_unique<Board>(board_description, max_steps, shellsCount, width, height);
+    board = std::make_unique<Board>(board_description, max_steps, shells_count, width, height);
     populateBoard(inFile);
     Logger::getInstance().log("Board loaded successfully");
     inFile.close();

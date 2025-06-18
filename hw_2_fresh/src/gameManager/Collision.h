@@ -31,7 +31,7 @@ public:
 
     void addElement(std::unique_ptr<GameObject> element) { elements.push_back(std::move(element)); }
 
-    bool checkOkCollision();
+    bool validateCollision();
 
     std::unique_ptr<Shell> getShell() { return std::move(shell); }
 

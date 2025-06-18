@@ -24,7 +24,9 @@ public:
     [[nodiscard]] bool isDestroyed() const override { return health <= 0; }
     
     void takeDamage(const int amount = 1) override {
-        if (health > 0) health -= amount;
+        if (health > 0) {
+            health -= amount;
+        }
     }
     
     void destroy() override { health = 0; }

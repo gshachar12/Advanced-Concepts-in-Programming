@@ -24,8 +24,8 @@ void GameManager::readBoard(const std::string &file_name) {
     board = input_parser.parseInputFile(file_name);
 
     if (board == nullptr) {
-        board = std::make_unique<Board>();
         std::cerr << "Can't parse file " << file_name << std::endl;
+        exit(1); // Exit with error code 1 when the board file can't be parsed
     }
 
     // create 2 players

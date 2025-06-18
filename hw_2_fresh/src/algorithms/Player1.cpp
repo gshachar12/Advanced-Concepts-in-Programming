@@ -3,7 +3,7 @@
 #include "MyBattleInfo.h"
 
 void Player1::updateTankWithBattleInfo(TankAlgorithm &tank, SatelliteView &satellite_view) {
-    auto battle_info = MyBattleInfo(createBoardFromSatellite(satellite_view), player_index, max_steps, shellsCount);
+    auto battle_info = MyBattleInfo(createBoardFromSatellite(satellite_view), player_index, max_steps, shells_count);
     tank.updateBattleInfo(battle_info);
 }
 

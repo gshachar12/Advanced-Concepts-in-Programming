@@ -10,7 +10,7 @@ std::unique_ptr<GameObject> Collision::popElement() {
     return popped;
 }
 
-bool Collision::checkOkCollision() {
+bool Collision::validateCollision() {
     if (marked) return shell != nullptr && mine != nullptr;
     marked = true;
 

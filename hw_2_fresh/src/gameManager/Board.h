@@ -23,7 +23,7 @@ enum ObjectType {
 class Board {
     std::string desc;
     size_t max_steps;
-    size_t shellsCount;
+    size_t shells_count;
     size_t width = 2;
     size_t height = 2;
     std::vector<std::vector<std::unique_ptr<GameObject> > > board;
@@ -52,7 +52,7 @@ class Board {
     void checkCollisions();
 
     void print_info() {
-        std::cout << "Description: " << desc << ", max_steps: " << max_steps << ", shellsCount: " << shellsCount <<
+        std::cout << "Description: " << desc << ", max_steps: " << max_steps << ", shells_count: " << shells_count <<
                 std::endl;
     }
 
@@ -68,7 +68,11 @@ class Board {
 public:
     Board();
 
-    Board(std::string desc, size_t max_steps, size_t shellsCount, size_t width, size_t height);
+    std::vector<Tank *> getPlayerAliveTanks(int player_index) const;
+
+    std::vector<Tank *> getPlayerTanks(int player_index) const;
+
+    Board(std::string desc, size_t max_steps, size_t shells_count, size_t width, size_t height);
 
     [[nodiscard]] int getHeight() const { return height / 2; }
 
@@ -84,10 +88,6 @@ public:
     GameObject *replaceObject(Position from, Position to);
 
     GameObject *moveObject(Position from, Direction::DirectionType dir);
-
-    std::vector<Tank *> getPlayerAliveTanks(int player_index) const;
-
-    std::vector<Tank *> getPlayerTanks(int player_index) const;
 
     Tank *getPlayerTank(int player_index, int tank_index) const;
 
@@ -113,7 +113,7 @@ public:
 
     bool isMine(const Position pos) const { return isOccupied(pos) && getObject(pos)->isMine(); }
 
-    size_t getNumShells() const { return shellsCount; }
+    size_t getNumShells() const { return shells_count; }
 
     size_t getMaxSteps() const { return max_steps; }
 

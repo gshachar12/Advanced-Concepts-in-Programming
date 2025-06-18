@@ -7,11 +7,17 @@ void MySatelliteView::setDimensions(const size_t width, const size_t height) {
 }
 
 char MySatelliteView::getObject(size_t x, size_t y) const {
-    if (x >= width || y >= height) return '&';
+    if (x >= width || y >= height) {
+        return '&';
+    }
+    
     return board[x][y];
 }
 
 void MySatelliteView::setObject(size_t x, size_t y, char c) {
-    if (x >= width || y >= height) return;
+    if (x >= width || y >= height) {
+        return;
+    }
+
     board[x][y] = c;
 }

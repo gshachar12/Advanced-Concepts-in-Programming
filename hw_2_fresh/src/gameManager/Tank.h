@@ -4,6 +4,7 @@
 #include "Direction.h"
 
 constexpr int MAX_PLAYERS = 9;
+constexpr int COOLDOWN = 4;
 static auto tank_count = std::array<int, MAX_PLAYERS>{};
 
 //todo: we support only two players - make it more modular
@@ -16,14 +17,14 @@ class Tank final : public GameObject {
     int shell;
 
 public:
-    explicit Tank(Position position, int player_id, int tank_algo_index, size_t shellsCount): GameObject(position,
+    explicit Tank(Position position, int player_id, int tank_algo_index, size_t shells_count): GameObject(position,
             player_id == 1
                 ? Direction::LEFT
                 : Direction::RIGHT),
         player_index(player_id),
         tank_index(tank_count[player_id]++),
         tank_algo_index(tank_algo_index),
-        shell(shellsCount) {
+        shell(shells_count) {
     }
 
     [[nodiscard]] char getSymbol() const override { return player_index == 1 ? '1' : '2'; }
@@ -46,7 +47,7 @@ public:
 
     void decreaseShootingCooldown() { if (shooting_cooldown > 0) shooting_cooldown--; }
 
-    void shoot() { shooting_cooldown = 4; }
+    void shoot() { shooting_cooldown = COOLDOWN; }
 
     void decrementAmmunition() { if (shell > 0) shell--; }
 

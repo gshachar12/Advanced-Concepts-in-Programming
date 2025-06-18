@@ -72,7 +72,7 @@ GameObject *Board::replaceObjectReal(const Position from_real, const Position to
 
     // Handle moving collisions -> If not ok, move entire collision. Else, move just the shell.
     if (const auto collision = dynamic_cast<Collision *>(getObjectReal(from_real))) {
-        if (collision->checkOkCollision()) {
+        if (collision->validateCollision()) {
             element = collision->getShell();
             std::unique_ptr<Mine> mine = collision->getMine();
             removeIndices(collision);
@@ -111,11 +111,11 @@ void Board::removeIndices(GameObject *game_object) {
     moving_pos.erase(game_object->getId());
 }
 
-Board::Board(): max_steps(0), shellsCount(0) {
+Board::Board(): max_steps(0), shells_count(0) {
 }
 
-Board::Board(std::string desc, const size_t max_steps, const size_t shellsCount, size_t width,
-             size_t height) : desc(std::move(desc)), max_steps(max_steps), shellsCount((shellsCount)), width(width * 2),
+Board::Board(std::string desc, const size_t max_steps, const size_t shells_count, size_t width,
+             size_t height) : desc(std::move(desc)), max_steps(max_steps), shells_count((shells_count)), width(width * 2),
                               height(height * 2),
                               board(std::vector<std::vector<std::unique_ptr<GameObject> > >(
                                   height * 2)) {
@@ -207,7 +207,7 @@ Tank *Board::getPlayerTank(int player_index, int tank_index) const {
 void Board::checkCollisions() {
     for (auto tmp_pos = collisions_pos; const auto [id, pos]: tmp_pos) {
         if (const auto collision = dynamic_cast<Collision *>(getObjectReal(pos))) {
-            if (collision->checkOkCollision()) continue;
+            if (collision->validateCollision()) continue;
 
             if (std::unique_ptr<Wall> wall = collision->getWeakenedWall()) {
                 removeObjectReal(pos);
@@ -241,7 +241,7 @@ std::map<int, Shell *> Board::getShells() const {
             shells[id] = shell;
         }
         if (const auto collision = dynamic_cast<Collision *>(getObjectReal(pos))) {
-            if (collision->checkOkCollision()) {
+            if (collision->validateCollision()) {
                 shells[id] = collision->getShellPtr();
             }
         }

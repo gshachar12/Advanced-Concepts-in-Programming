@@ -24,10 +24,13 @@ bool Logger::init(const std::string &path) {
     if (last_dot > last_slash) name = path.substr(last_slash + 1, last_dot - last_slash - 1);
     else name = path.substr(last_slash + 1);
 
-    const std::string out_file_path = "output_" + name + ".txt";
-    const std::string log_file_path = "log.txt";
-    const std::string err_file_path = "errors.txt";
-    const std::string input_err_file_path = "input_errors.txt";
+    // Create log and outputs directories if they don't exist
+    system("mkdir -p logs outputs");
+    
+    const std::string out_file_path = "outputs/output_" + name + ".txt";
+    const std::string log_file_path = "logs/log.txt";
+    const std::string err_file_path = "logs/errors.txt";
+    const std::string input_err_file_path = "logs/input_errors.txt";
 
     if (initialized) {
         close();
@@ -99,8 +102,12 @@ void Logger::logActions(std::vector<std::tuple<bool, ActionRequest, bool, bool> 
             if (!result) out_file << " (ignored)";
             if (killed) out_file << " (killed)";
         }
-        if (i++ < actions.size() - 1) out_file << ", ";
-        else out_file << std::endl;
+        
+        if (i++ < actions.size() - 1) {
+            out_file << ", ";
+        } else {
+            out_file << std::endl;
+        }
     }
 
     out_file.flush();

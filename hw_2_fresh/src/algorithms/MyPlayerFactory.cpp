@@ -6,9 +6,9 @@
 #include "Player2.h"
 
 unique_ptr<Player> MyPlayerFactory::create(int player_index, size_t x, size_t y, size_t max_steps,
-                                           size_t shellsCount) const {
+                                           size_t shells_count) const {
     if (player_index % 2 == 0) {
-        return std::make_unique<Player2>(player_index, x, y, max_steps, shellsCount);
+        return std::make_unique<Player2>(player_index, x, y, max_steps, shells_count);
     }
-    return std::make_unique<Player1>(player_index, x, y, max_steps, shellsCount);
+    return std::make_unique<Player1>(player_index, x, y, max_steps, shells_count);
 }
