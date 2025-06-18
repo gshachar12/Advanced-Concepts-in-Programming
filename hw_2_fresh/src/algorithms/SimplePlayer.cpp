@@ -1,13 +1,13 @@
-#include "Player2.h"
+#include "SimplePlayer.h"
 
 #include "MyBattleInfo.h"
 
-void Player2::updateTankWithBattleInfo(TankAlgorithm &tank, SatelliteView &satellite_view) {
+void SimplePlayer::updateTankWithBattleInfo(TankAlgorithm &tank, SatelliteView &satellite_view) {
     auto battle_info = MyBattleInfo(createPartialBoard(satellite_view), player_index, max_steps, shells_count);
     tank.updateBattleInfo(battle_info);
 }
 
-std::vector<std::vector<char> > Player2::createPartialBoard(const SatelliteView &satellite_view) const {
+std::vector<std::vector<char> > SimplePlayer::createPartialBoard(const SatelliteView &satellite_view) const {
     std::vector board(x, std::vector(y, ' '));
     std::pair<int, int> tank;
 

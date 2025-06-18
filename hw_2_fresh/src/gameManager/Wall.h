@@ -15,7 +15,10 @@ public:
         setDirection(Direction::UP);
     }
 
-    [[nodiscard]] char getSymbol() const override { return '#'; }
+    [[nodiscard]] char getSymbol() const override { 
+        // Return '=' for weakened walls (1 health point left)
+        return (health == 1) ? '=' : '#'; 
+    }
 
     void takeDamage(const int amount = 1) override {
         if (health > 0) health -= amount;

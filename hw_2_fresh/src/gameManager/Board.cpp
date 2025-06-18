@@ -7,6 +7,7 @@
 #include "Mine.h"
 #include "Tank.h"
 #include "Wall.h"
+#include "WeakWall.h"
 #include "Shell.h"
 
 GameObject *Board::placeObjectReal(std::unique_ptr<GameObject> element, const Position real_pos) {

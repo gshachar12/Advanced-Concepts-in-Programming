@@ -1,10 +1,10 @@
-#ifndef PLAYER1_H
-#define PLAYER1_H
+#ifndef BFSPLAYER_H
+#define BFSPLAYER_H
 #include <vector>
 
 #include "Player.h"
 
-class Player1 final : public Player {
+class BfsPlayer final : public Player {
     int player_index;
     size_t x;
     size_t y;
@@ -14,7 +14,7 @@ class Player1 final : public Player {
     std::vector<std::vector<char> > createBoardFromSatellite(const SatelliteView &satellite_view) const;
 
 public:
-    Player1(int player_index,
+    BfsPlayer(int player_index,
             size_t x, size_t y,
             size_t max_steps, size_t shells_count): Player(player_index, x, y, max_steps, shells_count),
                                                   player_index(player_index), x(x), y(y),
@@ -25,4 +25,4 @@ public:
     void updateTankWithBattleInfo(TankAlgorithm &tank, SatelliteView &satellite_view) override;
 };
 
-#endif //PLAYER1_H
+#endif //BFSPLAYER_H
