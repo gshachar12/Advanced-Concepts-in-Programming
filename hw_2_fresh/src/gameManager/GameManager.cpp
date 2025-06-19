@@ -60,7 +60,7 @@ void GameManager::run() {
 }
 
 void GameManager::updateCounters(Tank &tank, const ActionRequest action) {
-    tank.decreaseShootingCooldown();
+    tank.decreaseCooldown();
     const int back_counter = tank.getBackwardsCounter();
 
     if (back_counter == 2) {

@@ -7,7 +7,6 @@ constexpr int MAX_PLAYERS = 9;
 constexpr int COOLDOWN = 4;
 static auto tank_count = std::array<int, MAX_PLAYERS>{};
 
-//todo: we support only two players - make it more modular
 class Tank final : public GameObject {
     int player_index;
     int tank_index;
@@ -45,7 +44,7 @@ public:
 
     void setCooldown(const int cooldown) { shooting_cooldown = cooldown; }
 
-    void decreaseShootingCooldown() { if (shooting_cooldown > 0) shooting_cooldown--; }
+    void decreaseCooldown() { if (shooting_cooldown > 0) shooting_cooldown--; }
 
     void shoot() { shooting_cooldown = COOLDOWN; }
 
