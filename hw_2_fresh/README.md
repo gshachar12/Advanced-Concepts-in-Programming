@@ -45,10 +45,71 @@ The game includes several map files:
 - `input4.txt` - Maze challenge
 - `input5.txt` - Battlefield with mines
 - `input_weak_wall.txt` - Test map for weak walls
+- `wall_transformation_test.txt` - Test map for wall transformation visualization
 
 ### Game Controls
 
 The game is AI-controlled, so no user input is required during gameplay. The tanks will move and act according to their programming.
+
+## Testing the Wall Transformation Feature
+
+The game features a wall system where:
+1. Regular walls (represented by '#') take 2 hits to destroy
+2. After the first hit, regular walls transform into weak walls (represented by '=')
+3. Weak walls take only 1 hit to destroy
+4. In visual mode, regular walls display as 🟩 and weak walls (and damaged regular walls) display as 🧱
+
+### Running the Tests
+
+To verify this functionality, run our simple test script:
+
+```bash
+./test_wall_feature.sh
+```
+
+This script will:
+1. Build all wall tests
+2. Run the simple wall test and save the output to logs
+3. Run the wall collision test and save the output to logs
+4. Run the wall boundary test and save the output to logs
+5. Build the main game
+6. Run the game with the wall test map
+
+You can also run the tests manually:
+
+```bash
+# Build and run individual tests
+make test_wall            # Runs the basic wall test
+make test_wall_collision  # Runs the wall collision test  
+make test_wall_boundary   # Runs the wall boundary test
+make test_all             # Runs all tests
+
+# Run the game with the wall test map
+./tanks_game -g inputs/wall_test.txt
+```
+
+### Available Tests
+
+The project includes multiple test files for comprehensive wall behavior testing:
+
+- **wall_test.cpp**: Basic tests for wall transformation and behavior
+- **wall_collision_test.cpp**: Tests for collision handling with walls
+- **wall_boundary_test.cpp**: Tests for wall behavior at boundaries and edge cases
+
+### Test Results
+
+The test results are saved in the logs directory:
+- `logs/wall_test.log` - Results of the simple wall test
+- `logs/wall_collision_test.log` - Results of the wall collision test
+- `logs/wall_boundary_test.log` - Results of the wall boundary test
+
+### Visual Verification
+
+To visually verify the wall transformation feature:
+
+1. Run the game with the test map: `./tanks_game -g inputs/wall_transformation_test.txt`
+2. Shoot at a wall (the AI will do this automatically)
+3. Observe the wall changing from 🟩 to 🧱 after one hit
 
 ## Game Rules
 

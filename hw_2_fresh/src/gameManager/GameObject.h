@@ -35,36 +35,22 @@ public:
 
     explicit GameObject(const Position position,
                         const Direction::DirectionType direction): id(static_id++), position(position),
-                                                                   direction(direction) {
-    }
+                                                                   direction(direction) { }
 
-    explicit GameObject(const Position position): id(static_id++), position(position) {
-    }
+    explicit GameObject(const Position position): id(static_id++), position(position) { }
 
     [[nodiscard]] virtual char getSymbol() const { return ' '; }
-
-    virtual int getId() const { return id; }
-
-    [[nodiscard]] virtual Position getPosition() const { return position; }
-
-    virtual void setPosition(const Position pos) { position = pos; }
-
-    [[nodiscard]] virtual Direction::DirectionType getDirection() const { return direction; }
-
-    virtual void setDirection(const Direction::DirectionType &dir) { direction = dir; }
-
-    virtual void destroy() { destroyed = true; }
-
     [[nodiscard]] virtual bool isDestroyed() const { return destroyed; }
-
+    [[nodiscard]] virtual Position getPosition() const { return position; }
+    [[nodiscard]] virtual Direction::DirectionType getDirection() const { return direction; }
+    virtual int getId() const { return id; }
+    virtual void setPosition(const Position pos) { position = pos; }
+    virtual void setDirection(const Direction::DirectionType &dir) { direction = dir; }
+    virtual void destroy() { destroyed = true; }
     virtual bool isWall() const { return false; }
-
     virtual bool isShell() const { return false; }
-
     virtual bool isMine() const { return false; }
-
     virtual bool isCollision() const { return false; }
-
     virtual bool isTank() const { return false; }
     
     // Add missing virtual methods

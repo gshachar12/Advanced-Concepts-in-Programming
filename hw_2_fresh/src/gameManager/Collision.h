@@ -33,6 +33,8 @@ public:
 
     bool validateCollision();
 
+    bool isCollision() const override { return true; }
+
     std::unique_ptr<Shell> getShell() { return std::move(shell); }
 
     Shell *getShellPtr() const { return shell.get(); }
@@ -40,8 +42,6 @@ public:
     std::unique_ptr<Mine> getMine() { return std::move(mine); }
 
     std::unique_ptr<Wall> getWeakenedWall();
-
-    bool isCollision() const override { return true; }
 };
 
 #endif //COLLISION_H

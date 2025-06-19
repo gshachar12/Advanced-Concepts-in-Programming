@@ -129,7 +129,7 @@ void Logger::error(const std::string &message) {
         return;
     }
 
-    err_file << getTimestamp() << " - " << message << std::endl;
+    err_file << getTimestamp() << ": " << message << std::endl;
     err_file.flush();
 }
 

@@ -151,6 +151,7 @@ bool MyBattleStatus::canTankHitEnemy(Direction::DirectionType dir, bool include_
             }
         }
     }
+
     return false;
 }
 
@@ -197,11 +198,13 @@ bool MyBattleStatus::canTankHitEnemy(bool include_shells) const {
  * @return false If an obstacle blocks the line of sight or the target is not in that direction
  */
 bool MyBattleStatus::isTargetOnSight(Direction::DirectionType dir, Position target) const {
-    Position p = tank_position;
+    Position pos = tank_position;
     for (size_t i = 1; i <= std::max(board_x, board_y); i++) {
-        p = updatePosition(p + dir);
-        if (target == p) return true;
-        if (board[p.x][p.y] == boardItemToChar(BoardItem::WALL) || board[p.x][p.y] == getAllyName()) {
+        pos = updatePosition(pos + dir);
+        if (target == pos) {
+            return true;
+        }
+        if (board[pos.x][pos.y] == boardItemToChar(BoardItem::WALL) || board[pos.x][pos.y] == getAllyName()) {
             return false;
         }
     }
@@ -307,16 +310,16 @@ void MyBattleStatus::updateTanksPosition() {
     std::vector<Position> shells;
     for (size_t i{0}; i < board.size(); i++) {
         for (size_t j{0}; j < board.front().size(); j++) {
-            Position p = {i, j};
+            Position pos = {i, j};
 
             if (board[i][j] == getAllyName()) {
-                ally.push_back(p);
+                ally.push_back(pos);
             } else if (board[i][j] == boardItemToChar(BoardItem::CURRENT_TANK)) {
-                tank_position = p;
+                tank_position = pos;
             } else if (board[i][j] == getEnemyName()) {
-                enemy.push_back(p);
+                enemy.push_back(pos);
             } else if (board[i][j] == boardItemToChar(BoardItem::SHELL)) {
-                shells.push_back(p);
+                shells.push_back(pos);
             }
         }
     }

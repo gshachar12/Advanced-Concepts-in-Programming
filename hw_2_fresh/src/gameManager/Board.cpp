@@ -221,8 +221,21 @@ void Board::checkCollisions() {
     }
 }
 
+void Board::fillSatelliteView(MySatelliteView &satellite_view) const {
+    for (size_t i = 0; i < width; i++) {
+        for (size_t j = 0; j < height; j++) {
+            if (isCollision({i, j}))
+                satellite_view.setObject(i, j, '*'); 
+            else if (isOccupied({i, j}))
+                satellite_view.setObject(i, j, getObject({i, j})->getSymbol());
+            else
+                satellite_view.setObject(i, j, ' ');
+        }
+    }
+}
+
 void Board::finishMove() {
-    checkCollisions(); // After this, we only have ok collisions
+    checkCollisions();
 
     for (const auto tmp_pos = moving_pos; const auto [id, pos]: tmp_pos) {
         if (const auto obj = getObjectReal(pos)) {
@@ -248,17 +261,4 @@ std::map<int, Shell *> Board::getShells() const {
         }
     }
     return shells;
-}
-
-void Board::fillSatelliteView(MySatelliteView &satellite_view) const {
-    for (size_t i = 0; i < width; i++) {
-        for (size_t j = 0; j < height; j++) {
-            if (isCollision({i, j}))
-                satellite_view.setObject(i, j, '*'); // We can only have mine-shell collisions here
-            else if (isOccupied({i, j}))
-                satellite_view.setObject(i, j, getObject({i, j})->getSymbol());
-            else
-                satellite_view.setObject(i, j, ' ');
-        }
-    }
 }

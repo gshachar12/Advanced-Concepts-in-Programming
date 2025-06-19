@@ -48,14 +48,12 @@ bool MyTankAlgorithm::isTankThreatened() const {
 
 
 ActionRequest MyTankAlgorithm::moveIfThreatened() const {
-    // we'll try first moving forward in the current direction
     Position forward_pos = battle_status.updatePosition(battle_status.tank_position + battle_status.tank_direction);
 
     if (battle_status.isSafePosition(forward_pos)) {
         return ActionRequest::MoveForward;
     }
 
-    // If we can't move forward in the current direction, we'll find a safe cell around us and rotate towards it
     for (int i = 0; i < Direction::getDirectionSize(); ++i) {
         Direction::DirectionType possible_dir = Direction::getDirectionFromIndex(i);
         Position possible_pos = battle_status.updatePosition(battle_status.tank_position + possible_dir);

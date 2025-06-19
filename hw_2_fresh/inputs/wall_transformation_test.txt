@@ -1,8 +1,12 @@
-Tank Battle Game
-10
-5
-#####
-#1# #
-# # #
-# #2#
-#####
+Wall Transformation Test
+MaxSteps=100
+NumShells=10
+Rows=7
+Cols=9
+#########
+#       #
+# 1   2 #
+#  ###  #
+# =###= #
+#       #
+#########
