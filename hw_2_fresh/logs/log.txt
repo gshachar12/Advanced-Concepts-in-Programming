@@ -1,1640 +1,1640 @@
-2025-06-19 14:47:15 - Parsing file:  inputs/input2.txt
-2025-06-19 14:47:15 - Board Info Read: Board description: 2 - Tactical Showdown, MaxSteps: 4500, NumShells: 30, Rows: 12, Cols: 18
-2025-06-19 14:47:15 - Board loaded successfully
-2025-06-19 14:47:16 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:16 - Player_id: 1
-2025-06-19 14:47:16 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:16 - Player_id: 1
-2025-06-19 14:47:16 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:16 - Player_id: 1
-2025-06-19 14:47:16 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:16 - Player_id: 2
-2025-06-19 14:47:16 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:16 - Player_id: 2
-2025-06-19 14:47:16 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:16 - Player_id: 2
-2025-06-19 14:47:17 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:17 - Player_id: 1
-2025-06-19 14:47:17 - Player 1 - Tank Index 1 Threatened by enemy
-2025-06-19 14:47:17 - Player 1 - Tank Index 1 Escape threat
-2025-06-19 14:47:17 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:17 - Player_id: 1
-2025-06-19 14:47:17 - Player 2 - Tank Index 0 Threatened by enemy
-2025-06-19 14:47:17 - Player 2 - Tank Index 0 Avoid Threat
-2025-06-19 14:47:17 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 3)
-2025-06-19 14:47:17 - Player 1 - Tank Index 0 Rotating from direction UP_LEFT to DOWN_RIGHT
-2025-06-19 14:47:17 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:17 - Player_id: 1
-2025-06-19 14:47:17 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
-2025-06-19 14:47:17 - Player 1 - Tank Index 2 Moving forward to (3,8)
-2025-06-19 14:47:17 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:17 - Player_id: 1
-2025-06-19 14:47:17 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-19 14:47:17 - Player_id: 1
-2025-06-19 14:47:17 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:17 - Player_id: 1
-2025-06-19 14:47:17 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 3)
-2025-06-19 14:47:17 - Player 1 - Tank Index 0 Moving forward to (12,4)
-2025-06-19 14:47:17 - Player 1 - Tank Index 1 Calculating BFS. Start Position = (0, 5)
-2025-06-19 14:47:17 - Player 1 - Tank Index 1 Moving forward to (15,5)
-2025-06-19 14:47:17 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (3, 8)
-2025-06-19 14:47:17 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:17 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:17 - Player_id: 1
-2025-06-19 14:47:17 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-19 14:47:17 - Player_id: 1
-2025-06-19 14:47:17 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:17 - Player_id: 1
-2025-06-19 14:47:17 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (12, 4)
-2025-06-19 14:47:17 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:17 - Player 1 - Tank Index 1 Calculating BFS. Start Position = (7, 5)
-2025-06-19 14:47:17 - Player 1 - Tank Index 1 Shooting randomly due to stuck state
-2025-06-19 14:47:17 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (3, 8)
-2025-06-19 14:47:17 - Player 1 - Tank Index 2 Stuck, rotating randomly
-2025-06-19 14:47:17 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:17 - Player_id: 1
-2025-06-19 14:47:17 - Player 1 - Tank Index 1 Requesting updated Battle Info
-2025-06-19 14:47:17 - Player_id: 1
-2025-06-19 14:47:17 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:17 - Player_id: 1
-2025-06-19 14:47:17 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:17 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:17 - Player 1 - Tank Index 1 Threatened by shells
-2025-06-19 14:47:17 - Player 1 - Tank Index 1 Escape threat
-2025-06-19 14:47:17 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:17 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:17 - Player 2 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:17 - Player 2 - Tank Index 0 Avoid Threat
-2025-06-19 14:47:17 - Player 2 - Tank Index 1 Threatened by shells
-2025-06-19 14:47:17 - Player 2 - Tank Index 1 Avoid Threat
-2025-06-19 14:47:17 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:17 - Player 2 - Tank Index 2 Avoid Threat
-2025-06-19 14:47:17 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:17 - Player_id: 1
-2025-06-19 14:47:17 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:17 - Player_id: 1
-2025-06-19 14:47:17 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:17 - Player_id: 1
-2025-06-19 14:47:17 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:17 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:17 - Player_id: 2
-2025-06-19 14:47:18 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:18 - Player_id: 1
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:18 - Player 2 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:18 - Player 2 - Tank Index 0 Avoid Threat
-2025-06-19 14:47:18 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (12, 4)
-2025-06-19 14:47:18 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:18 - Player_id: 1
-2025-06-19 14:47:18 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:18 - Player_id: 1
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:18 - Player_id: 1
-2025-06-19 14:47:18 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:18 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (3, 8)
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:18 - Player 2 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:18 - Player 2 - Tank Index 0 Avoid Threat
-2025-06-19 14:47:18 - Player 2 - Tank Index 1 Threatened by shells
-2025-06-19 14:47:18 - Player 2 - Tank Index 1 Avoid Threat
-2025-06-19 14:47:18 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:18 - Player 2 - Tank Index 2 Avoid Threat
-2025-06-19 14:47:18 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:18 - Player_id: 1
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:18 - Player_id: 1
-2025-06-19 14:47:18 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:18 - Player_id: 1
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (3, 8)
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Stuck, rotating randomly
-2025-06-19 14:47:18 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (12, 4)
-2025-06-19 14:47:18 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:18 - Player_id: 1
-2025-06-19 14:47:18 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:18 - Player_id: 1
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (3, 8)
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Stuck, rotating randomly
-2025-06-19 14:47:18 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:18 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:18 - Player_id: 1
-2025-06-19 14:47:18 - Player 2 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:18 - Player 2 - Tank Index 0 Avoid Threat
-2025-06-19 14:47:18 - Player 2 - Tank Index 1 Threatened by shells
-2025-06-19 14:47:18 - Player 2 - Tank Index 1 Avoid Threat
-2025-06-19 14:47:18 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:18 - Player 2 - Tank Index 2 Avoid Threat
-2025-06-19 14:47:18 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:18 - Player_id: 1
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (3, 8)
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:18 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:18 - Player_id: 1
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:18 - Player_id: 1
-2025-06-19 14:47:18 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (12, 4)
-2025-06-19 14:47:18 - Player 1 - Tank Index 0 Rotating from direction DOWN_RIGHT to UP_LEFT
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:18 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:18 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:18 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:18 - Player_id: 2
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:19 - Player_id: 1
-2025-06-19 14:47:19 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:19 - Player_id: 1
-2025-06-19 14:47:19 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (12, 4)
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Moving forward to (11,4)
-2025-06-19 14:47:19 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:19 - Player_id: 1
-2025-06-19 14:47:19 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:19 - Player_id: 1
-2025-06-19 14:47:19 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (3, 8)
-2025-06-19 14:47:19 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:19 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (11, 4)
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Moving forward to (10,4)
-2025-06-19 14:47:19 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:19 - Player_id: 1
-2025-06-19 14:47:19 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:19 - Player_id: 1
-2025-06-19 14:47:19 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:19 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:19 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (10, 4)
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Moving forward to (9,4)
-2025-06-19 14:47:19 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:19 - Player_id: 1
-2025-06-19 14:47:19 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:19 - Player_id: 1
-2025-06-19 14:47:19 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:19 - Player_id: 1
-2025-06-19 14:47:19 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (9, 4)
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:19 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (3, 8)
-2025-06-19 14:47:19 - Player 1 - Tank Index 2 Rotating from direction LEFT to DOWN
-2025-06-19 14:47:19 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:19 - Player_id: 1
-2025-06-19 14:47:19 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:19 - Player_id: 1
-2025-06-19 14:47:19 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:19 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:19 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:19 - Player 2 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:19 - Player 2 - Tank Index 0 Avoid Threat
-2025-06-19 14:47:19 - Player 2 - Tank Index 1 Threatened by shells
-2025-06-19 14:47:19 - Player 2 - Tank Index 1 Avoid Threat
-2025-06-19 14:47:19 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:19 - Player_id: 1
-2025-06-19 14:47:19 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:19 - Player_id: 1
-2025-06-19 14:47:19 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:19 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:19 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:19 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:19 - Player 2 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:19 - Player 2 - Tank Index 0 Avoid Threat
-2025-06-19 14:47:19 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:19 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:19 - Player_id: 2
-2025-06-19 14:47:20 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:20 - Player_id: 1
-2025-06-19 14:47:20 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:20 - Player_id: 1
-2025-06-19 14:47:20 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:20 - Player_id: 1
-2025-06-19 14:47:20 - Player 1 - Tank Index 2 Threatened by enemy
-2025-06-19 14:47:20 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:20 - Player 2 - Tank Index 0 Threatened by enemy
-2025-06-19 14:47:20 - Player 2 - Tank Index 0 Avoid Threat
-2025-06-19 14:47:20 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 1 - Tank Index 0 Rotating from direction UP to DOWN
-2025-06-19 14:47:20 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:20 - Player_id: 1
-2025-06-19 14:47:20 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:20 - Player_id: 1
-2025-06-19 14:47:20 - Player 1 - Tank Index 2 Threatened by enemy
-2025-06-19 14:47:20 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:20 - Player 2 - Tank Index 0 Threatened by enemy
-2025-06-19 14:47:20 - Player 2 - Tank Index 0 Avoid Threat
-2025-06-19 14:47:20 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 1 - Tank Index 0 Moving forward to (10,3)
-2025-06-19 14:47:20 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:20 - Player_id: 1
-2025-06-19 14:47:20 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:20 - Player_id: 1
-2025-06-19 14:47:20 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:20 - Player_id: 1
-2025-06-19 14:47:20 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 1 - Tank Index 0 Rotating from direction DOWN to RIGHT
-2025-06-19 14:47:20 - Player 1 - Tank Index 2 Rotating 2 toward enemy
-2025-06-19 14:47:20 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:20 - Player_id: 1
-2025-06-19 14:47:20 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:20 - Player_id: 1
-2025-06-19 14:47:20 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (10, 3)
-2025-06-19 14:47:20 - Player 1 - Tank Index 0 Moving forward to (11,3)
-2025-06-19 14:47:20 - Player 1 - Tank Index 2 Shoot Enemy
-2025-06-19 14:47:20 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:20 - Player_id: 1
-2025-06-19 14:47:20 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:20 - Player_id: 1
-2025-06-19 14:47:20 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (11, 3)
-2025-06-19 14:47:20 - Player 1 - Tank Index 0 Rotating from direction RIGHT to LEFT
-2025-06-19 14:47:20 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:20 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:20 - Player 2 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:20 - Player 2 - Tank Index 0 Avoid Threat
-2025-06-19 14:47:20 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:20 - Player_id: 1
-2025-06-19 14:47:20 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:20 - Player_id: 1
-2025-06-19 14:47:20 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 1 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:20 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:20 - Player_id: 2
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:21 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:21 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:21 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 2 - Tank Index 1 Threatened by shells
-2025-06-19 14:47:21 - Player 2 - Tank Index 1 Avoid Threat
-2025-06-19 14:47:21 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:21 - Player 2 - Tank Index 2 Avoid Threat
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:21 - Player_id: 1
-2025-06-19 14:47:21 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:21 - Player_id: 1
-2025-06-19 14:47:21 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:21 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:21 - Player_id: 1
-2025-06-19 14:47:21 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:21 - Player 2 - Tank Index 2 Avoid Threat
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:21 - Player_id: 1
-2025-06-19 14:47:21 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 7)
-2025-06-19 14:47:21 - Player 1 - Tank Index 2 Moving forward to (4,8)
-2025-06-19 14:47:21 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:21 - Player_id: 1
-2025-06-19 14:47:21 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:21 - Player_id: 1
-2025-06-19 14:47:21 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 5)
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:21 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
-2025-06-19 14:47:21 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:21 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:21 - Player_id: 1
-2025-06-19 14:47:21 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:21 - Player_id: 1
-2025-06-19 14:47:21 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 5)
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Stuck, rotating randomly
-2025-06-19 14:47:21 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:21 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:21 - Player 2 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:21 - Player 2 - Tank Index 0 Avoid Threat
-2025-06-19 14:47:21 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:21 - Player_id: 1
-2025-06-19 14:47:21 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:21 - Player_id: 1
-2025-06-19 14:47:21 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 5)
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Stuck, rotating randomly
-2025-06-19 14:47:21 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:21 - Player_id: 1
-2025-06-19 14:47:21 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:21 - Player_id: 1
-2025-06-19 14:47:21 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
-2025-06-19 14:47:21 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:21 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 5)
-2025-06-19 14:47:21 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:21 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:21 - Player_id: 1
-2025-06-19 14:47:21 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:21 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:21 - Player_id: 2
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:22 - Player_id: 1
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:22 - Player 2 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:22 - Player 2 - Tank Index 0 Avoid Threat
-2025-06-19 14:47:22 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 5)
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Stuck, rotating randomly
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:22 - Player_id: 1
-2025-06-19 14:47:22 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:22 - Player_id: 1
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:22 - Player_id: 1
-2025-06-19 14:47:22 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 5)
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Stuck, rotating randomly
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Rotating from direction DOWN_LEFT to DOWN
-2025-06-19 14:47:22 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:22 - Player_id: 1
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:22 - Player_id: 1
-2025-06-19 14:47:22 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 5)
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Moving forward to (12,4)
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Rotating from direction RIGHT to DOWN
-2025-06-19 14:47:22 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:22 - Player_id: 1
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:22 - Player_id: 1
-2025-06-19 14:47:22 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (12, 4)
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Moving forward to (11,3)
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Moving forward to (5,7)
-2025-06-19 14:47:22 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:22 - Player_id: 1
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:22 - Player_id: 1
-2025-06-19 14:47:22 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (11, 3)
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Moving forward to (10,2)
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:22 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:22 - Player_id: 1
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:22 - Player_id: 1
-2025-06-19 14:47:22 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (10, 2)
-2025-06-19 14:47:22 - Player 1 - Tank Index 0 Moving forward to (9,1)
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
-2025-06-19 14:47:22 - Player 1 - Tank Index 2 Stuck, rotating randomly
-2025-06-19 14:47:22 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:22 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:22 - Player_id: 2
-2025-06-19 14:47:23 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:23 - Player_id: 1
-2025-06-19 14:47:23 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:23 - Player_id: 1
-2025-06-19 14:47:23 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (9, 1)
-2025-06-19 14:47:23 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:23 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
-2025-06-19 14:47:23 - Player 1 - Tank Index 2 Stuck, rotating randomly
-2025-06-19 14:47:23 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:23 - Player_id: 1
-2025-06-19 14:47:23 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:23 - Player_id: 1
-2025-06-19 14:47:23 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (9, 1)
-2025-06-19 14:47:23 - Player 1 - Tank Index 0 Stuck, rotating randomly
-2025-06-19 14:47:23 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
-2025-06-19 14:47:23 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:23 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:23 - Player_id: 1
-2025-06-19 14:47:23 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:23 - Player_id: 1
-2025-06-19 14:47:23 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (9, 1)
-2025-06-19 14:47:23 - Player 1 - Tank Index 0 Stuck, rotating randomly
-2025-06-19 14:47:23 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
-2025-06-19 14:47:23 - Player 1 - Tank Index 2 Stuck, rotating randomly
-2025-06-19 14:47:23 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:23 - Player_id: 1
-2025-06-19 14:47:23 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:23 - Player_id: 1
-2025-06-19 14:47:23 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (9, 1)
-2025-06-19 14:47:23 - Player 1 - Tank Index 0 Moving forward to (8,2)
-2025-06-19 14:47:23 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
-2025-06-19 14:47:23 - Player 1 - Tank Index 2 Stuck, rotating randomly
-2025-06-19 14:47:23 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:23 - Player_id: 1
-2025-06-19 14:47:23 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:23 - Player_id: 1
-2025-06-19 14:47:23 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (8, 2)
-2025-06-19 14:47:23 - Player 1 - Tank Index 0 Moving forward to (7,3)
-2025-06-19 14:47:23 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
-2025-06-19 14:47:23 - Player 1 - Tank Index 2 Moving forward to (4,8)
-2025-06-19 14:47:23 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:23 - Player_id: 1
-2025-06-19 14:47:23 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:23 - Player_id: 1
-2025-06-19 14:47:23 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:23 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:23 - Player_id: 2
-2025-06-19 14:47:24 - Player 1 - Tank Index 0 Rotating 6 toward enemy
-2025-06-19 14:47:24 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
-2025-06-19 14:47:24 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:24 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:24 - Player_id: 2
-2025-06-19 14:47:24 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:24 - Player_id: 2
-2025-06-19 14:47:24 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:24 - Player_id: 1
-2025-06-19 14:47:24 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:24 - Player_id: 1
-2025-06-19 14:47:24 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:24 - Player_id: 2
-2025-06-19 14:47:24 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:24 - Player_id: 2
-2025-06-19 14:47:24 - Player 1 - Tank Index 0 Shoot Enemy
-2025-06-19 14:47:24 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:24 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:24 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:24 - Player_id: 2
-2025-06-19 14:47:24 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:24 - Player_id: 2
-2025-06-19 14:47:24 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:24 - Player_id: 1
-2025-06-19 14:47:24 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:24 - Player_id: 1
-2025-06-19 14:47:24 - Player 2 - Tank Index 0 Reciving Battle Info
-2025-06-19 14:47:24 - Player_id: 2
-2025-06-19 14:47:24 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:24 - Player_id: 2
-2025-06-19 14:47:24 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:24 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:24 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:24 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:24 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:24 - Player_id: 2
-2025-06-19 14:47:24 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:24 - Player_id: 1
-2025-06-19 14:47:24 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:24 - Player_id: 1
-2025-06-19 14:47:24 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:24 - Player_id: 2
-2025-06-19 14:47:24 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:24 - Player_id: 1
-2025-06-19 14:47:24 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:24 - Player_id: 1
-2025-06-19 14:47:24 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:24 - Player_id: 2
-2025-06-19 14:47:24 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (7, 3)
-2025-06-19 14:47:24 - Player 1 - Tank Index 0 Moving forward to (6,3)
-2025-06-19 14:47:24 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
-2025-06-19 14:47:24 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:24 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:24 - Player_id: 2
-2025-06-19 14:47:24 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:24 - Player_id: 1
-2025-06-19 14:47:24 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:24 - Player_id: 1
-2025-06-19 14:47:24 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:24 - Player_id: 2
-2025-06-19 14:47:24 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 3)
-2025-06-19 14:47:24 - Player 1 - Tank Index 0 Moving forward to (5,3)
-2025-06-19 14:47:24 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:24 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:24 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:24 - Player_id: 2
-2025-06-19 14:47:24 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:24 - Player_id: 1
-2025-06-19 14:47:24 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:24 - Player_id: 1
-2025-06-19 14:47:24 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:24 - Player_id: 2
-2025-06-19 14:47:24 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (5, 3)
-2025-06-19 14:47:24 - Player 1 - Tank Index 0 Moving forward to (4,3)
-2025-06-19 14:47:24 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:24 - Player_id: 1
-2025-06-19 14:47:24 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:24 - Player_id: 2
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:25 - Player_id: 1
-2025-06-19 14:47:25 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
-2025-06-19 14:47:25 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:25 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:25 - Player_id: 2
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (4, 3)
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Moving forward to (3,3)
-2025-06-19 14:47:25 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:25 - Player_id: 1
-2025-06-19 14:47:25 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:25 - Player_id: 2
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:25 - Player_id: 1
-2025-06-19 14:47:25 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:25 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:25 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:25 - Player_id: 2
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (3, 3)
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:25 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:25 - Player_id: 1
-2025-06-19 14:47:25 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:25 - Player_id: 2
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:25 - Player_id: 1
-2025-06-19 14:47:25 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:25 - Player_id: 1
-2025-06-19 14:47:25 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:25 - Player_id: 2
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (3, 3)
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Stuck, rotating randomly
-2025-06-19 14:47:25 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
-2025-06-19 14:47:25 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:25 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:25 - Player_id: 2
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:25 - Player_id: 1
-2025-06-19 14:47:25 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:25 - Player_id: 1
-2025-06-19 14:47:25 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:25 - Player_id: 2
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (3, 3)
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Stuck, rotating randomly
-2025-06-19 14:47:25 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:25 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:25 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:25 - Player_id: 2
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:25 - Player_id: 1
-2025-06-19 14:47:25 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:25 - Player_id: 1
-2025-06-19 14:47:25 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:25 - Player_id: 2
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (3, 3)
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Moving forward to (3,4)
-2025-06-19 14:47:25 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:25 - Player_id: 1
-2025-06-19 14:47:25 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:25 - Player_id: 2
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:25 - Player_id: 1
-2025-06-19 14:47:25 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
-2025-06-19 14:47:25 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:25 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:25 - Player_id: 2
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (3, 4)
-2025-06-19 14:47:25 - Player 1 - Tank Index 0 Moving forward to (3,5)
-2025-06-19 14:47:25 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:25 - Player_id: 1
-2025-06-19 14:47:25 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:25 - Player_id: 2
-2025-06-19 14:47:26 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:26 - Player_id: 1
-2025-06-19 14:47:26 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:26 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:26 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:26 - Player_id: 2
-2025-06-19 14:47:26 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (3, 5)
-2025-06-19 14:47:26 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:26 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:26 - Player_id: 1
-2025-06-19 14:47:26 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:26 - Player_id: 2
-2025-06-19 14:47:26 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:26 - Player_id: 1
-2025-06-19 14:47:26 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:26 - Player_id: 1
-2025-06-19 14:47:26 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:26 - Player_id: 2
-2025-06-19 14:47:26 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (3, 5)
-2025-06-19 14:47:26 - Player 1 - Tank Index 0 Stuck, rotating randomly
-2025-06-19 14:47:26 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
-2025-06-19 14:47:26 - Player 1 - Tank Index 2 Rotating from direction DOWN_RIGHT to DOWN
-2025-06-19 14:47:26 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:26 - Player_id: 2
-2025-06-19 14:47:26 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:26 - Player_id: 1
-2025-06-19 14:47:26 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:26 - Player_id: 1
-2025-06-19 14:47:26 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:26 - Player_id: 2
-2025-06-19 14:47:26 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (3, 5)
-2025-06-19 14:47:26 - Player 1 - Tank Index 0 Stuck, rotating randomly
-2025-06-19 14:47:26 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
-2025-06-19 14:47:26 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:26 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:26 - Player_id: 2
-2025-06-19 14:47:26 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:26 - Player_id: 1
-2025-06-19 14:47:26 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:26 - Player_id: 1
-2025-06-19 14:47:26 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:26 - Player_id: 2
-2025-06-19 14:47:26 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:26 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:26 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:26 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:26 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:26 - Player_id: 2
-2025-06-19 14:47:26 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:26 - Player_id: 1
-2025-06-19 14:47:26 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:26 - Player_id: 1
-2025-06-19 14:47:26 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:26 - Player_id: 2
-2025-06-19 14:47:26 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:26 - Player_id: 1
-2025-06-19 14:47:26 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:26 - Player_id: 1
-2025-06-19 14:47:26 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:26 - Player_id: 2
-2025-06-19 14:47:26 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (4, 5)
-2025-06-19 14:47:26 - Player 1 - Tank Index 0 Moving forward to (5,5)
-2025-06-19 14:47:26 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
-2025-06-19 14:47:26 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:26 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:26 - Player_id: 2
-2025-06-19 14:47:26 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:26 - Player_id: 1
-2025-06-19 14:47:26 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:26 - Player_id: 1
-2025-06-19 14:47:26 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:26 - Player_id: 2
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:27 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:27 - Player_id: 2
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:27 - Player_id: 1
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:27 - Player_id: 1
-2025-06-19 14:47:27 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:27 - Player_id: 2
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:27 - Player_id: 1
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:27 - Player_id: 1
-2025-06-19 14:47:27 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:27 - Player_id: 2
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 5)
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Moving forward to (7,5)
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Rotating from direction LEFT to DOWN
-2025-06-19 14:47:27 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:27 - Player_id: 2
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:27 - Player_id: 1
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:27 - Player_id: 1
-2025-06-19 14:47:27 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:27 - Player_id: 2
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (7, 5)
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Moving forward to (8,5)
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Moving forward to (5,7)
-2025-06-19 14:47:27 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:27 - Player_id: 2
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:27 - Player_id: 1
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:27 - Player_id: 1
-2025-06-19 14:47:27 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:27 - Player_id: 2
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (8, 5)
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Rotating from direction DOWN to LEFT
-2025-06-19 14:47:27 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:27 - Player_id: 2
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:27 - Player_id: 1
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:27 - Player_id: 1
-2025-06-19 14:47:27 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:27 - Player_id: 2
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (8, 5)
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Stuck, rotating randomly
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Moving forward to (6,8)
-2025-06-19 14:47:27 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:27 - Player_id: 2
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:27 - Player_id: 1
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:27 - Player_id: 1
-2025-06-19 14:47:27 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:27 - Player_id: 2
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (8, 5)
-2025-06-19 14:47:27 - Player 1 - Tank Index 0 Stuck, rotating randomly
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 8)
-2025-06-19 14:47:27 - Player 1 - Tank Index 2 Moving forward to (7,9)
-2025-06-19 14:47:27 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:27 - Player_id: 2
-2025-06-19 14:47:28 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:28 - Player_id: 1
-2025-06-19 14:47:28 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:28 - Player_id: 1
-2025-06-19 14:47:28 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:28 - Player_id: 2
-2025-06-19 14:47:28 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (8, 5)
-2025-06-19 14:47:28 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:28 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 9)
-2025-06-19 14:47:28 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:28 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:28 - Player_id: 2
-2025-06-19 14:47:28 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:28 - Player_id: 1
-2025-06-19 14:47:28 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:28 - Player_id: 1
-2025-06-19 14:47:28 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:28 - Player_id: 2
-2025-06-19 14:47:28 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:28 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:28 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:28 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:28 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:28 - Player_id: 2
-2025-06-19 14:47:28 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:28 - Player_id: 1
-2025-06-19 14:47:28 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:28 - Player_id: 1
-2025-06-19 14:47:28 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:28 - Player_id: 2
-2025-06-19 14:47:28 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:28 - Player_id: 1
-2025-06-19 14:47:28 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:28 - Player_id: 1
-2025-06-19 14:47:28 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:28 - Player_id: 2
-2025-06-19 14:47:28 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (8, 5)
-2025-06-19 14:47:28 - Player 1 - Tank Index 0 Rotating from direction UP to UP_RIGHT
-2025-06-19 14:47:28 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 9)
-2025-06-19 14:47:28 - Player 1 - Tank Index 2 Moving forward to (6,10)
-2025-06-19 14:47:28 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:28 - Player_id: 2
-2025-06-19 14:47:28 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:28 - Player_id: 1
-2025-06-19 14:47:28 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:28 - Player_id: 1
-2025-06-19 14:47:28 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:28 - Player_id: 2
-2025-06-19 14:47:28 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (8, 5)
-2025-06-19 14:47:28 - Player 1 - Tank Index 0 Moving forward to (7,4)
-2025-06-19 14:47:28 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
-2025-06-19 14:47:28 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:28 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:28 - Player_id: 2
-2025-06-19 14:47:28 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:28 - Player_id: 1
-2025-06-19 14:47:28 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:28 - Player_id: 1
-2025-06-19 14:47:28 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:28 - Player_id: 2
-2025-06-19 14:47:28 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (7, 4)
-2025-06-19 14:47:28 - Player 1 - Tank Index 0 Moving forward to (6,3)
-2025-06-19 14:47:28 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
-2025-06-19 14:47:28 - Player 1 - Tank Index 2 Stuck, rotating randomly
-2025-06-19 14:47:28 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:28 - Player_id: 2
-2025-06-19 14:47:28 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:28 - Player_id: 1
-2025-06-19 14:47:28 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:28 - Player_id: 1
-2025-06-19 14:47:28 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:28 - Player_id: 2
-2025-06-19 14:47:29 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 3)
-2025-06-19 14:47:29 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:29 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
-2025-06-19 14:47:29 - Player 1 - Tank Index 2 Stuck, rotating randomly
-2025-06-19 14:47:29 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:29 - Player_id: 2
-2025-06-19 14:47:29 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:29 - Player_id: 1
-2025-06-19 14:47:29 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:29 - Player_id: 1
-2025-06-19 14:47:29 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:29 - Player_id: 2
-2025-06-19 14:47:29 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:29 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:29 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:29 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:29 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:29 - Player_id: 2
-2025-06-19 14:47:29 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:29 - Player_id: 1
-2025-06-19 14:47:29 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:29 - Player_id: 1
-2025-06-19 14:47:29 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:29 - Player_id: 2
-2025-06-19 14:47:29 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:29 - Player_id: 1
-2025-06-19 14:47:29 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:29 - Player_id: 1
-2025-06-19 14:47:29 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:29 - Player_id: 2
-2025-06-19 14:47:29 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 3)
-2025-06-19 14:47:29 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:29 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
-2025-06-19 14:47:29 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:29 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:29 - Player_id: 2
-2025-06-19 14:47:29 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:29 - Player_id: 1
-2025-06-19 14:47:29 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:29 - Player_id: 1
-2025-06-19 14:47:29 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:29 - Player_id: 2
-2025-06-19 14:47:29 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:29 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:29 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:29 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:29 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:29 - Player_id: 2
-2025-06-19 14:47:29 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:29 - Player_id: 1
-2025-06-19 14:47:29 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:29 - Player_id: 1
-2025-06-19 14:47:29 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:29 - Player_id: 2
-2025-06-19 14:47:29 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:29 - Player_id: 1
-2025-06-19 14:47:29 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:29 - Player_id: 1
-2025-06-19 14:47:29 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:29 - Player_id: 2
-2025-06-19 14:47:29 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 3)
-2025-06-19 14:47:29 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:29 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
-2025-06-19 14:47:29 - Player 1 - Tank Index 2 Rotating from direction LEFT to UP
-2025-06-19 14:47:29 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:29 - Player_id: 2
-2025-06-19 14:47:29 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:29 - Player_id: 1
-2025-06-19 14:47:29 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:29 - Player_id: 1
-2025-06-19 14:47:29 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:29 - Player_id: 2
-2025-06-19 14:47:30 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:30 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:30 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:30 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:30 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:30 - Player_id: 2
-2025-06-19 14:47:30 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:30 - Player_id: 1
-2025-06-19 14:47:30 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:30 - Player_id: 1
-2025-06-19 14:47:30 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:30 - Player_id: 2
-2025-06-19 14:47:30 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:30 - Player_id: 1
-2025-06-19 14:47:30 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:30 - Player_id: 1
-2025-06-19 14:47:30 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:30 - Player_id: 2
-2025-06-19 14:47:30 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 3)
-2025-06-19 14:47:30 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:30 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 9)
-2025-06-19 14:47:30 - Player 1 - Tank Index 2 Rotating from direction DOWN to UP
-2025-06-19 14:47:30 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:30 - Player_id: 2
-2025-06-19 14:47:30 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:30 - Player_id: 1
-2025-06-19 14:47:30 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:30 - Player_id: 1
-2025-06-19 14:47:30 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:30 - Player_id: 2
-2025-06-19 14:47:30 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:30 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:30 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:30 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:30 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:30 - Player_id: 2
-2025-06-19 14:47:30 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:30 - Player_id: 1
-2025-06-19 14:47:30 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:30 - Player_id: 1
-2025-06-19 14:47:30 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:30 - Player_id: 2
-2025-06-19 14:47:30 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:30 - Player_id: 1
-2025-06-19 14:47:30 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:30 - Player_id: 1
-2025-06-19 14:47:30 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:30 - Player_id: 2
-2025-06-19 14:47:30 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 3)
-2025-06-19 14:47:30 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:30 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 8)
-2025-06-19 14:47:30 - Player 1 - Tank Index 2 Moving forward to (7,7)
-2025-06-19 14:47:30 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:30 - Player_id: 2
-2025-06-19 14:47:30 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:30 - Player_id: 1
-2025-06-19 14:47:30 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:30 - Player_id: 1
-2025-06-19 14:47:30 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:30 - Player_id: 2
-2025-06-19 14:47:30 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:30 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:30 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:30 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:30 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:30 - Player_id: 2
-2025-06-19 14:47:30 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:30 - Player_id: 1
-2025-06-19 14:47:30 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:30 - Player_id: 1
-2025-06-19 14:47:30 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:30 - Player_id: 2
-2025-06-19 14:47:31 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:31 - Player_id: 1
-2025-06-19 14:47:31 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:31 - Player_id: 1
-2025-06-19 14:47:31 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:31 - Player_id: 2
-2025-06-19 14:47:31 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 3)
-2025-06-19 14:47:31 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:31 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 7)
-2025-06-19 14:47:31 - Player 1 - Tank Index 2 Rotating from direction UP_LEFT to DOWN_RIGHT
-2025-06-19 14:47:31 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:31 - Player_id: 2
-2025-06-19 14:47:31 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:31 - Player_id: 1
-2025-06-19 14:47:31 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:31 - Player_id: 1
-2025-06-19 14:47:31 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:31 - Player_id: 2
-2025-06-19 14:47:31 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:31 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:31 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:31 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:31 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:31 - Player_id: 2
-2025-06-19 14:47:31 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:31 - Player_id: 1
-2025-06-19 14:47:31 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:31 - Player_id: 1
-2025-06-19 14:47:31 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:31 - Player_id: 2
-2025-06-19 14:47:31 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:31 - Player_id: 1
-2025-06-19 14:47:31 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:31 - Player_id: 1
-2025-06-19 14:47:31 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:31 - Player_id: 2
-2025-06-19 14:47:31 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 3)
-2025-06-19 14:47:31 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
-2025-06-19 14:47:31 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 8)
-2025-06-19 14:47:31 - Player 1 - Tank Index 2 Rotating from direction DOWN_RIGHT to DOWN_LEFT
-2025-06-19 14:47:31 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:31 - Player_id: 2
-2025-06-19 14:47:31 - Player 1 - Tank Index 0 Requesting updated Battle Info
-2025-06-19 14:47:31 - Player_id: 1
-2025-06-19 14:47:31 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:31 - Player_id: 1
-2025-06-19 14:47:31 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:31 - Player_id: 2
-2025-06-19 14:47:31 - Player 1 - Tank Index 0 Threatened by shells
-2025-06-19 14:47:31 - Player 1 - Tank Index 0 Escape threat
-2025-06-19 14:47:31 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 8)
-2025-06-19 14:47:31 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:31 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:31 - Player_id: 2
-2025-06-19 14:47:31 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:31 - Player_id: 1
-2025-06-19 14:47:31 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:31 - Player_id: 1
-2025-06-19 14:47:31 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:31 - Player_id: 2
-2025-06-19 14:47:31 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:31 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:31 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:31 - Player_id: 2
-2025-06-19 14:47:31 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:31 - Player_id: 1
-2025-06-19 14:47:31 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:31 - Player_id: 2
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:32 - Player_id: 1
-2025-06-19 14:47:32 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:32 - Player_id: 2
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 8)
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Moving forward to (6,9)
-2025-06-19 14:47:32 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:32 - Player_id: 2
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:32 - Player_id: 1
-2025-06-19 14:47:32 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:32 - Player_id: 2
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 9)
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Moving forward to (6,10)
-2025-06-19 14:47:32 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:32 - Player_id: 2
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:32 - Player_id: 1
-2025-06-19 14:47:32 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:32 - Player_id: 2
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:32 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:32 - Player_id: 2
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:32 - Player_id: 1
-2025-06-19 14:47:32 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:32 - Player_id: 2
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Stuck, rotating randomly
-2025-06-19 14:47:32 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:32 - Player_id: 2
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:32 - Player_id: 1
-2025-06-19 14:47:32 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:32 - Player_id: 2
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Stuck, rotating randomly
-2025-06-19 14:47:32 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:32 - Player_id: 2
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:32 - Player_id: 1
-2025-06-19 14:47:32 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:32 - Player_id: 2
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
-2025-06-19 14:47:32 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:32 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:32 - Player_id: 2
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:33 - Player_id: 1
-2025-06-19 14:47:33 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:33 - Player_id: 2
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Stuck, rotating randomly
-2025-06-19 14:47:33 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:33 - Player_id: 2
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:33 - Player_id: 1
-2025-06-19 14:47:33 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:33 - Player_id: 2
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Stuck, rotating randomly
-2025-06-19 14:47:33 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:33 - Player_id: 2
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:33 - Player_id: 1
-2025-06-19 14:47:33 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:33 - Player_id: 2
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Moving forward to (6,9)
-2025-06-19 14:47:33 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:33 - Player_id: 2
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:33 - Player_id: 1
-2025-06-19 14:47:33 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:33 - Player_id: 2
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 9)
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Moving forward to (6,8)
-2025-06-19 14:47:33 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:33 - Player_id: 2
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:33 - Player_id: 1
-2025-06-19 14:47:33 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:33 - Player_id: 2
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 8)
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Rotating from direction UP to DOWN
-2025-06-19 14:47:33 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:33 - Player_id: 2
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:33 - Player_id: 1
-2025-06-19 14:47:33 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:33 - Player_id: 2
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 8)
-2025-06-19 14:47:33 - Player 1 - Tank Index 2 Moving forward to (7,7)
-2025-06-19 14:47:33 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:33 - Player_id: 2
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:34 - Player_id: 1
-2025-06-19 14:47:34 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:34 - Player_id: 2
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 7)
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:34 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:34 - Player_id: 2
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:34 - Player_id: 1
-2025-06-19 14:47:34 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:34 - Player_id: 2
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 7)
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Stuck, rotating randomly
-2025-06-19 14:47:34 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:34 - Player_id: 2
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:34 - Player_id: 1
-2025-06-19 14:47:34 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:34 - Player_id: 2
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 7)
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Stuck, rotating randomly
-2025-06-19 14:47:34 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:34 - Player_id: 2
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:34 - Player_id: 1
-2025-06-19 14:47:34 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:34 - Player_id: 2
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 7)
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Rotating from direction UP_RIGHT to RIGHT
-2025-06-19 14:47:34 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:34 - Player_id: 2
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:34 - Player_id: 1
-2025-06-19 14:47:34 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:34 - Player_id: 2
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 7)
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Rotating from direction DOWN to RIGHT
-2025-06-19 14:47:34 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:34 - Player_id: 2
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:34 - Player_id: 1
-2025-06-19 14:47:34 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:34 - Player_id: 2
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 7)
-2025-06-19 14:47:34 - Player 1 - Tank Index 2 Moving forward to (8,7)
-2025-06-19 14:47:34 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:34 - Player_id: 2
-2025-06-19 14:47:35 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:35 - Player_id: 1
-2025-06-19 14:47:35 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:35 - Player_id: 2
-2025-06-19 14:47:35 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (8, 7)
-2025-06-19 14:47:35 - Player 1 - Tank Index 2 Moving forward to (9,7)
-2025-06-19 14:47:35 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:35 - Player_id: 2
-2025-06-19 14:47:35 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:35 - Player_id: 1
-2025-06-19 14:47:35 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:35 - Player_id: 2
-2025-06-19 14:47:35 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (9, 7)
-2025-06-19 14:47:35 - Player 1 - Tank Index 2 Moving forward to (10,7)
-2025-06-19 14:47:35 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:35 - Player_id: 2
-2025-06-19 14:47:35 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:35 - Player_id: 1
-2025-06-19 14:47:35 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:35 - Player_id: 2
-2025-06-19 14:47:35 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (10, 7)
-2025-06-19 14:47:35 - Player 1 - Tank Index 2 Moving forward to (11,7)
-2025-06-19 14:47:35 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:35 - Player_id: 2
-2025-06-19 14:47:35 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:35 - Player_id: 1
-2025-06-19 14:47:35 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:35 - Player_id: 2
-2025-06-19 14:47:35 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (11, 7)
-2025-06-19 14:47:35 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:35 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:35 - Player_id: 2
-2025-06-19 14:47:35 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:35 - Player_id: 1
-2025-06-19 14:47:35 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:35 - Player_id: 2
-2025-06-19 14:47:35 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:35 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:35 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:35 - Player 2 - Tank Index 2 Avoid Threat
-2025-06-19 14:47:35 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:35 - Player_id: 1
-2025-06-19 14:47:35 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:35 - Player_id: 2
-2025-06-19 14:47:35 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:35 - Player_id: 1
-2025-06-19 14:47:35 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:35 - Player_id: 2
-2025-06-19 14:47:36 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (11, 7)
-2025-06-19 14:47:36 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:36 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:36 - Player_id: 2
-2025-06-19 14:47:36 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:36 - Player_id: 1
-2025-06-19 14:47:36 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:36 - Player_id: 2
-2025-06-19 14:47:37 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:37 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:37 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:37 - Player 2 - Tank Index 2 Avoid Threat
-2025-06-19 14:47:37 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:37 - Player_id: 1
-2025-06-19 14:47:37 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:37 - Player_id: 2
-2025-06-19 14:47:37 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:37 - Player_id: 1
-2025-06-19 14:47:37 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:37 - Player_id: 2
-2025-06-19 14:47:37 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (11, 7)
-2025-06-19 14:47:37 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:37 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:37 - Player_id: 2
-2025-06-19 14:47:37 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:37 - Player_id: 1
-2025-06-19 14:47:37 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:37 - Player_id: 2
-2025-06-19 14:47:37 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:37 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:37 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:37 - Player 2 - Tank Index 2 Avoid Threat
-2025-06-19 14:47:37 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:37 - Player_id: 1
-2025-06-19 14:47:37 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:37 - Player_id: 2
-2025-06-19 14:47:37 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:37 - Player_id: 1
-2025-06-19 14:47:37 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:37 - Player_id: 2
-2025-06-19 14:47:37 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (11, 7)
-2025-06-19 14:47:37 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:37 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:37 - Player_id: 2
-2025-06-19 14:47:37 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:37 - Player_id: 1
-2025-06-19 14:47:37 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:37 - Player_id: 2
-2025-06-19 14:47:37 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:37 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:37 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:37 - Player 2 - Tank Index 2 Avoid Threat
-2025-06-19 14:47:37 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:37 - Player_id: 1
-2025-06-19 14:47:37 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:37 - Player_id: 2
-2025-06-19 14:47:38 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:38 - Player_id: 1
-2025-06-19 14:47:38 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:38 - Player_id: 2
-2025-06-19 14:47:38 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (11, 7)
-2025-06-19 14:47:38 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
-2025-06-19 14:47:38 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:38 - Player_id: 2
-2025-06-19 14:47:38 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:38 - Player_id: 1
-2025-06-19 14:47:38 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:38 - Player_id: 2
-2025-06-19 14:47:38 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:38 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:38 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:38 - Player 2 - Tank Index 2 Avoid Threat
-2025-06-19 14:47:38 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:38 - Player_id: 1
-2025-06-19 14:47:38 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:38 - Player_id: 2
-2025-06-19 14:47:38 - Player 1 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:38 - Player 1 - Tank Index 2 Escape threat
-2025-06-19 14:47:38 - Player 2 - Tank Index 2 Threatened by shells
-2025-06-19 14:47:38 - Player 2 - Tank Index 2 Avoid Threat
-2025-06-19 14:47:38 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
-2025-06-19 14:47:38 - Player_id: 1
-2025-06-19 14:47:38 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:38 - Player_id: 2
-2025-06-19 14:47:38 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:38 - Player_id: 1
-2025-06-19 14:47:38 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:38 - Player_id: 2
-2025-06-19 14:47:38 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (11, 7)
-2025-06-19 14:47:38 - Player 1 - Tank Index 2 Moving forward to (11,8)
-2025-06-19 14:47:38 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:38 - Player_id: 2
-2025-06-19 14:47:38 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:38 - Player_id: 1
-2025-06-19 14:47:38 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:38 - Player_id: 2
-2025-06-19 14:47:38 - Player 1 - Tank Index 2 Rotating 2 toward enemy
-2025-06-19 14:47:38 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:38 - Player_id: 2
-2025-06-19 14:47:38 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:38 - Player_id: 1
-2025-06-19 14:47:38 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:38 - Player_id: 2
-2025-06-19 14:47:39 - Player 1 - Tank Index 2 Shoot Enemy
-2025-06-19 14:47:39 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:39 - Player_id: 2
-2025-06-19 14:47:39 - Player 1 - Tank Index 2 Requesting updated Battle Info
-2025-06-19 14:47:39 - Player_id: 1
-2025-06-19 14:47:39 - Player 2 - Tank Index 2 Reciving Battle Info
-2025-06-19 14:47:39 - Player_id: 2
+2025-06-20 12:03:51 - Parsing file:  inputs/input2.txt
+2025-06-20 12:03:51 - Board Info Read: Board description: 2 - Tactical Showdown, MaxSteps: 4500, NumShells: 30, Rows: 12, Cols: 18
+2025-06-20 12:03:51 - Board loaded successfully
+2025-06-20 12:03:52 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:52 - Player_id: 1
+2025-06-20 12:03:52 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:52 - Player_id: 1
+2025-06-20 12:03:52 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:52 - Player_id: 1
+2025-06-20 12:03:52 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:52 - Player_id: 2
+2025-06-20 12:03:52 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:52 - Player_id: 2
+2025-06-20 12:03:52 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:52 - Player_id: 2
+2025-06-20 12:03:52 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:52 - Player_id: 1
+2025-06-20 12:03:52 - Player 1 - Tank Index 1 Threatened by enemy
+2025-06-20 12:03:52 - Player 1 - Tank Index 1 Escape threat
+2025-06-20 12:03:52 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:52 - Player_id: 1
+2025-06-20 12:03:52 - Player 2 - Tank Index 0 Threatened by enemy
+2025-06-20 12:03:52 - Player 2 - Tank Index 0 Avoid Threat
+2025-06-20 12:03:52 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:52 - Player_id: 2
+2025-06-20 12:03:52 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:52 - Player_id: 2
+2025-06-20 12:03:52 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 3)
+2025-06-20 12:03:52 - Player 1 - Tank Index 0 Rotating from direction UP_LEFT to DOWN_RIGHT
+2025-06-20 12:03:52 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:52 - Player_id: 1
+2025-06-20 12:03:52 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
+2025-06-20 12:03:52 - Player 1 - Tank Index 2 Moving forward to (3,8)
+2025-06-20 12:03:52 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:52 - Player_id: 2
+2025-06-20 12:03:52 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:52 - Player_id: 2
+2025-06-20 12:03:52 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:52 - Player_id: 2
+2025-06-20 12:03:53 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 1 - Tank Index 1 Requesting updated Battle Info
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 3)
+2025-06-20 12:03:53 - Player 1 - Tank Index 0 Moving forward to (12,4)
+2025-06-20 12:03:53 - Player 1 - Tank Index 1 Calculating BFS. Start Position = (0, 5)
+2025-06-20 12:03:53 - Player 1 - Tank Index 1 Moving forward to (15,5)
+2025-06-20 12:03:53 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (3, 8)
+2025-06-20 12:03:53 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:03:53 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 1 - Tank Index 1 Requesting updated Battle Info
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (12, 4)
+2025-06-20 12:03:53 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:03:53 - Player 1 - Tank Index 1 Calculating BFS. Start Position = (7, 5)
+2025-06-20 12:03:53 - Player 1 - Tank Index 1 Shooting randomly due to stuck state
+2025-06-20 12:03:53 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (3, 8)
+2025-06-20 12:03:53 - Player 1 - Tank Index 2 Stuck, rotating randomly
+2025-06-20 12:03:53 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 1 - Tank Index 1 Requesting updated Battle Info
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:03:53 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:03:53 - Player 1 - Tank Index 1 Threatened by shells
+2025-06-20 12:03:53 - Player 1 - Tank Index 1 Escape threat
+2025-06-20 12:03:53 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:03:53 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:03:53 - Player 2 - Tank Index 0 Threatened by shells
+2025-06-20 12:03:53 - Player 2 - Tank Index 0 Avoid Threat
+2025-06-20 12:03:53 - Player 2 - Tank Index 1 Threatened by shells
+2025-06-20 12:03:53 - Player 2 - Tank Index 1 Avoid Threat
+2025-06-20 12:03:53 - Player 2 - Tank Index 2 Threatened by shells
+2025-06-20 12:03:53 - Player 2 - Tank Index 2 Avoid Threat
+2025-06-20 12:03:53 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 1 - Tank Index 1 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:03:53 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:03:53 - Player 2 - Tank Index 0 Threatened by shells
+2025-06-20 12:03:53 - Player 2 - Tank Index 0 Avoid Threat
+2025-06-20 12:03:53 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (12, 4)
+2025-06-20 12:03:53 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:03:53 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:03:53 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:03:53 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (3, 8)
+2025-06-20 12:03:53 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:03:53 - Player 2 - Tank Index 0 Threatened by shells
+2025-06-20 12:03:53 - Player 2 - Tank Index 0 Avoid Threat
+2025-06-20 12:03:53 - Player 2 - Tank Index 1 Threatened by shells
+2025-06-20 12:03:53 - Player 2 - Tank Index 1 Avoid Threat
+2025-06-20 12:03:53 - Player 2 - Tank Index 2 Threatened by shells
+2025-06-20 12:03:53 - Player 2 - Tank Index 2 Avoid Threat
+2025-06-20 12:03:53 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:53 - Player_id: 1
+2025-06-20 12:03:53 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:53 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:53 - Player_id: 2
+2025-06-20 12:03:54 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:54 - Player_id: 1
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (3, 8)
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Stuck, rotating randomly
+2025-06-20 12:03:54 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (12, 4)
+2025-06-20 12:03:54 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:54 - Player_id: 1
+2025-06-20 12:03:54 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:54 - Player_id: 1
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (3, 8)
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Stuck, rotating randomly
+2025-06-20 12:03:54 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:03:54 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:54 - Player_id: 1
+2025-06-20 12:03:54 - Player 2 - Tank Index 0 Threatened by shells
+2025-06-20 12:03:54 - Player 2 - Tank Index 0 Avoid Threat
+2025-06-20 12:03:54 - Player 2 - Tank Index 1 Threatened by shells
+2025-06-20 12:03:54 - Player 2 - Tank Index 1 Avoid Threat
+2025-06-20 12:03:54 - Player 2 - Tank Index 2 Threatened by shells
+2025-06-20 12:03:54 - Player 2 - Tank Index 2 Avoid Threat
+2025-06-20 12:03:54 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:54 - Player_id: 1
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (3, 8)
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:03:54 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:54 - Player_id: 1
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:54 - Player_id: 1
+2025-06-20 12:03:54 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (12, 4)
+2025-06-20 12:03:54 - Player 1 - Tank Index 0 Rotating from direction DOWN_RIGHT to UP_LEFT
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:03:54 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:54 - Player_id: 1
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:54 - Player_id: 1
+2025-06-20 12:03:54 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (12, 4)
+2025-06-20 12:03:54 - Player 1 - Tank Index 0 Moving forward to (11,4)
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:54 - Player_id: 1
+2025-06-20 12:03:54 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:54 - Player_id: 1
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (3, 8)
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:03:54 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (11, 4)
+2025-06-20 12:03:54 - Player 1 - Tank Index 0 Moving forward to (10,4)
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:54 - Player_id: 1
+2025-06-20 12:03:54 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:54 - Player_id: 1
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:03:54 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:03:54 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:54 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:54 - Player_id: 2
+2025-06-20 12:03:55 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (10, 4)
+2025-06-20 12:03:55 - Player 1 - Tank Index 0 Moving forward to (9,4)
+2025-06-20 12:03:55 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:55 - Player_id: 1
+2025-06-20 12:03:55 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:55 - Player_id: 1
+2025-06-20 12:03:55 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:55 - Player_id: 1
+2025-06-20 12:03:55 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (9, 4)
+2025-06-20 12:03:55 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:03:55 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (3, 8)
+2025-06-20 12:03:55 - Player 1 - Tank Index 2 Rotating from direction LEFT to DOWN
+2025-06-20 12:03:55 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:55 - Player_id: 1
+2025-06-20 12:03:55 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:55 - Player_id: 1
+2025-06-20 12:03:55 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:03:55 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:03:55 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:03:55 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:03:55 - Player 2 - Tank Index 0 Threatened by shells
+2025-06-20 12:03:55 - Player 2 - Tank Index 0 Avoid Threat
+2025-06-20 12:03:55 - Player 2 - Tank Index 1 Threatened by shells
+2025-06-20 12:03:55 - Player 2 - Tank Index 1 Avoid Threat
+2025-06-20 12:03:55 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:55 - Player_id: 1
+2025-06-20 12:03:55 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:55 - Player_id: 1
+2025-06-20 12:03:55 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:03:55 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:03:55 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:03:55 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:03:55 - Player 2 - Tank Index 0 Threatened by shells
+2025-06-20 12:03:55 - Player 2 - Tank Index 0 Avoid Threat
+2025-06-20 12:03:55 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:55 - Player_id: 1
+2025-06-20 12:03:55 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:55 - Player_id: 1
+2025-06-20 12:03:55 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:55 - Player_id: 1
+2025-06-20 12:03:55 - Player 1 - Tank Index 2 Threatened by enemy
+2025-06-20 12:03:55 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:03:55 - Player 2 - Tank Index 0 Threatened by enemy
+2025-06-20 12:03:55 - Player 2 - Tank Index 0 Avoid Threat
+2025-06-20 12:03:55 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 1 - Tank Index 0 Rotating from direction UP to DOWN
+2025-06-20 12:03:55 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:55 - Player_id: 1
+2025-06-20 12:03:55 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:55 - Player_id: 1
+2025-06-20 12:03:55 - Player 1 - Tank Index 2 Threatened by enemy
+2025-06-20 12:03:55 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:03:55 - Player 2 - Tank Index 0 Threatened by enemy
+2025-06-20 12:03:55 - Player 2 - Tank Index 0 Avoid Threat
+2025-06-20 12:03:55 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 1 - Tank Index 0 Moving forward to (10,3)
+2025-06-20 12:03:55 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:55 - Player_id: 1
+2025-06-20 12:03:55 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:55 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:55 - Player_id: 2
+2025-06-20 12:03:56 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:56 - Player_id: 1
+2025-06-20 12:03:56 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:56 - Player_id: 1
+2025-06-20 12:03:56 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 1 - Tank Index 0 Rotating from direction DOWN to RIGHT
+2025-06-20 12:03:56 - Player 1 - Tank Index 2 Rotating 2 toward enemy
+2025-06-20 12:03:56 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:56 - Player_id: 1
+2025-06-20 12:03:56 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:56 - Player_id: 1
+2025-06-20 12:03:56 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (10, 3)
+2025-06-20 12:03:56 - Player 1 - Tank Index 0 Moving forward to (11,3)
+2025-06-20 12:03:56 - Player 1 - Tank Index 2 Shoot Enemy
+2025-06-20 12:03:56 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:56 - Player_id: 1
+2025-06-20 12:03:56 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:56 - Player_id: 1
+2025-06-20 12:03:56 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (11, 3)
+2025-06-20 12:03:56 - Player 1 - Tank Index 0 Rotating from direction RIGHT to LEFT
+2025-06-20 12:03:56 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:03:56 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:03:56 - Player 2 - Tank Index 0 Threatened by shells
+2025-06-20 12:03:56 - Player 2 - Tank Index 0 Avoid Threat
+2025-06-20 12:03:56 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:56 - Player_id: 1
+2025-06-20 12:03:56 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:56 - Player_id: 1
+2025-06-20 12:03:56 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 1 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:03:56 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:03:56 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:03:56 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:03:56 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 1 Threatened by shells
+2025-06-20 12:03:56 - Player 2 - Tank Index 1 Avoid Threat
+2025-06-20 12:03:56 - Player 2 - Tank Index 2 Threatened by shells
+2025-06-20 12:03:56 - Player 2 - Tank Index 2 Avoid Threat
+2025-06-20 12:03:56 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:56 - Player_id: 1
+2025-06-20 12:03:56 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:56 - Player_id: 1
+2025-06-20 12:03:56 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:03:56 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:03:56 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:56 - Player_id: 1
+2025-06-20 12:03:56 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 2 Threatened by shells
+2025-06-20 12:03:56 - Player 2 - Tank Index 2 Avoid Threat
+2025-06-20 12:03:56 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:56 - Player_id: 1
+2025-06-20 12:03:56 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 7)
+2025-06-20 12:03:56 - Player 1 - Tank Index 2 Moving forward to (4,8)
+2025-06-20 12:03:56 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:56 - Player_id: 1
+2025-06-20 12:03:56 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:56 - Player_id: 1
+2025-06-20 12:03:56 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:56 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:56 - Player_id: 2
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 5)
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:03:57 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
+2025-06-20 12:03:57 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:03:57 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:57 - Player_id: 1
+2025-06-20 12:03:57 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:57 - Player_id: 1
+2025-06-20 12:03:57 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 5)
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Stuck, rotating randomly
+2025-06-20 12:03:57 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:03:57 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:03:57 - Player 2 - Tank Index 0 Threatened by shells
+2025-06-20 12:03:57 - Player 2 - Tank Index 0 Avoid Threat
+2025-06-20 12:03:57 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:57 - Player_id: 1
+2025-06-20 12:03:57 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:57 - Player_id: 1
+2025-06-20 12:03:57 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 5)
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Stuck, rotating randomly
+2025-06-20 12:03:57 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:57 - Player_id: 1
+2025-06-20 12:03:57 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:57 - Player_id: 1
+2025-06-20 12:03:57 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
+2025-06-20 12:03:57 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:03:57 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 5)
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:03:57 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:57 - Player_id: 1
+2025-06-20 12:03:57 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:57 - Player_id: 1
+2025-06-20 12:03:57 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:03:57 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:03:57 - Player 2 - Tank Index 0 Threatened by shells
+2025-06-20 12:03:57 - Player 2 - Tank Index 0 Avoid Threat
+2025-06-20 12:03:57 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 5)
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Stuck, rotating randomly
+2025-06-20 12:03:57 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:57 - Player_id: 1
+2025-06-20 12:03:57 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:57 - Player_id: 1
+2025-06-20 12:03:57 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:57 - Player_id: 1
+2025-06-20 12:03:57 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 5)
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Stuck, rotating randomly
+2025-06-20 12:03:57 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
+2025-06-20 12:03:57 - Player 1 - Tank Index 2 Rotating from direction DOWN_LEFT to DOWN
+2025-06-20 12:03:57 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:57 - Player_id: 1
+2025-06-20 12:03:57 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:57 - Player_id: 1
+2025-06-20 12:03:57 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:57 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:57 - Player_id: 2
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (13, 5)
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Moving forward to (12,4)
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Rotating from direction RIGHT to DOWN
+2025-06-20 12:03:58 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:58 - Player_id: 1
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:58 - Player_id: 1
+2025-06-20 12:03:58 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (12, 4)
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Moving forward to (11,3)
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Moving forward to (5,7)
+2025-06-20 12:03:58 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:58 - Player_id: 1
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:58 - Player_id: 1
+2025-06-20 12:03:58 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (11, 3)
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Moving forward to (10,2)
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:03:58 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:58 - Player_id: 1
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:58 - Player_id: 1
+2025-06-20 12:03:58 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (10, 2)
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Moving forward to (9,1)
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Stuck, rotating randomly
+2025-06-20 12:03:58 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:58 - Player_id: 1
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:58 - Player_id: 1
+2025-06-20 12:03:58 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (9, 1)
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Stuck, rotating randomly
+2025-06-20 12:03:58 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:58 - Player_id: 1
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:58 - Player_id: 1
+2025-06-20 12:03:58 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (9, 1)
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Stuck, rotating randomly
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:03:58 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:58 - Player_id: 1
+2025-06-20 12:03:58 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:58 - Player_id: 1
+2025-06-20 12:03:58 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:58 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:58 - Player_id: 2
+2025-06-20 12:03:59 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (9, 1)
+2025-06-20 12:03:59 - Player 1 - Tank Index 0 Stuck, rotating randomly
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Stuck, rotating randomly
+2025-06-20 12:03:59 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:59 - Player_id: 1
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:59 - Player_id: 1
+2025-06-20 12:03:59 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (9, 1)
+2025-06-20 12:03:59 - Player 1 - Tank Index 0 Moving forward to (8,2)
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Stuck, rotating randomly
+2025-06-20 12:03:59 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:59 - Player_id: 1
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:59 - Player_id: 1
+2025-06-20 12:03:59 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (8, 2)
+2025-06-20 12:03:59 - Player 1 - Tank Index 0 Moving forward to (7,3)
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Moving forward to (4,8)
+2025-06-20 12:03:59 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:59 - Player_id: 1
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:59 - Player_id: 1
+2025-06-20 12:03:59 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 1 - Tank Index 0 Rotating 6 toward enemy
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:03:59 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:59 - Player_id: 1
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:03:59 - Player_id: 1
+2025-06-20 12:03:59 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 1 - Tank Index 0 Shoot Enemy
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:03:59 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:03:59 - Player_id: 1
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:59 - Player_id: 1
+2025-06-20 12:03:59 - Player 2 - Tank Index 0 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:03:59 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:03:59 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:03:59 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:59 - Player_id: 1
+2025-06-20 12:03:59 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:03:59 - Player_id: 1
+2025-06-20 12:03:59 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:03:59 - Player_id: 2
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:00 - Player_id: 1
+2025-06-20 12:04:00 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:00 - Player_id: 1
+2025-06-20 12:04:00 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:00 - Player_id: 2
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (7, 3)
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Moving forward to (6,3)
+2025-06-20 12:04:00 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
+2025-06-20 12:04:00 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:00 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:00 - Player_id: 2
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:00 - Player_id: 1
+2025-06-20 12:04:00 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:00 - Player_id: 1
+2025-06-20 12:04:00 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:00 - Player_id: 2
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 3)
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Moving forward to (5,3)
+2025-06-20 12:04:00 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:00 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:00 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:00 - Player_id: 2
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:00 - Player_id: 1
+2025-06-20 12:04:00 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:00 - Player_id: 1
+2025-06-20 12:04:00 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:00 - Player_id: 2
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (5, 3)
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Moving forward to (4,3)
+2025-06-20 12:04:00 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:00 - Player_id: 1
+2025-06-20 12:04:00 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:00 - Player_id: 2
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:00 - Player_id: 1
+2025-06-20 12:04:00 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
+2025-06-20 12:04:00 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:00 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:00 - Player_id: 2
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (4, 3)
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Moving forward to (3,3)
+2025-06-20 12:04:00 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:00 - Player_id: 1
+2025-06-20 12:04:00 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:00 - Player_id: 2
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:00 - Player_id: 1
+2025-06-20 12:04:00 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:00 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:00 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:00 - Player_id: 2
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (3, 3)
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:04:00 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:00 - Player_id: 1
+2025-06-20 12:04:00 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:00 - Player_id: 2
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:00 - Player_id: 1
+2025-06-20 12:04:00 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:00 - Player_id: 1
+2025-06-20 12:04:00 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:00 - Player_id: 2
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (3, 3)
+2025-06-20 12:04:00 - Player 1 - Tank Index 0 Stuck, rotating randomly
+2025-06-20 12:04:00 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
+2025-06-20 12:04:01 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:01 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:01 - Player_id: 2
+2025-06-20 12:04:01 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:01 - Player_id: 1
+2025-06-20 12:04:01 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:01 - Player_id: 1
+2025-06-20 12:04:01 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:01 - Player_id: 2
+2025-06-20 12:04:01 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (3, 3)
+2025-06-20 12:04:01 - Player 1 - Tank Index 0 Stuck, rotating randomly
+2025-06-20 12:04:01 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:01 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:01 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:01 - Player_id: 2
+2025-06-20 12:04:01 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:01 - Player_id: 1
+2025-06-20 12:04:01 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:01 - Player_id: 1
+2025-06-20 12:04:01 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:01 - Player_id: 2
+2025-06-20 12:04:01 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (3, 3)
+2025-06-20 12:04:01 - Player 1 - Tank Index 0 Moving forward to (3,4)
+2025-06-20 12:04:01 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:01 - Player_id: 1
+2025-06-20 12:04:01 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:01 - Player_id: 2
+2025-06-20 12:04:01 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:01 - Player_id: 1
+2025-06-20 12:04:01 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
+2025-06-20 12:04:01 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:01 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:01 - Player_id: 2
+2025-06-20 12:04:01 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (3, 4)
+2025-06-20 12:04:01 - Player 1 - Tank Index 0 Moving forward to (3,5)
+2025-06-20 12:04:01 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:01 - Player_id: 1
+2025-06-20 12:04:01 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:01 - Player_id: 2
+2025-06-20 12:04:01 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:01 - Player_id: 1
+2025-06-20 12:04:01 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:01 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:01 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:01 - Player_id: 2
+2025-06-20 12:04:01 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (3, 5)
+2025-06-20 12:04:01 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:04:01 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:01 - Player_id: 1
+2025-06-20 12:04:01 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:01 - Player_id: 2
+2025-06-20 12:04:01 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:01 - Player_id: 1
+2025-06-20 12:04:01 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:01 - Player_id: 1
+2025-06-20 12:04:01 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:01 - Player_id: 2
+2025-06-20 12:04:01 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (3, 5)
+2025-06-20 12:04:01 - Player 1 - Tank Index 0 Stuck, rotating randomly
+2025-06-20 12:04:01 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
+2025-06-20 12:04:01 - Player 1 - Tank Index 2 Rotating from direction DOWN_RIGHT to DOWN
+2025-06-20 12:04:01 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:01 - Player_id: 2
+2025-06-20 12:04:01 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:01 - Player_id: 1
+2025-06-20 12:04:01 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:01 - Player_id: 1
+2025-06-20 12:04:01 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:01 - Player_id: 2
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (3, 5)
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Stuck, rotating randomly
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:02 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:02 - Player_id: 2
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:02 - Player_id: 1
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:02 - Player_id: 1
+2025-06-20 12:04:02 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:02 - Player_id: 2
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:02 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:02 - Player_id: 2
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:02 - Player_id: 1
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:02 - Player_id: 1
+2025-06-20 12:04:02 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:02 - Player_id: 2
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:02 - Player_id: 1
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:02 - Player_id: 1
+2025-06-20 12:04:02 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:02 - Player_id: 2
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (4, 5)
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Moving forward to (5,5)
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:02 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:02 - Player_id: 2
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:02 - Player_id: 1
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:02 - Player_id: 1
+2025-06-20 12:04:02 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:02 - Player_id: 2
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:02 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:02 - Player_id: 2
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:02 - Player_id: 1
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:02 - Player_id: 1
+2025-06-20 12:04:02 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:02 - Player_id: 2
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:02 - Player_id: 1
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:02 - Player_id: 1
+2025-06-20 12:04:02 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:02 - Player_id: 2
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 5)
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Moving forward to (7,5)
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Rotating from direction LEFT to DOWN
+2025-06-20 12:04:02 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:02 - Player_id: 2
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:02 - Player_id: 1
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:02 - Player_id: 1
+2025-06-20 12:04:02 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:02 - Player_id: 2
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (7, 5)
+2025-06-20 12:04:02 - Player 1 - Tank Index 0 Moving forward to (8,5)
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (4, 8)
+2025-06-20 12:04:02 - Player 1 - Tank Index 2 Moving forward to (5,7)
+2025-06-20 12:04:02 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:03 - Player_id: 2
+2025-06-20 12:04:03 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:03 - Player_id: 1
+2025-06-20 12:04:03 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:03 - Player_id: 1
+2025-06-20 12:04:03 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:03 - Player_id: 2
+2025-06-20 12:04:03 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (8, 5)
+2025-06-20 12:04:03 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:04:03 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
+2025-06-20 12:04:03 - Player 1 - Tank Index 2 Rotating from direction DOWN to LEFT
+2025-06-20 12:04:03 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:03 - Player_id: 2
+2025-06-20 12:04:03 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:03 - Player_id: 1
+2025-06-20 12:04:03 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:03 - Player_id: 1
+2025-06-20 12:04:03 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:03 - Player_id: 2
+2025-06-20 12:04:03 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (8, 5)
+2025-06-20 12:04:03 - Player 1 - Tank Index 0 Stuck, rotating randomly
+2025-06-20 12:04:03 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (5, 7)
+2025-06-20 12:04:03 - Player 1 - Tank Index 2 Moving forward to (6,8)
+2025-06-20 12:04:03 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:03 - Player_id: 2
+2025-06-20 12:04:03 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:03 - Player_id: 1
+2025-06-20 12:04:03 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:03 - Player_id: 1
+2025-06-20 12:04:03 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:03 - Player_id: 2
+2025-06-20 12:04:03 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (8, 5)
+2025-06-20 12:04:03 - Player 1 - Tank Index 0 Stuck, rotating randomly
+2025-06-20 12:04:03 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 8)
+2025-06-20 12:04:03 - Player 1 - Tank Index 2 Moving forward to (7,9)
+2025-06-20 12:04:03 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:03 - Player_id: 2
+2025-06-20 12:04:03 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:03 - Player_id: 1
+2025-06-20 12:04:03 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:03 - Player_id: 1
+2025-06-20 12:04:03 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:03 - Player_id: 2
+2025-06-20 12:04:03 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (8, 5)
+2025-06-20 12:04:03 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:04:03 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 9)
+2025-06-20 12:04:03 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:03 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:03 - Player_id: 2
+2025-06-20 12:04:03 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:03 - Player_id: 1
+2025-06-20 12:04:03 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:03 - Player_id: 1
+2025-06-20 12:04:03 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:03 - Player_id: 2
+2025-06-20 12:04:03 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:04:03 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:04:03 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:03 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:03 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:03 - Player_id: 2
+2025-06-20 12:04:03 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:03 - Player_id: 1
+2025-06-20 12:04:03 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:03 - Player_id: 1
+2025-06-20 12:04:03 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:03 - Player_id: 2
+2025-06-20 12:04:04 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:04 - Player_id: 1
+2025-06-20 12:04:04 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:04 - Player_id: 1
+2025-06-20 12:04:04 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:04 - Player_id: 2
+2025-06-20 12:04:04 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (8, 5)
+2025-06-20 12:04:04 - Player 1 - Tank Index 0 Rotating from direction UP to UP_RIGHT
+2025-06-20 12:04:04 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 9)
+2025-06-20 12:04:04 - Player 1 - Tank Index 2 Moving forward to (6,10)
+2025-06-20 12:04:04 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:04 - Player_id: 2
+2025-06-20 12:04:04 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:04 - Player_id: 1
+2025-06-20 12:04:04 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:04 - Player_id: 1
+2025-06-20 12:04:04 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:04 - Player_id: 2
+2025-06-20 12:04:04 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (8, 5)
+2025-06-20 12:04:04 - Player 1 - Tank Index 0 Moving forward to (7,4)
+2025-06-20 12:04:04 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
+2025-06-20 12:04:04 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:04 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:04 - Player_id: 2
+2025-06-20 12:04:04 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:04 - Player_id: 1
+2025-06-20 12:04:04 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:04 - Player_id: 1
+2025-06-20 12:04:04 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:04 - Player_id: 2
+2025-06-20 12:04:04 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (7, 4)
+2025-06-20 12:04:04 - Player 1 - Tank Index 0 Moving forward to (6,3)
+2025-06-20 12:04:04 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
+2025-06-20 12:04:04 - Player 1 - Tank Index 2 Stuck, rotating randomly
+2025-06-20 12:04:04 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:04 - Player_id: 2
+2025-06-20 12:04:04 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:04 - Player_id: 1
+2025-06-20 12:04:04 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:04 - Player_id: 1
+2025-06-20 12:04:04 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:04 - Player_id: 2
+2025-06-20 12:04:04 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 3)
+2025-06-20 12:04:04 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:04:04 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
+2025-06-20 12:04:04 - Player 1 - Tank Index 2 Stuck, rotating randomly
+2025-06-20 12:04:04 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:04 - Player_id: 2
+2025-06-20 12:04:04 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:04 - Player_id: 1
+2025-06-20 12:04:04 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:04 - Player_id: 1
+2025-06-20 12:04:04 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:04 - Player_id: 2
+2025-06-20 12:04:04 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:04:04 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:04:04 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:04 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:04 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:04 - Player_id: 2
+2025-06-20 12:04:04 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:04 - Player_id: 1
+2025-06-20 12:04:04 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:04 - Player_id: 1
+2025-06-20 12:04:04 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:04 - Player_id: 2
+2025-06-20 12:04:04 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:04 - Player_id: 1
+2025-06-20 12:04:04 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:04 - Player_id: 1
+2025-06-20 12:04:04 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:04 - Player_id: 2
+2025-06-20 12:04:05 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 3)
+2025-06-20 12:04:05 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:04:05 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
+2025-06-20 12:04:05 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:05 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:05 - Player_id: 2
+2025-06-20 12:04:05 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:05 - Player_id: 1
+2025-06-20 12:04:05 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:05 - Player_id: 1
+2025-06-20 12:04:05 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:05 - Player_id: 2
+2025-06-20 12:04:05 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:04:05 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:04:05 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:05 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:05 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:05 - Player_id: 2
+2025-06-20 12:04:05 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:05 - Player_id: 1
+2025-06-20 12:04:05 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:05 - Player_id: 1
+2025-06-20 12:04:05 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:05 - Player_id: 2
+2025-06-20 12:04:05 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:05 - Player_id: 1
+2025-06-20 12:04:05 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:05 - Player_id: 1
+2025-06-20 12:04:05 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:05 - Player_id: 2
+2025-06-20 12:04:05 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 3)
+2025-06-20 12:04:05 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:04:05 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
+2025-06-20 12:04:05 - Player 1 - Tank Index 2 Rotating from direction LEFT to UP
+2025-06-20 12:04:05 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:05 - Player_id: 2
+2025-06-20 12:04:05 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:05 - Player_id: 1
+2025-06-20 12:04:05 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:05 - Player_id: 1
+2025-06-20 12:04:05 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:05 - Player_id: 2
+2025-06-20 12:04:05 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:04:05 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:04:05 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:05 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:05 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:05 - Player_id: 2
+2025-06-20 12:04:05 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:05 - Player_id: 1
+2025-06-20 12:04:05 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:05 - Player_id: 1
+2025-06-20 12:04:05 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:05 - Player_id: 2
+2025-06-20 12:04:05 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:05 - Player_id: 1
+2025-06-20 12:04:05 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:05 - Player_id: 1
+2025-06-20 12:04:05 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:05 - Player_id: 2
+2025-06-20 12:04:05 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 3)
+2025-06-20 12:04:05 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:04:05 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 9)
+2025-06-20 12:04:05 - Player 1 - Tank Index 2 Rotating from direction DOWN to UP
+2025-06-20 12:04:05 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:05 - Player_id: 2
+2025-06-20 12:04:05 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:05 - Player_id: 1
+2025-06-20 12:04:05 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:05 - Player_id: 1
+2025-06-20 12:04:05 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:05 - Player_id: 2
+2025-06-20 12:04:06 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:04:06 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:04:06 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:06 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:06 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:06 - Player_id: 2
+2025-06-20 12:04:06 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:06 - Player_id: 1
+2025-06-20 12:04:06 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:06 - Player_id: 1
+2025-06-20 12:04:06 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:06 - Player_id: 2
+2025-06-20 12:04:06 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:06 - Player_id: 1
+2025-06-20 12:04:06 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:06 - Player_id: 1
+2025-06-20 12:04:06 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:06 - Player_id: 2
+2025-06-20 12:04:06 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 3)
+2025-06-20 12:04:06 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:04:06 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 8)
+2025-06-20 12:04:06 - Player 1 - Tank Index 2 Moving forward to (7,7)
+2025-06-20 12:04:06 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:06 - Player_id: 2
+2025-06-20 12:04:06 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:06 - Player_id: 1
+2025-06-20 12:04:06 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:06 - Player_id: 1
+2025-06-20 12:04:06 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:06 - Player_id: 2
+2025-06-20 12:04:06 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:04:06 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:04:06 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:06 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:06 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:06 - Player_id: 2
+2025-06-20 12:04:06 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:06 - Player_id: 1
+2025-06-20 12:04:06 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:06 - Player_id: 1
+2025-06-20 12:04:06 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:06 - Player_id: 2
+2025-06-20 12:04:06 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:06 - Player_id: 1
+2025-06-20 12:04:06 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:06 - Player_id: 1
+2025-06-20 12:04:06 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:06 - Player_id: 2
+2025-06-20 12:04:06 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 3)
+2025-06-20 12:04:06 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:04:06 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 7)
+2025-06-20 12:04:06 - Player 1 - Tank Index 2 Rotating from direction UP_LEFT to DOWN_RIGHT
+2025-06-20 12:04:06 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:06 - Player_id: 2
+2025-06-20 12:04:06 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:06 - Player_id: 1
+2025-06-20 12:04:06 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:06 - Player_id: 1
+2025-06-20 12:04:06 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:06 - Player_id: 2
+2025-06-20 12:04:06 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:04:06 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:04:06 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:06 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:06 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:06 - Player_id: 2
+2025-06-20 12:04:06 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:06 - Player_id: 1
+2025-06-20 12:04:06 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:06 - Player_id: 1
+2025-06-20 12:04:06 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:06 - Player_id: 2
+2025-06-20 12:04:07 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:07 - Player_id: 1
+2025-06-20 12:04:07 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:07 - Player_id: 1
+2025-06-20 12:04:07 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:07 - Player_id: 2
+2025-06-20 12:04:07 - Player 1 - Tank Index 0 Calculating BFS. Start Position = (6, 3)
+2025-06-20 12:04:07 - Player 1 - Tank Index 0 Shooting randomly due to stuck state
+2025-06-20 12:04:07 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 8)
+2025-06-20 12:04:07 - Player 1 - Tank Index 2 Rotating from direction DOWN_RIGHT to DOWN_LEFT
+2025-06-20 12:04:07 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:07 - Player_id: 2
+2025-06-20 12:04:07 - Player 1 - Tank Index 0 Requesting updated Battle Info
+2025-06-20 12:04:07 - Player_id: 1
+2025-06-20 12:04:07 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:07 - Player_id: 1
+2025-06-20 12:04:07 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:07 - Player_id: 2
+2025-06-20 12:04:07 - Player 1 - Tank Index 0 Threatened by shells
+2025-06-20 12:04:07 - Player 1 - Tank Index 0 Escape threat
+2025-06-20 12:04:07 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 8)
+2025-06-20 12:04:07 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:07 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:07 - Player_id: 2
+2025-06-20 12:04:07 - Player 1 - Tank Index 0 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:07 - Player_id: 1
+2025-06-20 12:04:07 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:07 - Player_id: 1
+2025-06-20 12:04:07 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:07 - Player_id: 2
+2025-06-20 12:04:07 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:07 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:07 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:07 - Player_id: 2
+2025-06-20 12:04:07 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:07 - Player_id: 1
+2025-06-20 12:04:07 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:07 - Player_id: 2
+2025-06-20 12:04:07 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:07 - Player_id: 1
+2025-06-20 12:04:07 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:07 - Player_id: 2
+2025-06-20 12:04:07 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 8)
+2025-06-20 12:04:07 - Player 1 - Tank Index 2 Moving forward to (6,9)
+2025-06-20 12:04:07 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:07 - Player_id: 2
+2025-06-20 12:04:07 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:07 - Player_id: 1
+2025-06-20 12:04:07 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:07 - Player_id: 2
+2025-06-20 12:04:07 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 9)
+2025-06-20 12:04:07 - Player 1 - Tank Index 2 Moving forward to (6,10)
+2025-06-20 12:04:07 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:07 - Player_id: 2
+2025-06-20 12:04:07 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:07 - Player_id: 1
+2025-06-20 12:04:07 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:07 - Player_id: 2
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:08 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:08 - Player_id: 2
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:08 - Player_id: 1
+2025-06-20 12:04:08 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:08 - Player_id: 2
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Stuck, rotating randomly
+2025-06-20 12:04:08 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:08 - Player_id: 2
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:08 - Player_id: 1
+2025-06-20 12:04:08 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:08 - Player_id: 2
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Stuck, rotating randomly
+2025-06-20 12:04:08 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:08 - Player_id: 2
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:08 - Player_id: 1
+2025-06-20 12:04:08 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:08 - Player_id: 2
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:08 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:08 - Player_id: 2
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:08 - Player_id: 1
+2025-06-20 12:04:08 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:08 - Player_id: 2
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Stuck, rotating randomly
+2025-06-20 12:04:08 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:08 - Player_id: 2
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:08 - Player_id: 1
+2025-06-20 12:04:08 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:08 - Player_id: 2
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Stuck, rotating randomly
+2025-06-20 12:04:08 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:08 - Player_id: 2
+2025-06-20 12:04:08 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:08 - Player_id: 1
+2025-06-20 12:04:08 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:08 - Player_id: 2
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 10)
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Moving forward to (6,9)
+2025-06-20 12:04:09 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:09 - Player_id: 2
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:09 - Player_id: 1
+2025-06-20 12:04:09 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:09 - Player_id: 2
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 9)
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Moving forward to (6,8)
+2025-06-20 12:04:09 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:09 - Player_id: 2
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:09 - Player_id: 1
+2025-06-20 12:04:09 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:09 - Player_id: 2
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 8)
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Rotating from direction UP to DOWN
+2025-06-20 12:04:09 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:09 - Player_id: 2
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:09 - Player_id: 1
+2025-06-20 12:04:09 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:09 - Player_id: 2
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (6, 8)
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Moving forward to (7,7)
+2025-06-20 12:04:09 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:09 - Player_id: 2
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:09 - Player_id: 1
+2025-06-20 12:04:09 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:09 - Player_id: 2
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 7)
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:09 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:09 - Player_id: 2
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:09 - Player_id: 1
+2025-06-20 12:04:09 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:09 - Player_id: 2
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 7)
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Stuck, rotating randomly
+2025-06-20 12:04:09 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:09 - Player_id: 2
+2025-06-20 12:04:09 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:09 - Player_id: 1
+2025-06-20 12:04:09 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:09 - Player_id: 2
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 7)
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Stuck, rotating randomly
+2025-06-20 12:04:10 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:10 - Player_id: 2
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:10 - Player_id: 1
+2025-06-20 12:04:10 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:10 - Player_id: 2
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 7)
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Rotating from direction UP_RIGHT to RIGHT
+2025-06-20 12:04:10 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:10 - Player_id: 2
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:10 - Player_id: 1
+2025-06-20 12:04:10 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:10 - Player_id: 2
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 7)
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Rotating from direction DOWN to RIGHT
+2025-06-20 12:04:10 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:10 - Player_id: 2
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:10 - Player_id: 1
+2025-06-20 12:04:10 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:10 - Player_id: 2
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (7, 7)
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Moving forward to (8,7)
+2025-06-20 12:04:10 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:10 - Player_id: 2
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:10 - Player_id: 1
+2025-06-20 12:04:10 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:10 - Player_id: 2
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (8, 7)
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Moving forward to (9,7)
+2025-06-20 12:04:10 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:10 - Player_id: 2
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:10 - Player_id: 1
+2025-06-20 12:04:10 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:10 - Player_id: 2
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (9, 7)
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Moving forward to (10,7)
+2025-06-20 12:04:10 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:10 - Player_id: 2
+2025-06-20 12:04:10 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:10 - Player_id: 1
+2025-06-20 12:04:10 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:10 - Player_id: 2
+2025-06-20 12:04:11 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (10, 7)
+2025-06-20 12:04:11 - Player 1 - Tank Index 2 Moving forward to (11,7)
+2025-06-20 12:04:11 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:11 - Player_id: 2
+2025-06-20 12:04:11 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:11 - Player_id: 1
+2025-06-20 12:04:11 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:11 - Player_id: 2
+2025-06-20 12:04:11 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (11, 7)
+2025-06-20 12:04:11 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:11 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:11 - Player_id: 2
+2025-06-20 12:04:11 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:11 - Player_id: 1
+2025-06-20 12:04:11 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:11 - Player_id: 2
+2025-06-20 12:04:11 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:11 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:11 - Player 2 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:11 - Player 2 - Tank Index 2 Avoid Threat
+2025-06-20 12:04:11 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:11 - Player_id: 1
+2025-06-20 12:04:11 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:11 - Player_id: 2
+2025-06-20 12:04:11 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:11 - Player_id: 1
+2025-06-20 12:04:11 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:11 - Player_id: 2
+2025-06-20 12:04:11 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (11, 7)
+2025-06-20 12:04:11 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:11 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:11 - Player_id: 2
+2025-06-20 12:04:11 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:11 - Player_id: 1
+2025-06-20 12:04:11 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:11 - Player_id: 2
+2025-06-20 12:04:11 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:11 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:11 - Player 2 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:11 - Player 2 - Tank Index 2 Avoid Threat
+2025-06-20 12:04:11 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:11 - Player_id: 1
+2025-06-20 12:04:11 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:11 - Player_id: 2
+2025-06-20 12:04:11 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:11 - Player_id: 1
+2025-06-20 12:04:11 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:11 - Player_id: 2
+2025-06-20 12:04:12 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (11, 7)
+2025-06-20 12:04:12 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:12 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:12 - Player_id: 2
+2025-06-20 12:04:12 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:12 - Player_id: 1
+2025-06-20 12:04:12 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:12 - Player_id: 2
+2025-06-20 12:04:12 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:12 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:12 - Player 2 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:12 - Player 2 - Tank Index 2 Avoid Threat
+2025-06-20 12:04:12 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:12 - Player_id: 1
+2025-06-20 12:04:12 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:12 - Player_id: 2
+2025-06-20 12:04:12 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:12 - Player_id: 1
+2025-06-20 12:04:12 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:12 - Player_id: 2
+2025-06-20 12:04:12 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (11, 7)
+2025-06-20 12:04:12 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:12 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:12 - Player_id: 2
+2025-06-20 12:04:12 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:12 - Player_id: 1
+2025-06-20 12:04:12 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:12 - Player_id: 2
+2025-06-20 12:04:12 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:12 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:12 - Player 2 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:12 - Player 2 - Tank Index 2 Avoid Threat
+2025-06-20 12:04:12 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:12 - Player_id: 1
+2025-06-20 12:04:12 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:12 - Player_id: 2
+2025-06-20 12:04:12 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:12 - Player_id: 1
+2025-06-20 12:04:12 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:12 - Player_id: 2
+2025-06-20 12:04:12 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (11, 7)
+2025-06-20 12:04:12 - Player 1 - Tank Index 2 Shooting randomly due to stuck state
+2025-06-20 12:04:12 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:12 - Player_id: 2
+2025-06-20 12:04:12 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:12 - Player_id: 1
+2025-06-20 12:04:12 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:12 - Player_id: 2
+2025-06-20 12:04:13 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:13 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:13 - Player 2 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:13 - Player 2 - Tank Index 2 Avoid Threat
+2025-06-20 12:04:13 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:13 - Player_id: 1
+2025-06-20 12:04:13 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:13 - Player_id: 2
+2025-06-20 12:04:13 - Player 1 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:13 - Player 1 - Tank Index 2 Escape threat
+2025-06-20 12:04:13 - Player 2 - Tank Index 2 Threatened by shells
+2025-06-20 12:04:13 - Player 2 - Tank Index 2 Avoid Threat
+2025-06-20 12:04:13 - Player 1 - Tank Index 2 Requesting Battle Info (first turn or previously threatened)
+2025-06-20 12:04:13 - Player_id: 1
+2025-06-20 12:04:13 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:13 - Player_id: 2
+2025-06-20 12:04:13 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:13 - Player_id: 1
+2025-06-20 12:04:13 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:13 - Player_id: 2
+2025-06-20 12:04:13 - Player 1 - Tank Index 2 Calculating BFS. Start Position = (11, 7)
+2025-06-20 12:04:13 - Player 1 - Tank Index 2 Moving forward to (11,8)
+2025-06-20 12:04:13 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:13 - Player_id: 2
+2025-06-20 12:04:13 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:13 - Player_id: 1
+2025-06-20 12:04:13 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:13 - Player_id: 2
+2025-06-20 12:04:13 - Player 1 - Tank Index 2 Rotating 2 toward enemy
+2025-06-20 12:04:13 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:13 - Player_id: 2
+2025-06-20 12:04:13 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:13 - Player_id: 1
+2025-06-20 12:04:13 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:13 - Player_id: 2
+2025-06-20 12:04:13 - Player 1 - Tank Index 2 Shoot Enemy
+2025-06-20 12:04:13 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:13 - Player_id: 2
+2025-06-20 12:04:13 - Player 1 - Tank Index 2 Requesting updated Battle Info
+2025-06-20 12:04:13 - Player_id: 1
+2025-06-20 12:04:13 - Player 2 - Tank Index 2 Reciving Battle Info
+2025-06-20 12:04:13 - Player_id: 2
