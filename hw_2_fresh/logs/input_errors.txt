@@ -1,0 +1,12 @@
+Line 1 is longer than specified width
+Line 2 is longer than specified width
+Line 3 is longer than specified width
+Line 4 is longer than specified width
+Unknown symbol ''
+Line 6 is longer than specified width
+Line 7 is longer than specified width
+Line 8 is longer than specified width
+Line 9 is longer than specified width
+Line 10 is longer than specified width
+Unknown symbol ''
+Line 12 is longer than specified width
