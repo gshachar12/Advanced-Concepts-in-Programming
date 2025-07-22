@@ -146,7 +146,7 @@ quick-tournament: $(TARGET)
 # Visualization targets
 visual: $(TARGET)
 	@echo "🎮 Running Visualization Mode..."
-	./$(TARGET) -visualize -map inputs/simple_map.txt -steps 20
+	./$(TARGET) -visualize -map inputs/input2.txt -steps 20
 
 visual-long: $(TARGET)
 	@echo "🎮 Running Long Visualization Game..."
