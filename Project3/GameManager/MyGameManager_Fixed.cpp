@@ -1,8 +1,11 @@
 #include "MyGameManager_Fixed.h"
+#include "../UserCommon/UserCommonTypes.h"
+#include "../UserCommon/UserCommonUtils.h"
 #include <iostream>
 #include <thread>
 #include <chrono>
 #include <cstdlib>
+#include <memory>
 
 #ifdef _WIN32
 #include <conio.h>
@@ -17,9 +20,13 @@ GameResult MyGameManager::run(
     size_t map_width, size_t map_height,
     SatelliteView& map,
     size_t max_steps, size_t num_shells,
-    Player& player1, Player& player2,
+    Player& /* player1 */, Player& /* player2 */,
     TankAlgorithmFactory& player1_tank_algo_factory,
     TankAlgorithmFactory& player2_tank_algo_factory) {
+    
+    // Store algorithm factories for use during game
+    player1_factory_ = &player1_tank_algo_factory;
+    player2_factory_ = &player2_tank_algo_factory;
     
     if (verbose_) {
         std::cout << "=== PROJECT 3 INTERACTIVE GAME VISUALIZATION ===" << std::endl;
@@ -34,8 +41,8 @@ GameResult MyGameManager::run(
         displayInteractiveMap(map, map_width, map_height);
         waitForInput();
         
-        // Simulate interactive game with real Project 2-style visualization
-        return simulateInteractiveGame(map, map_width, map_height, max_steps, num_shells);
+        // Simulate interactive game with real Project 2-style visualization using actual algorithms
+        return simulateInteractiveGameWithAlgorithms(map, map_width, map_height, max_steps, num_shells);
     } else {
         // Simple non-visual version
         displayMap(map, map_width, map_height);
@@ -83,18 +90,25 @@ void MyGameManager::displayInteractiveMap(SatelliteView& map, size_t width, size
 std::string MyGameManager::getEmojiForCell(char cell) {
     switch (cell) {
         case '#': return "🟩";  // Wall
-        case '=': return "🧱";  // Weak wall
+        case '=': return "🧱";  // Weak wall  
         case '@': return "💣";  // Mine
         case '*': return "🚀";  // Shell
         case 'X': return "💥";  // Explosion
         case '1': return "🔵1"; // Player 1 tank
         case '2': return "🔴2"; // Player 2 tank
         case ' ': return "⬜";  // Empty space
+        case '.': return "⬛";  // Destroyed wall
+        case '~': return "🌊";  // Water/impassable
+        case '^': return "⛰️";  // Mountain/obstacle
+        case 'H': return "🏠";  // House/building
+        case 'T': return "🌳";  // Tree
+        case 'R': return "🛣️";  // Road
+        case 'B': return "🌉";  // Bridge
         default:  return "⬜";  // Default empty
     }
 }
 
-GameResult MyGameManager::simulateInteractiveGame(SatelliteView& map, size_t width, size_t height, size_t max_steps, size_t num_shells) {
+GameResult MyGameManager::simulateInteractiveGameWithAlgorithms(SatelliteView& map, size_t width, size_t height, size_t max_steps, size_t num_shells) {
     // Create game state
     GameState state;
     state.width = width;
@@ -102,21 +116,21 @@ GameResult MyGameManager::simulateInteractiveGame(SatelliteView& map, size_t wid
     state.max_steps = max_steps;
     state.current_step = 0;
     
-    // Initialize tanks
-    initializeTanks(state, map, width, height, num_shells);
+    // Initialize tanks and their algorithms
+    initializeTanksWithAlgorithms(state, map, width, height, num_shells);
     
-    std::cout << "\n=== STARTING INTERACTIVE GAME ===\n";
+    std::cout << "\n=== STARTING INTERACTIVE GAME WITH REAL ALGORITHMS ===\n";
     std::cout << "Press ENTER after each step to continue...\n\n";
     
-    // Main game loop with interactive visualization
-    while (state.current_step < max_steps && !isGameOver(state)) {
+    // Main game loop with interactive visualization - game ends when one player is eliminated
+    while (!isGameOver(state)) {
         state.current_step++;
         
         clearScreen();
-        std::cout << "=== TURN " << state.current_step << "/" << max_steps << " ===\n\n";
+        std::cout << "=== TURN " << state.current_step << " ===\n\n";
         
-        // Execute turn logic
-        executeTurn(state);
+        // Execute turn logic with real algorithms
+        executeTurnWithAlgorithms(state, map);
         
         // Display rich game state
         displayGameState(state, width, height);
@@ -128,7 +142,7 @@ GameResult MyGameManager::simulateInteractiveGame(SatelliteView& map, size_t wid
         
         // Check for game end
         if (isGameOver(state)) {
-            std::cout << "\n🏁 GAME OVER!\n";
+            std::cout << "\n🏁 GAME OVER - One player eliminated!\n";
             break;
         }
         
@@ -144,10 +158,13 @@ GameResult MyGameManager::simulateInteractiveGame(SatelliteView& map, size_t wid
     std::cout << "Remaining tanks: [" << result.remaining_tanks[0] 
               << ", " << result.remaining_tanks[1] << "]" << std::endl;
     
+    // Game ended by proper rules - one player eliminated
+    std::cout << "Reason: All enemy tanks eliminated" << std::endl;
+    
     return result;
 }
 
-void MyGameManager::simulateGameWithVisualization(size_t width, size_t height, size_t max_steps) {
+void MyGameManager::simulateGameWithVisualization(size_t /* width */, size_t /* height */, size_t max_steps) {
     std::cout << "\n--- GAME SIMULATION (showing visualization concept) ---" << std::endl;
     
     // Simulate a few game steps to show visualization
@@ -187,7 +204,7 @@ void MyGameManager::waitForInput() {
 }
 
 void MyGameManager::initializeTanks(GameState& state, SatelliteView& map, size_t width, size_t height, size_t num_shells) {
-    // Find tank positions on the map
+    // Find tank positions on the map (without algorithms)
     for (size_t y = 0; y < height; ++y) {
         for (size_t x = 0; x < width; ++x) {
             char cell = map.getObject(x, y);
@@ -195,12 +212,12 @@ void MyGameManager::initializeTanks(GameState& state, SatelliteView& map, size_t
                 Tank tank1;
                 tank1.x = x; tank1.y = y; tank1.player = 1; tank1.shells = num_shells;
                 tank1.direction = 0; tank1.alive = true; tank1.cooldown = 0;
-                state.tanks.push_back(tank1);
+                state.tanks.push_back(std::move(tank1));
             } else if (cell == '2') {
                 Tank tank2;
                 tank2.x = x; tank2.y = y; tank2.player = 2; tank2.shells = num_shells;
                 tank2.direction = 4; tank2.alive = true; tank2.cooldown = 0;
-                state.tanks.push_back(tank2);
+                state.tanks.push_back(std::move(tank2));
             }
         }
     }
@@ -381,7 +398,7 @@ GameResult MyGameManager::generateFinalResult(const GameState& state) {
         result.winner = 0; // Tie
     }
     
-    result.remaining_tanks = {p1_tanks, p2_tanks};
+    result.remaining_tanks = {(unsigned int)p1_tanks, (unsigned int)p2_tanks};
     return result;
 }
 
@@ -478,7 +495,175 @@ void MyGameManager::shootShell(Tank& tank, GameState& state) {
     
     state.shells.push_back(shell);
     tank.shells--;
-    tank.cooldown = 3;
+    tank.cooldown = UserCommon_123456789_987654321::SHELL_COOLDOWN_TURNS;
+}
+
+// New methods for algorithm integration
+void MyGameManager::initializeTanksWithAlgorithms(GameState& state, SatelliteView& map, size_t width, size_t height, size_t num_shells) {
+    int tank_index = 0;
+    
+    // Find tank positions on the map and create algorithm instances
+    for (size_t y = 0; y < height; ++y) {
+        for (size_t x = 0; x < width; ++x) {
+            char cell = map.getObject(x, y);
+            if (cell == '1') {
+                Tank tank1;
+                tank1.x = x; tank1.y = y; tank1.player = 1; tank1.shells = num_shells;
+                tank1.direction = 0; tank1.alive = true; tank1.cooldown = 0;
+                
+                // Create algorithm instance for player 1
+                if (player1_factory_) {
+                    tank1.algorithm = player1_factory_->create(0, tank_index);
+                    std::cout << "DEBUG: Created algorithm for Player 1 tank " << tank_index << " at (" << x << "," << y << ")\n";
+                } else {
+                    std::cout << "DEBUG: No factory for Player 1!\n";
+                }
+                
+                state.tanks.push_back(std::move(tank1));
+                tank_index++;
+            } else if (cell == '2') {
+                Tank tank2;
+                tank2.x = x; tank2.y = y; tank2.player = 2; tank2.shells = num_shells;
+                tank2.direction = 4; tank2.alive = true; tank2.cooldown = 0;
+                
+                // Create algorithm instance for player 2
+                if (player2_factory_) {
+                    tank2.algorithm = player2_factory_->create(1, tank_index);
+                    std::cout << "DEBUG: Created algorithm for Player 2 tank " << tank_index << " at (" << x << "," << y << ")\n";
+                } else {
+                    std::cout << "DEBUG: No factory for Player 2!\n";
+                }
+                
+                state.tanks.push_back(std::move(tank2));
+                tank_index++;
+            }
+        }
+    }
+}
+
+void MyGameManager::executeTurnWithAlgorithms(GameState& state, SatelliteView& map) {
+    // Move shells first
+    for (auto& shell : state.shells) {
+        if (shell.active) {
+            moveShell(shell);
+            checkShellCollisions(shell, state);
+        }
+    }
+    
+    // Remove inactive shells
+    state.shells.erase(
+        std::remove_if(state.shells.begin(), state.shells.end(),
+                      [](const Shell& s) { return !s.active; }),
+        state.shells.end());
+    
+    // Execute tank actions using their algorithms
+    for (auto& tank : state.tanks) {
+        if (tank.alive && tank.algorithm) {
+            std::cout << "DEBUG: Tank Player " << tank.player << " at (" << tank.x << "," << tank.y << ") executing algorithm\n";
+            
+            // Create battle info for the tank
+            MyBattleInfo battle_info = createBattleInfo(state, tank, map);
+            tank.algorithm->updateBattleInfo(battle_info);
+            
+            // Get action from algorithm
+            ActionRequest action = tank.algorithm->getAction();
+            std::cout << "DEBUG: Algorithm returned action: " << static_cast<int>(action) << "\n";
+            
+            // Execute the action
+            executeTankActionFromAlgorithm(tank, action, state, map);
+        } else if (tank.alive) {
+            std::cout << "DEBUG: Tank Player " << tank.player << " at (" << tank.x << "," << tank.y << ") has NO ALGORITHM!\n";
+        }
+    }
+    
+    // Decrease cooldowns
+    for (auto& tank : state.tanks) {
+        if (tank.cooldown > 0) tank.cooldown--;
+    }
+}
+
+void MyGameManager::executeTankActionFromAlgorithm(Tank& tank, ActionRequest action, GameState& state, SatelliteView& /* map */) {
+    using namespace UserCommon_123456789_987654321;
+    
+    switch (action) {
+        case ActionRequest::MoveForward:
+            moveTank(tank, state);
+            break;
+        case ActionRequest::MoveBackward:
+            // Move in opposite direction
+            {
+                int old_dir = tank.direction;
+                tank.direction = (tank.direction + 4) % 8; // Reverse direction
+                moveTank(tank, state);
+                tank.direction = old_dir; // Restore original direction
+            }
+            break;
+        case ActionRequest::RotateLeft45:
+            tank.direction = GameUtils::rotateLeft45(static_cast<Direction>(tank.direction));
+            break;
+        case ActionRequest::RotateRight45:
+            tank.direction = GameUtils::rotateRight45(static_cast<Direction>(tank.direction));
+            break;
+        case ActionRequest::RotateLeft90:
+            tank.direction = GameUtils::rotateLeft90(static_cast<Direction>(tank.direction));
+            break;
+        case ActionRequest::RotateRight90:
+            tank.direction = GameUtils::rotateRight90(static_cast<Direction>(tank.direction));
+            break;
+        case ActionRequest::Shoot:
+            if (tank.shells > 0 && tank.cooldown == 0) {
+                shootShell(tank, state);
+            }
+            break;
+        case ActionRequest::GetBattleInfo:
+            // Already handled in executeTurnWithAlgorithms
+            break;
+        case ActionRequest::DoNothing:
+        default:
+            // Do nothing
+            break;
+    }
+}
+
+MyBattleInfo MyGameManager::createBattleInfo(const GameState& state, const Tank& tank, SatelliteView& /* map */) {
+    MyBattleInfo info;
+    
+    // Set basic tank info
+    info.tank_position_x = tank.x;
+    info.tank_position_y = tank.y;
+    info.tank_direction = tank.direction;
+    info.tank_shells_remaining = tank.shells;
+    info.tank_cooldown = tank.cooldown;
+    
+    // Set game info
+    info.current_turn = state.current_step;
+    info.max_turns = state.max_steps;
+    info.map_width = state.width;
+    info.map_height = state.height;
+    
+    // Count alive tanks
+    info.friendly_tanks_count = 0;
+    info.enemy_tanks_count = 0;
+    
+    for (const auto& other_tank : state.tanks) {
+        if (other_tank.alive) {
+            if (other_tank.player == tank.player) {
+                info.friendly_tanks_count++;
+            } else {
+                info.enemy_tanks_count++;
+            }
+        }
+    }
+    
+    // Set shell info
+    info.shells_in_flight = 0;
+    for (const auto& shell : state.shells) {
+        if (shell.active) {
+            info.shells_in_flight++;
+        }
+    }
+    
+    return info;
 }
 
 }

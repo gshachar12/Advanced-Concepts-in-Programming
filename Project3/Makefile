@@ -23,14 +23,36 @@ algorithm:
 # Build visualization test
 test: gamemanager
 	@echo "Building visualization test..."
-	g++ -std=c++17 -Wall -Wextra -g -IGameManager -Icommon -Iinclude test_visualization.cpp GameManager/MyGameManager_Fixed.o -o run_with_visualization.exe
+	g++ -std=c++17 -Wall -Wextra -g -IGameManager -Icommon -Iinclude -IUserCommon -Iplugins/SimplePlugin test_visualization.cpp GameManager/MyGameManager_Fixed.o plugins/SimplePlugin/SimpleTankAlgorithm.o -LUserCommon -lUserCommon -o run_with_visualization.exe
 
-# Run the game with visualization
+# Build test with real input files
+test-input: gamemanager
+	@echo "Building test with real input files..."
+	g++ -std=c++17 -Wall -Wextra -g -IGameManager -Icommon -Iinclude -IUserCommon -Iplugins/SimplePlugin test_with_input.cpp GameManager/MyGameManager_Fixed.o plugins/SimplePlugin/SimpleTankAlgorithm.o -LUserCommon -lUserCommon -o run_with_input.exe
+
+# Run the game with visualization using mock data
 run-viz: test
 	@echo ""
 	@echo "🎮 RUNNING GAME WITH VISUALIZATION..."
 	@echo "======================================="
 	@./run_with_visualization.exe
+
+# Run the game with real input and algorithms
+run-game: test-input
+	@echo ""
+	@echo "🎮 RUNNING REAL GAME WITH INPUT1..."
+	@echo "==================================="
+	@./run_with_input.exe inputs/input1.txt
+
+# Run the game with different input files
+run-input1: test-input
+	@./run_with_input.exe inputs/input1.txt
+
+run-input2: test-input  
+	@./run_with_input.exe inputs/input2.txt
+
+run-input3: test-input
+	@./run_with_input.exe inputs/input3.txt
 
 # Clean all components
 clean:

@@ -3,7 +3,11 @@ CXXFLAGS = -std=c++17 -Wall -Wextra -g -fPIC
 LDFLAGS = -shared
 
 # Include directories
-INCLUDES = -I../common -I../include
+INCLUDES = -I../common -I../include -I../UserCommon
+
+# Library directories and libraries
+LIBDIRS = -L../UserCommon
+LIBS = -lUserCommon
 
 # Source files
 SOURCES = MyGameManager_Fixed.cpp GameManagerRegistration.cpp
@@ -18,7 +22,7 @@ TARGET = GameManager_123456789_987654321.so
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	$(CXX) $(LDFLAGS) -o $@ $^
+	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBDIRS) $(LIBS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@

@@ -1,5 +1,4 @@
 #include "SimpleTankAlgorithm.h"
-#include "../../common/TankAlgorithmRegistration.h"
 #include <random>
 #include <chrono>
 
@@ -16,21 +15,29 @@ SimpleTankAlgorithm::SimpleTankAlgorithm(int player_index, int tank_index)
 ActionRequest SimpleTankAlgorithm::getAction() {
     turn_count_++;
     
-    // Simple random behavior
-    std::uniform_int_distribution<int> action_dist(0, 8);
-    int action = action_dist(rng_);
-    
-    switch (action) {
-        case 0: return ActionRequest::MoveForward;
-        case 1: return ActionRequest::MoveBackward;
-        case 2: return ActionRequest::RotateLeft90;
-        case 3: return ActionRequest::RotateRight90;
-        case 4: return ActionRequest::RotateLeft45;
-        case 5: return ActionRequest::RotateRight45;
-        case 6: return ActionRequest::Shoot;
-        case 7: return ActionRequest::GetBattleInfo;
-        default: return ActionRequest::DoNothing;
+    // More intelligent behavior based on turn count
+    if (turn_count_ % 15 == 0) {
+        // Shoot every 15 turns
+        return ActionRequest::Shoot;
+    } else if (turn_count_ % 8 == 0) {
+        // Change direction every 8 turns
+        std::uniform_int_distribution<int> rotate_dist(0, 3);
+        int rotate_action = rotate_dist(rng_);
+        switch (rotate_action) {
+            case 0: return ActionRequest::RotateLeft45;
+            case 1: return ActionRequest::RotateRight45;
+            case 2: return ActionRequest::RotateLeft90;
+            case 3: return ActionRequest::RotateRight90;
+        }
+    } else if (turn_count_ % 3 == 0) {
+        // Move backward occasionally for variety
+        return ActionRequest::MoveBackward;
+    } else {
+        // Most of the time, move forward
+        return ActionRequest::MoveForward;
     }
+    
+    return ActionRequest::DoNothing;
 }
 
 void SimpleTankAlgorithm::updateBattleInfo(BattleInfo& info) {
@@ -40,6 +47,4 @@ void SimpleTankAlgorithm::updateBattleInfo(BattleInfo& info) {
 
 } // namespace SimplePlugin
 
-// Register the algorithm for dynamic loading
-using namespace SimplePlugin;
-REGISTER_TANK_ALGORITHM(SimpleTankAlgorithm);
+// Registration not needed for static compilation

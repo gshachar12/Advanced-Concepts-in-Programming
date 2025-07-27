@@ -1,5 +1,6 @@
 #include "GameManager/MyGameManager_Fixed.h"
 #include "common/GameResult.h"
+#include "plugins/SimplePlugin/SimpleTankAlgorithm.h"
 #include <iostream>
 
 using namespace GameManager_123456789_987654321;
@@ -40,9 +41,9 @@ public:
 // Mock implementation of TankAlgorithmFactory for testing
 class MockTankAlgorithmFactory : public TankAlgorithmFactory {
 public:
-    std::unique_ptr<TankAlgorithm> create(int /*player_index*/, int /*tank_index*/) const override {
-        // Return nullptr since our demo doesn't actually use the algorithms
-        return nullptr;
+    std::unique_ptr<TankAlgorithm> create(int player_index, int tank_index) const override {
+        // Create actual SimpleTankAlgorithm instances for real gameplay
+        return std::make_unique<SimplePlugin::SimpleTankAlgorithm>(player_index, tank_index);
     }
 };
 
@@ -69,7 +70,7 @@ int main() {
     GameResult result = gameManager.run(
         10, 10,           // 10x10 map
         mockMap,          // satellite view of the map
-        100, 3,           // 100 max steps, 3 shells per tank
+        0, 3,             // 0 max steps (unlimited - ends by elimination), 3 shells per tank
         player1, player2, // the two players
         factory1, factory2 // tank algorithm factories
     );
