@@ -1,59 +1,40 @@
-#include <iostream>
-#include <string>
 #include <cstring>
+#include <GameManager.h>
+#include <iostream>
+#include <thread>
+
+#include "Logger.h"
 #include "GameManager.h"
-#include "MyPlayer.h"
+#include "MyPlayerFactory.h"
+#include "MyTankAlgorithmFactory.h"
 
-int main(int argc, char** argv) {
-    std::cout << "Starting Tank Game..." << std::endl;
-    
-    // Check for visualization flag
-    bool visualMode = false;
-    std::string boardFile;
-    
-    // Parse command line arguments
-    for (int i = 1; i < argc; i++) {
-        if (strcmp(argv[i], "--visual") == 0) {
-            visualMode = true;
-        } else {
-            boardFile = argv[i];
-        }
-    }
-    
-    if (boardFile.empty()) {
-        std::cerr << "Usage: tanks_game <game_board_input_file> [--visual]" << std::endl;
-        return 1;
-    }
+using namespace std::chrono_literals;
 
-    std::cout << "Using map file: " << boardFile << std::endl;
-    std::cout << "Visual mode: " << (visualMode ? "enabled" : "disabled") << std::endl;
+int main(const int argc, char *argv[]) {
+    if (argc != 2 && (argc != 3 || strcmp(argv[1], "-g"))) {
+        std::cerr << "Usage: " << argv[0] << " [-g] <game-file>" << std::endl;
+        return EXIT_FAILURE;
+    }
 
     try {
-        std::cout << "Creating game manager..." << std::endl;
-        // Create game manager with the required factory objects and visual mode
-        GameManager game(MyPlayerFactory(), MyTankAlgorithmFactory(), visualMode);
-        
-        std::cout << "Reading board file..." << std::endl;
-        // Read the board from the specified file
-        if (!game.readBoard(boardFile)) {
-            std::cerr << "Failed to read board from file: " << boardFile << std::endl;
-            return 2;
-        }
-        
-        std::cout << "Running game..." << std::endl;
-        // Run the game
+        const bool visual = argc == 3 && strcmp(argv[1], "-g") == 0;
+        const std::string path = argc == 2 ? argv[1] : argv[2];
+
+        Logger::getInstance().init(path);
+
+        const auto player_factory = MyPlayerFactory();
+        const auto tank_algorithm_factory = MyTankAlgorithmFactory();
+        GameManager game(player_factory, tank_algorithm_factory);
+        game.readBoard(path);
+        game.setVisual(visual);
         game.run();
         
-        std::cout << "Game completed successfully!" << std::endl;
-
-        
+        return EXIT_SUCCESS;
     } catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-        return 3;
+        std::cerr << "error: " << e.what() << std::endl;
+        return EXIT_FAILURE;
     } catch (...) {
-        std::cerr << "Unknown error occurred" << std::endl;
-        return 4;
+        std::cerr << "unknown error occurred" << std::endl;
+        return EXIT_FAILURE;
     }
-    
-    return 0;
 }

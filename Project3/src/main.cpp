@@ -12,15 +12,17 @@
 #include <sstream>
 
 /**
- * Simple map loader that reads from a text file
+ * Enhanced map loader that properly parses Project 2-style input files
  */
 class FileMap : public SatelliteView {
 private:
     std::vector<std::string> map_data_;
     size_t width_, height_;
+    size_t max_steps_, num_shells_;
+    std::string description_;
     
 public:
-    FileMap(const std::string& filename) : width_(0), height_(0) {
+    FileMap(const std::string& filename) : width_(0), height_(0), max_steps_(100), num_shells_(5) {
         loadFromFile(filename);
     }
     
@@ -33,6 +35,9 @@ public:
     
     size_t getWidth() const { return width_; }
     size_t getHeight() const { return height_; }
+    size_t getMaxSteps() const { return max_steps_; }
+    size_t getNumShells() const { return num_shells_; }
+    const std::string& getDescription() const { return description_; }
     
 private:
     void loadFromFile(const std::string& filename) {
@@ -44,17 +49,66 @@ private:
         }
         
         std::string line;
+        
+        // Parse Project 2-style header
+        if (std::getline(file, line)) {
+            description_ = line; // e.g., "2 - Tactical Showdown"
+        }
+        
+        // Parse MaxSteps=4500
+        if (std::getline(file, line)) {
+            if (line.find("MaxSteps=") == 0) {
+                max_steps_ = std::stoi(line.substr(9));
+            }
+        }
+        
+        // Parse NumShells=30
+        if (std::getline(file, line)) {
+            if (line.find("NumShells=") == 0) {
+                num_shells_ = std::stoi(line.substr(10));
+            }
+        }
+        
+        // Parse Rows=12
+        size_t expected_height = 0;
+        if (std::getline(file, line)) {
+            if (line.find("Rows=") == 0) {
+                expected_height = std::stoi(line.substr(5));
+            }
+        }
+        
+        // Parse Cols=18
+        size_t expected_width = 0;
+        if (std::getline(file, line)) {
+            if (line.find("Cols=") == 0) {
+                expected_width = std::stoi(line.substr(5));
+            }
+        }
+        
+        // Now read the actual map data
+        width_ = 0;
         while (std::getline(file, line)) {
             map_data_.push_back(line);
             width_ = std::max(width_, line.length());
         }
         height_ = map_data_.size();
         
+        // Validate dimensions match header
+        if (expected_height > 0 && height_ != expected_height) {
+            std::cerr << "[WARNING] Map height mismatch: expected " << expected_height 
+                      << ", got " << height_ << std::endl;
+        }
+        if (expected_width > 0 && width_ != expected_width) {
+            std::cerr << "[WARNING] Map width mismatch: expected " << expected_width 
+                      << ", got " << width_ << std::endl;
+        }
+        
         if (height_ == 0) {
             std::cerr << "[ERROR] Empty map file, creating default map" << std::endl;
             createDefaultMap();
         } else {
             std::cout << "[SUCCESS] Loaded map: " << width_ << "x" << height_ << " from " << filename << std::endl;
+            std::cout << "[INFO] Game parameters: MaxSteps=" << max_steps_ << ", NumShells=" << num_shells_ << std::endl;
         }
     }
     
@@ -202,6 +256,9 @@ int main(int argc, char* argv[]) {
         std::unique_ptr<FileMap> map;
         if (!map_file.empty()) {
             map = std::make_unique<FileMap>(map_file);
+            // Use values from file if not overridden by command line
+            if (max_steps == 100) max_steps = map->getMaxSteps(); // Use file value if default
+            if (shells_per_tank == 5) shells_per_tank = map->getNumShells(); // Use file value if default
         } else {
             map = std::make_unique<FileMap>(""); // Will create default map
         }

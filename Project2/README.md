@@ -1,105 +1,207 @@
-# Project2 - Tank Battle Game
+# Tank Battle Game
 
-This project is an implementation of a tank battle game where tanks controlled by algorithms compete on a battlefield. The game supports two players with multiple tanks, and features a satellite view system that allows tanks to gather information about their surroundings.
+## Overview
 
-## Features
+Tank Battle is a console-based strategy game where players control tanks on a 2D grid-based battlefield. The game implements modern C++ practices and various design patterns to create an immersive and challenging gameplay experience.
 
-- Two-player tank battle game
-- Support for multiple tanks per player
-- Tanks controlled by deterministic algorithms
-- Battle information system via satellite view
-- Customizable game maps with mines and walls
-- Shell firing and collision detection
-- Tank coordination through player objects
-- Output logging of game actions and results
+## Game Description
 
-## Building the Project
+In Tank Battle, each player controls one or more tanks on a grid-based map. Players can move their tanks, rotate them in different directions, and fire shells at opponents. The goal is to destroy all enemy tanks while protecting your own.
 
-To build the project, run:
+### Game Elements
+
+- **Tanks**: Player-controlled units that can move, rotate, and fire shells
+- **Walls**: Obstacles that block movement and shells 
+- **Weak Walls**: Barriers that can be destroyed after one hit from a shell (represented by '=' symbol)
+- **Mines**: Explosive objects that damage tanks
+- **Shells**: Projectiles fired by tanks that damage other tanks, walls, or mines
+
+## Building the Game
+
+To build the game, simply run:
 
 ```bash
 make
 ```
 
-This will compile all source files and create the executable in the `bin` directory.
+This will compile the game and generate the `tanks_game` executable.
 
 ## Running the Game
 
-To run the game, use:
+To play the game, run:
 
 ```bash
-./bin/tanks_game resources/maps/map1.txt
+./tanks_game inputs/<map_file>
 ```
 
-Or you can use the provided make target:
+Where `<map_file>` is one of the provided map files in the `inputs/` directory.
+
+### Maps
+
+The game includes several map files:
+- `input1.txt` - Simple map with minimal obstacles
+- `input2.txt` - Tactical map with multiple tanks per player
+- `input3.txt` - Close combat map
+- `input4.txt` - Maze challenge
+- `input5.txt` - Battlefield with mines
+- `input_weak_wall.txt` - Test map for weak walls
+- `wall_transformation_test.txt` - Test map for wall transformation visualization
+
+### Game Controls
+
+The game is AI-controlled, so no user input is required during gameplay. The tanks will move and act according to their programming.
+
+## Testing the Wall Transformation Feature
+
+The game features a wall system where:
+1. Regular walls (represented by '#') take 2 hits to destroy
+2. After the first hit, regular walls transform into weak walls (represented by '=')
+3. Weak walls take only 1 hit to destroy
+4. In visual mode, regular walls display as 🟩 and weak walls (and damaged regular walls) display as 🧱
+
+### Running the Tests
+
+To verify this functionality, run our simple test script:
 
 ```bash
-make run
+./test_wall_feature.sh
 ```
 
-This will run the game using the default map file `resources/maps/map1.txt`.
+This script will:
+1. Build all wall tests
+2. Run the simple wall test and save the output to logs
+3. Run the wall collision test and save the output to logs
+4. Run the wall boundary test and save the output to logs
+5. Build the main game
+6. Run the game with the wall test map
 
-## Map File Format
+You can also run the tests manually:
 
-Map files follow this format:
+```bash
+# Build and run individual tests
+make test_wall            # Runs the basic wall test
+make test_wall_collision  # Runs the wall collision test  
+make test_wall_boundary   # Runs the wall boundary test
+make test_all             # Runs all tests
+
+# Run the game with the wall test map
+./tanks_game -g inputs/wall_test.txt
+```
+
+### Available Tests
+
+The project includes multiple test files for comprehensive wall behavior testing:
+
+- **wall_test.cpp**: Basic tests for wall transformation and behavior
+- **wall_collision_test.cpp**: Tests for collision handling with walls
+- **wall_boundary_test.cpp**: Tests for wall behavior at boundaries and edge cases
+
+### Test Results
+
+The test results are saved in the logs directory:
+- `logs/wall_test.log` - Results of the simple wall test
+- `logs/wall_collision_test.log` - Results of the wall collision test
+- `logs/wall_boundary_test.log` - Results of the wall boundary test
+
+### Visual Verification
+
+To visually verify the wall transformation feature:
+
+1. Run the game with the test map: `./tanks_game -g inputs/wall_transformation_test.txt`
+2. Shoot at a wall (the AI will do this automatically)
+3. Observe the wall changing from 🟩 to 🧱 after one hit
+
+## Game Rules
+
+1. Each tank can move forward, rotate, or fire a shell on its turn
+2. Shells travel in the direction they are fired until they hit something
+3. When a shell hits a wall, the wall is weakened
+4. Regular walls require two hits to destroy
+5. Weak walls (marked with '=') require only one hit to destroy
+6. When a tank is hit by a shell, it is destroyed
+7. The game ends when all tanks of one player are destroyed, or when the maximum number of steps is reached
+
+## File Structure
+
+- `src/` - Source code files
+  - `gameManager/` - Game management and core functionality
+  - `algorithms/` - Tank AI algorithms
+- `include/` - Header files
+- `inputs/` - Game map files
+- `outputs/` - Output files from game runs
+- `logs/` - Log files including error messages
+- `build/` - Compiled objects and binaries
+
+## Logging
+
+The game generates logs in the `logs/` directory:
+- `log.txt` - General game logs
+- `error.txt` - Error messages
+- `input_error.txt` - Input parsing errors
+
+## Testing
+
+To run the test suite:
+
+```bash
+./run_tests.sh
+```
+
+## Visual Mode
+
+For a better visual experience, you can run the game with the `-g` flag:
+
+```bash
+./tanks_game -g inputs/<map_file>
+```
+
+This will display the game with emojis representing different game elements:
+- 🟩 - Wall
+- 🧱 - Weak Wall
+- 💣 - Mine
+- 🚀 - Shell
+- 💥 - Explosion
+- ⬜ - Empty space
+
+## Creating Custom Maps
+
+You can create your own maps as text files with the following format:
 
 ```
 Description Line
-MaxSteps = <number>
-NumShells = <number>
-Rows = <number>
-Cols = <number>
+MaxSteps=<number>
+NumShells=<number>
+Rows=<number>
+Cols=<number>
 ###############
-#      @      #
-#  1       2  #
-#             #
-#     ###     #
-...
+#1           #
+#            #
+#    ===     #
+#    ===     #
+#            #
+#           2#
+###############
 ```
 
 Where:
 - `#` represents walls
+- `=` represents weak walls
 - `@` represents mines
 - `1` represents player 1 tanks
 - `2` represents player 2 tanks
 - Spaces represent empty cells
 
-## Output
+## Technical Information
 
-The game generates an output file in the same location as the input map file, with `.out` appended to the filename. This file contains a line for each game round showing the actions of all tanks, and a final line showing the game result.
+- Language: C++17
+- Build System: Make
+- Design Patterns: Factory, Observer, Singleton, Strategy
+- Data Structures: 2D vectors, maps, sets
 
-Example output:
-```
-MoveForward, MoveBackward, RotateLeft90, RotateRight90
-RotateLeft45, RotateRight45 (ignored), Shoot, GetBattleInfo
-DoNothing, DoNothing, Shoot (ignored), MoveForward
-RotateLeft45, MoveForward (killed), MoveForward, MoveForward
-MoveForward, killed, MoveForward, MoveForward (ignored) (killed)
-Player 2 won with 2 tanks still alive
-```
+## Contributors
 
-## Architecture
+- Advanced Concepts in Programming - TAU 2025B
 
-This project uses a component-based architecture with the following main classes:
+## License
 
-- `GameManager`: Controls game flow and processes rounds
-- `Board`: Represents the game board and handles cell interactions
-- `Tank`: Represents a tank with movement and shooting capabilities
-- `Shell`: Represents an artillery shell fired by a tank
-- `Player`: Interface for player implementations that coordinate tanks
-- `TankAlgorithm`: Interface for tank AI implementations that control tank actions
-- `SatelliteView`: Interface for providing a view of the battlefield to tank algorithms
-
-## Project Structure
-
-- `src/`: Source code
-  - `common/`: Common API interfaces
-  - `algorithms/`: Tank algorithm implementations
-- `resources/`: Resource files
-  - `maps/`: Map files for the game
-- `bin/`: Compiled executable
-- `build/`: Build artifacts
-
-## Author
-
-TAU - Advanced Topics in Programming, Semester B 2025
+This project is for educational purposes only.

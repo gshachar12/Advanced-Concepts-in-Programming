@@ -1,23 +1,10 @@
-Turn 1
-Tank 1 status:
-ROTATE LEFT 1/8TH Tank 1
-stepped on (2, 2): Tank
-Tank 2 status:
-TANK 2 SHOOT
-stepped on (4, 5): Tank
-Shell status:
-Turn 2
-Tank 1 status:
-ROTATE LEFT 1/8TH Tank 1
-stepped on (2, 2): Tank
-Tank 2 status:
-TANK 2 CANNOT SHOOT
-stepped on (4, 5): Tank
-Shell hit a wall at (7, 5) and deactivated.
-Turn 3
-Tank 1 status:
-ROTATE LEFT 1/8TH Tank 1
-stepped on (2, 2): Tank
-Tank 2 status:
-TANK 2 CANNOT SHOOT
-stepped on (4, 5): Tank
+Get Battle Info, Get Battle Info
+Get Battle Info, Get Battle Info
+Get Battle Info, Rotate Right Eighth
+Get Battle Info, Get Battle Info
+Get Battle Info, Shoot
+Get Battle Info, Get Battle Info
+Move Forward, None
+Get Battle Info, Get Battle Info
+Move Forward, Get Battle Info (killed)
+Player 2 won with 1 tanks still alive
