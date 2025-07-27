@@ -2,6 +2,8 @@
 #include "VisualizingGameManager.h"
 #include "algorithms/AlgorithmFactory.h"
 #include "algorithms/TournamentManager.h"
+#include "simulator/Simulator.h"
+#include "simulator/AlgorithmRegistrar.h"
 #include "../common/SatelliteView.h"
 #include "CellType.h"
 #include <iostream>
@@ -167,9 +169,65 @@ void printUsage(const char* program_name) {
     std::cout << "  " << program_name << " -tournament -games 5\n";
 }
 
+/**
+ * Unified algorithm lookup that searches both built-in and dynamic algorithms
+ */
+struct UnifiedAlgorithmInfo {
+    std::string name;
+    TankAlgorithmFactory tank_factory;
+    PlayerFactory player_factory;
+    bool is_dynamic;
+};
+
+UnifiedAlgorithmInfo* findUnifiedAlgorithm(const std::string& name) {
+    static std::vector<UnifiedAlgorithmInfo> unified_cache;
+    
+    // Clear cache and rebuild
+    unified_cache.clear();
+    
+    // Add built-in algorithms
+    const auto& builtin_algorithms = AlgorithmRegistrar::getRegisteredAlgorithms();
+    for (const auto& algo : builtin_algorithms) {
+        unified_cache.push_back({
+            algo.name,
+            algo.factory,
+            algo.player_factory,
+            false
+        });
+    }
+    
+    // Add dynamic algorithms
+    auto& dynamic_registrar = DynamicAlgorithmRegistrar::getAlgorithmRegistrar();
+    for (const auto& algo : dynamic_registrar) {
+        unified_cache.push_back({
+            algo.name(),
+            [algo](int pi, int ti) { return algo.createTankAlgorithm(pi, ti); },
+            [algo](int pi, size_t x, size_t y, size_t ms, size_t ns) { return algo.createPlayer(pi, x, y, ms, ns); },
+            true
+        });
+    }
+    
+    // Search for algorithm
+    for (auto& algo : unified_cache) {
+        if (algo.name == name) {
+            return &algo;
+        }
+    }
+    
+    return nullptr;
+}
+
 int main(int argc, char* argv[]) {
-    // Initialize algorithms
+    // Initialize dynamic loading system
+    Simulator simulator("plugins/");
+    
+    // Load built-in algorithms as fallback
     AlgorithmRegistrar::registerDefaultAlgorithms();
+    
+    // Try to load dynamic plugins
+    if (!simulator.loadAllAlgorithms()) {
+        std::cout << "[INFO] No dynamic plugins found, using built-in algorithms only\n";
+    }
     
     // Default parameters
     std::string map_file = "";
@@ -191,9 +249,20 @@ int main(int argc, char* argv[]) {
             return 0;
         } else if (arg == "-list") {
             std::cout << "Available Algorithms:\n";
-            const auto& algorithms = AlgorithmRegistrar::getRegisteredAlgorithms();
-            for (const auto& algo : algorithms) {
+            std::cout << "Built-in algorithms:\n";
+            const auto& builtin_algorithms = AlgorithmRegistrar::getRegisteredAlgorithms();
+            for (const auto& algo : builtin_algorithms) {
                 std::cout << "  * " << algo.name << ": " << algo.description << "\n";
+            }
+            
+            std::cout << "\nDynamic plugin algorithms:\n";
+            auto& dynamic_registrar = DynamicAlgorithmRegistrar::getAlgorithmRegistrar();
+            if (dynamic_registrar.count() > 0) {
+                for (const auto& algo : dynamic_registrar) {
+                    std::cout << "  * " << algo.name() << " (plugin)\n";
+                }
+            } else {
+                std::cout << "  (none loaded)\n";
             }
             return 0;
         } else if (arg == "-map" && i + 1 < argc) {
@@ -239,8 +308,8 @@ int main(int argc, char* argv[]) {
         std::cout << "----------------\n";
         
         // Validate algorithms
-        auto* algo1_info = AlgorithmRegistrar::findAlgorithm(algo1_name);
-        auto* algo2_info = AlgorithmRegistrar::findAlgorithm(algo2_name);
+        auto* algo1_info = findUnifiedAlgorithm(algo1_name);
+        auto* algo2_info = findUnifiedAlgorithm(algo2_name);
         
         if (!algo1_info) {
             std::cerr << "[ERROR] Algorithm not found: " << algo1_name << std::endl;
@@ -277,8 +346,8 @@ int main(int argc, char* argv[]) {
         auto player2 = algo2_info->player_factory(1, map->getWidth() - 2, map->getHeight() - 2, max_steps, shells_per_tank);
         
         std::cout << "Starting game:\n";
-        std::cout << "   Player 1: " << algo1_name << "\n";
-        std::cout << "   Player 2: " << algo2_name << "\n";
+        std::cout << "   Player 1: " << algo1_name << (algo1_info->is_dynamic ? " (plugin)" : " (built-in)") << "\n";
+        std::cout << "   Player 2: " << algo2_name << (algo2_info->is_dynamic ? " (plugin)" : " (built-in)") << "\n";
         std::cout << "   Map: " << map->getWidth() << "x" << map->getHeight() << "\n";
         std::cout << "   Max Steps: " << max_steps << "\n";
         std::cout << "   Shells per Tank: " << shells_per_tank << "\n";
@@ -292,8 +361,8 @@ int main(int argc, char* argv[]) {
             max_steps,
             shells_per_tank,
             *player1, *player2,
-            algo1_info->factory,
-            algo2_info->factory
+            algo1_info->tank_factory,
+            algo2_info->tank_factory
         );
         
         // Display result

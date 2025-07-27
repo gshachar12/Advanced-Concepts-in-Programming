@@ -1,25 +1,62 @@
-# Tank Battle Game - Project 3 Makefile
+# Main Makefile for Project 3 - Assignment Compliant Structure
+# Builds all components: Simulator, GameManager, and Algorithm shared libraries
 # Authors: Shachar Gabbay and Dor Liberman
 
-CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -Icommon -Isrc -Isimulator -Ialgorithms
-LDFLAGS = 
+# Default target
+all: gamemanager test
 
-# Directories
-COMMON_DIR = common
-SRC_DIR = src
-SIMULATOR_DIR = simulator
-ALGORITHMS_DIR = algorithms
-BUILD_DIR = build
+# Build the simulator
+simulator:
+	@echo "Building Simulator..."
+	cd Simulator && $(MAKE)
 
-# Target executable
-TARGET = tanks_game
+# Build the game manager shared library
+gamemanager:
+	@echo "Building GameManager..."
+	cd GameManager && $(MAKE)
+
+# Build the algorithm shared library
+algorithm:
+	@echo "Building Algorithm..."
+	cd Algorithm && $(MAKE)
+
+# Build visualization test
+test: gamemanager
+	@echo "Building visualization test..."
+	g++ -std=c++17 -Wall -Wextra -g -IGameManager -Icommon -Iinclude test_visualization.cpp GameManager/MyGameManager_Fixed.o -o run_with_visualization.exe
+
+# Run the game with visualization
+run-viz: test
+	@echo ""
+	@echo "🎮 RUNNING GAME WITH VISUALIZATION..."
+	@echo "======================================="
+	@./run_with_visualization.exe
+
+# Clean all components
+clean:
+	@echo "Cleaning all components..."
+	cd Simulator && $(MAKE) clean
+	cd GameManager && $(MAKE) clean
+	cd Algorithm && $(MAKE) clean
+	rm -f run_with_visualization.exe
+
+# Install target (copies executables to common location)
+install: all
+	@echo "Installing components..."
+	mkdir -p bin
+	cp GameManager/*.so bin/
+	cp run_with_visualization.exe bin/
+
+.PHONY: all simulator gamemanager algorithm clean test install run-viz
 
 # Source files
 COMMON_SOURCES = 
 SRC_SOURCES = src/Board.cpp src/Tank.cpp src/Shell.cpp src/TankBattleInfo.cpp src/GameState.cpp src/CollisionDetector.cpp src/ActionProcessor.cpp src/GameManager.cpp src/VisualizingGameManager.cpp src/main.cpp
 ALGORITHM_SOURCES = src/algorithms/SimpleAlgorithm.cpp src/algorithms/BfsAlgorithm.cpp src/algorithms/MyPlayer.cpp src/algorithms/AlgorithmFactory.cpp src/algorithms/TournamentManager.cpp
-SIMULATOR_SOURCES = 
+SIMULATOR_SOURCES = src/simulator/AlgorithmRegistrar.cpp src/simulator/PlayerRegistration.cpp src/simulator/TankAlgorithmRegistration.cpp src/simulator/Simulator.cpp
+
+# Plugin sources
+SIMPLE_PLUGIN_SOURCES = plugins/SimplePlugin/SimpleTankAlgorithm.cpp plugins/SimplePlugin/SimplePlayer.cpp
 
 # Object files
 COMMON_OBJECTS = $(COMMON_SOURCES:.cpp=.o)
@@ -28,6 +65,9 @@ ALGORITHM_OBJECTS = $(ALGORITHM_SOURCES:.cpp=.o)
 SIMULATOR_OBJECTS = $(SIMULATOR_SOURCES:.cpp=.o)
 
 ALL_OBJECTS = $(COMMON_OBJECTS) $(SRC_OBJECTS) $(ALGORITHM_OBJECTS) $(SIMULATOR_OBJECTS)
+
+# Plugin targets
+PLUGINS = $(PLUGINS_DIR)/SimplePlugin.dll
 
 # Default target
 all: directories $(TARGET)
@@ -43,6 +83,17 @@ $(TARGET): $(ALL_OBJECTS)
 # Compile rules
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Plugin compilation rules
+plugins: directories $(PLUGINS)
+
+$(PLUGINS_DIR)/SimplePlugin.dll: $(SIMPLE_PLUGIN_SOURCES) $(SIMULATOR_OBJECTS)
+	@mkdir -p $(PLUGINS_DIR)
+	$(CXX) $(PLUGIN_CXXFLAGS) $(SIMPLE_PLUGIN_SOURCES) $(SIMULATOR_OBJECTS) -o $@ $(PLUGIN_LDFLAGS)
+	@echo "Built SimplePlugin.dll ✓"
+
+# Build with plugins
+all-with-plugins: all plugins
 
 # Test target - compile interfaces only
 test_interfaces:
@@ -84,6 +135,14 @@ test_plugins: test_plugin_architecture.exe
 test_plugin_architecture.exe: test_plugin_architecture.cpp $(SRC_SOURCES) $(ALGORITHM_SOURCES)
 	$(CXX) $(CXXFLAGS) -I. -o test_plugin_architecture.exe test_plugin_architecture.cpp $(SRC_SOURCES) $(ALGORITHM_SOURCES)
 
+# Test dynamic loading system
+test_dynamic: test_dynamic_loading.exe
+	@echo "Running Dynamic Loading test..."
+	test_dynamic_loading.exe
+
+test_dynamic_loading.exe: test_dynamic_loading.cpp $(SRC_SOURCES) $(ALGORITHM_SOURCES) $(SIMULATOR_OBJECTS)
+	$(CXX) $(CXXFLAGS) $(PLUGIN_LDFLAGS) -I. -o test_dynamic_loading.exe test_dynamic_loading.cpp $(SRC_SOURCES) $(ALGORITHM_SOURCES) $(SIMULATOR_OBJECTS)
+
 # Test tournament system
 test_tournament: test_tournament.exe
 	@echo "Running Tournament System test..."
@@ -91,27 +150,6 @@ test_tournament: test_tournament.exe
 
 test_tournament.exe: test_tournament.cpp $(SRC_SOURCES) $(ALGORITHM_SOURCES)
 	$(CXX) $(CXXFLAGS) -I. -o test_tournament.exe test_tournament.cpp $(SRC_SOURCES) $(ALGORITHM_SOURCES)
-
-# Clean target
-clean:
-	rm -f $(ALL_OBJECTS) $(TARGET)
-	rm -rf $(BUILD_DIR)
-	rm -f test_game_manager_simple.exe test_plugin_architecture.exe test_tournament.exe
-
-# Help target
-help:
-	@echo "Available targets:"
-	@echo "  all               - Build the complete project"
-	@echo "  run               - Build and run the game with default settings"
-	@echo "  tournament        - Run tournament mode"
-	@echo "  list              - List available algorithms"
-	@echo "  demo              - Run a demonstration game"
-	@echo "  test_interfaces   - Test that interface files compile"
-	@echo "  test_components   - Test that core component files compile"
-	@echo "  test_build        - Build object files for testing"
-	@echo "  test_game_manager - Test GameManager compilation and basic functionality"
-	@echo "  clean             - Remove build files"
-	@echo "  help              - Show this help message"
 
 # Game execution targets
 run: $(TARGET)
@@ -146,7 +184,7 @@ quick-tournament: $(TARGET)
 # Visualization targets
 visual: $(TARGET)
 	@echo "🎮 Running Visualization Mode..."
-	./$(TARGET) -visualize -map inputs/input2.txt -steps 20
+	./$(TARGET) -visualize -map inputs/simple_map.txt -steps 20
 
 visual-long: $(TARGET)
 	@echo "🎮 Running Long Visualization Game..."
@@ -156,4 +194,33 @@ visual-input1: $(TARGET)
 	@echo "🎮 Running Visualization with input1..."
 	./$(TARGET) -visualize -map inputs/input1.txt -steps 25
 
-.PHONY: all directories test_interfaces test_components test_build clean help run tournament list demo simple-vs-bfs bfs-vs-simple quick-tournament visual visual-long visual-input1
+# Clean up
+clean:
+	rm -f $(ALL_OBJECTS)
+	rm -f $(TARGET)
+	rm -f test_interfaces.exe test_components.exe test_plugins.exe test_tournament.exe test_dynamic_loading.exe
+	rm -f test_game_manager_simple.exe test_plugin_architecture.exe
+	rm -f $(PLUGINS)
+	rm -rf $(BUILD_DIR)
+	@echo "Cleaned all build files ✓"
+
+# Help target
+help:
+	@echo "Tank Battle Game - Project 3 Build System"
+	@echo "Available targets:"
+	@echo "  all                    - Build main executable"
+	@echo "  plugins               - Build plugin libraries"
+	@echo "  all-with-plugins      - Build everything (main + plugins)"
+	@echo "  clean                 - Clean all build files"
+	@echo "  test_interfaces       - Test interface compilation"
+	@echo "  test_components       - Test core component compilation"
+	@echo "  test_plugins          - Test plugin architecture"
+	@echo "  test_dynamic          - Test dynamic loading system"
+	@echo "  run                   - Run with default settings"
+	@echo "  demo                  - Quick demo game"
+	@echo "  tournament            - Full tournament"
+	@echo "  visual                - Visualization mode"
+	@echo "  list                  - List available algorithms"
+	@echo "  help                  - Show this help"
+
+.PHONY: all directories test_interfaces test_components test_build clean help run tournament list demo simple-vs-bfs bfs-vs-simple quick-tournament visual visual-long visual-input1 plugins all-with-plugins
