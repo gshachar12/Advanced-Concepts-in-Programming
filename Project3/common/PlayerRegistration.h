@@ -2,6 +2,7 @@
 #define PLAYER_REGISTRATION_H
 
 #include "Player.h"
+#include "PlayerFactory.h"
 #include <functional>
 #include <memory>
 
@@ -9,7 +10,8 @@
  * Player registration structure for dynamic plugin loading
  */
 struct PlayerRegistration {
-    PlayerRegistration(PlayerFactory factory);
+    using PlayerCreator = std::function<std::unique_ptr<Player>(int, size_t, size_t, size_t, size_t)>;
+    PlayerRegistration(PlayerCreator creator);
 };
 
 /**

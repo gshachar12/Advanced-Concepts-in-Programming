@@ -158,8 +158,21 @@ GameResult MyGameManager::simulateInteractiveGameWithAlgorithms(SatelliteView& m
     std::cout << "Remaining tanks: [" << result.remaining_tanks[0] 
               << ", " << result.remaining_tanks[1] << "]" << std::endl;
     
-    // Game ended by proper rules - one player eliminated
-    std::cout << "Reason: All enemy tanks eliminated" << std::endl;
+    // Show the actual reason for game termination
+    std::cout << "Reason: ";
+    switch (result.reason) {
+        case GameResult::ALL_TANKS_DEAD:
+            std::cout << "All enemy tanks eliminated";
+            break;
+        case GameResult::MAX_STEPS:
+            std::cout << "Maximum steps reached (" << state.max_steps << ")";
+            break;
+        case GameResult::ZERO_SHELLS:
+            std::cout << "All players out of shells";
+            break;
+    }
+    std::cout << std::endl;
+    std::cout << "Total rounds played: " << state.current_step << std::endl;
     
     return result;
 }
@@ -369,6 +382,7 @@ void MyGameManager::printGameSummary(const GameState& state) {
 }
 
 bool MyGameManager::isGameOver(const GameState& state) {
+    // Check if all tanks of one player are dead
     int p1_alive = 0, p2_alive = 0;
     for (const auto& tank : state.tanks) {
         if (tank.alive) {
@@ -376,7 +390,28 @@ bool MyGameManager::isGameOver(const GameState& state) {
             else p2_alive++;
         }
     }
-    return (p1_alive == 0 || p2_alive == 0);
+    if (p1_alive == 0 || p2_alive == 0) {
+        return true; // ALL_TANKS_DEAD condition
+    }
+    
+    // Check if maximum steps reached (only if max_steps > 0, 0 means unlimited)
+    if (state.max_steps > 0 && state.current_step >= state.max_steps) {
+        return true; // MAX_STEPS condition
+    }
+    
+    // Check if all players have zero shells
+    int p1_shells = 0, p2_shells = 0;
+    for (const auto& tank : state.tanks) {
+        if (tank.alive) {
+            if (tank.player == 1) p1_shells += tank.shells;
+            else p2_shells += tank.shells;
+        }
+    }
+    if (p1_shells == 0 && p2_shells == 0) {
+        return true; // ZERO_SHELLS condition
+    }
+    
+    return false;
 }
 
 GameResult MyGameManager::generateFinalResult(const GameState& state) {
@@ -390,15 +425,46 @@ GameResult MyGameManager::generateFinalResult(const GameState& state) {
         }
     }
     
-    if (p1_tanks > p2_tanks) {
-        result.winner = 1;
-    } else if (p2_tanks > p1_tanks) {
-        result.winner = 2;
+    // Determine the reason for game ending
+    if (p1_tanks == 0 || p2_tanks == 0) {
+        result.reason = GameResult::ALL_TANKS_DEAD;
+    } else if (state.max_steps > 0 && state.current_step >= state.max_steps) {
+        result.reason = GameResult::MAX_STEPS;
     } else {
-        result.winner = 0; // Tie
+        // Check if all players have zero shells
+        int p1_shells = 0, p2_shells = 0;
+        for (const auto& tank : state.tanks) {
+            if (tank.alive) {
+                if (tank.player == 1) p1_shells += tank.shells;
+                else p2_shells += tank.shells;
+            }
+        }
+        if (p1_shells == 0 && p2_shells == 0) {
+            result.reason = GameResult::ZERO_SHELLS;
+        }
     }
     
-    result.remaining_tanks = {(unsigned int)p1_tanks, (unsigned int)p2_tanks};
+    // Determine the winner based on the reason
+    if (result.reason == GameResult::ALL_TANKS_DEAD) {
+        if (p1_tanks > p2_tanks) {
+            result.winner = 1;
+        } else if (p2_tanks > p1_tanks) {
+            result.winner = 2;
+        } else {
+            result.winner = 0; // Tie - both eliminated simultaneously
+        }
+    } else {
+        // For MAX_STEPS or ZERO_SHELLS, winner is determined by tank count
+        if (p1_tanks > p2_tanks) {
+            result.winner = 1;
+        } else if (p2_tanks > p1_tanks) {
+            result.winner = 2;
+        } else {
+            result.winner = 0; // Tie
+        }
+    }
+    
+    result.remaining_tanks = {(size_t)p1_tanks, (size_t)p2_tanks};
     return result;
 }
 
