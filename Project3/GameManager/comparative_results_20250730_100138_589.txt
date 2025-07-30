@@ -1,0 +1,4 @@
+game_map=../inputs/input1.txt
+algorithm1=../Algorithm/Algorithm_123456789_987654321.so
+algorithm2=../Algorithm/Algorithm_123456789_987654321.so
+

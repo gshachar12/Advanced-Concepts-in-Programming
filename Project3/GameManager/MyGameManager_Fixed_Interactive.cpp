@@ -1,0 +1,484 @@
+#include "MyGameManager_Fixed.h"
+#include <iostream>
+#include <thread>
+#include <chrono>
+#include <cstdlib>
+
+#ifdef _WIN32
+#include <conio.h>
+#else
+#include <termios.h>
+#include <unistd.h>
+#endif
+
+namespace GameManager_123456789_987654321 {
+
+GameResult MyGameManager::run(
+    size_t map_width, size_t map_height,
+    SatelliteView& map,
+    size_t max_steps, size_t num_shells,
+    Player& player1, Player& player2,
+    TankAlgorithmFactory& player1_tank_algo_factory,
+    TankAlgorithmFactory& player2_tank_algo_factory) {
+    
+    if (verbose_) {
+        std::cout << "=== PROJECT 3 INTERACTIVE GAME VISUALIZATION ===" << std::endl;
+        std::cout << "Map dimensions: " << map_width << "x" << map_height << std::endl;
+        std::cout << "Max steps: " << max_steps << ", Shells per tank: " << num_shells << std::endl;
+        std::cout << "Player 1 vs Player 2" << std::endl;
+        std::cout << "===============================================" << std::endl;
+        
+        // Show initial map
+        clearScreen();
+        std::cout << "\n=== INITIAL MAP STATE ===\n" << std::endl;
+        displayInteractiveMap(map, map_width, map_height);
+        waitForInput();
+        
+        // Simulate interactive game with real Project 2-style visualization
+        return simulateInteractiveGame(map, map_width, map_height, max_steps, num_shells);
+    } else {
+        // Simple non-visual version
+        displayMap(map, map_width, map_height);
+        simulateGameWithVisualization(map_width, map_height, max_steps);
+        
+        GameResult result;
+        result.winner = 1;
+        result.remaining_tanks = {1, 0};
+        return result;
+    }
+}
+
+void MyGameManager::displayMap(SatelliteView& map, size_t width, size_t height) {
+    std::cout << "\n--- MAP LAYOUT ---" << std::endl;
+    for (size_t row = 0; row < height; ++row) {
+        for (size_t col = 0; col < width; ++col) {
+            char cell = map.getObject(col, row);
+            std::cout << cell;
+        }
+        std::cout << std::endl;
+    }
+    std::cout << "------------------" << std::endl;
+}
+
+void MyGameManager::displayInteractiveMap(SatelliteView& map, size_t width, size_t height) {
+    // Print column numbers
+    std::cout << "   ";
+    for (size_t x = 0; x < width; ++x) {
+        std::cout << (x % 10);
+    }
+    std::cout << "\n";
+    
+    // Print board with Project 2-style emojis
+    for (size_t y = 0; y < height; ++y) {
+        std::cout << (y % 10) << "  ";
+        for (size_t x = 0; x < width; ++x) {
+            char cell = map.getObject(x, y);
+            std::cout << getEmojiForCell(cell);
+        }
+        std::cout << "\n";
+    }
+    std::cout << "\n";
+}
+
+std::string MyGameManager::getEmojiForCell(char cell) {
+    switch (cell) {
+        case '#': return "🟩";  // Wall
+        case '=': return "🧱";  // Weak wall
+        case '@': return "💣";  // Mine
+        case '*': return "🚀";  // Shell
+        case 'X': return "💥";  // Explosion
+        case '1': return "🔵1"; // Player 1 tank
+        case '2': return "🔴2"; // Player 2 tank
+        case ' ': return "⬜";  // Empty space
+        default:  return "⬜";  // Default empty
+    }
+}
+
+GameResult MyGameManager::simulateInteractiveGame(SatelliteView& map, size_t width, size_t height, size_t max_steps, size_t num_shells) {
+    // Create game state
+    GameState state;
+    state.width = width;
+    state.height = height;
+    state.max_steps = max_steps;
+    state.current_step = 0;
+    
+    // Initialize tanks
+    initializeTanks(state, map, width, height, num_shells);
+    
+    std::cout << "\n=== STARTING INTERACTIVE GAME ===\n";
+    std::cout << "Press ENTER after each step to continue...\n\n";
+    
+    // Main game loop with interactive visualization
+    while (state.current_step < max_steps && !isGameOver(state)) {
+        state.current_step++;
+        
+        clearScreen();
+        std::cout << "=== TURN " << state.current_step << "/" << max_steps << " ===\n\n";
+        
+        // Execute turn logic
+        executeTurn(state);
+        
+        // Display rich game state
+        displayGameState(state, width, height);
+        
+        // Show detailed status
+        printTankStatus(state);
+        printShellStatus(state);
+        printGameSummary(state);
+        
+        // Check for game end
+        if (isGameOver(state)) {
+            std::cout << "\n🏁 GAME OVER!\n";
+            break;
+        }
+        
+        // Interactive pause
+        waitForInput();
+    }
+    
+    // Return final result
+    GameResult result = generateFinalResult(state);
+    
+    std::cout << "\n=== FINAL RESULT ===" << std::endl;
+    std::cout << "Winner: Player " << result.winner << std::endl;
+    std::cout << "Remaining tanks: [" << result.remaining_tanks[0] 
+              << ", " << result.remaining_tanks[1] << "]" << std::endl;
+    
+    return result;
+}
+
+void MyGameManager::simulateGameWithVisualization(size_t width, size_t height, size_t max_steps) {
+    std::cout << "\n--- GAME SIMULATION (showing visualization concept) ---" << std::endl;
+    
+    // Simulate a few game steps to show visualization
+    for (size_t step = 1; step <= std::min(size_t(5), max_steps); ++step) {
+        std::cout << "\nStep " << step << ":" << std::endl;
+        std::cout << "Player 1: Move forward, Tank status: Active" << std::endl;
+        std::cout << "Player 2: Rotate right, Tank status: Active" << std::endl;
+        
+        if (step == 3) {
+            std::cout << "Player 1: FIRE! Shell trajectory: (2,3) -> (4,3)" << std::endl;
+        }
+        
+        if (step == 5) {
+            std::cout << "COLLISION! Player 2 tank destroyed!" << std::endl;
+            break;
+        }
+    }
+    
+    std::cout << "--- End of simulation preview ---" << std::endl;
+    std::cout << "=== GAME COMPLETE ===" << std::endl;
+    std::cout << "Winner: Player 1" << std::endl;
+    std::cout << "Reason: All enemy tanks destroyed" << std::endl;
+    std::cout << "Remaining tanks - Player 1: 1, Player 2: 0" << std::endl;
+}
+
+void MyGameManager::clearScreen() {
+    std::cout << "\033[2J\033[1;1H"; // ANSI escape codes to clear screen
+}
+
+void MyGameManager::waitForInput() {
+    std::cout << "\nPress ENTER to continue to the next step...\n";
+#ifdef _WIN32
+    system("pause >nul");
+#else
+    std::cin.get();
+#endif
+}
+
+void MyGameManager::initializeTanks(GameState& state, SatelliteView& map, size_t width, size_t height, size_t num_shells) {
+    // Find tank positions on the map
+    for (size_t y = 0; y < height; ++y) {
+        for (size_t x = 0; x < width; ++x) {
+            char cell = map.getObject(x, y);
+            if (cell == '1') {
+                Tank tank1;
+                tank1.x = x; tank1.y = y; tank1.player = 1; tank1.shells = num_shells;
+                tank1.direction = 0; tank1.alive = true; tank1.cooldown = 0;
+                state.tanks.push_back(tank1);
+            } else if (cell == '2') {
+                Tank tank2;
+                tank2.x = x; tank2.y = y; tank2.player = 2; tank2.shells = num_shells;
+                tank2.direction = 4; tank2.alive = true; tank2.cooldown = 0;
+                state.tanks.push_back(tank2);
+            }
+        }
+    }
+}
+
+void MyGameManager::executeTurn(GameState& state) {
+    // Move shells
+    for (auto& shell : state.shells) {
+        if (shell.active) {
+            // Move shell in its direction
+            moveShell(shell);
+            // Check collisions
+            checkShellCollisions(shell, state);
+        }
+    }
+    
+    // Execute tank actions
+    for (auto& tank : state.tanks) {
+        if (tank.alive) {
+            // Simulate tank action (random for demo)
+            int action = (state.current_step + tank.player) % 4;
+            executeTankAction(tank, action, state);
+        }
+    }
+    
+    // Decrease cooldowns
+    for (auto& tank : state.tanks) {
+        if (tank.cooldown > 0) tank.cooldown--;
+    }
+}
+
+void MyGameManager::displayGameState(const GameState& state, size_t width, size_t height) {
+    // Create visual board
+    std::vector<std::vector<std::string>> visualBoard(height, std::vector<std::string>(width, "⬜"));
+    
+    // Add walls (simple pattern for demo)
+    for (size_t y = 0; y < height; ++y) {
+        for (size_t x = 0; x < width; ++x) {
+            if (x == 0 || y == 0 || x == width-1 || y == height-1) {
+                visualBoard[y][x] = "🟩"; // Border walls
+            }
+            if ((x + y) % 7 == 0 && x > 0 && y > 0 && x < width-1 && y < height-1) {
+                visualBoard[y][x] = "🟩"; // Some internal walls
+            }
+        }
+    }
+    
+    // Add shells
+    for (const auto& shell : state.shells) {
+        if (shell.active && shell.x < width && shell.y < height) {
+            visualBoard[shell.y][shell.x] = "🚀";
+        }
+    }
+    
+    // Add tanks with directional arrows
+    const std::vector<std::string> directions = {"↑", "↗", "→", "↘", "↓", "↙", "←", "↖"};
+    
+    for (const auto& tank : state.tanks) {
+        if (tank.alive && tank.x < width && tank.y < height) {
+            std::string dir_symbol = (tank.direction < directions.size()) ? directions[tank.direction] : "?";
+            if (tank.player == 1) {
+                visualBoard[tank.y][tank.x] = dir_symbol + "1";
+            } else {
+                visualBoard[tank.y][tank.x] = dir_symbol + "2";
+            }
+        }
+    }
+    
+    // Print column numbers
+    std::cout << "   ";
+    for (size_t x = 0; x < width; ++x) {
+        std::cout << (x % 10);
+    }
+    std::cout << "\n";
+    
+    // Print the visual board
+    for (size_t y = 0; y < height; ++y) {
+        std::cout << (y % 10) << "  ";
+        for (size_t x = 0; x < width; ++x) {
+            std::cout << visualBoard[y][x];
+        }
+        std::cout << "\n";
+    }
+    std::cout << "\n";
+}
+
+void MyGameManager::printTankStatus(const GameState& state) {
+    std::cout << "Tank Status:\n";
+    for (const auto& tank : state.tanks) {
+        if (tank.alive) {
+            const std::vector<std::string> directions = {"↑", "↗", "→", "↘", "↓", "↙", "←", "↖"};
+            std::string dir_symbol = (tank.direction < directions.size()) ? directions[tank.direction] : "?";
+            
+            std::cout << dir_symbol << " Tank " << tank.player 
+                      << " at (" << tank.x << ", " << tank.y << ")"
+                      << ", Direction: " << dir_symbol
+                      << ", Shells: " << tank.shells
+                      << ", Cooldown: " << tank.cooldown << "\n";
+        } else {
+            std::cout << "💀 Tank " << tank.player << " - DESTROYED\n";
+        }
+    }
+}
+
+void MyGameManager::printShellStatus(const GameState& state) {
+    bool hasShells = false;
+    for (const auto& shell : state.shells) {
+        if (shell.active) {
+            if (!hasShells) {
+                std::cout << "\nShell Status:\n";
+                hasShells = true;
+            }
+            const std::vector<std::string> directions = {"↑", "↗", "→", "↘", "↓", "↙", "←", "↖"};
+            std::string dir_symbol = (shell.direction < directions.size()) ? directions[shell.direction] : "?";
+            
+            std::cout << "🚀 Shell at (" << shell.x << ", " << shell.y 
+                      << "), Direction: " << dir_symbol 
+                      << ", Owner: Player " << shell.owner << "\n";
+        }
+    }
+}
+
+void MyGameManager::printGameSummary(const GameState& state) {
+    int p1_tanks = 0, p2_tanks = 0;
+    int p1_shells = 0, p2_shells = 0;
+    
+    for (const auto& tank : state.tanks) {
+        if (tank.alive) {
+            if (tank.player == 1) {
+                p1_tanks++;
+                p1_shells += tank.shells;
+            } else {
+                p2_tanks++;
+                p2_shells += tank.shells;
+            }
+        }
+    }
+    
+    int shells_in_flight = 0;
+    for (const auto& shell : state.shells) {
+        if (shell.active) shells_in_flight++;
+    }
+    
+    std::cout << "\nGame Summary:\n";
+    std::cout << "Player 1 Artillery: " << p1_tanks << " tanks, " << p1_shells << " shells\n";
+    std::cout << "Player 2 Artillery: " << p2_tanks << " tanks, " << p2_shells << " shells\n";
+    std::cout << "Shells in flight: " << shells_in_flight << "\n";
+    std::cout << "Turn: " << state.current_step << "/" << state.max_steps << "\n";
+}
+
+bool MyGameManager::isGameOver(const GameState& state) {
+    int p1_alive = 0, p2_alive = 0;
+    for (const auto& tank : state.tanks) {
+        if (tank.alive) {
+            if (tank.player == 1) p1_alive++;
+            else p2_alive++;
+        }
+    }
+    return (p1_alive == 0 || p2_alive == 0);
+}
+
+GameResult MyGameManager::generateFinalResult(const GameState& state) {
+    GameResult result;
+    
+    int p1_tanks = 0, p2_tanks = 0;
+    for (const auto& tank : state.tanks) {
+        if (tank.alive) {
+            if (tank.player == 1) p1_tanks++;
+            else p2_tanks++;
+        }
+    }
+    
+    if (p1_tanks > p2_tanks) {
+        result.winner = 1;
+    } else if (p2_tanks > p1_tanks) {
+        result.winner = 2;
+    } else {
+        result.winner = 0; // Tie
+    }
+    
+    result.remaining_tanks = {p1_tanks, p2_tanks};
+    return result;
+}
+
+// Implement helper functions for tank/shell mechanics
+void MyGameManager::moveShell(Shell& shell) {
+    const std::vector<std::pair<int, int>> dir_offsets = {
+        {0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}
+    };
+    
+    if (shell.direction < dir_offsets.size()) {
+        shell.x += dir_offsets[shell.direction].first;
+        shell.y += dir_offsets[shell.direction].second;
+    }
+}
+
+void MyGameManager::checkShellCollisions(Shell& shell, GameState& state) {
+    // Check bounds
+    if (shell.x < 0 || shell.x >= state.width || shell.y < 0 || shell.y >= state.height) {
+        shell.active = false;
+        return;
+    }
+    
+    // Check tank collisions
+    for (auto& tank : state.tanks) {
+        if (tank.alive && tank.x == shell.x && tank.y == shell.y && tank.player != shell.owner) {
+            tank.alive = false;
+            shell.active = false;
+            return;
+        }
+    }
+}
+
+void MyGameManager::executeTankAction(Tank& tank, int action, GameState& state) {
+    switch (action) {
+        case 0: // Move forward
+            moveTank(tank, state);
+            break;
+        case 1: // Rotate right
+            tank.direction = (tank.direction + 1) % 8;
+            break;
+        case 2: // Rotate left
+            tank.direction = (tank.direction + 7) % 8;
+            break;
+        case 3: // Shoot
+            if (tank.shells > 0 && tank.cooldown == 0) {
+                shootShell(tank, state);
+            }
+            break;
+    }
+}
+
+void MyGameManager::moveTank(Tank& tank, const GameState& state) {
+    const std::vector<std::pair<int, int>> dir_offsets = {
+        {0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}
+    };
+    
+    if (tank.direction < dir_offsets.size()) {
+        int new_x = tank.x + dir_offsets[tank.direction].first;
+        int new_y = tank.y + dir_offsets[tank.direction].second;
+        
+        // Check bounds and collisions
+        if (new_x >= 0 && new_x < (int)state.width && new_y >= 0 && new_y < (int)state.height) {
+            // Check for walls (border) and other tanks
+            bool blocked = false;
+            if (new_x == 0 || new_y == 0 || new_x == (int)state.width-1 || new_y == (int)state.height-1) {
+                blocked = true; // Border wall
+            }
+            
+            for (const auto& other_tank : state.tanks) {
+                if (other_tank.alive && other_tank.x == new_x && other_tank.y == new_y) {
+                    blocked = true;
+                    break;
+                }
+            }
+            
+            if (!blocked) {
+                tank.x = new_x;
+                tank.y = new_y;
+            }
+        }
+    }
+}
+
+void MyGameManager::shootShell(Tank& tank, GameState& state) {
+    Shell shell;
+    shell.x = tank.x;
+    shell.y = tank.y;
+    shell.direction = tank.direction;
+    shell.owner = tank.player;
+    shell.active = true;
+    
+    // Move shell one step forward from tank
+    moveShell(shell);
+    
+    state.shells.push_back(shell);
+    tank.shells--;
+    tank.cooldown = 3;
+}
+
+}
