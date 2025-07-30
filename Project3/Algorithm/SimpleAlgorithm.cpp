@@ -1,25 +1,27 @@
 #include "SimpleAlgorithm.h"
-#include "Logger.h"
 
-void SimpleAlgorithm::calculateAction(ActionRequest *request, std::string *request_title) {
-    if (battle_status.turn_number == 0 || was_threatened) {
-        was_threatened = false;
-        *request = ActionRequest::GetBattleInfo;
-        *request_title = "Reciving Battle Info";
-        return;
-    }
-    if (isTankThreatened()) {
-        was_threatened = true;
-        *request = moveIfThreatened();
-        *request_title = "Avoid Threat";
-        return;
-    }
-    if (battle_status.canTankHitEnemy()) {
-        *request = ActionRequest::Shoot;
-        *request_title = "Shooting enemy";
-    }
+namespace Algorithm_123456789_987654321 {
 
-    battle_status.last_requested_info_turn = battle_status.turn_number + 1;
-    *request = ActionRequest::GetBattleInfo;
-    *request_title = "Reciving Battle Info";
+SimpleAlgorithm::SimpleAlgorithm(int player_index, int tank_index) 
+    : player_index_(player_index), tank_index_(tank_index), turn_count_(0) {
 }
+
+ActionRequest SimpleAlgorithm::getAction() {
+    turn_count_++;
+    
+    // Simple algorithm: shoot every 5 turns, otherwise move forward
+    if (turn_count_ % 5 == 0) {
+        return ActionRequest::Shoot;
+    } else if (turn_count_ % 10 == 3) {
+        return ActionRequest::RotateLeft45;
+    } else {
+        return ActionRequest::MoveForward;
+    }
+}
+
+void SimpleAlgorithm::updateBattleInfo(BattleInfo& info) {
+    // For simple algorithm, we don't need to process battle info
+    (void)info; // Suppress unused parameter warning
+}
+
+} // namespace Algorithm_123456789_987654321

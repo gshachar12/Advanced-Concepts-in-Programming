@@ -14,9 +14,11 @@ class FileSatelliteView : public SatelliteView {
 private:
     std::vector<std::string> map_data_;
     size_t width_, height_;
+    size_t max_steps_;
+    size_t num_shells_;
     
 public:
-    FileSatelliteView(const std::string& filename) {
+    FileSatelliteView(const std::string& filename) : max_steps_(0), num_shells_(16) {
         loadFromFile(filename);
     }
     
@@ -28,13 +30,21 @@ public:
         }
         
         std::string line;
-        bool reading_map = false;
         
         while (std::getline(file, line)) {
-            // Skip comment lines and metadata
+            // Parse metadata lines
+            if (line.find("MaxSteps=") == 0) {
+                max_steps_ = std::stoul(line.substr(9));
+                continue;
+            }
+            if (line.find("NumShells=") == 0) {
+                num_shells_ = std::stoul(line.substr(10));
+                std::cout << "Parsed NumShells from file: " << num_shells_ << std::endl;
+                continue;
+            }
+            
+            // Skip other metadata lines
             if (line.empty() || line[0] == '#' || 
-                line.find("MaxSteps=") == 0 || 
-                line.find("NumShells=") == 0 ||
                 line.find("Rows=") == 0 ||
                 line.find("Cols=") == 0 ||
                 line.find(" - ") != std::string::npos) {
@@ -80,6 +90,8 @@ public:
     
     size_t getWidth() const { return width_; }
     size_t getHeight() const { return height_; }
+    size_t getMaxSteps() const { return max_steps_; }
+    size_t getNumShells() const { return num_shells_; }
 };
 
 // Mock implementation of Player for testing  
@@ -127,10 +139,12 @@ int main(int argc, char* argv[]) {
     std::cout << "" << std::endl;
     
     // Run the game with visualization using real input
+    std::cout << "Using " << fileMap.getNumShells() << " shells per tank from input file" << std::endl;
+    
     GameResult result = gameManager.run(
         fileMap.getWidth(), fileMap.getHeight(),  // Map dimensions from file
         fileMap,          // satellite view loaded from file
-        0, 25,            // 0 max steps (unlimited - ends by elimination), 25 shells per tank
+        fileMap.getMaxSteps(), fileMap.getNumShells(), // Use values from input file
         player1, player2, // the two players
         factory1, factory2 // tank algorithm factories with real algorithms
     );

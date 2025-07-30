@@ -2,7 +2,6 @@
 #define PLAYER_REGISTRATION_H
 
 #include "Player.h"
-#include "PlayerFactory.h"
 #include <functional>
 #include <memory>
 

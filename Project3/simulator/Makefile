@@ -11,13 +11,13 @@ endif
 INCLUDES = -I../common -I../include
 
 # Source files
-SOURCES = main.cpp
+SOURCES = main.cpp PlayerRegistration.cpp TankAlgorithmRegistration.cpp GameManagerRegistration.cpp
 
 # Object files
 OBJECTS = $(SOURCES:.cpp=.o)
 
-# Target executable
-TARGET = Simulator_123456789_987654321
+# Target executable (assignment requires lowercase 'simulator_')
+TARGET = simulator_123456789_987654321
 
 # Default target
 all: $(TARGET)

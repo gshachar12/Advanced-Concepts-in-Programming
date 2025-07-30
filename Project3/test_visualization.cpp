@@ -70,7 +70,7 @@ int main() {
     GameResult result = gameManager.run(
         10, 10,           // 10x10 map
         mockMap,          // satellite view of the map
-        0, 3,             // 0 max steps (unlimited - ends by elimination), 3 shells per tank
+        0, 16,            // 0 max steps (unlimited - ends by elimination), 16 shells per tank
         player1, player2, // the two players
         factory1, factory2 // tank algorithm factories
     );

@@ -5,23 +5,17 @@ LDFLAGS = -shared
 # Include directories
 INCLUDES = -I../common -I../include
 
-# Source files for simple algorithm
-SIMPLE_SOURCES = SimpleAlgorithm.cpp SimplePlayer.cpp AlgorithmRegistration.cpp
-SIMPLE_OBJECTS = $(SIMPLE_SOURCES:.cpp=.o)
-SIMPLE_TARGET = Algorithm_Simple_123456789_987654321.so
+# Simplified algorithm source files (only TankAlgorithm for now)
+ALL_SOURCES = SimpleAlgorithm.cpp AlgorithmRegistration.cpp ../common/TankAlgorithmRegistration.cpp
+ALL_OBJECTS = $(ALL_SOURCES:.cpp=.o)
 
-# Source files for BFS algorithm (if they exist)
-BFS_SOURCES = BfsAlgorithm.cpp BfsPlayer.cpp
-BFS_OBJECTS = $(BFS_SOURCES:.cpp=.o)
-BFS_TARGET = Algorithm_BFS_123456789_987654321.so
+# Unified target as required by assignment
+TARGET = Algorithm_123456789_987654321.so
 
 # Default target
-all: $(SIMPLE_TARGET)
+all: $(TARGET)
 
-$(SIMPLE_TARGET): $(SIMPLE_OBJECTS)
-	$(CXX) $(LDFLAGS) -o $@ $^
-
-$(BFS_TARGET): $(BFS_OBJECTS) AlgorithmRegistration.o
+$(TARGET): $(ALL_OBJECTS)
 	$(CXX) $(LDFLAGS) -o $@ $^
 
 %.o: %.cpp

@@ -66,6 +66,31 @@ run-input2: test-input
 run-input3: test-input
 	@./run_with_input.exe inputs/input3.txt
 
+# Run visualization with real input files
+run-viz-input1: test-input
+	@echo ""
+	@echo "🎮 RUNNING VISUALIZATION WITH INPUT1..."
+	@echo "======================================="
+	@./run_with_input.exe inputs/input1.txt
+
+run-viz-input2: test-input
+	@echo ""
+	@echo "🎮 RUNNING VISUALIZATION WITH INPUT2..."
+	@echo "======================================="
+	@./run_with_input.exe inputs/input2.txt
+
+run-viz-input3: test-input
+	@echo ""
+	@echo "🎮 RUNNING VISUALIZATION WITH INPUT3..."
+	@echo "======================================="
+	@./run_with_input.exe inputs/input3.txt
+
+run-viz-simple: test-input
+	@echo ""
+	@echo "🎮 RUNNING VISUALIZATION WITH SIMPLE MAP..."
+	@echo "==========================================="
+	@./run_with_input.exe inputs/simple_map.txt
+
 # Clean all components
 clean:
 	@echo "Cleaning all components..."
@@ -83,4 +108,4 @@ install: all
 	cp GameManager/*.so bin/
 	cp run_with_visualization.exe bin/
 
-.PHONY: all simulator gamemanager algorithm usercommon plugins clean test install run-viz
+.PHONY: all simulator gamemanager algorithm usercommon plugins clean test install run-viz run-viz-input1 run-viz-input2 run-viz-input3 run-viz-simple

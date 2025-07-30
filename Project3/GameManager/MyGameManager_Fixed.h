@@ -40,6 +40,8 @@ struct GameState {
     size_t width, height;
     size_t max_steps;
     size_t current_step;
+    bool all_shells_exhausted;
+    size_t post_shell_steps;
 };
 
 class MyGameManager : public AbstractGameManager {
@@ -86,7 +88,7 @@ private:
     void printGameSummary(const GameState& state);
     
     // Game logic helpers
-    bool isGameOver(const GameState& state);
+    bool isGameOver(GameState& state);
     GameResult generateFinalResult(const GameState& state);
     void moveShell(Shell& shell);
     void checkShellCollisions(Shell& shell, GameState& state);

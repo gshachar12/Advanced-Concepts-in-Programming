@@ -115,6 +115,8 @@ GameResult MyGameManager::simulateInteractiveGameWithAlgorithms(SatelliteView& m
     state.height = height;
     state.max_steps = max_steps;
     state.current_step = 0;
+    state.all_shells_exhausted = false;
+    state.post_shell_steps = 0;
     
     // Initialize tanks and their algorithms
     initializeTanksWithAlgorithms(state, map, width, height, num_shells);
@@ -381,7 +383,7 @@ void MyGameManager::printGameSummary(const GameState& state) {
     std::cout << "Turn: " << state.current_step << "/" << state.max_steps << "\n";
 }
 
-bool MyGameManager::isGameOver(const GameState& state) {
+bool MyGameManager::isGameOver(GameState& state) {
     // Check if all tanks of one player are dead
     int p1_alive = 0, p2_alive = 0;
     for (const auto& tank : state.tanks) {
@@ -399,7 +401,7 @@ bool MyGameManager::isGameOver(const GameState& state) {
         return true; // MAX_STEPS condition
     }
     
-    // Check if all players have zero shells
+    // Check shell mechanics: if all players have zero shells, continue for 40 more steps
     int p1_shells = 0, p2_shells = 0;
     for (const auto& tank : state.tanks) {
         if (tank.alive) {
@@ -407,8 +409,24 @@ bool MyGameManager::isGameOver(const GameState& state) {
             else p2_shells += tank.shells;
         }
     }
+    
+    // New shell exhaustion logic
     if (p1_shells == 0 && p2_shells == 0) {
-        return true; // ZERO_SHELLS condition
+        if (!state.all_shells_exhausted) {
+            // First time all shells are exhausted - start the 40-step countdown
+            state.all_shells_exhausted = true;
+            state.post_shell_steps = 0;
+            std::cout << "\n🚨 ALL SHELLS EXHAUSTED! Game continues for 40 more steps...\n";
+        } else {
+            // Already in post-shell phase - increment counter
+            state.post_shell_steps++;
+            std::cout << "Post-shell step " << state.post_shell_steps << "/40\n";
+            
+            // Check if 40 post-shell steps have passed
+            if (state.post_shell_steps >= 40) {
+                return true; // End game as TIE after 40 steps
+            }
+        }
     }
     
     return false;
@@ -430,8 +448,15 @@ GameResult MyGameManager::generateFinalResult(const GameState& state) {
         result.reason = GameResult::ALL_TANKS_DEAD;
     } else if (state.max_steps > 0 && state.current_step >= state.max_steps) {
         result.reason = GameResult::MAX_STEPS;
+    } else if (state.all_shells_exhausted && state.post_shell_steps >= 40) {
+        // Game ended after 40 post-shell steps - it's a TIE
+        result.reason = GameResult::ZERO_SHELLS;
+        result.winner = 0; // Tie
+        result.remaining_tanks[0] = p1_tanks;
+        result.remaining_tanks[1] = p2_tanks;
+        return result;
     } else {
-        // Check if all players have zero shells
+        // Check if all players have zero shells (shouldn't happen with new logic)
         int p1_shells = 0, p2_shells = 0;
         for (const auto& tank : state.tanks) {
             if (tank.alive) {

@@ -10,7 +10,7 @@ LIBDIRS = -L../UserCommon
 LIBS = -lUserCommon
 
 # Source files
-SOURCES = MyGameManager_Fixed.cpp GameManagerRegistration.cpp
+SOURCES = MyGameManager_Fixed.cpp GameManagerRegistration.cpp ../common/GameManagerRegistration.cpp
 
 # Object files
 OBJECTS = $(SOURCES:.cpp=.o)

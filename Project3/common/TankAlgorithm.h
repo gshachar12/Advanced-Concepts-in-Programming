@@ -3,6 +3,8 @@
 
 #include "ActionRequest.h"
 #include "BattleInfo.h"
+#include <functional>
+#include <memory>
 
 class TankAlgorithm {
 public:
@@ -12,5 +14,9 @@ public:
 
     virtual void updateBattleInfo(BattleInfo &info) = 0;
 };
+
+using TankAlgorithmFactory = 
+std::function<std::unique_ptr<TankAlgorithm>
+(int player_index, int tank_index)>;
 
 #endif //TANKALGORITHM_H

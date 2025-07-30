@@ -5,7 +5,6 @@
 #include "SatelliteView.h"
 #include "Player.h"
 #include "TankAlgorithm.h"
-#include "TankAlgorithmFactory.h"
 #include <string>
 #include <functional>
 #include <memory>
