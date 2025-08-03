@@ -675,7 +675,7 @@ void MyGameManager::executeTurnWithAlgorithms(GameState& state, SatelliteView& m
 
 void MyGameManager::executeTankActionFromAlgorithm(Tank& tank, ActionRequest action, GameState& state, SatelliteView& /* map */) {
     using namespace UserCommon_123456789_987654321;
-    
+    std::cout << "[GameManager] Executing action " << static_cast<int>(action) << " for Player " << tank.player << " at (" << tank.x << "," << tank.y << ")\n";
     switch (action) {
         case ActionRequest::MoveForward:
             moveTank(tank, state);
@@ -690,28 +690,24 @@ void MyGameManager::executeTankActionFromAlgorithm(Tank& tank, ActionRequest act
             }
             break;
         case ActionRequest::RotateLeft45:
-            tank.direction = GameUtils::rotateLeft45(static_cast<Direction>(tank.direction));
+            tank.direction = (tank.direction + 7) % 8;
             break;
         case ActionRequest::RotateRight45:
-            tank.direction = GameUtils::rotateRight45(static_cast<Direction>(tank.direction));
+            tank.direction = (tank.direction + 1) % 8;
             break;
         case ActionRequest::RotateLeft90:
-            tank.direction = GameUtils::rotateLeft90(static_cast<Direction>(tank.direction));
+            tank.direction = (tank.direction + 6) % 8;
             break;
         case ActionRequest::RotateRight90:
-            tank.direction = GameUtils::rotateRight90(static_cast<Direction>(tank.direction));
+            tank.direction = (tank.direction + 2) % 8;
             break;
         case ActionRequest::Shoot:
             if (tank.shells > 0 && tank.cooldown == 0) {
                 shootShell(tank, state);
             }
             break;
-        case ActionRequest::GetBattleInfo:
-            // Already handled in executeTurnWithAlgorithms
-            break;
         case ActionRequest::DoNothing:
         default:
-            // Do nothing
             break;
     }
 }

@@ -1,6 +1,7 @@
 #include "SimpleTankAlgorithm.h"
 #include <random>
 #include <chrono>
+#include <iostream> // Include for debug output
 
 namespace SimplePlugin {
 
@@ -10,34 +11,37 @@ SimpleTankAlgorithm::SimpleTankAlgorithm(int player_index, int tank_index)
     // Initialize random number generator
     auto seed = std::chrono::high_resolution_clock::now().time_since_epoch().count();
     rng_.seed(seed + player_index + tank_index);
+    std::cout << "[SimpleTankAlgorithm] Constructed for player " << player_index << ", tank " << tank_index << std::endl;
 }
 
 ActionRequest SimpleTankAlgorithm::getAction() {
     turn_count_++;
+    ActionRequest action;
     
     // More intelligent behavior based on turn count
     if (turn_count_ % 15 == 0) {
         // Shoot every 15 turns
-        return ActionRequest::Shoot;
+        action = ActionRequest::Shoot;
     } else if (turn_count_ % 8 == 0) {
         // Change direction every 8 turns
         std::uniform_int_distribution<int> rotate_dist(0, 3);
         int rotate_action = rotate_dist(rng_);
         switch (rotate_action) {
-            case 0: return ActionRequest::RotateLeft45;
-            case 1: return ActionRequest::RotateRight45;
-            case 2: return ActionRequest::RotateLeft90;
-            case 3: return ActionRequest::RotateRight90;
+            case 0: action = ActionRequest::RotateLeft45; break;
+            case 1: action = ActionRequest::RotateRight45; break;
+            case 2: action = ActionRequest::RotateLeft90; break;
+            case 3: action = ActionRequest::RotateRight90; break;
         }
     } else if (turn_count_ % 3 == 0) {
         // Move backward occasionally for variety
-        return ActionRequest::MoveBackward;
+        action = ActionRequest::MoveBackward;
     } else {
         // Most of the time, move forward
-        return ActionRequest::MoveForward;
+        action = ActionRequest::MoveForward;
     }
     
-    return ActionRequest::DoNothing;
+    std::cout << "[SimpleTankAlgorithm] Player " << player_index_ << ", tank " << tank_index_ << ", turn " << turn_count_ << ": action=" << static_cast<int>(action) << std::endl;
+    return action;
 }
 
 void SimpleTankAlgorithm::updateBattleInfo(BattleInfo& info) {
