@@ -2,11 +2,18 @@
 #include <iostream>
 #include <algorithm>
 
+#include "Board.h"
+
+// Constants for tank properties
+const int DEFAULT_SHELL_COUNT = 16;
+const int SHOOT_COOLDOWN = 4;
 
 void Tank::update() {
     if (shootCooldown > 0) {
         shootCooldown--;
     }
+    
+    // Update backward movement state
     switch (backwardState) {
         case BackwardState::WAITING_1:
             backwardState = BackwardState::WAITING_2;
@@ -25,23 +32,22 @@ void Tank::update() {
 void Tank::shoot() {
     if (canShoot()) {
         shellCount = std::max(0, shellCount - 1);
-        shootCooldown = 4; 
+        shootCooldown = SHOOT_COOLDOWN; 
     } else {
         std::cerr << "Cannot shoot: either on cooldown or out of shells." << std::endl;
     }
 }
 
-std::pair<int,int>  Tank::moveForward() {
+std::pair<int,int>  Tank::moveForward(Board board) {
     auto [dx, dy] = Directions::directionToOffset(getDirection());
-    int new_pos_x = (getX() + dx + Global::width) % Global::width;
-    int new_pos_y = (getY() + dy + Global::height) % Global::height;
+    auto [new_pos_x, new_pos_y] = tryToMove( board, dx, dy); 
     return {new_pos_x, new_pos_y};
 }
 
-std::pair<int,int> Tank::moveBackward() {
+std::pair<int,int> Tank::moveBackward(Board board) {
     auto [dx, dy] = Directions::directionToOffset(getDirection());
-    int new_pos_x = (getX() - dx + Global::width) % Global::width;
-    int new_pos_y = (getY() - dy + Global::height) % Global::height;
+    int new_pos_x = (getX() - dx + board.getWidth()) % board.getWidth();
+    int new_pos_y = (getY() - dy + board.getHeight()) % board.getHeight();
     return {new_pos_x, new_pos_y};
 }
 
@@ -59,18 +65,18 @@ void Tank::cancelBackward() {
 }
 
 void Tank::printPosition() {
-    std::cout << "Tank " << tankID<< " is at (" << getX() << ", " << getY() << ")." << std::endl;
+    std::cout << "Tank " << tankID << " is at (" << getX() << ", " << getY() << ")." << std::endl;
 }
 
-void Tank::printStatus() const {
-    std::cout << "Tank "<< tankID<< " at (" << getX() << ", " << getY() << "), direction="
+void Tank::printStatus()  {
+    std::cout << "Tank "<< tankID << " at (" << getX() << ", " << getY() << "), direction="
               << Directions::directionToString(getDirection())
               << ", shells=" << shellCount
               << ", cooldown=" << shootCooldown
               << ", alive=" << (alive ? "true" : "false") << std::endl;
 }
 
-// Optional rotation helpers
+// Rotation helpers
 void Tank::rotateLeft1_8() {
     int idx = findDirectionIndex(getDirection());
     if (idx >= 0) {
@@ -100,19 +106,19 @@ void Tank::rotateRight1_4() {
 }
 
 int Tank::findDirectionIndex(const Direction &d) const {
-    // Use size_t to avoid the integer-sign mismatch warning.
-    for (size_t i = 0; i < Directions::getAllDirections().size(); i++) {
-        if (Directions::getAllDirections()[i] == d)
+    const auto& all_directions = Directions::getAllDirections();
+    for (size_t i = 0; i < all_directions.size(); i++) {
+        if (all_directions[i] == d)
             return static_cast<int>(i);
     }
     return -1;
 }
 
 void Tank::setDirectionByIndex(int idx) {
-    int n = Directions::getAllDirections().size();
-    idx = (idx % n + n) % n;
-    setDirection(Directions::getAllDirections()[idx]);
+    const auto& all_directions = Directions::getAllDirections();
+    int n = all_directions.size();
+    idx = (idx % n + n) % n;  // Ensure positive modulo
+    setDirection(all_directions[idx]);
 }
 
- Tank:: ~Tank(){}
- 
+Tank::~Tank() {}

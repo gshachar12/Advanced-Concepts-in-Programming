@@ -2,10 +2,13 @@
 #define TANK_H
 #include "CellType.h"
 #include "GameObject.h"
+#include "Directions.h"
+#include "Board.h"
 #include <algorithm>
 #include <iostream>
 #include <vector>
 
+class Board;
 // For backward movement state:
 enum class BackwardState {
     NOT_REQUESTED,
@@ -13,6 +16,10 @@ enum class BackwardState {
     WAITING_2,
     MOVING_BACKWARD
 };
+
+// Constants for tank properties
+extern const int DEFAULT_SHELL_COUNT;
+extern const int SHOOT_COOLDOWN;
 
 class Tank : public GameObject {
 private:
@@ -26,7 +33,7 @@ public:
     Tank(int x, int y, const std::string &dir, CellType ObjectType, int ID)
             : GameObject(x, y, Directions::stringToDirection(dir), ObjectType),
               alive(true),
-              shellCount(16),
+              shellCount(DEFAULT_SHELL_COUNT),
               shootCooldown(0),
               tankID(ID),
               backwardState(BackwardState::NOT_REQUESTED)
@@ -45,14 +52,14 @@ public:
     BackwardState getBackwardState() const { return backwardState; }
 
     void shoot();          // Shoot
-    std::pair<int,int>  moveForward();    // Move 1 step in current direction.
-    std::pair<int,int>  moveBackward();   // Move 1 step in opposite direction.
+    std::pair<int,int>  moveForward(Board board);    // Move 1 step in current direction.
+    std::pair<int,int>  moveBackward(Board board);   // Move 1 step in opposite direction.
 
     void requestBackward();
     void cancelBackward();
 
     void printPosition();
-    void printStatus() const;
+    void printStatus();
 
     // (Optional) Rotation helpers (not mandatory if you don't need them)
     void rotateLeft1_8();
@@ -64,7 +71,6 @@ private:
     // Helpers for rotation
     int findDirectionIndex(const Direction &d) const;
     void setDirectionByIndex(int idx);
-    std::pair<int,int> directionToOffset(const std::string &dirStr) const;
 };
 
 #endif // TANK_H

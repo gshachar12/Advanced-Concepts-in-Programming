@@ -3,6 +3,11 @@
 
 #include "GameObject.h"
 
+// Constants for shell properties
+const int DEFAULT_SHELL_DAMAGE = 1;
+const int DEFAULT_SHELL_MAX_RANGE = 9999;
+const int DEFAULT_OWNER_ID = -1;
+
 /**
  * A simple projectile that inherits from GameObject.
  * It moves 2 cells each turn in its current direction.
@@ -20,10 +25,10 @@ public:
     Shell(int x, int y, Direction dir)
             : GameObject(x, y, dir, CellType::SHELL),
               active(true),
-              damage(1),
-              maxRange(9999),
+              damage(DEFAULT_SHELL_DAMAGE),
+              maxRange(DEFAULT_SHELL_MAX_RANGE),
               distanceTraveled(0),
-              ownerID(-1)
+              ownerID(DEFAULT_OWNER_ID)
     {}
 
     // Accessors
@@ -37,7 +42,6 @@ public:
     void setMaxRange(int rng) { maxRange = rng; }
 
     int getDistanceTraveled() const { return distanceTraveled; }
-    bool isTargeting( const GameObject &tank) const;
     int getOwnerID() const { return ownerID; }
     void setOwnerID(int id) { ownerID = id; }
 
@@ -47,7 +51,7 @@ public:
     // Override update() so that each turn the shell automatically advances.
 
     // Print the shell’s current status (for debugging)
-    void printStatus() const;
+    void printStatus() ;
 };
 
 #endif // SHELL_H

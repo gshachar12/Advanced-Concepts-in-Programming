@@ -1,0 +1,16 @@
+5 - Battlefield with mines
+MaxSteps=4500
+NumShells=30
+Rows=11
+Cols=12
+############
+#1        2#
+#          #
+# @      @ #
+#    ##    #
+#   ####   #
+#    ##    #
+# @      @ #
+#          #
+#2        1#
+############

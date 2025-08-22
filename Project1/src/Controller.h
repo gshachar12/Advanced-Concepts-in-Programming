@@ -5,25 +5,37 @@
 #include <vector>
 
 class Controller {
+
 public:
     virtual ~Controller() = default;
+    virtual ActionType ChaseTank( Board board, Tank &myTank,Tank &enemyTank,  std::vector<Shell> &shells);
+    ActionType EvadeTank(Board board, Tank &myTank, Tank &enemyTank,  std::vector<Shell> &shells);
+    ActionType AvoidShells(Board board, Tank &myTank,  std::vector<Shell> &shells);
 
-
-    // Main action decision function
-    virtual ActionType DecideAction(
-        Tank &myTank,
-        Tank &enemyTank,
-        const std::vector<Shell> &shells
-    );
+protected:
+    // Helper methods
+    bool isValidPosition(Board board, int x, int y);
 
 private:
-    bool CanShoot(const Tank &enemyTank);
-    ActionType chaseTank(Position chaserStart, Position target);
-    bool IsShellChasingTank(const Shell &shell, const Tank &myTank);
-    bool IsSafeToMoveForward( Tank &myTank);
-    bool IsMineNearby( Tank &myTank);
-    bool IsTankNearby( Tank &myTank);
-    bool IsInLineOfSight(const Tank &enemyTank);
-    bool IsInRange(const Tank &enemyTank);
-    bool IsObstacleAhead(const Tank &myTank);
+    static int count; 
+    static int evadeStall; 
+    static int rotateFlag ;
+    static int avoidFlag ;
+
+    bool CanShoot(Tank &myTank, Tank &enemyTank);
+    Position BFS(Board board, Position chaserStart, Position target);
+    bool IsSafeToMoveForward( Board board,Tank &myTank);
+    bool IsTankAhead(Board board, Tank &myTank);
+    bool IsWallAhead(Board board, Tank &myTank);
+    bool IsMineNearby(Board board, Tank &myTank);
+    bool IsTankNearby( Tank &myTank, Tank &enemyTank);
+    bool IsInLineOfSight( Tank &myTank, Tank &enemyTank);
+    bool isAnyValidMovePossible(Board board, Tank &myTank);
+    // bool IsInRange(const Tank &enemyTank);
+    // bool IsObstacleAhead(const Tank &myTank);
+    // New helper methods for pickEvadeDirection
+    // ActionType handleCloseEvade(Board board, Tank &myTank, Tank &enemyTank);
+    // ActionType handleFacingEnemyEvade(Board board, Tank &myTank);
+    // ActionType handleFacingAwayEvade(Board board, Tank &myTank);
+    ActionType calculateRotationDirection(Direction current, Direction desired);
 };
